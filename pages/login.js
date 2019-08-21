@@ -2,35 +2,36 @@ import React, { Component } from "react";
 import Router from "next/router"
 import axios from "axios"
 import Spinner from "../src/components/spinner"
+import * as actions from "../store/actions"
+
+import { connect } from "react-redux"
 
 class Login extends Component {
   state = {
     email:"",
     password:"",
-    loading: false,
-    error:""
+    loading: false, //updated by componentDidUpdate
   };
-
+  componentDidUpdate(prevProps, prevState){
+    if(this.props.userToken !== prevProps.userToken){
+      this.setState({loading: false})
+      this.props.userToken ? Router.push("/") : null
+    }
+    if(this.props.error !== prevProps.error){
+      this.setState({loading: false})
+    }
+  }
   onSubmitHandler=(event)=>{
     event.preventDefault()
-    this.setState({loading: true, error:""})
+    this.setState({loading: true})
     const {email, password} = this.state
-    axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDY95FpDC9eJ3W5gZrZrvcAH3zVirelFzI`,{email, password, returnSecureToken:true})
-      .then(response=>{
-        setTimeout(()=>{
-          this.setState({loading: false})
-          return(Router.push({
-          pathname:"/"
-          }))
-        },3000)
-      })
-      .catch(error=>{
-        this.setState({error:"Please verify credentials", loading:false,password:"",})
-      })
+    this.props.login(email,password)
   }
 
   onChange=(event)=>{
-    console.log(event.target.name + " " + event.target.value)
+    if(event.target.name === "password" && this.props.error){
+      this.props.clearError()
+    }
     this.setState({
         [event.target.name]:event.target.value
     })
@@ -41,7 +42,7 @@ class Login extends Component {
     return (
       <div style={styles.containerStyle}>
           <div>
-            <h1 style={{textAlign:"center", color:"#AF003D"}}>RoomR8r</h1>
+            <h1 style={{textAlign:"center", color:"#474A48",fontFamily: 'Lexend Tera, sans-serif', fontWeight:"bold"}}>RoomR<span style={{color:"#FF5941"}}>8</span>r</h1>
             <p style={styles.header}>Gamble with the lottery not your accomodation</p>
           </div>
         <div style={styles.mainAreaStyle}>
@@ -59,8 +60,13 @@ class Login extends Component {
             {/* displaying button or spinner */}
             {button}
 
-            {/* displaying error based on state */}
-            {this.state.error ?<p style={styles.errorStyle}>PLEASE VERIFY CREDENTIALS</p>:""}
+            {
+              // 
+              this.props.error ? 
+                <p style={styles.errorStyle}>
+                  {this.props.error}
+                </p>:""
+          }
           </form>
         </div>
       </div>
@@ -75,12 +81,12 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor:"#000",
+    backgroundColor:"#fffffa",
     flexDirection: 'column',
   },
   mainAreaStyle: {
-    backgroundColor: "#1a1a1a",
-    height: "220px",
+    backgroundColor: "#191923",
+    height: "200px",
     width: "400px",
     borderRadius: "2px",
     paddingTop:"20px",
@@ -89,26 +95,29 @@ const styles = {
   inputStyle: {
     display: "block",
     padding: "10px",
-    width: "80%",
+    width: "75%",
     margin: "15px auto",
     borderRadius: "5px"
   },
   buttonStyle: {
     display: "block",
     padding: "16px",
-    margin: "20px auto",
-    borderRadius:"2px",
+    margin: "15px auto",
+    borderRadius:"3px",
     color:"#fffffa",
+    fontWeight:"bold",
     border:"0",
     width:"100px",
-    backgroundColor:"#AF003D",
+    backgroundColor:"#FF5941",
+    // backgroundColor:"#FCA311",
     fontSize: "14px",
   },
   header:{
     textAlign:"center",
-    color:"#E2E1E1",
-    fontWeight: 'bold',
-    fontSize:22
+    color:"#191923",
+    fontWeight: 'bolder',
+    fontSize:22,
+    fontFamily: 'Poppins, sans-serif', 
   },
   errorStyle:{
     color:"#f50",
@@ -117,4 +126,13 @@ const styles = {
     fontWeight:"bold"
   }
 };
-export default Login;
+const mapStateToProps=(state)=>{
+  return {
+    userToken: state.auth.userToken,
+    error: state.auth.error,
+    loading: state.auth.loading
+  }
+}
+
+
+export default connect(mapStateToProps,actions)(Login)

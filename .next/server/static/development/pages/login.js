@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -151,8 +151,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "axios");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _src_components_spinner__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../src/components/spinner */ "./src/components/spinner.js");
+/* harmony import */ var _store_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../store/actions */ "./store/actions.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-redux */ "react-redux");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_6__);
 
-var _jsxFileName = "/Users/fortunephiri/Documents/roomR8r/pages/login.js";
+var _jsxFileName = "/Users/fortunephiri/Documents/Projects/roomR8r/pages/login.js";
+
+
 
 
 
@@ -165,48 +170,46 @@ class Login extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "state", {
       email: "",
       password: "",
-      loading: false,
-      error: ""
+      loading: false //updated by componentDidUpdate
+
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "onSubmitHandler", event => {
       event.preventDefault();
       this.setState({
-        loading: true,
-        error: ""
+        loading: true
       });
       const {
         email,
         password
       } = this.state;
-      axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDY95FpDC9eJ3W5gZrZrvcAH3zVirelFzI`, {
-        email,
-        password,
-        returnSecureToken: true
-      }).then(response => {
-        setTimeout(() => {
-          this.setState({
-            loading: false
-          });
-          return next_router__WEBPACK_IMPORTED_MODULE_2___default.a.push({
-            pathname: "/"
-          });
-        }, 3000);
-      }).catch(error => {
-        this.setState({
-          error: "Please verify credentials",
-          loading: false,
-          password: ""
-        });
-      });
+      this.props.login(email, password);
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "onChange", event => {
-      console.log(event.target.name + " " + event.target.value);
+      if (event.target.name === "password" && this.props.error) {
+        this.props.clearError();
+      }
+
       this.setState({
         [event.target.name]: event.target.value
       });
     });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.userToken !== prevProps.userToken) {
+      this.setState({
+        loading: false
+      });
+      this.props.userToken ? next_router__WEBPACK_IMPORTED_MODULE_2___default.a.push("/") : null;
+    }
+
+    if (this.props.error !== prevProps.error) {
+      this.setState({
+        loading: false
+      });
+    }
   }
 
   render() {
@@ -216,13 +219,13 @@ class Login extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
       value: "LOGIN",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 39
+        lineNumber: 40
       },
       __self: this
     }) : react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_src_components_spinner__WEBPACK_IMPORTED_MODULE_4__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 39
+        lineNumber: 40
       },
       __self: this
     });
@@ -230,44 +233,55 @@ class Login extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
       style: styles.containerStyle,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 42
+        lineNumber: 43
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 43
+        lineNumber: 44
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h1", {
       style: {
         textAlign: "center",
-        color: "#AF003D"
+        color: "#474A48",
+        fontFamily: 'Lexend Tera, sans-serif',
+        fontWeight: "bold"
       },
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 44
-      },
-      __self: this
-    }, "RoomR8r"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
-      style: styles.header,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 45
+      },
+      __self: this
+    }, "RoomR", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+      style: {
+        color: "#FF5941"
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 45
+      },
+      __self: this
+    }, "8"), "r"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
+      style: styles.header,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 46
       },
       __self: this
     }, "Gamble with the lottery not your accomodation")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
       style: styles.mainAreaStyle,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 47
+        lineNumber: 48
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
       onSubmit: this.onSubmitHandler,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 48
+        lineNumber: 49
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -280,7 +294,7 @@ class Login extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
       name: "email",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 49
+        lineNumber: 50
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -293,17 +307,18 @@ class Login extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
       name: "password",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 53
+        lineNumber: 54
       },
       __self: this
-    }), button, this.state.error ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
+    }), button, // 
+    this.props.error ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
       style: styles.errorStyle,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 63
+        lineNumber: 66
       },
       __self: this
-    }, "PLEASE VERIFY CREDENTIALS") : "")));
+    }, this.props.error) : "")));
   }
 
 }
@@ -315,12 +330,12 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#000",
+    backgroundColor: "#fffffa",
     flexDirection: 'column'
   },
   mainAreaStyle: {
-    backgroundColor: "#1a1a1a",
-    height: "220px",
+    backgroundColor: "#191923",
+    height: "200px",
     width: "400px",
     borderRadius: "2px",
     paddingTop: "20px",
@@ -329,26 +344,29 @@ const styles = {
   inputStyle: {
     display: "block",
     padding: "10px",
-    width: "80%",
+    width: "75%",
     margin: "15px auto",
     borderRadius: "5px"
   },
   buttonStyle: {
     display: "block",
     padding: "16px",
-    margin: "20px auto",
-    borderRadius: "2px",
+    margin: "15px auto",
+    borderRadius: "3px",
     color: "#fffffa",
+    fontWeight: "bold",
     border: "0",
     width: "100px",
-    backgroundColor: "#AF003D",
+    backgroundColor: "#FF5941",
+    // backgroundColor:"#FCA311",
     fontSize: "14px"
   },
   header: {
     textAlign: "center",
-    color: "#E2E1E1",
-    fontWeight: 'bold',
-    fontSize: 22
+    color: "#191923",
+    fontWeight: 'bolder',
+    fontSize: 22,
+    fontFamily: 'Poppins, sans-serif'
   },
   errorStyle: {
     color: "#f50",
@@ -357,7 +375,16 @@ const styles = {
     fontWeight: "bold"
   }
 };
-/* harmony default export */ __webpack_exports__["default"] = (Login);
+
+const mapStateToProps = state => {
+  return {
+    userToken: state.auth.userToken,
+    error: state.auth.error,
+    loading: state.auth.loading
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_6__["connect"])(mapStateToProps, _store_actions__WEBPACK_IMPORTED_MODULE_5__)(Login));
 
 /***/ }),
 
@@ -372,7 +399,7 @@ const styles = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "/Users/fortunephiri/Documents/roomR8r/src/components/spinner.js";
+var _jsxFileName = "/Users/fortunephiri/Documents/Projects/roomR8r/src/components/spinner.js";
 
 
 const spinner = () => {
@@ -401,14 +428,95 @@ const styles = {
 
 /***/ }),
 
-/***/ 5:
+/***/ "./store/actions.js":
+/*!**************************!*\
+  !*** ./store/actions.js ***!
+  \**************************/
+/*! exports provided: login, clearError, logoutUser */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "login", function() { return login; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clearError", function() { return clearError; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logoutUser", function() { return logoutUser; });
+/* harmony import */ var _actionsTypes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actionsTypes */ "./store/actionsTypes.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "axios");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+const loginStart = () => {
+  return {
+    type: _actionsTypes__WEBPACK_IMPORTED_MODULE_0__["LOGIN_START"]
+  };
+};
+
+const login = (email, password) => {
+  return dispatch => {
+    loginStart();
+    axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDY95FpDC9eJ3W5gZrZrvcAH3zVirelFzI`, {
+      email,
+      password,
+      returnSecureToken: true
+    }).then(response => {
+      dispatch({
+        type: _actionsTypes__WEBPACK_IMPORTED_MODULE_0__["LOGIN_SUCCESS"],
+        payload: {
+          userToken: response.data.idToken
+        }
+      });
+      localStorage.setItem("userToken", response.data.idToken);
+    }).catch(error => {
+      dispatch({
+        type: _actionsTypes__WEBPACK_IMPORTED_MODULE_0__["LOGIN_FAIL"]
+      });
+    });
+  };
+};
+const clearError = () => {
+  return {
+    type: _actionsTypes__WEBPACK_IMPORTED_MODULE_0__["CLEAR_ERRORS"]
+  };
+};
+const logoutUser = () => {
+  return {
+    type: _actionsTypes__WEBPACK_IMPORTED_MODULE_0__["LOGOUT_USER"]
+  };
+};
+
+/***/ }),
+
+/***/ "./store/actionsTypes.js":
+/*!*******************************!*\
+  !*** ./store/actionsTypes.js ***!
+  \*******************************/
+/*! exports provided: LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_USER, CLEAR_ERRORS */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGIN_START", function() { return LOGIN_START; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGIN_SUCCESS", function() { return LOGIN_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGIN_FAIL", function() { return LOGIN_FAIL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGOUT_USER", function() { return LOGOUT_USER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CLEAR_ERRORS", function() { return CLEAR_ERRORS; });
+const LOGIN_START = "login_start";
+const LOGIN_SUCCESS = "login_success";
+const LOGIN_FAIL = "login_fail";
+const LOGOUT_USER = "logout_user";
+const CLEAR_ERRORS = "clear_errors";
+
+/***/ }),
+
+/***/ 4:
 /*!******************************!*\
   !*** multi ./pages/login.js ***!
   \******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/fortunephiri/Documents/roomR8r/pages/login.js */"./pages/login.js");
+module.exports = __webpack_require__(/*! /Users/fortunephiri/Documents/Projects/roomR8r/pages/login.js */"./pages/login.js");
 
 
 /***/ }),
@@ -454,6 +562,17 @@ module.exports = require("next/router");
 /***/ (function(module, exports) {
 
 module.exports = require("react");
+
+/***/ }),
+
+/***/ "react-redux":
+/*!******************************!*\
+  !*** external "react-redux" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-redux");
 
 /***/ })
 

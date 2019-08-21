@@ -1,22 +1,24 @@
 import * as actionTypes from "../actionsTypes"
 
 const INITIAL_STATE = {
-  loading: false,
-  user: null,
+  userToken: null,
   error: null
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case actionTypes.CLEAR_ERRORS:
+      return {...state, error:""}
     case actionTypes.LOGIN_START:
-        return {...state, loading: true, error: null}
+      return {...state, error: null}
     case actionTypes.LOGIN_FAIL:
-        return {...state, loading: false, error: action.payload.error}
+      return {...state, error: "PLEASE VERIFY CREDENTIALS"}
     case actionTypes.LOGIN_SUCCESS:
-        return {...state, loading: false, error: null, user: action.payload.user}
+      return {...state,error: null, userToken: action.payload.userToken}
+    case actionTypes.LOGOUT_USER:
+      return {...state, userToken: null}
     default:
-        return state
-      
+      return state
   }
 };
 

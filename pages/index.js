@@ -1,55 +1,75 @@
-import React,{ Component } from "react";
-import Spinner from "../src/components/spinner"
-import axios from "axios"
+import React, { Component } from "react";
+import Spinner from "../src/components/spinner";
+import ReviewCard from "../src/components/reviewCard"
+import Toolbar from "../src/components/toolbar"
 
+import axios from "axios";
+import {connect} from "react-redux"
+import Router from "next/router"
+
+import SearchBar from "material-ui-search-bar";
 class App extends Component {
+  componentDidMount(){
+    !this.props.userToken? Router.push("/login") : null
+  }
   state = {
     address: "",
-    loading:null
+    loading: null,
+    data: []
   };
 
-  onAddressChangeHandler = event => {
+  onAddressChangeHandler = input => {
     this.setState({
-      address: event.target.value
+      address: input
     });
   };
 
   searchHandler = event => {
-    event.preventDefault();
-    this.setState({loading:true})
-    axios.get(`https://maps.googleapis.com/maps/api/js?key=${"AIzaSyDY95FpDC9eJ3W5gZrZrvcAH3zVirelFzI"}&libraries=places`)
-  };
+    this.setState({ loading: true });
+    axios.get(`https://accomo-rater.firebaseio.com/landlord_data.json?auth=${this.props.userToken}`)
+      .then(response=>{
+        const arrayData= Object.keys(response.data).map(key=>{
+           return {...response.data[key],id:key}
+        })
+        console.log(arrayData)
+        this.setState({
+          loading:false,
+          data: arrayData
+        })
+      }).catch(error=>{
+        this.setState({loading:false})
+      })
+  }
+
   render() {
-    const button = !this.state.loading ? <input type="submit" value="Find Now" style={styles.searchButton}/> : <Spinner />
+    const cards = this.state.data.map(element=><ReviewCard data={element} key={element.id} />)
+    const spinner = !this.state.loading ? null : <Spinner />;
     return (
       <div style={styles.containerStyle}>
-        <div>
-          <h1 style={{color: "#E2E1E1", textAlign:"center"}}>
-            Find out about your potential landlord by address
-          </h1>
+        <Toolbar />
+        <div style={{marginTop:"60px"}}>
+          <h2 style={styles.headerStyle}>
+            Because not all landlords are built the same
+          </h2>
         </div>
         <div
           style={{
-            display: "block",
+            marginTop:"5px",
             padding: "20px",
             width: "60%",
             textAlign: "center",
           }}
         >
-          <form onSubmit={this.searchHandler} >
-            <input
-              style={styles.inputStyle}
-              type="text"
-              name="address"
-              placeholder="3 example street"
-              onChange={this.onAddressChangeHandler}
-              value={this.state.address}
-            />
-
-            {/* button rendered based on loading state */}
-            {button}
-          </form>
-        </div>
+          <SearchBar
+            placeholder="Enter address"
+            value={this.state.address}
+            onChange={this.onAddressChangeHandler}
+            onRequestSearch={this.searchHandler}
+            style={styles.searchbarStyle}
+          />
+          {spinner}
+        </div>            
+        { cards.length !== 0 ? <div style={{overflowY:"scroll", width:"100%"}}>{cards}</div>: null}
       </div>
     );
   }
@@ -62,28 +82,26 @@ const styles = {
     flexDirection: "column",
     height: "100vh",
     justifyContent: "center",
-    backgroundColor: "#1a1a1a"
+    backgroundColor: "#fffffa"
   },
-  inputStyle: {
-    width: "80%",
-    height: "100%",
-    padding: "20px",
+  headerStyle:{
+    color: "#2C365E", 
     textAlign: "center",
-    fontSize: "16px",
-    borderRadius: "5px"
+    fontFamily:'Fira Sans, sans-serif',
+    fontWeight:"bold"
   },
-  searchButton:{
-    width: "35%",
-    textAlign:"center",
-    padding: "20px",
-    marginTop: "15px",
-    backgroundColor:"#AF003D",
-    border:0,
-    color:"#E2E1E1",
-    borderRadius: "2%",
-    fontWeight: 'bold',
-    fontSize:15,
+  searchbarStyle:{
+    margin: "0 auto",
+    maxWidth: 600,
+    padding: 7,
+    boxShadow: '1px 3px 6px 2px rgba(44,54,94,0.6)'  
   }
 };
 
-export default App;
+const mapStateToProps=(state)=>{
+  return{
+    userToken: state.auth.userToken
+  }
+}
+
+export default connect(mapStateToProps)(App);
