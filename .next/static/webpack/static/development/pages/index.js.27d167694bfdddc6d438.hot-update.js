@@ -75,8 +75,9 @@ function (_Component) {
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "onAddressChangeHandler", function (input) {
+      //handles user input and stores in local state
       _this.setState({
-        address: input
+        address: input.toUpperCase()
       });
     });
 
@@ -85,14 +86,12 @@ function (_Component) {
         loading: true
       });
 
-      axios__WEBPACK_IMPORTED_MODULE_13___default.a.get("https://accomo-rater.firebaseio.com/landlord_data.json?auth=".concat(_this.props.userToken)).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_13___default.a.get("https://accomo-rater.firebaseio.com/landlord_data.json?auth=".concat(_this.props.userToken, "&orderBy=\"postal_code\"&startAt=\"").concat(_this.state.address, "\"&endAt=\"").concat(_this.state.address, "\"")).then(function (response) {
         var arrayData = _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default()(response.data).map(function (key) {
           return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, response.data[key], {
             id: key
           });
         });
-
-        console.log(arrayData);
 
         _this.setState({
           loading: false,
@@ -237,4 +236,4 @@ var mapStateToProps = function mapStateToProps(state) {
 /***/ })
 
 })
-//# sourceMappingURL=index.js.ba1f641da39eaf74664f.hot-update.js.map
+//# sourceMappingURL=index.js.27d167694bfdddc6d438.hot-update.js.map

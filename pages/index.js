@@ -19,19 +19,19 @@ class App extends Component {
   };
 
   onAddressChangeHandler = input => {
+    //handles user input and stores in local state
     this.setState({
-      address: input
+      address: input.toUpperCase()
     });
   };
 
   searchHandler = event => {
     this.setState({ loading: true });
-    axios.get(`https://accomo-rater.firebaseio.com/landlord_data.json?auth=${this.props.userToken}`)
+    axios.get(`https://accomo-rater.firebaseio.com/landlord_data.json?auth=${this.props.userToken}&orderBy="postal_code"&startAt="${this.state.address}"&endAt="${this.state.address}"`)
       .then(response=>{
         const arrayData= Object.keys(response.data).map(key=>{
            return {...response.data[key],id:key}
         })
-        console.log(arrayData)
         this.setState({
           loading:false,
           data: arrayData

@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
   },
   links:{
     fontFamily: 'Poppins, sans-serif',
-    fontWeight:"bold",
+    fontWeight:900,
     color: "#fffffa"
   }
 }));
@@ -39,7 +39,10 @@ const ButtonAppBar=(props)=>{
     props.logoutUser()
     Router.push("/login")
   }
-
+  const logoClickedHandler=()=>{
+    // navigates user to home page when logo is clicked
+    Router.push("/")
+  }
   return (
     <div className={classes.root}>
       <AppBar position="fixed" style={{backgroundColor:"#191923", marginBottom:"10px"}}>
@@ -48,7 +51,7 @@ const ButtonAppBar=(props)=>{
             {/* <MenuIcon /> */}
           </IconButton>
           <Typography variant="h5" className={classes.title}>
-            RoomR<span style={{color:"#FF5941"}}>8</span>r
+              RoomR<span style={{color:"#FF5941"}}>8</span>r
           </Typography>
           {userAuthenticated}
           <Button className={classes.links} color="inherit" onClick={logout}>Logout</Button>

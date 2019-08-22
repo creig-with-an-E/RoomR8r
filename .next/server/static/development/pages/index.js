@@ -260,8 +260,9 @@ class App extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__["default"])(this, "onAddressChangeHandler", input => {
+      //handles user input and stores in local state
       this.setState({
-        address: input
+        address: input.toUpperCase()
       });
     });
 
@@ -269,14 +270,13 @@ class App extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       this.setState({
         loading: true
       });
-      axios__WEBPACK_IMPORTED_MODULE_7___default.a.get(`https://accomo-rater.firebaseio.com/landlord_data.json?auth=${this.props.userToken}`).then(response => {
+      axios__WEBPACK_IMPORTED_MODULE_7___default.a.get(`https://accomo-rater.firebaseio.com/landlord_data.json?auth=${this.props.userToken}&orderBy="postal_code"&startAt="${this.state.address}"&endAt="${this.state.address}"`).then(response => {
         const arrayData = _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default()(response.data).map(key => {
           return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, response.data[key], {
             id: key
           });
         });
 
-        console.log(arrayData);
         this.setState({
           loading: false,
           data: arrayData
@@ -666,7 +666,7 @@ const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["
   },
   links: {
     fontFamily: 'Poppins, sans-serif',
-    fontWeight: "bold",
+    fontWeight: 900,
     color: "#fffffa"
   }
 }));
@@ -695,11 +695,16 @@ const ButtonAppBar = props => {
     next_router__WEBPACK_IMPORTED_MODULE_9___default.a.push("/login");
   };
 
+  const logoClickedHandler = () => {
+    // navigates user to home page when logo is clicked
+    next_router__WEBPACK_IMPORTED_MODULE_9___default.a.push("/");
+  };
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: classes.root,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44
+      lineNumber: 47
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_AppBar__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -710,13 +715,13 @@ const ButtonAppBar = props => {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45
+      lineNumber: 48
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Toolbar__WEBPACK_IMPORTED_MODULE_3___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46
+      lineNumber: 49
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_6___default.a, {
@@ -726,7 +731,7 @@ const ButtonAppBar = props => {
     "aria-label": "menu",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47
+      lineNumber: 50
     },
     __self: undefined
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_4___default.a, {
@@ -734,7 +739,7 @@ const ButtonAppBar = props => {
     className: classes.title,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50
+      lineNumber: 53
     },
     __self: undefined
   }, "RoomR", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -743,7 +748,7 @@ const ButtonAppBar = props => {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51
+      lineNumber: 54
     },
     __self: undefined
   }, "8"), "r"), userAuthenticated, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_5___default.a, {
@@ -752,7 +757,7 @@ const ButtonAppBar = props => {
     onClick: logout,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54
+      lineNumber: 57
     },
     __self: undefined
   }, "Logout"))));

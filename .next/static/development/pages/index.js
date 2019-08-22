@@ -32578,8 +32578,9 @@ function (_Component) {
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "onAddressChangeHandler", function (input) {
+      //handles user input and stores in local state
       _this.setState({
-        address: input
+        address: input.toUpperCase()
       });
     });
 
@@ -32588,14 +32589,12 @@ function (_Component) {
         loading: true
       });
 
-      axios__WEBPACK_IMPORTED_MODULE_13___default.a.get("https://accomo-rater.firebaseio.com/landlord_data.json?auth=".concat(_this.props.userToken)).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_13___default.a.get("https://accomo-rater.firebaseio.com/landlord_data.json?auth=".concat(_this.props.userToken, "&orderBy=\"postal_code\"&startAt=\"").concat(_this.state.address, "\"&endAt=\"").concat(_this.state.address, "\"")).then(function (response) {
         var arrayData = _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default()(response.data).map(function (key) {
           return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, response.data[key], {
             id: key
           });
         });
-
-        console.log(arrayData);
 
         _this.setState({
           loading: false,
@@ -32986,7 +32985,7 @@ var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["ma
     },
     links: {
       fontFamily: 'Poppins, sans-serif',
-      fontWeight: "bold",
+      fontWeight: 900,
       color: "#fffffa"
     }
   };
@@ -33016,11 +33015,16 @@ var ButtonAppBar = function ButtonAppBar(props) {
     next_router__WEBPACK_IMPORTED_MODULE_9___default.a.push("/login");
   };
 
+  var logoClickedHandler = function logoClickedHandler() {
+    // navigates user to home page when logo is clicked
+    next_router__WEBPACK_IMPORTED_MODULE_9___default.a.push("/");
+  };
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: classes.root,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44
+      lineNumber: 47
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_AppBar__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -33031,13 +33035,13 @@ var ButtonAppBar = function ButtonAppBar(props) {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45
+      lineNumber: 48
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Toolbar__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46
+      lineNumber: 49
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -33047,7 +33051,7 @@ var ButtonAppBar = function ButtonAppBar(props) {
     "aria-label": "menu",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47
+      lineNumber: 50
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -33055,7 +33059,7 @@ var ButtonAppBar = function ButtonAppBar(props) {
     className: classes.title,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50
+      lineNumber: 53
     },
     __self: this
   }, "RoomR", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -33064,7 +33068,7 @@ var ButtonAppBar = function ButtonAppBar(props) {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51
+      lineNumber: 54
     },
     __self: this
   }, "8"), "r"), userAuthenticated, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -33073,7 +33077,7 @@ var ButtonAppBar = function ButtonAppBar(props) {
     onClick: logout,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54
+      lineNumber: 57
     },
     __self: this
   }, "Logout"))));
