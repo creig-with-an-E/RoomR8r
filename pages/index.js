@@ -3,9 +3,9 @@ import Spinner from "../src/components/spinner";
 import ReviewCard from "../src/components/reviewCard"
 import Toolbar from "../src/components/toolbar"
 
-import axios from "axios";
 import {connect} from "react-redux"
 import Router from "next/router"
+import * as appActions from "../store/actions/appActions"
 
 import SearchBar from "material-ui-search-bar";
 class App extends Component {
@@ -13,9 +13,7 @@ class App extends Component {
     !this.props.userToken? Router.push("/login") : null
   }
   state = {
-    address: "",
-    loading: null,
-    data: []
+    address: ""
   };
 
   onAddressChangeHandler = input => {
@@ -25,25 +23,13 @@ class App extends Component {
     });
   };
 
-  searchHandler = event => {
-    this.setState({ loading: true });
-    axios.get(`https://accomo-rater.firebaseio.com/landlord_data.json?auth=${this.props.userToken}&orderBy="postal_code"&startAt="${this.state.address}"&endAt="${this.state.address}"`)
-      .then(response=>{
-        const arrayData= Object.keys(response.data).map(key=>{
-           return {...response.data[key],id:key}
-        })
-        this.setState({
-          loading:false,
-          data: arrayData
-        })
-      }).catch(error=>{
-        this.setState({loading:false})
-      })
+  searchByAddressHandler = event => {
+    this.props.findByAddress(this.props.userToken, this.state.address)
   }
 
   render() {
-    const cards = this.state.data.map(element=><ReviewCard data={element} key={element.id} />)
-    const spinner = !this.state.loading ? null : <Spinner />;
+    const cards = this.props.searchResults.map(element=><ReviewCard data={element} key={element.id} />)
+    const spinner = !this.props.loading ? null : <Spinner />;
     return (
       <div style={styles.containerStyle}>
         <Toolbar />
@@ -64,7 +50,7 @@ class App extends Component {
             placeholder="Enter address"
             value={this.state.address}
             onChange={this.onAddressChangeHandler}
-            onRequestSearch={this.searchHandler}
+            onRequestSearch={this.searchByAddressHandler}
             style={styles.searchbarStyle}
           />
           {spinner}
@@ -100,8 +86,16 @@ const styles = {
 
 const mapStateToProps=(state)=>{
   return{
-    userToken: state.auth.userToken
+    userToken: state.auth.userToken,
+    searchResults:state.app.searchResults,
+    loading: state.app.loading
   }
 }
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps=(dispatch)=>{
+  return{
+    findByAddress:(userToken,address)=>dispatch(appActions.findReviewByAddress(userToken,address))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

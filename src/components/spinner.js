@@ -8,8 +8,8 @@ const spinner=()=>{
 
 const styles={
   spinnerStyle:{
-    width:"100px",
-    height:"100px",
+    width:"60px",
+    height:"60px",
     margin: "0 auto",
     alignSelf: 'center',
     display:"block",

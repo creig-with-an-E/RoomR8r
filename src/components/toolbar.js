@@ -9,7 +9,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 import {connect} from "react-redux"
 import Router from "next/router"
-import {logoutUser} from "../../store/actions"
+import {logoutUser} from "../../store/actions/authActions"
 
 import Link from "next/Link"
 const useStyles = makeStyles(theme => ({

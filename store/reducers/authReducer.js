@@ -1,4 +1,4 @@
-import * as actionTypes from "../actionsTypes"
+import * as actionTypes from "../actions/actionTypes"
 
 const INITIAL_STATE = {
   userToken: null,

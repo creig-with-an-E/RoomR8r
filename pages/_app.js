@@ -8,7 +8,7 @@ import reducers from "../store/reducers";
 import Head from "next/head"
 
 const initStore = (initialState = {}) => {
-  return createStore(reducers, initialState, applyMiddleware(reduxThunk));
+  return createStore(reducers, applyMiddleware(reduxThunk));
 };
 
 export default withRedux(initStore, { debug: true })(

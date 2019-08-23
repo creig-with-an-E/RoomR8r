@@ -837,7 +837,7 @@ var _jsxFileName = "/Users/fortunephiri/Documents/Projects/roomR8r/pages/_app.js
 
 
 const initStore = (initialState = {}) => {
-  return Object(redux__WEBPACK_IMPORTED_MODULE_6__["createStore"])(_store_reducers__WEBPACK_IMPORTED_MODULE_8__["default"], initialState, Object(redux__WEBPACK_IMPORTED_MODULE_6__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_7___default.a));
+  return Object(redux__WEBPACK_IMPORTED_MODULE_6__["createStore"])(_store_reducers__WEBPACK_IMPORTED_MODULE_8__["default"], Object(redux__WEBPACK_IMPORTED_MODULE_6__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_7___default.a));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (next_redux_wrapper__WEBPACK_IMPORTED_MODULE_5___default()(initStore, {
@@ -904,11 +904,11 @@ const initStore = (initialState = {}) => {
 
 /***/ }),
 
-/***/ "./store/actionsTypes.js":
-/*!*******************************!*\
-  !*** ./store/actionsTypes.js ***!
-  \*******************************/
-/*! exports provided: LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_USER, CLEAR_ERRORS */
+/***/ "./store/actions/actionTypes.js":
+/*!**************************************!*\
+  !*** ./store/actions/actionTypes.js ***!
+  \**************************************/
+/*! exports provided: LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_USER, CLEAR_ERRORS, SEARCH_BY_ADDRESS_START, SEARCH_BY_ADDRESS_SUCCESS, SEARCH_BY_ADDRESS_FAIL */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -918,11 +918,68 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGIN_FAIL", function() { return LOGIN_FAIL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGOUT_USER", function() { return LOGOUT_USER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CLEAR_ERRORS", function() { return CLEAR_ERRORS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_BY_ADDRESS_START", function() { return SEARCH_BY_ADDRESS_START; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_BY_ADDRESS_SUCCESS", function() { return SEARCH_BY_ADDRESS_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_BY_ADDRESS_FAIL", function() { return SEARCH_BY_ADDRESS_FAIL; });
 const LOGIN_START = "login_start";
 const LOGIN_SUCCESS = "login_success";
 const LOGIN_FAIL = "login_fail";
 const LOGOUT_USER = "logout_user";
-const CLEAR_ERRORS = "clear_errors";
+const CLEAR_ERRORS = "clear_errors"; //**  app action types ****//
+
+const SEARCH_BY_ADDRESS_START = "search_by_address_start";
+const SEARCH_BY_ADDRESS_SUCCESS = "search_by_address_success";
+const SEARCH_BY_ADDRESS_FAIL = "search_by_address_fail";
+
+/***/ }),
+
+/***/ "./store/reducers/appReducer.js":
+/*!**************************************!*\
+  !*** ./store/reducers/appReducer.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/objectSpread */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js");
+/* harmony import */ var _actions_actionTypes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/actionTypes */ "./store/actions/actionTypes.js");
+
+
+const INITIAL_STATE = {
+  searchResults: [],
+  loading: null,
+  error: null
+};
+
+const reducer = (state = INITIAL_STATE, action) => {
+  console.log(action.payload);
+
+  switch (action.type) {
+    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_1__["SEARCH_BY_ADDRESS_START"]:
+      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
+        loading: true,
+        error: null
+      });
+
+    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_1__["SEARCH_BY_ADDRESS_SUCCESS"]:
+      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
+        loading: false,
+        searchResults: action.payload.data
+      });
+
+    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_1__["SEARCH_BY_ADDRESS_FAIL"]:
+      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
+        loading: false,
+        error: error
+      });
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (reducer);
 
 /***/ }),
 
@@ -936,7 +993,7 @@ const CLEAR_ERRORS = "clear_errors";
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/objectSpread */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js");
-/* harmony import */ var _actionsTypes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actionsTypes */ "./store/actionsTypes.js");
+/* harmony import */ var _actions_actionTypes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/actionTypes */ "./store/actions/actionTypes.js");
 
 
 const INITIAL_STATE = {
@@ -946,28 +1003,28 @@ const INITIAL_STATE = {
 
 const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case _actionsTypes__WEBPACK_IMPORTED_MODULE_1__["CLEAR_ERRORS"]:
+    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_1__["CLEAR_ERRORS"]:
       return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
         error: ""
       });
 
-    case _actionsTypes__WEBPACK_IMPORTED_MODULE_1__["LOGIN_START"]:
+    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_1__["LOGIN_START"]:
       return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
         error: null
       });
 
-    case _actionsTypes__WEBPACK_IMPORTED_MODULE_1__["LOGIN_FAIL"]:
+    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_1__["LOGIN_FAIL"]:
       return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
         error: "PLEASE VERIFY CREDENTIALS"
       });
 
-    case _actionsTypes__WEBPACK_IMPORTED_MODULE_1__["LOGIN_SUCCESS"]:
+    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_1__["LOGIN_SUCCESS"]:
       return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
         error: null,
         userToken: action.payload.userToken
       });
 
-    case _actionsTypes__WEBPACK_IMPORTED_MODULE_1__["LOGOUT_USER"]:
+    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_1__["LOGOUT_USER"]:
       return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
         userToken: null
       });
@@ -993,12 +1050,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "redux");
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _authReducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./authReducer */ "./store/reducers/authReducer.js");
+/* harmony import */ var _appReducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./appReducer */ "./store/reducers/appReducer.js");
 
 
-const reducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  auth: _authReducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+
+const reducers = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
+  auth: _authReducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  app: _appReducer__WEBPACK_IMPORTED_MODULE_2__["default"]
 });
-/* harmony default export */ __webpack_exports__["default"] = (reducer);
+/* harmony default export */ __webpack_exports__["default"] = (reducers);
 
 /***/ }),
 

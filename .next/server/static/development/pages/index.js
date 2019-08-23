@@ -219,25 +219,19 @@ function _objectSpread(target) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/objectSpread */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/keys */ "./node_modules/@babel/runtime-corejs2/core-js/object/keys.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _src_components_spinner__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../src/components/spinner */ "./src/components/spinner.js");
-/* harmony import */ var _src_components_reviewCard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../src/components/reviewCard */ "./src/components/reviewCard.js");
-/* harmony import */ var _src_components_toolbar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../src/components/toolbar */ "./src/components/toolbar.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! axios */ "axios");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-redux */ "react-redux");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! next/router */ "next/router");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var material_ui_search_bar__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! material-ui-search-bar */ "material-ui-search-bar");
-/* harmony import */ var material_ui_search_bar__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(material_ui_search_bar__WEBPACK_IMPORTED_MODULE_10__);
-
-
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _src_components_spinner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../src/components/spinner */ "./src/components/spinner.js");
+/* harmony import */ var _src_components_reviewCard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../src/components/reviewCard */ "./src/components/reviewCard.js");
+/* harmony import */ var _src_components_toolbar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../src/components/toolbar */ "./src/components/toolbar.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-redux */ "react-redux");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! next/router */ "next/router");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _store_actions_appActions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../store/actions/appActions */ "./store/actions/appActions.js");
+/* harmony import */ var material_ui_search_bar__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! material-ui-search-bar */ "material-ui-search-bar");
+/* harmony import */ var material_ui_search_bar__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(material_ui_search_bar__WEBPACK_IMPORTED_MODULE_8__);
 
 var _jsxFileName = "/Users/fortunephiri/Documents/Projects/roomR8r/pages/index.js";
 
@@ -249,97 +243,77 @@ var _jsxFileName = "/Users/fortunephiri/Documents/Projects/roomR8r/pages/index.j
 
 
 
-class App extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
+class App extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
   constructor(...args) {
     super(...args);
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__["default"])(this, "state", {
-      address: "",
-      loading: null,
-      data: []
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "state", {
+      address: ""
     });
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__["default"])(this, "onAddressChangeHandler", input => {
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "onAddressChangeHandler", input => {
       //handles user input and stores in local state
       this.setState({
         address: input.toUpperCase()
       });
     });
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__["default"])(this, "searchHandler", event => {
-      this.setState({
-        loading: true
-      });
-      axios__WEBPACK_IMPORTED_MODULE_7___default.a.get(`https://accomo-rater.firebaseio.com/landlord_data.json?auth=${this.props.userToken}&orderBy="postal_code"&startAt="${this.state.address}"&endAt="${this.state.address}"`).then(response => {
-        const arrayData = _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default()(response.data).map(key => {
-          return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, response.data[key], {
-            id: key
-          });
-        });
-
-        this.setState({
-          loading: false,
-          data: arrayData
-        });
-      }).catch(error => {
-        this.setState({
-          loading: false
-        });
-      });
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "searchByAddressHandler", event => {
+      this.props.findByAddress(this.props.userToken, this.state.address);
     });
   }
 
   componentDidMount() {
-    !this.props.userToken ? next_router__WEBPACK_IMPORTED_MODULE_9___default.a.push("/login") : null;
+    !this.props.userToken ? next_router__WEBPACK_IMPORTED_MODULE_6___default.a.push("/login") : null;
   }
 
   render() {
-    const cards = this.state.data.map(element => react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_src_components_reviewCard__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    const cards = this.props.searchResults.map(element => react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_src_components_reviewCard__WEBPACK_IMPORTED_MODULE_3__["default"], {
       data: element,
       key: element.id,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 45
+        lineNumber: 31
       },
       __self: this
     }));
-    const spinner = !this.state.loading ? null : react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_src_components_spinner__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    const spinner = !this.props.loading ? null : react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_src_components_spinner__WEBPACK_IMPORTED_MODULE_2__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 46
+        lineNumber: 32
       },
       __self: this
     });
-    return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
+    return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
       style: styles.containerStyle,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 48
+        lineNumber: 34
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_src_components_toolbar__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_src_components_toolbar__WEBPACK_IMPORTED_MODULE_4__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 49
+        lineNumber: 35
       },
       __self: this
-    }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
+    }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
       style: {
         marginTop: "60px"
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 50
+        lineNumber: 36
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("h2", {
+    }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h2", {
       style: styles.headerStyle,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 51
+        lineNumber: 37
       },
       __self: this
-    }, "Because not all landlords are built the same")), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
+    }, "Because not all landlords are built the same")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
       style: {
         marginTop: "5px",
         padding: "20px",
@@ -348,28 +322,28 @@ class App extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 55
+        lineNumber: 41
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(material_ui_search_bar__WEBPACK_IMPORTED_MODULE_10___default.a, {
+    }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(material_ui_search_bar__WEBPACK_IMPORTED_MODULE_8___default.a, {
       placeholder: "Enter address",
       value: this.state.address,
       onChange: this.onAddressChangeHandler,
-      onRequestSearch: this.searchHandler,
+      onRequestSearch: this.searchByAddressHandler,
       style: styles.searchbarStyle,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 63
+        lineNumber: 49
       },
       __self: this
-    }), spinner), cards.length !== 0 ? react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
+    }), spinner), cards.length !== 0 ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
       style: {
         overflowY: "scroll",
         width: "100%"
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 72
+        lineNumber: 58
       },
       __self: this
     }, cards) : null);
@@ -402,11 +376,19 @@ const styles = {
 
 const mapStateToProps = state => {
   return {
-    userToken: state.auth.userToken
+    userToken: state.auth.userToken,
+    searchResults: state.app.searchResults,
+    loading: state.app.loading
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_8__["connect"])(mapStateToProps)(App));
+const mapDispatchToProps = dispatch => {
+  return {
+    findByAddress: (userToken, address) => dispatch(_store_actions_appActions__WEBPACK_IMPORTED_MODULE_7__["findReviewByAddress"](userToken, address))
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_5__["connect"])(mapStateToProps, mapDispatchToProps)(App));
 
 /***/ }),
 
@@ -597,8 +579,8 @@ const spinner = () => {
 
 const styles = {
   spinnerStyle: {
-    width: "100px",
-    height: "100px",
+    width: "60px",
+    height: "60px",
     margin: "0 auto",
     alignSelf: 'center',
     display: "block"
@@ -637,7 +619,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! next/router */ "next/router");
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _store_actions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../store/actions */ "./store/actions.js");
+/* harmony import */ var _store_actions_authActions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../store/actions/authActions */ "./store/actions/authActions.js");
 /* harmony import */ var next_Link__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! next/Link */ "next/Link");
 /* harmony import */ var next_Link__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(next_Link__WEBPACK_IMPORTED_MODULE_11__);
 var _jsxFileName = "/Users/fortunephiri/Documents/Projects/roomR8r/src/components/toolbar.js";
@@ -771,7 +753,7 @@ const mapStateProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    logoutUser: () => dispatch(_store_actions__WEBPACK_IMPORTED_MODULE_10__["logoutUser"])
+    logoutUser: () => dispatch(_store_actions_authActions__WEBPACK_IMPORTED_MODULE_10__["logoutUser"])
   };
 };
 
@@ -779,10 +761,104 @@ const mapDispatchToProps = dispatch => {
 
 /***/ }),
 
-/***/ "./store/actions.js":
-/*!**************************!*\
-  !*** ./store/actions.js ***!
-  \**************************/
+/***/ "./store/actions/actionTypes.js":
+/*!**************************************!*\
+  !*** ./store/actions/actionTypes.js ***!
+  \**************************************/
+/*! exports provided: LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_USER, CLEAR_ERRORS, SEARCH_BY_ADDRESS_START, SEARCH_BY_ADDRESS_SUCCESS, SEARCH_BY_ADDRESS_FAIL */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGIN_START", function() { return LOGIN_START; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGIN_SUCCESS", function() { return LOGIN_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGIN_FAIL", function() { return LOGIN_FAIL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGOUT_USER", function() { return LOGOUT_USER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CLEAR_ERRORS", function() { return CLEAR_ERRORS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_BY_ADDRESS_START", function() { return SEARCH_BY_ADDRESS_START; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_BY_ADDRESS_SUCCESS", function() { return SEARCH_BY_ADDRESS_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_BY_ADDRESS_FAIL", function() { return SEARCH_BY_ADDRESS_FAIL; });
+const LOGIN_START = "login_start";
+const LOGIN_SUCCESS = "login_success";
+const LOGIN_FAIL = "login_fail";
+const LOGOUT_USER = "logout_user";
+const CLEAR_ERRORS = "clear_errors"; //**  app action types ****//
+
+const SEARCH_BY_ADDRESS_START = "search_by_address_start";
+const SEARCH_BY_ADDRESS_SUCCESS = "search_by_address_success";
+const SEARCH_BY_ADDRESS_FAIL = "search_by_address_fail";
+
+/***/ }),
+
+/***/ "./store/actions/appActions.js":
+/*!*************************************!*\
+  !*** ./store/actions/appActions.js ***!
+  \*************************************/
+/*! exports provided: findReviewByAddress */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "findReviewByAddress", function() { return findReviewByAddress; });
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/objectSpread */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/keys */ "./node_modules/@babel/runtime-corejs2/core-js/object/keys.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "axios");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _actionTypes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./actionTypes */ "./store/actions/actionTypes.js");
+
+
+
+
+const findReviewByAddress = (userToken, address) => {
+  // fetches reviews from firebase
+  // return: array of objects
+  // params: userToken passed from authState and address 
+  return dispatch => {
+    dispatch({
+      type: _actionTypes__WEBPACK_IMPORTED_MODULE_3__["SEARCH_BY_ADDRESS_START"]
+    });
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get(`https://accomo-rater.firebaseio.com/landlord_data.json?auth=${userToken}&orderBy="postal_code"&startAt="${address}"&endAt="${address}"`).then(response => {
+      // iterating over response placing id as part of object
+      const arrayData = _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default()(response.data).map(key => {
+        return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, response.data[key], {
+          id: key
+        });
+      });
+
+      dispatch({
+        type: _actionTypes__WEBPACK_IMPORTED_MODULE_3__["SEARCH_BY_ADDRESS_SUCCESS"],
+        payload: {
+          data: arrayData
+        }
+      });
+    }).catch(error => {
+      dispatch({
+        type: _actionTypes__WEBPACK_IMPORTED_MODULE_3__["SEARCH_BY_ADDRESS_FAIL"],
+        payload: {
+          data: error
+        }
+      });
+    });
+  };
+}; // export const purchaseBurger=(orderData, token)=>{
+//   return (dispatch)=>{
+//     dispatch(purchaseBurgerStart())
+//     axios.post(`/orders.json?auth=${token}` ,orderData)
+//       .then(response=>{
+//         dispatch(purchaseBurgerSuccess(response.data.name,orderData))
+//       }).catch(error=>{
+//         dispatch(purchaseBurgerFailed(error))
+//       })
+//   }
+// }
+
+/***/ }),
+
+/***/ "./store/actions/authActions.js":
+/*!**************************************!*\
+  !*** ./store/actions/authActions.js ***!
+  \**************************************/
 /*! exports provided: login, clearError, logoutUser */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -791,7 +867,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "login", function() { return login; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clearError", function() { return clearError; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logoutUser", function() { return logoutUser; });
-/* harmony import */ var _actionsTypes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actionsTypes */ "./store/actionsTypes.js");
+/* harmony import */ var _actionTypes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actionTypes */ "./store/actions/actionTypes.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "axios");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 
@@ -799,7 +875,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const loginStart = () => {
   return {
-    type: _actionsTypes__WEBPACK_IMPORTED_MODULE_0__["LOGIN_START"]
+    type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["LOGIN_START"]
   };
 };
 
@@ -812,7 +888,7 @@ const login = (email, password) => {
       returnSecureToken: true
     }).then(response => {
       dispatch({
-        type: _actionsTypes__WEBPACK_IMPORTED_MODULE_0__["LOGIN_SUCCESS"],
+        type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["LOGIN_SUCCESS"],
         payload: {
           userToken: response.data.idToken
         }
@@ -820,43 +896,21 @@ const login = (email, password) => {
       localStorage.setItem("userToken", response.data.idToken);
     }).catch(error => {
       dispatch({
-        type: _actionsTypes__WEBPACK_IMPORTED_MODULE_0__["LOGIN_FAIL"]
+        type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["LOGIN_FAIL"]
       });
     });
   };
 };
 const clearError = () => {
   return {
-    type: _actionsTypes__WEBPACK_IMPORTED_MODULE_0__["CLEAR_ERRORS"]
+    type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["CLEAR_ERRORS"]
   };
 };
 const logoutUser = () => {
   return {
-    type: _actionsTypes__WEBPACK_IMPORTED_MODULE_0__["LOGOUT_USER"]
+    type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["LOGOUT_USER"]
   };
 };
-
-/***/ }),
-
-/***/ "./store/actionsTypes.js":
-/*!*******************************!*\
-  !*** ./store/actionsTypes.js ***!
-  \*******************************/
-/*! exports provided: LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_USER, CLEAR_ERRORS */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGIN_START", function() { return LOGIN_START; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGIN_SUCCESS", function() { return LOGIN_SUCCESS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGIN_FAIL", function() { return LOGIN_FAIL; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGOUT_USER", function() { return LOGOUT_USER; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CLEAR_ERRORS", function() { return CLEAR_ERRORS; });
-const LOGIN_START = "login_start";
-const LOGIN_SUCCESS = "login_success";
-const LOGIN_FAIL = "login_fail";
-const LOGOUT_USER = "logout_user";
-const CLEAR_ERRORS = "clear_errors";
 
 /***/ }),
 

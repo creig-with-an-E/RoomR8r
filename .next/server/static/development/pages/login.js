@@ -151,7 +151,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "axios");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _src_components_spinner__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../src/components/spinner */ "./src/components/spinner.js");
-/* harmony import */ var _store_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../store/actions */ "./store/actions.js");
+/* harmony import */ var _store_actions_authActions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../store/actions/authActions */ "./store/actions/authActions.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-redux */ "react-redux");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_6__);
 
@@ -197,6 +197,11 @@ class Login extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
     });
   }
 
+  componentDidMount() {
+    //reseting errors on initial page mount
+    this.props.clearError();
+  }
+
   componentDidUpdate(prevProps, prevState) {
     if (this.props.userToken !== prevProps.userToken) {
       this.setState({
@@ -219,13 +224,13 @@ class Login extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
       value: "LOGIN",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 40
+        lineNumber: 44
       },
       __self: this
     }) : react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_src_components_spinner__WEBPACK_IMPORTED_MODULE_4__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 40
+        lineNumber: 44
       },
       __self: this
     });
@@ -233,13 +238,13 @@ class Login extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
       style: styles.containerStyle,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 43
+        lineNumber: 47
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 44
+        lineNumber: 48
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h1", {
@@ -251,7 +256,7 @@ class Login extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 45
+        lineNumber: 49
       },
       __self: this
     }, "RoomR", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
@@ -260,28 +265,28 @@ class Login extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 45
+        lineNumber: 49
       },
       __self: this
     }, "8"), "r"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
       style: styles.header,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 46
+        lineNumber: 50
       },
       __self: this
     }, "Gamble with the lottery not your accomodation")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
       style: styles.mainAreaStyle,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 48
+        lineNumber: 52
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
       onSubmit: this.onSubmitHandler,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 49
+        lineNumber: 53
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -294,7 +299,7 @@ class Login extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
       name: "email",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 50
+        lineNumber: 54
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -307,7 +312,7 @@ class Login extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
       name: "password",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 54
+        lineNumber: 58
       },
       __self: this
     }), button, // 
@@ -315,7 +320,7 @@ class Login extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
       style: styles.errorStyle,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 66
+        lineNumber: 70
       },
       __self: this
     }, this.props.error) : "")));
@@ -335,7 +340,7 @@ const styles = {
   },
   mainAreaStyle: {
     backgroundColor: "#191923",
-    height: "200px",
+    height: "210px",
     width: "400px",
     borderRadius: "2px",
     paddingTop: "20px",
@@ -369,6 +374,7 @@ const styles = {
     fontFamily: 'Poppins, sans-serif'
   },
   errorStyle: {
+    marginBottom: "20px",
     color: "#f50",
     textAlign: "center",
     fontSize: 16,
@@ -384,7 +390,7 @@ const mapStateToProps = state => {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_6__["connect"])(mapStateToProps, _store_actions__WEBPACK_IMPORTED_MODULE_5__)(Login));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_6__["connect"])(mapStateToProps, _store_actions_authActions__WEBPACK_IMPORTED_MODULE_5__)(Login));
 
 /***/ }),
 
@@ -417,8 +423,8 @@ const spinner = () => {
 
 const styles = {
   spinnerStyle: {
-    width: "100px",
-    height: "100px",
+    width: "60px",
+    height: "60px",
     margin: "0 auto",
     alignSelf: 'center',
     display: "block"
@@ -428,10 +434,39 @@ const styles = {
 
 /***/ }),
 
-/***/ "./store/actions.js":
-/*!**************************!*\
-  !*** ./store/actions.js ***!
-  \**************************/
+/***/ "./store/actions/actionTypes.js":
+/*!**************************************!*\
+  !*** ./store/actions/actionTypes.js ***!
+  \**************************************/
+/*! exports provided: LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_USER, CLEAR_ERRORS, SEARCH_BY_ADDRESS_START, SEARCH_BY_ADDRESS_SUCCESS, SEARCH_BY_ADDRESS_FAIL */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGIN_START", function() { return LOGIN_START; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGIN_SUCCESS", function() { return LOGIN_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGIN_FAIL", function() { return LOGIN_FAIL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGOUT_USER", function() { return LOGOUT_USER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CLEAR_ERRORS", function() { return CLEAR_ERRORS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_BY_ADDRESS_START", function() { return SEARCH_BY_ADDRESS_START; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_BY_ADDRESS_SUCCESS", function() { return SEARCH_BY_ADDRESS_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_BY_ADDRESS_FAIL", function() { return SEARCH_BY_ADDRESS_FAIL; });
+const LOGIN_START = "login_start";
+const LOGIN_SUCCESS = "login_success";
+const LOGIN_FAIL = "login_fail";
+const LOGOUT_USER = "logout_user";
+const CLEAR_ERRORS = "clear_errors"; //**  app action types ****//
+
+const SEARCH_BY_ADDRESS_START = "search_by_address_start";
+const SEARCH_BY_ADDRESS_SUCCESS = "search_by_address_success";
+const SEARCH_BY_ADDRESS_FAIL = "search_by_address_fail";
+
+/***/ }),
+
+/***/ "./store/actions/authActions.js":
+/*!**************************************!*\
+  !*** ./store/actions/authActions.js ***!
+  \**************************************/
 /*! exports provided: login, clearError, logoutUser */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -440,7 +475,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "login", function() { return login; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clearError", function() { return clearError; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logoutUser", function() { return logoutUser; });
-/* harmony import */ var _actionsTypes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actionsTypes */ "./store/actionsTypes.js");
+/* harmony import */ var _actionTypes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actionTypes */ "./store/actions/actionTypes.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "axios");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 
@@ -448,7 +483,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const loginStart = () => {
   return {
-    type: _actionsTypes__WEBPACK_IMPORTED_MODULE_0__["LOGIN_START"]
+    type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["LOGIN_START"]
   };
 };
 
@@ -461,7 +496,7 @@ const login = (email, password) => {
       returnSecureToken: true
     }).then(response => {
       dispatch({
-        type: _actionsTypes__WEBPACK_IMPORTED_MODULE_0__["LOGIN_SUCCESS"],
+        type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["LOGIN_SUCCESS"],
         payload: {
           userToken: response.data.idToken
         }
@@ -469,43 +504,21 @@ const login = (email, password) => {
       localStorage.setItem("userToken", response.data.idToken);
     }).catch(error => {
       dispatch({
-        type: _actionsTypes__WEBPACK_IMPORTED_MODULE_0__["LOGIN_FAIL"]
+        type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["LOGIN_FAIL"]
       });
     });
   };
 };
 const clearError = () => {
   return {
-    type: _actionsTypes__WEBPACK_IMPORTED_MODULE_0__["CLEAR_ERRORS"]
+    type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["CLEAR_ERRORS"]
   };
 };
 const logoutUser = () => {
   return {
-    type: _actionsTypes__WEBPACK_IMPORTED_MODULE_0__["LOGOUT_USER"]
+    type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["LOGOUT_USER"]
   };
 };
-
-/***/ }),
-
-/***/ "./store/actionsTypes.js":
-/*!*******************************!*\
-  !*** ./store/actionsTypes.js ***!
-  \*******************************/
-/*! exports provided: LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_USER, CLEAR_ERRORS */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGIN_START", function() { return LOGIN_START; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGIN_SUCCESS", function() { return LOGIN_SUCCESS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGIN_FAIL", function() { return LOGIN_FAIL; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGOUT_USER", function() { return LOGOUT_USER; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CLEAR_ERRORS", function() { return CLEAR_ERRORS; });
-const LOGIN_START = "login_start";
-const LOGIN_SUCCESS = "login_success";
-const LOGIN_FAIL = "login_fail";
-const LOGOUT_USER = "logout_user";
-const CLEAR_ERRORS = "clear_errors";
 
 /***/ }),
 

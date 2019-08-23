@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Router from "next/router"
 import axios from "axios"
 import Spinner from "../src/components/spinner"
-import * as actions from "../store/actions"
+import * as actions from "../store/actions/authActions"
 
 import { connect } from "react-redux"
 
@@ -12,6 +12,10 @@ class Login extends Component {
     password:"",
     loading: false, //updated by componentDidUpdate
   };
+  componentDidMount(){
+    //reseting errors on initial page mount
+    this.props.clearError()
+  }
   componentDidUpdate(prevProps, prevState){
     if(this.props.userToken !== prevProps.userToken){
       this.setState({loading: false})
@@ -86,7 +90,7 @@ const styles = {
   },
   mainAreaStyle: {
     backgroundColor: "#191923",
-    height: "200px",
+    height: "210px",
     width: "400px",
     borderRadius: "2px",
     paddingTop:"20px",
@@ -120,6 +124,7 @@ const styles = {
     fontFamily: 'Poppins, sans-serif', 
   },
   errorStyle:{
+    marginBottom:"20px",
     color:"#f50",
     textAlign:"center",
     fontSize:16,
