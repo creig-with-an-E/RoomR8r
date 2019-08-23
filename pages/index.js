@@ -1,19 +1,22 @@
 import React, { Component } from "react";
 import Spinner from "../src/components/spinner";
-import ReviewCard from "../src/components/reviewCard"
-import Toolbar from "../src/components/toolbar"
-
+import Layout from "../src/components/layout"
 import {connect} from "react-redux"
 import Router from "next/router"
+import Card from "../src/components/card"
+
 import * as appActions from "../store/actions/appActions"
 
-import SearchBar from "material-ui-search-bar";
+import SearchBar from "../src/components/searchBar";
+import Modal from "../src/components/modal"
+
 class App extends Component {
   componentDidMount(){
     !this.props.userToken? Router.push("/login") : null
   }
   state = {
-    address: ""
+    address: "",
+    modalVisible: false
   };
 
   onAddressChangeHandler = input => {
@@ -27,12 +30,21 @@ class App extends Component {
     this.props.findByAddress(this.props.userToken, this.state.address)
   }
 
+  showModalHandle=()=>{
+    this.setState({modalVisible: true})
+  }
+
+  hideModalHandle=()=>{
+    this.setState({modalVisible: false})
+  } 
   render() {
-    const cards = this.props.searchResults.map(element=><ReviewCard data={element} key={element.id} />)
+    const cards = this.props.searchResults.map(element=><Card data={element} key={element.id} />)
     const spinner = !this.props.loading ? null : <Spinner />;
     return (
-      <div style={styles.containerStyle}>
-        <Toolbar />
+      <Layout showModalHandle={this.showModalHandle}>
+        {/* showModal passed to layout then to toolbar */}
+        <Modal modalVisible={this.state.modalVisible}
+            hideModalHandle={this.hideModalHandle}  />
         <div style={{marginTop:"60px"}}>
           <h2 style={styles.headerStyle}>
             Because not all landlords are built the same
@@ -51,37 +63,22 @@ class App extends Component {
             value={this.state.address}
             onChange={this.onAddressChangeHandler}
             onRequestSearch={this.searchByAddressHandler}
-            style={styles.searchbarStyle}
           />
           {spinner}
         </div>            
         { cards.length !== 0 ? <div style={{overflowY:"scroll", width:"100%"}}>{cards}</div>: null}
-      </div>
+      </Layout>
     );
   }
 }
 
 const styles = {
-  containerStyle: {
-    display: "flex",
-    alignItems: "center",
-    flexDirection: "column",
-    height: "100vh",
-    justifyContent: "center",
-    backgroundColor: "#fffffa"
-  },
   headerStyle:{
     color: "#2C365E", 
     textAlign: "center",
     fontFamily:'Fira Sans, sans-serif',
     fontWeight:"bold"
   },
-  searchbarStyle:{
-    margin: "0 auto",
-    maxWidth: 600,
-    padding: 7,
-    boxShadow: '1px 3px 6px 2px rgba(44,54,94,0.6)'  
-  }
 };
 
 const mapStateToProps=(state)=>{

@@ -5,13 +5,12 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 
 import {connect} from "react-redux"
 import Router from "next/router"
 import {logoutUser} from "../../store/actions/authActions"
 
-import Link from "next/Link"
+import Link from "next/link"
 const useStyles = makeStyles(theme => ({
   root: {
     // flexGrow: 1,
@@ -33,16 +32,20 @@ const useStyles = makeStyles(theme => ({
 
 const ButtonAppBar=(props)=>{
   const classes = useStyles();
-  const userAuthenticated = props.userToken?<Link href="/add"><Button className={classes.links} color="inherit">Add</Button></Link>: null
+  const userAuthenticated = props.userToken ? (
+            <React.Fragment>
+              <Link href="/"><Button className={classes.links} color="inherit">Home</Button></Link> 
+              <Button onClick={props.showModalHandle} className={classes.links} color="inherit">Add</Button>
+              <Button className={classes.links} color="inherit" onClick={logout}>Logout</Button>
+            </React.Fragment>
+            ):
+           <Button className={classes.links} color="inherit" onClick={()=>Router.push("/login")}>Login</Button>
 
   const logout=()=>{
     props.logoutUser()
     Router.push("/login")
   }
-  const logoClickedHandler=()=>{
-    // navigates user to home page when logo is clicked
-    Router.push("/")
-  }
+
   return (
     <div className={classes.root}>
       <AppBar position="fixed" style={{backgroundColor:"#191923", marginBottom:"10px"}}>
@@ -50,11 +53,10 @@ const ButtonAppBar=(props)=>{
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             {/* <MenuIcon /> */}
           </IconButton>
-          <Typography variant="h5" className={classes.title}>
+          <Typography onClick={()=>Router.push("/")} variant="h5" className={classes.title}>
               RoomR<span style={{color:"#FF5941"}}>8</span>r
           </Typography>
           {userAuthenticated}
-          <Button className={classes.links} color="inherit" onClick={logout}>Logout</Button>
         </Toolbar>
       </AppBar>
     </div>
