@@ -8,7 +8,6 @@ import * as appActions from "../store/actions/appActions"
 
 class App extends Component {
   componentDidMount(){
-    const app = 
     !this.props.userToken? Router.push("/login") : null
   }
   state = {
@@ -49,14 +48,15 @@ class App extends Component {
         </div>
         <div
           style={{
+            alignSelf:"center",
             marginTop:"5px",
             padding: "20px",
-            width: "60%",
+            width: "380px",
             textAlign: "center",
           }}
         >
           <SearchBar
-            placeholder="Enter address"
+            placeholder="search by post code"
             value={this.state.address}
             onChange={this.onAddressChangeHandler}
             onRequestSearch={this.searchByAddressHandler}

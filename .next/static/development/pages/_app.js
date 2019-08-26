@@ -12981,7 +12981,7 @@ var initStore = function initStore() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(next_redux_wrapper__WEBPACK_IMPORTED_MODULE_12__["default"])(initStore, {
-  debug: true
+  debug: false
 })(
 /*#__PURE__*/
 function (_App) {
@@ -13151,7 +13151,6 @@ var INITIAL_STATE = {
 var reducer = function reducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : INITIAL_STATE;
   var action = arguments.length > 1 ? arguments[1] : undefined;
-  console.log(action.payload);
 
   switch (action.type) {
     case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_1__["SEARCH_BY_ADDRESS_START"]:

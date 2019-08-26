@@ -841,7 +841,7 @@ const initStore = (initialState = {}) => {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (next_redux_wrapper__WEBPACK_IMPORTED_MODULE_5___default()(initStore, {
-  debug: true
+  debug: false
 })(class _ extends next_app__WEBPACK_IMPORTED_MODULE_4___default.a {
   static async getInitialProps({
     Component,
@@ -953,8 +953,6 @@ const INITIAL_STATE = {
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
-  console.log(action.payload);
-
   switch (action.type) {
     case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_1__["SEARCH_BY_ADDRESS_START"]:
       return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {

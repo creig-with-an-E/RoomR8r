@@ -11,7 +11,7 @@ const initStore = (initialState = {}) => {
   return createStore(reducers, applyMiddleware(reduxThunk));
 };
 
-export default withRedux(initStore, { debug: true })(
+export default withRedux(initStore, { debug: false })(
   class _ extends App {
     static async getInitialProps({ Component, ctx }) {
       return {

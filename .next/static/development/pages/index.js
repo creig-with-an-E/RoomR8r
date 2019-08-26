@@ -62888,9 +62888,10 @@ function (_Component) {
         __self: this
       }, "Because not all landlords are built the same")), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
         style: {
+          alignSelf: "center",
           marginTop: "5px",
           padding: "20px",
-          width: "60%",
+          width: "380px",
           textAlign: "center"
         },
         __source: {
@@ -62899,13 +62900,13 @@ function (_Component) {
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_src_components__WEBPACK_IMPORTED_MODULE_10__["SearchBar"], {
-        placeholder: "Enter address",
+        placeholder: "search by post code",
         value: this.state.address,
         onChange: this.onAddressChangeHandler,
         onRequestSearch: this.searchByAddressHandler,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 57
+          lineNumber: 58
         },
         __self: this
       }), spinner), cards.length !== 0 ? react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
@@ -62915,7 +62916,7 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 65
+          lineNumber: 66
         },
         __self: this
       }, cards) : null);
@@ -63277,7 +63278,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _navigation_toolbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../navigation/toolbar */ "./src/navigation/toolbar.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
 var _jsxFileName = "/Users/fortunephiri/Documents/Projects/roomR8r/src/components/layout.js";
+
 
 
 
