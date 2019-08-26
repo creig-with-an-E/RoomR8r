@@ -2,9 +2,8 @@ import React, { Component } from "react";
 import {connect} from "react-redux"
 import Router from "next/router"
 import {ReviewCard, Layout, Spinner, SearchBar } from "../src/components"
-import Modal from "../src/modal/modal"
+import AddReviewForm from "../src/modal/addReviewForm"
 import * as appActions from "../store/actions/appActions"
-
 
 class App extends Component {
   componentDidMount(){
@@ -39,8 +38,11 @@ class App extends Component {
     return (
       <Layout showModalHandle={this.showModalHandle}>
         {/* showModal passed to layout then to toolbar */}
-        <Modal modalVisible={this.state.modalVisible}
-            hideModalHandle={this.hideModalHandle}  />
+        <AddReviewForm 
+            userToken={this.props.userToken}
+            modalVisible={this.state.modalVisible}
+            hideModalHandle={this.hideModalHandle}>
+        </AddReviewForm>
         <div style={{marginTop:"60px"}}>
           <h2 style={styles.headerStyle}>
             Because not all landlords are built the same

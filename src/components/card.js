@@ -87,7 +87,7 @@ const { first_name, last_name } = landlord_bio;
           <FavoriteIcon className={classes.icon}/>
         </IconButton>
         <Typography style={{textTransform:"capitalize", color:"#cdcdcd"}}>Landlord Name: <span style={{color:"#fffffa"}}>{first_name} {last_name}</span></Typography>
-        <Rating value={3} readOnly style={{color:"#FF5941", marginLeft: 20}}/>
+        <Rating value={props.data.rating? props.data.rating : 0} readOnly style={{color:"#FF5941", marginLeft: 20}}/>
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,

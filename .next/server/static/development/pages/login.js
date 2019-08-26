@@ -887,10 +887,10 @@ class Login extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
 
   componentDidUpdate(prevProps, prevState) {
     if (this.props.userToken !== prevProps.userToken) {
+      this.props.userToken ? next_router__WEBPACK_IMPORTED_MODULE_2___default.a.push("/") : null;
       this.setState({
         loading: false
       });
-      this.props.userToken ? next_router__WEBPACK_IMPORTED_MODULE_2___default.a.push("/") : null;
     }
 
     if (this.props.error !== prevProps.error) {
@@ -1279,7 +1279,7 @@ const ReviewCard = props => {
     },
     __self: undefined
   }, first_name, " ", last_name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_lab_Rating__WEBPACK_IMPORTED_MODULE_6___default.a, {
-    value: 3,
+    value: props.data.rating ? props.data.rating : 0,
     readOnly: true,
     style: {
       color: "#FF5941",
@@ -1343,7 +1343,7 @@ const ReviewCard = props => {
 /*!*********************************!*\
   !*** ./src/components/index.js ***!
   \*********************************/
-/*! exports provided: Button, ReviewCard, SearchBar, Spinner, Layout */
+/*! exports provided: Button, Layout, SearchBar, Spinner, ReviewCard */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1775,6 +1775,7 @@ const clearError = () => {
   };
 };
 const logoutUser = () => {
+  localStorage.removeItem("userToken");
   return {
     type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["LOGOUT_USER"]
   };

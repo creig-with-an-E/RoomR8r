@@ -18,7 +18,7 @@ export const login=(email, password)=>{
           userToken: response.data.idToken
         }
       })
-        localStorage.setItem("userToken",response.data.idToken)
+      localStorage.setItem("userToken",response.data.idToken)
     })
     .catch(error=>{
       dispatch({
@@ -35,8 +35,9 @@ export const clearError=()=>{
 }
 
 export const logoutUser=()=>{
+  localStorage.removeItem("userToken")
+
   return{
     type: actionTypes.LOGOUT_USER
-
   }
 }

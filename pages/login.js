@@ -17,8 +17,8 @@ class Login extends Component {
   }
   componentDidUpdate(prevProps, prevState){
     if(this.props.userToken !== prevProps.userToken){
-      this.setState({loading: false})
       this.props.userToken ? Router.push("/") : null
+      this.setState({loading: false})
     }
     if(this.props.error !== prevProps.error){
       this.setState({loading: false})

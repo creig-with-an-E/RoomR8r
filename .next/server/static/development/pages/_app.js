@@ -858,7 +858,14 @@ const initStore = (initialState = {}) => {
       pageProps,
       store
     } = this.props;
-    return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_4__["Container"], {
+    return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("html", {
+      prefix: "og:http://ogp.me/ns#",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 27
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_4__["Container"], {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 28
@@ -870,10 +877,58 @@ const initStore = (initialState = {}) => {
         lineNumber: 29
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("title", {
+    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("meta", {
+      property: "og:title",
+      content: "RoomR8r",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 30
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("meta", {
+      property: "og:type",
+      content: "website",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 31
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("meta", {
+      property: "og:description",
+      content: "Looking out for tenants and landlords alike. Gamble with the lottery not your housing",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 32
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("meta", {
+      property: "og:url",
+      content: "https://roomr8r.herokuapp.com/login",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 36
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("meta", {
+      property: "og:author",
+      content: "Fortune Creig",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 40
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("meta", {
+      property: "og:image",
+      content: "static/imgs/ogp.png",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 41
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("title", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 42
       },
       __self: this
     }, "RoomR8r | home"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("link", {
@@ -881,23 +936,23 @@ const initStore = (initialState = {}) => {
       rel: "stylesheet",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 31
+        lineNumber: 43
       },
       __self: this
     })), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_3__["Provider"], {
       store: store,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 33
+        lineNumber: 48
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, pageProps, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 34
+        lineNumber: 49
       },
       __self: this
-    }))));
+    })))));
   }
 
 }));

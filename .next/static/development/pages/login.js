@@ -62771,10 +62771,10 @@ function (_Component) {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps, prevState) {
       if (this.props.userToken !== prevProps.userToken) {
+        this.props.userToken ? next_router__WEBPACK_IMPORTED_MODULE_8___default.a.push("/") : null;
         this.setState({
           loading: false
         });
-        this.props.userToken ? next_router__WEBPACK_IMPORTED_MODULE_8___default.a.push("/") : null;
       }
 
       if (this.props.error !== prevProps.error) {
@@ -63169,7 +63169,7 @@ var ReviewCard = function ReviewCard(props) {
     },
     __self: this
   }, first_name, " ", last_name)), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_lab_Rating__WEBPACK_IMPORTED_MODULE_8__["default"], {
-    value: 3,
+    value: props.data.rating ? props.data.rating : 0,
     readOnly: true,
     style: {
       color: "#FF5941",
@@ -63231,7 +63231,7 @@ var ReviewCard = function ReviewCard(props) {
 /*!*********************************!*\
   !*** ./src/components/index.js ***!
   \*********************************/
-/*! exports provided: Button, ReviewCard, SearchBar, Spinner, Layout */
+/*! exports provided: Button, Layout, SearchBar, Spinner, ReviewCard */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -63667,6 +63667,7 @@ var clearError = function clearError() {
   };
 };
 var logoutUser = function logoutUser() {
+  localStorage.removeItem("userToken");
   return {
     type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["LOGOUT_USER"]
   };
