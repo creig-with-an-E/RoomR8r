@@ -1,15 +1,10 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import Collapse from '@material-ui/core/Collapse';
-import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
+import { Card, CardHeader, CardMedia, CardContent, 
+  CardActions,Collapse, Avatar,IconButton, 
+  Typography } from "@material-ui/core"
+
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Rating from "@material-ui/lab/Rating"
@@ -59,7 +54,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const reviewCard=(props)=>{
+const ReviewCard=(props)=>{
     const { postal_code, address, landlord_bio, comment } = props.data;
 const { first_name, last_name } = landlord_bio;
   const classes = useStyles();
@@ -78,9 +73,8 @@ const { first_name, last_name } = landlord_bio;
             ?
           </Avatar>
         }
-      title={`Street Address: ${address.street_number || "n/a"}`}
+        title={`Street Address: ${address.street_number || "n/a"}`}
         subheader={`Apartment Number: ${address.apartment_number || "n/a"}`}
-        subheaderTypographyProps={{color:"#fff"}}
       >
      </CardHeader>
       <CardMedia
@@ -107,7 +101,7 @@ const { first_name, last_name } = landlord_bio;
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography style={null}>
+          <Typography>
           {comment}
           </Typography>
         </CardContent>
@@ -116,4 +110,4 @@ const { first_name, last_name } = landlord_bio;
   );
 }
 
-export default reviewCard
+export { ReviewCard }

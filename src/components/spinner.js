@@ -1,6 +1,6 @@
 import React from 'react';
 
-const spinner=()=>{
+const Spinner=()=>{
   return(
       <img style={styles.spinnerStyle} src="/static/imgs/spinner.gif" alt="spinner" />
 )
@@ -16,4 +16,4 @@ const styles={
   }
 }
 
-export default spinner;
+export { Spinner }

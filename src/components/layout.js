@@ -1,7 +1,7 @@
 import React from 'react';
-import Toolbar from "./toolbar"
+import Toolbar from "../navigation/toolbar"
 
-const layout=(props)=>{
+const Layout=(props)=>{
   // receives modal handle from index.js 
   return(
     <div style={styles.containerStyle}>
@@ -21,4 +21,4 @@ const styles ={
     backgroundColor: "#fffffa"
     },
 }
-export default layout
+export {Layout}

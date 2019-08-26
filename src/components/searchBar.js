@@ -1,8 +1,8 @@
 import React from 'react';
-import SearchBar from "material-ui-search-bar";
+import Searchbar from "material-ui-search-bar";
 
-const searchBar=(props)=>(
-    <SearchBar {...props} style={styles.searchbarStyle}/>
+const SearchBar=(props)=>(
+    <Searchbar {...props} style={styles.searchbarStyle}/>
 )
 const styles ={
     searchbarStyle:{
@@ -12,4 +12,4 @@ const styles ={
         boxShadow: '1px 3px 6px 2px rgba(44,54,94,0.6)'  
       }
 }
-export default searchBar
+export {SearchBar}

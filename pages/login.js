@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Router from "next/router"
-import axios from "axios"
-import Spinner from "../src/components/spinner"
+import {Button, Spinner} from "../src/components"
 import * as actions from "../store/actions/authActions"
 
 import { connect } from "react-redux"
@@ -41,7 +40,7 @@ class Login extends Component {
     })
   }
   render() {
-    const button = !this.state.loading ?<input  type="submit" style={styles.buttonStyle} value="LOGIN"/> : <Spinner />
+    const button = !this.state.loading ?<Button onClick={this.onSubmitHandler}>Login</Button>: <Spinner />
     
     return (
       <div style={styles.containerStyle}>
@@ -102,19 +101,6 @@ const styles = {
     width: "75%",
     margin: "15px auto",
     borderRadius: "5px"
-  },
-  buttonStyle: {
-    display: "block",
-    padding: "16px",
-    margin: "15px auto",
-    borderRadius:"3px",
-    color:"#fffffa",
-    fontWeight:"bold",
-    border:"0",
-    width:"100px",
-    backgroundColor:"#FF5941",
-    // backgroundColor:"#FCA311",
-    fontSize: "14px",
   },
   header:{
     textAlign:"center",

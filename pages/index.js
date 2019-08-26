@@ -1,14 +1,10 @@
 import React, { Component } from "react";
-import Spinner from "../src/components/spinner";
-import Layout from "../src/components/layout"
 import {connect} from "react-redux"
 import Router from "next/router"
-import Card from "../src/components/card"
-
+import {ReviewCard, Layout, Spinner, SearchBar } from "../src/components"
+import Modal from "../src/modal/modal"
 import * as appActions from "../store/actions/appActions"
 
-import SearchBar from "../src/components/searchBar";
-import Modal from "../src/components/modal"
 
 class App extends Component {
   componentDidMount(){
@@ -38,7 +34,7 @@ class App extends Component {
     this.setState({modalVisible: false})
   } 
   render() {
-    const cards = this.props.searchResults.map(element=><Card data={element} key={element.id} />)
+    const cards = this.props.searchResults.map(element=><ReviewCard data={element} key={element.id} />)
     const spinner = !this.props.loading ? null : <Spinner />;
     return (
       <Layout showModalHandle={this.showModalHandle}>
