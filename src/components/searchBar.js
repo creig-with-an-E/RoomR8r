@@ -6,6 +6,8 @@ const SearchBar=(props)=>(
 )
 const styles ={
     searchbarStyle:{
+        backgroundColor:"rgba(44,54,94,0.1)",
+        borderRadius: "20px",
         margin: "0 auto",
         maxWidth: 600,
         padding: 7,

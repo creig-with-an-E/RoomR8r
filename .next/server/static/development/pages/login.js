@@ -1343,7 +1343,7 @@ const ReviewCard = props => {
 /*!*********************************!*\
   !*** ./src/components/index.js ***!
   \*********************************/
-/*! exports provided: Button, Layout, SearchBar, Spinner, ReviewCard */
+/*! exports provided: Button, ReviewCard, Layout, SearchBar, Spinner */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1455,6 +1455,8 @@ const SearchBar = props => react__WEBPACK_IMPORTED_MODULE_1___default.a.createEl
 
 const styles = {
   searchbarStyle: {
+    backgroundColor: "rgba(44,54,94,0.1)",
+    borderRadius: "20px",
     margin: "0 auto",
     maxWidth: 600,
     padding: 7,

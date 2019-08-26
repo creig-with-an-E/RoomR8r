@@ -11,7 +11,8 @@ class App extends Component {
   }
   state = {
     address: "",
-    modalVisible: false
+    modalVisible: false,
+    startingUp: true
   };
 
   onAddressChangeHandler = input => {
@@ -35,9 +36,9 @@ class App extends Component {
   render() {
     const cards = this.props.searchResults.map(element=><ReviewCard data={element} key={element.id} />)
     const spinner = !this.props.loading ? null : <Spinner />;
+    // showModal is passed down to Layout
     return (
       <Layout showModalHandle={this.showModalHandle}>
-        {/* showModal passed to layout then to toolbar */}
         <AddReviewForm 
             userToken={this.props.userToken}
             modalVisible={this.state.modalVisible}
@@ -73,9 +74,10 @@ class App extends Component {
 
 const styles = {
   headerStyle:{
-    color: "#2C365E", 
+    fontSize: 26,
+    color: "rgb(44,54,94)", 
     textAlign: "center",
-    fontFamily:'Fira Sans, sans-serif',
+    fontFamily:'Lexend Tera, sans-serif',
     fontWeight:"bold"
   },
 };

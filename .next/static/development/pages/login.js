@@ -63231,7 +63231,7 @@ var ReviewCard = function ReviewCard(props) {
 /*!*********************************!*\
   !*** ./src/components/index.js ***!
   \*********************************/
-/*! exports provided: Button, Layout, SearchBar, Spinner, ReviewCard */
+/*! exports provided: Button, ReviewCard, Layout, SearchBar, Spinner */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -63344,6 +63344,8 @@ var SearchBar = function SearchBar(props) {
 
 var styles = {
   searchbarStyle: {
+    backgroundColor: "rgba(44,54,94,0.1)",
+    borderRadius: "20px",
     margin: "0 auto",
     maxWidth: 600,
     padding: 7,

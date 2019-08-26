@@ -919,7 +919,8 @@ class App extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "state", {
       address: "",
-      modalVisible: false
+      modalVisible: false,
+      startingUp: true
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "onAddressChangeHandler", input => {
@@ -956,22 +957,23 @@ class App extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
       key: element.id,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 36
+        lineNumber: 37
       },
       __self: this
     }));
     const spinner = !this.props.loading ? null : react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_src_components__WEBPACK_IMPORTED_MODULE_4__["Spinner"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 37
+        lineNumber: 38
       },
       __self: this
-    });
+    }); // showModal is passed down to Layout
+
     return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_src_components__WEBPACK_IMPORTED_MODULE_4__["Layout"], {
       showModalHandle: this.showModalHandle,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 39
+        lineNumber: 41
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_src_modal_addReviewForm__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -980,7 +982,7 @@ class App extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
       hideModalHandle: this.hideModalHandle,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 41
+        lineNumber: 42
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
@@ -989,14 +991,14 @@ class App extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 46
+        lineNumber: 47
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h2", {
       style: styles.headerStyle,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 47
+        lineNumber: 48
       },
       __self: this
     }, "Because not all landlords are built the same")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
@@ -1009,7 +1011,7 @@ class App extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 51
+        lineNumber: 52
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_src_components__WEBPACK_IMPORTED_MODULE_4__["SearchBar"], {
@@ -1019,7 +1021,7 @@ class App extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
       onRequestSearch: this.searchByAddressHandler,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 60
+        lineNumber: 61
       },
       __self: this
     }), spinner), cards.length !== 0 ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
@@ -1029,7 +1031,7 @@ class App extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 68
+        lineNumber: 69
       },
       __self: this
     }, cards) : null);
@@ -1039,9 +1041,10 @@ class App extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
 
 const styles = {
   headerStyle: {
-    color: "#2C365E",
+    fontSize: 26,
+    color: "rgb(44,54,94)",
     textAlign: "center",
-    fontFamily: 'Fira Sans, sans-serif',
+    fontFamily: 'Lexend Tera, sans-serif',
     fontWeight: "bold"
   }
 };
@@ -1345,7 +1348,7 @@ const ReviewCard = props => {
 /*!*********************************!*\
   !*** ./src/components/index.js ***!
   \*********************************/
-/*! exports provided: Button, Layout, SearchBar, Spinner, ReviewCard */
+/*! exports provided: Button, ReviewCard, Layout, SearchBar, Spinner */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1457,6 +1460,8 @@ const SearchBar = props => react__WEBPACK_IMPORTED_MODULE_1___default.a.createEl
 
 const styles = {
   searchbarStyle: {
+    backgroundColor: "rgba(44,54,94,0.1)",
+    borderRadius: "20px",
     margin: "0 auto",
     maxWidth: 600,
     padding: 7,

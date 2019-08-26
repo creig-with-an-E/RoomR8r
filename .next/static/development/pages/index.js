@@ -62800,7 +62800,8 @@ function (_Component) {
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "state", {
       address: "",
-      modalVisible: false
+      modalVisible: false,
+      startingUp: true
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "onAddressChangeHandler", function (input) {
@@ -62843,7 +62844,7 @@ function (_Component) {
           key: element.id,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 36
+            lineNumber: 37
           },
           __self: this
         });
@@ -62851,15 +62852,16 @@ function (_Component) {
       var spinner = !this.props.loading ? null : react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_src_components__WEBPACK_IMPORTED_MODULE_10__["Spinner"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 37
+          lineNumber: 38
         },
         __self: this
-      });
+      }); // showModal is passed down to Layout
+
       return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_src_components__WEBPACK_IMPORTED_MODULE_10__["Layout"], {
         showModalHandle: this.showModalHandle,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 39
+          lineNumber: 41
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_src_modal_addReviewForm__WEBPACK_IMPORTED_MODULE_11__["default"], {
@@ -62868,7 +62870,7 @@ function (_Component) {
         hideModalHandle: this.hideModalHandle,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 41
+          lineNumber: 42
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
@@ -62877,14 +62879,14 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 46
+          lineNumber: 47
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("h2", {
         style: styles.headerStyle,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 47
+          lineNumber: 48
         },
         __self: this
       }, "Because not all landlords are built the same")), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
@@ -62897,7 +62899,7 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 51
+          lineNumber: 52
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_src_components__WEBPACK_IMPORTED_MODULE_10__["SearchBar"], {
@@ -62907,7 +62909,7 @@ function (_Component) {
         onRequestSearch: this.searchByAddressHandler,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 60
+          lineNumber: 61
         },
         __self: this
       }), spinner), cards.length !== 0 ? react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
@@ -62917,7 +62919,7 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 68
+          lineNumber: 69
         },
         __self: this
       }, cards) : null);
@@ -62929,9 +62931,10 @@ function (_Component) {
 
 var styles = {
   headerStyle: {
-    color: "#2C365E",
+    fontSize: 26,
+    color: "rgb(44,54,94)",
     textAlign: "center",
-    fontFamily: 'Fira Sans, sans-serif',
+    fontFamily: 'Lexend Tera, sans-serif',
     fontWeight: "bold"
   }
 };
@@ -63238,7 +63241,7 @@ var ReviewCard = function ReviewCard(props) {
 /*!*********************************!*\
   !*** ./src/components/index.js ***!
   \*********************************/
-/*! exports provided: Button, Layout, SearchBar, Spinner, ReviewCard */
+/*! exports provided: Button, ReviewCard, Layout, SearchBar, Spinner */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -63351,6 +63354,8 @@ var SearchBar = function SearchBar(props) {
 
 var styles = {
   searchbarStyle: {
+    backgroundColor: "rgba(44,54,94,0.1)",
+    borderRadius: "20px",
     margin: "0 auto",
     maxWidth: 600,
     padding: 7,
