@@ -8,6 +8,7 @@ import * as appActions from "../store/actions/appActions"
 
 class App extends Component {
   componentDidMount(){
+    const app = 
     !this.props.userToken? Router.push("/login") : null
   }
   state = {

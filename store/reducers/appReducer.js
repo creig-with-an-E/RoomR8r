@@ -8,7 +8,6 @@ const INITIAL_STATE = {
 }
 
 const reducer = (state = INITIAL_STATE, action) => {
-  console.log(action.payload)
   switch (action.type) {
     case actionTypes.SEARCH_BY_ADDRESS_START:
       return {...state,loading: true, error: null}
