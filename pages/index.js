@@ -7,7 +7,7 @@ import * as appActions from "../store/actions/appActions"
 
 class App extends Component {
   componentDidMount(){
-    !this.props.userToken? Router.push("/login") : null
+    !this.props.userToken? Router.push("/auth") : null
   }
   state = {
     address: "",

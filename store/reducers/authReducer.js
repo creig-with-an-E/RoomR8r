@@ -17,6 +17,10 @@ const reducer = (state = INITIAL_STATE, action) => {
       return {...state,error: null, userToken: action.payload.userToken}
     case actionTypes.LOGOUT_USER:
       return {...state, userToken: null}
+    case actionTypes.SIGNUP_USER_SUCCESS:
+      return {...state,error: null, userToken: action.payload.userToken}
+    case actionTypes.SIGNUP_USER_FAIL:
+      return {...state,error:"SOMETHING WENT WRONG"}
     default:
       return state
   }

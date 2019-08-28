@@ -62833,7 +62833,7 @@ function (_Component) {
   Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(App, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      !this.props.userToken ? next_router__WEBPACK_IMPORTED_MODULE_9___default.a.push("/login") : null;
+      !this.props.userToken ? next_router__WEBPACK_IMPORTED_MODULE_9___default.a.push("/auth") : null;
     }
   }, {
     key: "render",
@@ -62969,38 +62969,42 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Button", function() { return Button; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/objectSpread */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+
 var _jsxFileName = "/Users/fortunephiri/Documents/Projects/roomR8r/src/components/button.js";
 
 
 var Button = function Button(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  var styles = {
+    buttonStyle: {
+      display: "block",
+      height: "35px",
+      // padding: "16px",
+      margin: "15px auto",
+      borderRadius: "3px",
+      color: "#fffffa",
+      fontWeight: "bold",
+      border: "0",
+      width: "266px",
+      backgroundColor: !props.altButton ? "#FF5941" : "#474A48",
+      // backgroundColor:"#FCA311",
+      fontSize: "14px"
+    }
+  };
+  var combinedButtonStyles = props.style ? Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, styles.buttonStyle, props.style) : styles.buttonStyle;
+  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
     onClick: props.onClickHandler,
-    style: styles.buttonStyle,
+    style: combinedButtonStyles,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 5
+      lineNumber: 22
     },
     __self: this
   }, props.children);
 };
 
-var styles = {
-  buttonStyle: {
-    display: "block",
-    padding: "16px",
-    margin: "15px auto",
-    borderRadius: "3px",
-    color: "#fffffa",
-    fontWeight: "bold",
-    border: "0",
-    width: "100px",
-    backgroundColor: "#FF5941",
-    // backgroundColor:"#FCA311",
-    fontSize: "14px"
-  }
-};
 
 
 /***/ }),
@@ -63758,7 +63762,7 @@ var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["ma
   };
 });
 
-var ButtonAppBar = function ButtonAppBar(props) {
+var toolbar = function toolbar(props) {
   var classes = useStyles();
   var userAuthenticated = props.userToken ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, {
     __source: {
@@ -63805,7 +63809,7 @@ var ButtonAppBar = function ButtonAppBar(props) {
     className: classes.links,
     color: "inherit",
     onClick: function onClick() {
-      return next_router__WEBPACK_IMPORTED_MODULE_8___default.a.push("/login");
+      return next_router__WEBPACK_IMPORTED_MODULE_8___default.a.push("/auth");
     },
     __source: {
       fileName: _jsxFileName,
@@ -63816,7 +63820,7 @@ var ButtonAppBar = function ButtonAppBar(props) {
 
   var logout = function logout() {
     props.logoutUser();
-    next_router__WEBPACK_IMPORTED_MODULE_8___default.a.push("/login");
+    next_router__WEBPACK_IMPORTED_MODULE_8___default.a.push("/auth");
   };
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -63890,7 +63894,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_7__["connect"])(mapStateProps, mapDispatchToProps)(ButtonAppBar));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_7__["connect"])(mapStateProps, mapDispatchToProps)(toolbar));
 
 /***/ }),
 
@@ -63898,7 +63902,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 /*!**************************************!*\
   !*** ./store/actions/actionTypes.js ***!
   \**************************************/
-/*! exports provided: LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_USER, CLEAR_ERRORS, SEARCH_BY_ADDRESS_START, SEARCH_BY_ADDRESS_SUCCESS, SEARCH_BY_ADDRESS_FAIL */
+/*! exports provided: LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_USER, CLEAR_ERRORS, SIGNUP_USER, SIGNUP_USER_SUCCESS, SIGNUP_USER_FAIL, SEARCH_BY_ADDRESS_START, SEARCH_BY_ADDRESS_SUCCESS, SEARCH_BY_ADDRESS_FAIL */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -63908,6 +63912,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGIN_FAIL", function() { return LOGIN_FAIL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGOUT_USER", function() { return LOGOUT_USER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CLEAR_ERRORS", function() { return CLEAR_ERRORS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SIGNUP_USER", function() { return SIGNUP_USER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SIGNUP_USER_SUCCESS", function() { return SIGNUP_USER_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SIGNUP_USER_FAIL", function() { return SIGNUP_USER_FAIL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_BY_ADDRESS_START", function() { return SEARCH_BY_ADDRESS_START; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_BY_ADDRESS_SUCCESS", function() { return SEARCH_BY_ADDRESS_SUCCESS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_BY_ADDRESS_FAIL", function() { return SEARCH_BY_ADDRESS_FAIL; });
@@ -63915,7 +63922,10 @@ var LOGIN_START = "login_start";
 var LOGIN_SUCCESS = "login_success";
 var LOGIN_FAIL = "login_fail";
 var LOGOUT_USER = "logout_user";
-var CLEAR_ERRORS = "clear_errors"; //**  app action types ****//
+var CLEAR_ERRORS = "clear_errors";
+var SIGNUP_USER = "signup_user";
+var SIGNUP_USER_SUCCESS = "signup_user_success";
+var SIGNUP_USER_FAIL = "sign_user_fail"; //**  app action types ****//
 
 var SEARCH_BY_ADDRESS_START = "search_by_address_start";
 var SEARCH_BY_ADDRESS_SUCCESS = "search_by_address_success";
@@ -63998,23 +64008,33 @@ var findReviewByAddress = function findReviewByAddress(userToken, address) {
 /*!**************************************!*\
   !*** ./store/actions/authActions.js ***!
   \**************************************/
-/*! exports provided: login, clearError, logoutUser */
+/*! exports provided: login, signup, clearError, logoutUser */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "login", function() { return login; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "signup", function() { return signup; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clearError", function() { return clearError; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logoutUser", function() { return logoutUser; });
 /* harmony import */ var _actionTypes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actionTypes */ "./store/actions/actionTypes.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 
-
+ // ********** start of login actions
 
 var loginStart = function loginStart() {
   return {
     type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["LOGIN_START"]
+  };
+};
+
+var loginSuccess = function loginSuccess(idToken) {
+  return {
+    type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["LOGIN_SUCCESS"],
+    payload: {
+      userToken: idToken
+    }
   };
 };
 
@@ -64026,12 +64046,7 @@ var login = function login(email, password) {
       password: password,
       returnSecureToken: true
     }).then(function (response) {
-      dispatch({
-        type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["LOGIN_SUCCESS"],
-        payload: {
-          userToken: response.data.idToken
-        }
-      });
+      dispatch(loginSuccess(response.data.idToken));
       localStorage.setItem("userToken", response.data.idToken);
     })["catch"](function (error) {
       dispatch({
@@ -64039,7 +64054,31 @@ var login = function login(email, password) {
       });
     });
   };
-};
+}; // *********end of login actions
+// *********start of signup actions
+
+var signup = function signup(email, password) {
+  return function (dispatch) {
+    axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDY95FpDC9eJ3W5gZrZrvcAH3zVirelFzI", {
+      email: email,
+      password: password,
+      returnSecureToken: true
+    }).then(function (response) {
+      dispatch({
+        type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["SIGNUP_USER_SUCCESS"],
+        payload: {
+          userToken: response.data.idToken
+        }
+      });
+      localStorage.setItem("userToken", response.data.idToken);
+    })["catch"](function (error) {
+      dispatch({
+        type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["SIGNUP_USER_FAIL"]
+      });
+    });
+  };
+}; // *******end of signup actions
+
 var clearError = function clearError() {
   return {
     type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["CLEAR_ERRORS"]

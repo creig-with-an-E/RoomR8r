@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const ButtonAppBar=(props)=>{
+const toolbar=(props)=>{
   const classes = useStyles();
   const userAuthenticated = props.userToken ? (
             <React.Fragment>
@@ -39,11 +39,11 @@ const ButtonAppBar=(props)=>{
               <Button className={classes.links} color="inherit" onClick={()=>logout()}>Logout</Button>
             </React.Fragment>
             ):
-           <Button className={classes.links} color="inherit" onClick={()=>Router.push("/login")}>Login</Button>
+           <Button className={classes.links} color="inherit" onClick={()=>Router.push("/auth")}>Login</Button>
 
   const logout=()=>{
     props.logoutUser()
-    Router.push("/login")
+    Router.push("/auth")
   }
 
   return (
@@ -75,4 +75,4 @@ const mapDispatchToProps=(dispatch)=>{
   }
 }
 
-export default connect(mapStateProps, mapDispatchToProps)(ButtonAppBar)
+export default connect(mapStateProps, mapDispatchToProps)(toolbar)
