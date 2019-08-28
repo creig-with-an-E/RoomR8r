@@ -87,7 +87,7 @@ import { Button } from "../components";
                 name="city" value={this.state.city}
               />
               <legend title="Land lord info">
-                <input onChange={this.onInputChange} style={styles.input} placeholder="Full Name" name="first_name" value={this.state.first_name}/>
+                <input onChange={this.onInputChange} style={styles.input} placeholder="landlord's name" name="first_name" value={this.state.first_name}/>
               </legend>
               <span style={{
                 margin: "15px auto",
