@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Router from "next/router"
 import {Button, Spinner} from "../src/components"
 import * as actions from "../store/actions/authActions"
+import Head from "next/head"
 
 import { connect } from "react-redux"
 
@@ -82,6 +83,9 @@ class Auth extends Component {
 
     return (
       <div style={styles.containerStyle}>
+        <Head>
+          <title>RoomR8r | {!this.state.registrationFormSelected ? "Login" : "Signup"}</title>
+        </Head>
           <div>
             <h1 style={styles.logoStyle}>RoomR<span style={{color:"#FF5941"}}>8</span>r</h1>
             <p style={styles.header}>Gamble with the lottery not your accomodation</p>
