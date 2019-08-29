@@ -49,23 +49,16 @@ class App extends Component {
             Because not all landlords are built the same
           </h2>
         </div>
-        <div
-          style={{
-            alignSelf:"center",
-            marginTop:"5px",
-            padding: "20px",
-            width: "380px",
-            textAlign: "center",
-          }}
-        >
+        <section style={styles.sectionStyle}>
           <SearchBar
-            placeholder="search by post code"
+            placeholder="X5X-X5X"
             value={this.state.address}
             onChange={this.onAddressChangeHandler}
             onRequestSearch={this.searchByAddressHandler}
           />
+          <p style={styles.searchHeading}>Search for reviews by Postal Code</p>
           {spinner}
-        </div>            
+        </section>            
         { cards.length !== 0 ? <div style={{overflowY:"scroll", width:"100%"}}>{cards}</div>: null}
       </Layout>
     );
@@ -74,12 +67,26 @@ class App extends Component {
 
 const styles = {
   headerStyle:{
-    fontSize: 26,
+    fontSize: 24,
     color: "rgb(44,54,94)", 
     textAlign: "center",
     fontFamily:'Lexend Tera, sans-serif',
     fontWeight:"bold"
   },
+  sectionStyle:{
+    alignSelf:"center",
+    marginTop:"5px",
+    padding: "20px",
+    width: "380px",
+    textAlign: "center",
+  },
+  searchHeading:{
+    fontSize:16,
+    marginTop:20,
+    color: "rgb(44,54,94)", 
+    fontWeight:"bold",
+    fontFamily:"Poppins, sans serif"
+  }
 };
 
 const mapStateToProps=(state)=>{

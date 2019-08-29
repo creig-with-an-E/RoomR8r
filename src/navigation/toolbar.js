@@ -53,12 +53,19 @@ const toolbar=(props)=>{
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             {/* <MenuIcon /> */}
           </IconButton>
-          <Typography onClick={()=>Router.push("/")} variant="h5" className={classes.title}>
-              RoomR<span style={{color:"#FF5941"}}>8</span>r
-          </Typography>
+            <Typography onClick={()=>Router.push("/")} variant="h5" className={classes.title}>
+              <span className="logoHeader">RoomR<span style={{color:"#FF5941"}} >8</span>r</span>
+            </Typography>
           {userAuthenticated}
         </Toolbar>
       </AppBar>
+      <style jsx>{`
+          .logoHeader:hover {
+            opacity: 0.7;
+            cursor: pointer
+          }
+        `}
+      </style>
     </div>
   );
 }

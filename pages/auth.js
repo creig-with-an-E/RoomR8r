@@ -76,6 +76,9 @@ class Auth extends Component {
                       placeholder="confirm password"
                       type="password" name="password_confirm" /> ) : null }
                   {/* displaying button or spinner */}
+                  <label style={styles.rememberLabel}>Remember me 
+                    <input type="checkbox" style={styles.rememberCheckbox}/>
+                  </label>
                   {button}
                   { this.props.error ? <p style={styles.errorStyle}> {this.props.error} </p>: null }
                 </form>
@@ -84,7 +87,7 @@ class Auth extends Component {
     return (
       <div style={styles.containerStyle}>
         <Head>
-          <title>RoomR8r | {!this.state.registrationFormSelected ? "Login" : "Signup"}</title>
+          <title>RoomR8r • {!this.state.registrationFormSelected ? "Login" : "Signup"}</title>
         </Head>
           <div>
             <h1 style={styles.logoStyle}>RoomR<span style={{color:"#FF5941"}}>8</span>r</h1>
@@ -103,7 +106,7 @@ class Auth extends Component {
           <style jsx>{`
           .createAccountButton :hover {
             opacity: 0.7;
-            cursor: default
+            cursor: pointer
           }
         `}
         </style>
@@ -124,8 +127,6 @@ const styles = {
   },
   mainAreaStyle: {
     backgroundColor: "#191923",
-    // backgroundColor: "#ccc",    
-    // height: "250px",
     width: "300px",
     borderRadius: "5px",
     padding:"20px",
@@ -170,6 +171,15 @@ const styles = {
     fontWeight: "bold",
     color:"#FF5941",
     textDecoration: "underline"
+  },
+  rememberLabel:{
+    padding: 15,
+    margin:"30px auto",
+    textAlign:"center",
+    color: "#fffffa",
+  },
+  rememberCheckbox :{
+    padding: 25
   }
 };
 const mapStateToProps=(state)=>{

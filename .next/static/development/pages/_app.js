@@ -13073,7 +13073,7 @@ function (_App) {
           lineNumber: 42
         },
         __self: this
-      }, "RoomR8r | home"), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("link", {
+      }, "RoomR8r \u2022 home"), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("link", {
         rel: "shortcut icon",
         href: "static/imgs/favicon.ico",
         __source: {

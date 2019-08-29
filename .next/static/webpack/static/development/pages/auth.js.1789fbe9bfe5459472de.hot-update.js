@@ -1,4 +1,4 @@
-webpackHotUpdate("static/development/pages/index.js",{
+webpackHotUpdate("static/development/pages/auth.js",{
 
 /***/ "./node_modules/@material-ui/core/esm/index.js":
 /*!*****************************************************!*\
@@ -500,4 +500,4 @@ __webpack_require__.r(__webpack_exports__);
 /***/ })
 
 })
-//# sourceMappingURL=index.js.09f8fc88bf33ad93534e.hot-update.js.map
+//# sourceMappingURL=auth.js.1789fbe9bfe5459472de.hot-update.js.map

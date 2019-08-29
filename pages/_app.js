@@ -39,7 +39,7 @@ export default withRedux(initStore, { debug: false })(
             />
             <meta property="og:author" content="Fortune Creig" />
             <meta property="og:image" content="static/imgs/ogp.png" />
-            <title>RoomR8r | home</title>
+            <title>RoomR8r • home</title>
             <link rel="shortcut icon" href="static/imgs/favicon.ico" />
             <link
               href="https://fonts.googleapis.com/css?family=Lexend+Tera|Poppins|Fira+Sans&display=swap"
