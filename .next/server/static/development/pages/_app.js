@@ -865,12 +865,6 @@ const initStore = (initialState = {}) => {
         lineNumber: 27
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_4__["Container"], {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 28
-      },
-      __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_9___default.a, {
       __source: {
         fileName: _jsxFileName,
@@ -960,7 +954,7 @@ const initStore = (initialState = {}) => {
         lineNumber: 50
       },
       __self: this
-    })))));
+    }))));
   }
 
 }));
@@ -971,7 +965,7 @@ const initStore = (initialState = {}) => {
 /*!**************************************!*\
   !*** ./store/actions/actionTypes.js ***!
   \**************************************/
-/*! exports provided: LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_USER, CLEAR_ERRORS, SIGNUP_USER, SIGNUP_USER_SUCCESS, SIGNUP_USER_FAIL, SEARCH_BY_ADDRESS_START, SEARCH_BY_ADDRESS_SUCCESS, SEARCH_BY_ADDRESS_FAIL */
+/*! exports provided: LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_USER, CLEAR_ERRORS, SIGNUP_USER, SIGNUP_USER_SUCCESS, SIGNUP_USER_FAIL, SEARCH_BY_ADDRESS_START, SEARCH_BY_ADDRESS_SUCCESS, SEARCH_BY_ADDRESS_FAIL, UPDATE_TOKEN_WITH_COOKIE */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -987,6 +981,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_BY_ADDRESS_START", function() { return SEARCH_BY_ADDRESS_START; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_BY_ADDRESS_SUCCESS", function() { return SEARCH_BY_ADDRESS_SUCCESS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_BY_ADDRESS_FAIL", function() { return SEARCH_BY_ADDRESS_FAIL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_TOKEN_WITH_COOKIE", function() { return UPDATE_TOKEN_WITH_COOKIE; });
 const LOGIN_START = "login_start";
 const LOGIN_SUCCESS = "login_success";
 const LOGIN_FAIL = "login_fail";
@@ -999,6 +994,7 @@ const SIGNUP_USER_FAIL = "sign_user_fail"; //**  app action types ****//
 const SEARCH_BY_ADDRESS_START = "search_by_address_start";
 const SEARCH_BY_ADDRESS_SUCCESS = "search_by_address_success";
 const SEARCH_BY_ADDRESS_FAIL = "search_by_address_fail";
+const UPDATE_TOKEN_WITH_COOKIE = "update_user_token_with_cookie_value";
 
 /***/ }),
 
@@ -1069,6 +1065,8 @@ const INITIAL_STATE = {
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
+  console.log(action.type);
+
   switch (action.type) {
     case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_1__["CLEAR_ERRORS"]:
       return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
@@ -1105,6 +1103,11 @@ const reducer = (state = INITIAL_STATE, action) => {
     case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_1__["SIGNUP_USER_FAIL"]:
       return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
         error: "SOMETHING WENT WRONG"
+      });
+
+    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_1__["UPDATE_TOKEN_WITH_COOKIE"]:
+      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
+        userToken: action.payload
       });
 
     default:

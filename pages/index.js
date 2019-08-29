@@ -1,14 +1,29 @@
 import React, { Component } from "react";
 import {connect} from "react-redux"
 import Router from "next/router"
+import {parseCookies} from "../lib/parseCookies"
+
 import {ReviewCard, Layout, Spinner, SearchBar } from "../src/components"
 import AddReviewForm from "../src/modal/addReviewForm"
 import * as appActions from "../store/actions/appActions"
+import * as authActions from "../store/actions/authActions"
 
 class App extends Component {
-  componentDidMount(){
-    !this.props.userToken? Router.push("/auth") : null
+  static getInitialProps=({req})=>{
+    const cookie = parseCookies(req)
+    return {
+      savedToken: cookie.userToken
+    }
   }
+
+  componentDidMount(){
+    if(!this.props.savedToken){
+      Router.push("/auth")
+    }else{
+      this.props.updateSavedToken(this.props.savedToken)
+    }
+  }
+
   state = {
     address: "",
     modalVisible: false,
@@ -99,6 +114,7 @@ const mapStateToProps=(state)=>{
 
 const mapDispatchToProps=(dispatch)=>{
   return{
+    updateSavedToken:(token)=>dispatch(authActions.updateSavedToken(token)),
     findByAddress:(userToken,address)=>dispatch(appActions.findReviewByAddress(userToken,address))
   }
 }

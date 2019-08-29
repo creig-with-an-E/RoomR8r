@@ -6,6 +6,7 @@ const INITIAL_STATE = {
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
+  console.log(action.type)
   switch (action.type) {
     case actionTypes.CLEAR_ERRORS:
       return {...state, error:""}
@@ -21,6 +22,8 @@ const reducer = (state = INITIAL_STATE, action) => {
       return {...state,error: null, userToken: action.payload.userToken}
     case actionTypes.SIGNUP_USER_FAIL:
       return {...state,error:"SOMETHING WENT WRONG"}
+    case actionTypes.UPDATE_TOKEN_WITH_COOKIE:
+      return {...state, userToken: action.payload}
     default:
       return state
   }

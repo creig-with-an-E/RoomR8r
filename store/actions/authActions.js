@@ -63,10 +63,19 @@ export const clearError=()=>{
   }
 }
 
+//****** */
 export const logoutUser=()=>{
-  localStorage.removeItem("userToken")
-
   return{
     type: actionTypes.LOGOUT_USER
+  }
+}
+
+//****** */
+
+// saving userToken
+export const updateSavedToken=(token)=>{
+  return {
+    type: actionTypes.UPDATE_TOKEN_WITH_COOKIE,
+    payload:token
   }
 }

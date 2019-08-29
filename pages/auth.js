@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import Router from "next/router"
+import Head from "next/head"
+import { connect } from "react-redux"
+import Cookie from "js-cookie"
+
 import {Button, Spinner} from "../src/components"
 import * as actions from "../store/actions/authActions"
-import Head from "next/head"
 
-import { connect } from "react-redux"
 
 class Auth extends Component {
   state = {
@@ -12,6 +14,7 @@ class Auth extends Component {
     email:"",
     password:"",
     password_confirm:"",
+    rememberMe:false, //used to determine whether to store create cookie or not
     loading: false, //updated by componentDidUpdate
   };
   componentDidMount(){
@@ -21,6 +24,8 @@ class Auth extends Component {
   componentDidUpdate(prevProps, prevState){
     // checks that loading has completed at state level
     if(this.props.userToken !== prevProps.userToken){
+      // storing cookie value
+      Cookie.set("userToken",this.props.userToken)
       this.props.userToken ? Router.push("/") : null
       this.setState({loading: false})
     }

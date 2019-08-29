@@ -5,6 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
+import Cookie from "js-cookie"
 
 import {connect} from "react-redux"
 import Router from "next/router"
@@ -42,6 +43,7 @@ const toolbar=(props)=>{
            <Button className={classes.links} color="inherit" onClick={()=>Router.push("/auth")}>Login</Button>
 
   const logout=()=>{
+    Cookie.remove("userToken")
     props.logoutUser()
     Router.push("/auth")
   }
