@@ -13266,7 +13266,6 @@ var INITIAL_STATE = {
 var reducer = function reducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : INITIAL_STATE;
   var action = arguments.length > 1 ? arguments[1] : undefined;
-  console.log(action.type);
 
   switch (action.type) {
     case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_1__["CLEAR_ERRORS"]:

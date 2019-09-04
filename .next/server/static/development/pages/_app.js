@@ -1065,8 +1065,6 @@ const INITIAL_STATE = {
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
-  console.log(action.type);
-
   switch (action.type) {
     case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_1__["CLEAR_ERRORS"]:
       return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {

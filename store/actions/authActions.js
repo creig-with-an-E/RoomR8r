@@ -1,5 +1,6 @@
 import * as actionTypes from "./actionTypes"
 import axios from "axios"
+import Cookie from "js-cookie"
 
 // ********** start of login actions
 const loginStart=()=>{
@@ -9,6 +10,7 @@ const loginStart=()=>{
 }
 
 const loginSuccess=(idToken)=>{
+  createCookie(idToken)
   return {
     type:actionTypes.LOGIN_SUCCESS,
     payload:{
@@ -22,7 +24,6 @@ export const login=(email, password)=>{
     axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDY95FpDC9eJ3W5gZrZrvcAH3zVirelFzI`,{email, password, returnSecureToken:true})
     .then(response=>{
       dispatch(loginSuccess(response.data.idToken))
-      localStorage.setItem("userToken",response.data.idToken)
     })
     .catch(error=>{
       dispatch({
@@ -32,29 +33,40 @@ export const login=(email, password)=>{
   }
 }
 
+//**handling persistant storage */ 
+const createCookie=(idToken)=>{
+  // creates cookie that expires in an hour
+  Cookie.set("userToken",idToken,{expires:1/24})
+}
+
+const destroyCookie=()=>{
+  // deletes cookie when user logs out
+  Cookie.remove("userToken")
+}
+
 // *********end of login actions
 
 // *********start of signup actions
+const signupSuccess=(idToken)=>{
+  createCookie(idToken)
+  return {
+    type:actionTypes.SIGNUP_USER_SUCCESS,
+    payload:{
+      userToken: idToken
+    }
+  }
+}
 export const signup=(email, password)=>{
   return (dispatch)=>{
     axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDY95FpDC9eJ3W5gZrZrvcAH3zVirelFzI`,{email, password, returnSecureToken:true})
     .then(response=>{
-      dispatch({
-        type:actionTypes.SIGNUP_USER_SUCCESS,
-        payload:{
-          userToken: response.data.idToken
-        }
-      })
-      localStorage.setItem("userToken",response.data.idToken)
+      dispatch(signupSuccess(response.data.idToken))
     })
     .catch(error=>{
-      dispatch({
-        type: actionTypes.SIGNUP_USER_FAIL
-      })
+      dispatch({ type: actionTypes.SIGNUP_USER_FAIL })
     })
   }
 }
-
 
 // *******end of signup actions
 export const clearError=()=>{
@@ -65,6 +77,7 @@ export const clearError=()=>{
 
 //****** */
 export const logoutUser=()=>{
+  destroyCookie()
   return{
     type: actionTypes.LOGOUT_USER
   }

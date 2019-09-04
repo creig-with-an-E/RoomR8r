@@ -6,7 +6,6 @@ const INITIAL_STATE = {
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
-  console.log(action.type)
   switch (action.type) {
     case actionTypes.CLEAR_ERRORS:
       return {...state, error:""}

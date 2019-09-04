@@ -35,7 +35,7 @@ const toolbar=(props)=>{
   const classes = useStyles();
   const userAuthenticated = props.userToken ? (
             <React.Fragment>
-              <Link href="/"><Button className={classes.links} color="inherit">Home</Button></Link> 
+              <Link href="/"><Button className={classes.links} >Home</Button></Link> 
               <Button onClick={props.showModalHandle} className={classes.links} color="inherit">Add</Button>
               <Button className={classes.links} color="inherit" onClick={()=>logout()}>Logout</Button>
             </React.Fragment>
@@ -43,8 +43,7 @@ const toolbar=(props)=>{
            <Button className={classes.links} color="inherit" onClick={()=>Router.push("/auth")}>Login</Button>
 
   const logout=()=>{
-    Cookie.remove("userToken")
-    props.logoutUser()
+    props.endSession()
     Router.push("/auth")
   }
 
@@ -80,7 +79,7 @@ const mapStateProps=(state)=>{
 
 const mapDispatchToProps=(dispatch)=>{
   return{
-    logoutUser: ()=>dispatch(logoutUser)
+    endSession: ()=>dispatch(logoutUser())
   }
 }
 

@@ -24,8 +24,7 @@ class Auth extends Component {
   componentDidUpdate(prevProps, prevState){
     // checks that loading has completed at state level
     if(this.props.userToken !== prevProps.userToken){
-      // storing cookie value
-      Cookie.set("userToken",this.props.userToken)
+      // storing cookie value which expires in an hour
       this.props.userToken ? Router.push("/") : null
       this.setState({loading: false})
     }
