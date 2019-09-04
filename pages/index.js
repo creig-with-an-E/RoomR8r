@@ -18,7 +18,7 @@ class App extends Component {
 
   componentDidMount(){
     if(!this.props.savedToken){
-      Router.push("/auth")
+      Router.replace("/auth")
     }else{
       this.props.updateSavedToken(this.props.savedToken)
     }
@@ -27,16 +27,46 @@ class App extends Component {
   state = {
     address: "",
     modalVisible: false,
-    startingUp: true
+    startingUp: true,
+    returnedNoResult:false, //used as flag to check if user has attempted searching 
+    addressError:false
   };
 
   onAddressChangeHandler = input => {
     //handles user input and stores in local state
-    this.setState({
-      address: input.toUpperCase()
-    });
+    const valid = this.isValidatePostalCode(input)
+      if(valid){
+      const addDash = input.length===3 ? `${input.slice(0,3)}-${input.slice(3)}`:input
+      this.setState({
+       addressError:false,
+       address: addDash.toUpperCase()
+    })
+    return
+    }
+    this.setState({addressError:!valid})
   };
 
+  isValidatePostalCode=(input)=>{
+    // validates the postal code to fit canadian format of X1X-X1X
+    const val = input.split("")
+    let valid = true
+    let counter = 0
+    val.forEach((element,index)=>{
+      if((counter % 2) !== 0){
+        if(element === "-"){
+          return
+        }else{
+          counter++
+          valid = valid && !isNaN(parseInt(element)) 
+        }    
+      }else{
+        counter++
+        // validates the strings are in the right place by canadian postal code format
+        valid = valid && /^[A-Za-z\-]/.test(element)
+      }
+    })
+    return valid
+  }
   searchByAddressHandler = event => {
     this.props.findByAddress(this.props.userToken, this.state.address)
   }
@@ -59,22 +89,24 @@ class App extends Component {
             modalVisible={this.state.modalVisible}
             hideModalHandle={this.hideModalHandle}>
         </AddReviewForm>
-        <div style={{marginTop:"60px"}}>
+        <div>
           <h2 style={styles.headerStyle}>
             Because not all landlords are built the same
           </h2>
         </div>
         <section style={styles.sectionStyle}>
           <SearchBar
+            invalid={this.state.addressError ? true : false}
             placeholder="X5X-X5X"
             value={this.state.address}
             onChange={this.onAddressChangeHandler}
             onRequestSearch={this.searchByAddressHandler}
           />
+          <p style={styles.errorStyle}> {this.state.addressError ? "Acceptable format is X9X-9X9" : ""} </p>
           <p style={styles.searchHeading}>Search for reviews by Postal Code</p>
           {spinner}
+        { cards.length !== 0 ? <div style={{ width:"100%"}}>{cards}</div>: null}
         </section>            
-        { cards.length !== 0 ? <div style={{overflowY:"scroll", width:"100%"}}>{cards}</div>: null}
       </Layout>
     );
   }
@@ -82,23 +114,30 @@ class App extends Component {
 
 const styles = {
   headerStyle:{
+    marginTop:"80px",
     fontSize: 24,
-    color: "rgb(44,54,94)", 
+    color: "rgb(44,54,94)",
     textAlign: "center",
-    fontFamily:'Lexend Tera, sans-serif',
+    fontFamily:'Poppins, sans-serif',
     fontWeight:"bold"
   },
   sectionStyle:{
+    overflowY:"scroll",
     alignSelf:"center",
     marginTop:"5px",
     padding: "20px",
-    width: "380px",
     textAlign: "center",
+    width:"100%"
   },
   searchHeading:{
     fontSize:16,
     marginTop:20,
     color: "rgb(44,54,94)", 
+    fontWeight:"bold",
+    fontFamily:"Poppins, sans serif"
+  },
+  errorStyle:{
+    color:"rgb(255,89,65)",
     fontWeight:"bold",
     fontFamily:"Poppins, sans serif"
   }

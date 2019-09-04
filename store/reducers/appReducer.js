@@ -14,7 +14,7 @@ const reducer = (state = INITIAL_STATE, action) => {
     case actionTypes.SEARCH_BY_ADDRESS_SUCCESS:
       return {...state,loading: false, searchResults: action.payload.data}
     case actionTypes.SEARCH_BY_ADDRESS_FAIL:
-      return {...state, loading: false, error: error}
+      return {...state, loading: false, error: "SOMETHING WENT WRONG"}
     default:
       return state
   }

@@ -18,7 +18,8 @@ const styles ={
     flexDirection: "column",
     height: "100vh",
     justifyContent: "center",
-    backgroundColor: "#fffffa"
+    backgroundColor: "#fffffa",
+    marginBottom: 30,
     },
 }
 export {Layout}

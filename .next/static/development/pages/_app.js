@@ -13233,7 +13233,7 @@ var reducer = function reducer() {
     case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_1__["SEARCH_BY_ADDRESS_FAIL"]:
       return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
         loading: false,
-        error: error
+        error: "SOMETHING WENT WRONG"
       });
 
     default:
