@@ -32,16 +32,16 @@ export default withRedux(initStore, { debug: false })(
             <meta
               name="description"
               property="og:description"
-              content="Looking out for tenants and landlords alike. Gamble with the lottery not your housing."
+              content="Community of renters and landlord's alike. Using the app you are able to view and add your own review of the landlord and the house culture at a particular address. This app is built with one goal and one goal alone to improve the renting and leasing markets for all stakeholders at hand."
             />
             <meta
               property="og:url"
               content="http://roomr8r.ca/"
             />
             <meta name="author" property="og:author" content="Fortune Creig" />
-            <meta property="og:image" content="/static/imgs/ogp_image.png" />
+            <meta property="og:image" content="http://roomr8r.ca/static/imgs/ogp_image.png" />
             <title>RoomR8r • home</title>
-            <link rel="shortcut icon" href="/static/imgs/favicon.ico" />
+            <link rel="shortcut icon" href="http://roomr8r.ca/static/imgs/favicon.ico" />
             <link
               href="https://fonts.googleapis.com/css?family=Lexend+Tera|Poppins|Fira+Sans&display=swap"
               rel="stylesheet"
