@@ -27,18 +27,19 @@ export default withRedux(initStore, { debug: false })(
         <html prefix="og:http://ogp.me/ns#">
           {/* <Container> */}
           <Head>
-            <meta property="og:title" content="RoomR8r" />
+            <meta name="title" property="og:title" content="RoomR8r" />
             <meta property="og:type" content="website" />
             <meta
+              name="description"
               property="og:description"
-              content="Looking out for tenants and landlords alike. Gamble with the lottery not your housing"
+              content="Looking out for tenants and landlords alike. Gamble with the lottery not your housing."
             />
             <meta
               property="og:url"
-              content="https://roomr8r.herokuapp.com/login"
+              content="https://roomr8r.herokuapp.com/"
             />
             <meta property="og:author" content="Fortune Creig" />
-            <meta property="og:image" content="static/imgs/ogp.png" />
+            <meta property="og:image" content="./static/imgs/ogp_image.png" />
             <title>RoomR8r • home</title>
             <link rel="shortcut icon" href="static/imgs/favicon.ico" />
             <link
