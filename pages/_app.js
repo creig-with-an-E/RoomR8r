@@ -36,9 +36,9 @@ export default withRedux(initStore, { debug: false })(
             />
             <meta
               property="og:url"
-              content="https://roomr8r.herokuapp.com/"
+              content="http://roomr8r.ca/"
             />
-            <meta property="og:author" content="Fortune Creig" />
+            <meta name="author" property="og:author" content="Fortune Creig" />
             <meta property="og:image" content="/static/imgs/ogp_image.png" />
             <title>RoomR8r • home</title>
             <link rel="shortcut icon" href="/static/imgs/favicon.ico" />
