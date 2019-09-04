@@ -40,6 +40,8 @@ export default withRedux(initStore, { debug: false })(
             />
             <meta name="author" property="og:author" content="Fortune Creig" />
             <meta property="og:image" content="http://roomr8r.ca/static/imgs/ogp_image.png" />
+            <meta property="og:image:width" content="400" />
+            <meta property="og:image:height" content="300" />
             <title>RoomR8r • home</title>
             <link rel="shortcut icon" href="http://roomr8r.ca/static/imgs/favicon.ico" />
             <link
