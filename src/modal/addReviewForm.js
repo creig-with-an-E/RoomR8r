@@ -1,5 +1,5 @@
 import React, { Component,useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+
 import ModalComponent from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
@@ -20,7 +20,6 @@ import { Button } from "../components";
     last_name:"",
     comment:"",
     city:""
-
   }
   handleClose = () => {
     this.props.hideModalHandle();
@@ -73,9 +72,11 @@ import { Button } from "../components";
               Add Review
             </h2>
             <form onSubmit={this.addReviewHandle}>
-              <input onChange={this.onInputChange} style={styles.input} type="text" value={this.state.postal_code}
+              <input onChange={this.onInputChange} style={styles.input} 
+                type="text" value={this.state.postal_code}
                 required placeholder="Post Code" name="postal_code"/>
-              <input onChange={this.onInputChange}  style={styles.input} type="text" name="street_number"
+              <input onChange={this.onInputChange}  style={styles.input} 
+                type="text" name="street_number"
                 required placeholder="Street address" value={this.state.street_number} />
               <input onChange={this.onInputChange}  style={styles.input} 
                 type="text" placeholder="Apartment Number"
@@ -86,7 +87,9 @@ import { Button } from "../components";
                 placeholder="City"
                 name="city" value={this.state.city}
               />
-                <input onChange={this.onInputChange} style={styles.input} placeholder="landlord's name" name="first_name" value={this.state.first_name}/>
+                <input onChange={this.onInputChange} style={styles.input} 
+                  placeholder="landlord's name" name="first_name" 
+                  value={this.state.first_name}/>
                 <textarea onChange={this.onInputChange} style={styles.input} placeholder="Feedback" name="comment" value={this.state.comment}/>
               <span style={{
                 margin: "15px auto",
@@ -118,11 +121,11 @@ const styles = {
   },
   paper: {
     margin: "0 auto",
-    borderRadius: "3px",
+    borderRadius: "5px",
     background: "rgb(44,54,94)",
     boxShadow: "#000",
     width: 320,
-    padding: "4px, 4px, 3px"
+    padding: "4px, 4px, 3px"  
   },
   input: {
     padding: 15,
