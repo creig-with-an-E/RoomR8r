@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme => ({
     transform: 'rotate(180deg)',
   },
   expandedArea:{
-    backgroundColor:"#474A48",
+    backgroundColor:"rgb(44,54,94)",
     color:"#fffffa",
   },
   expandedAreaLabel:{
