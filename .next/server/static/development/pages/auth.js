@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1489,6 +1489,9 @@ const ReviewCard = props => {
     __self: undefined
   }, "Street Address:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: classes.resultsText,
+    style: {
+      color: "#FF5941"
+    },
     __source: {
       fileName: _jsxFileName,
       lineNumber: 111
@@ -1636,7 +1639,7 @@ const ReviewCard = props => {
 /*!*********************************!*\
   !*** ./src/components/index.js ***!
   \*********************************/
-/*! exports provided: Button, ReviewCard, Layout, SearchBar, Spinner */
+/*! exports provided: Button, Layout, SearchBar, Spinner, ReviewCard */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2010,7 +2013,7 @@ const mapDispatchToProps = dispatch => {
 /*!**************************************!*\
   !*** ./store/actions/actionTypes.js ***!
   \**************************************/
-/*! exports provided: LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_USER, CLEAR_ERRORS, SIGNUP_USER, SIGNUP_USER_SUCCESS, SIGNUP_USER_FAIL, SEARCH_BY_ADDRESS_START, SEARCH_BY_ADDRESS_SUCCESS, SEARCH_BY_ADDRESS_FAIL, UPDATE_TOKEN_WITH_COOKIE */
+/*! exports provided: LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_USER, CLEAR_ERRORS, SIGNUP_USER, SIGNUP_USER_SUCCESS, SIGNUP_USER_FAIL, SEARCH_BY_ADDRESS_START, SEARCH_BY_ADDRESS_SUCCESS, SEARCH_BY_ADDRESS_FAIL, RESET_APPLICATION_STATE, UPDATE_TOKEN_WITH_COOKIE */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2026,6 +2029,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_BY_ADDRESS_START", function() { return SEARCH_BY_ADDRESS_START; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_BY_ADDRESS_SUCCESS", function() { return SEARCH_BY_ADDRESS_SUCCESS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_BY_ADDRESS_FAIL", function() { return SEARCH_BY_ADDRESS_FAIL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RESET_APPLICATION_STATE", function() { return RESET_APPLICATION_STATE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_TOKEN_WITH_COOKIE", function() { return UPDATE_TOKEN_WITH_COOKIE; });
 const LOGIN_START = "login_start";
 const LOGIN_SUCCESS = "login_success";
@@ -2039,7 +2043,92 @@ const SIGNUP_USER_FAIL = "sign_user_fail"; //**  app action types ****//
 const SEARCH_BY_ADDRESS_START = "search_by_address_start";
 const SEARCH_BY_ADDRESS_SUCCESS = "search_by_address_success";
 const SEARCH_BY_ADDRESS_FAIL = "search_by_address_fail";
+const RESET_APPLICATION_STATE = "reset_application_state";
 const UPDATE_TOKEN_WITH_COOKIE = "update_user_token_with_cookie_value";
+
+/***/ }),
+
+/***/ "./store/actions/appActions.js":
+/*!*************************************!*\
+  !*** ./store/actions/appActions.js ***!
+  \*************************************/
+/*! exports provided: findReviewByAddress, resetApplicationState */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "findReviewByAddress", function() { return findReviewByAddress; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resetApplicationState", function() { return resetApplicationState; });
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/objectSpread */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/keys */ "./node_modules/@babel/runtime-corejs2/core-js/object/keys.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "axios");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _actionTypes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./actionTypes */ "./store/actions/actionTypes.js");
+
+
+
+
+
+const findByAddressStart = () => {
+  // called when findReviewByAddress starts
+  // params: 
+  // return:
+  return {
+    type: _actionTypes__WEBPACK_IMPORTED_MODULE_3__["SEARCH_BY_ADDRESS_START"]
+  };
+};
+
+const findByAddressSuccess = response => {
+  // iterating over response placing id as part of object
+  const arrayData = _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default()(response.data).map(key => {
+    return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, response.data[key], {
+      id: key
+    });
+  });
+
+  return {
+    type: _actionTypes__WEBPACK_IMPORTED_MODULE_3__["SEARCH_BY_ADDRESS_SUCCESS"],
+    payload: {
+      data: arrayData
+    }
+  };
+};
+
+const findByAddressFail = error => {
+  return {
+    type: _actionTypes__WEBPACK_IMPORTED_MODULE_3__["SEARCH_BY_ADDRESS_FAIL"],
+    payload: {
+      data: error
+    }
+  };
+};
+
+const findReviewByAddress = (userToken, address) => {
+  // fetches reviews from firebase
+  // return: array of objects
+  // params: userToken passed from authState and address 
+  return dispatch => {
+    dispatch(findByAddressStart());
+    /*** searchParametersPassed: if search parameter is blank it returns all results
+     *   in the event parameter is passed, it returns relevant postal code results
+    */
+
+    const searchParametersPassed = address ? `&orderBy="postal_code"&startAt="${address}"&endAt="${address}"` : "";
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get(`https://accomo-rater.firebaseio.com/landlord_data.json?auth=${userToken}${searchParametersPassed}`).then(response => {
+      dispatch(findByAddressSuccess(response));
+    }).catch(error => {
+      dispatch(findByAddressFail(error));
+    });
+  };
+};
+/** resetting state */
+
+const resetApplicationState = () => {
+  return {
+    type: _actionTypes__WEBPACK_IMPORTED_MODULE_3__["RESET_APPLICATION_STATE"]
+  };
+};
 
 /***/ }),
 
@@ -2062,6 +2151,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! js-cookie */ "js-cookie");
 /* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(js_cookie__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _appActions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./appActions */ "./store/actions/appActions.js");
+
 
 
  // ********** start of login actions
@@ -2107,7 +2198,10 @@ const createCookie = idToken => {
 };
 
 const destroyCookie = () => {
-  // deletes cookie when user logs out
+  /** clears application state
+   * deletes cookie when user logs out
+  */
+  _appActions__WEBPACK_IMPORTED_MODULE_3__["resetApplicationState"]();
   js_cookie__WEBPACK_IMPORTED_MODULE_2___default.a.remove("userToken");
 }; // *********end of login actions
 // *********start of signup actions
@@ -2162,7 +2256,7 @@ const updateSavedToken = token => {
 
 /***/ }),
 
-/***/ 4:
+/***/ 5:
 /*!*****************************!*\
   !*** multi ./pages/auth.js ***!
   \*****************************/

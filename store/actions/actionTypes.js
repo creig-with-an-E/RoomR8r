@@ -11,5 +11,6 @@ export const SIGNUP_USER_FAIL = "sign_user_fail"
 export const SEARCH_BY_ADDRESS_START = "search_by_address_start"
 export const SEARCH_BY_ADDRESS_SUCCESS = "search_by_address_success"
 export const SEARCH_BY_ADDRESS_FAIL = "search_by_address_fail"
+export const RESET_APPLICATION_STATE = "reset_application_state"
 
 export const UPDATE_TOKEN_WITH_COOKIE = "update_user_token_with_cookie_value"

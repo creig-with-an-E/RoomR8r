@@ -49,3 +49,11 @@ export const findReviewByAddress= (userToken,address) => {
     });
   }
   };
+
+  /** resetting state */
+
+  export const resetApplicationState=()=>{
+    return{
+      type: actionTypes.RESET_APPLICATION_STATE
+    }
+  }

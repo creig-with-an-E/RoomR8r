@@ -108,7 +108,7 @@ const { first_name, last_name } = landlord_bio;
         {/* street address */}
         <Typography  style={{display:"flex"}}>
           <span className={classes.labelStyles}>Street Address:</span>
-          <span className={classes.resultsText}>
+          <span className={classes.resultsText} style={{color:"#FF5941"}}>
             {address.street_number}
           </span>
         </Typography>

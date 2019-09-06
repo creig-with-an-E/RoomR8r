@@ -1,6 +1,7 @@
 import * as actionTypes from "./actionTypes"
 import axios from "axios"
 import Cookie from "js-cookie"
+import * as appActions from "./appActions"
 
 // ********** start of login actions
 const loginStart=()=>{
@@ -40,7 +41,10 @@ const createCookie=(idToken)=>{
 }
 
 const destroyCookie=()=>{
-  // deletes cookie when user logs out
+  /** clears application state
+   * deletes cookie when user logs out
+  */
+  appActions.resetApplicationState()
   Cookie.remove("userToken")
 }
 
