@@ -87,6 +87,7 @@ import { Button } from "../components";
                 name="city" value={this.state.city}
               />
                 <input onChange={this.onInputChange} style={styles.input} placeholder="landlord's name" name="first_name" value={this.state.first_name}/>
+                <textarea onChange={this.onInputChange} style={styles.input} placeholder="Feedback" name="comment" value={this.state.comment}/>
               <span style={{
                 margin: "15px auto",
                 justifyContent: "center",
