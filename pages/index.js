@@ -89,12 +89,10 @@ class App extends Component {
             modalVisible={this.state.modalVisible}
             hideModalHandle={this.hideModalHandle}>
         </AddReviewForm>
-        <div>
-          <h2 style={styles.headerStyle}>
+        <section style={styles.sectionStyle}>
+        <h2 style={styles.headerStyle}>
             Because not all landlords are built the same
           </h2>
-        </div>
-        <section style={styles.sectionStyle}>
           <SearchBar
             invalid={this.state.addressError ? true : false}
             placeholder="X5X-X5X"
@@ -115,7 +113,7 @@ class App extends Component {
 const styles = {
   headerStyle:{
     marginTop:"80px",
-    fontSize: 24,
+    fontSize: 22,
     color: "rgb(44,54,94)",
     textAlign: "center",
     fontFamily:'Poppins, sans-serif',

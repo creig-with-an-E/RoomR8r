@@ -1062,7 +1062,8 @@ class App extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
         lineNumber: 87
       },
       __self: this
-    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("section", {
+      style: styles.sectionStyle,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 92
@@ -1075,14 +1076,7 @@ class App extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
         lineNumber: 93
       },
       __self: this
-    }, "Because not all landlords are built the same")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("section", {
-      style: styles.sectionStyle,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 97
-      },
-      __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_src_components__WEBPACK_IMPORTED_MODULE_6__["SearchBar"], {
+    }, "Because not all landlords are built the same"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_src_components__WEBPACK_IMPORTED_MODULE_6__["SearchBar"], {
       invalid: this.state.addressError ? true : false,
       placeholder: "X5X-X5X",
       value: this.state.address,
@@ -1090,21 +1084,21 @@ class App extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       onRequestSearch: this.searchByAddressHandler,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 98
+        lineNumber: 96
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", {
       style: styles.errorStyle,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 105
+        lineNumber: 103
       },
       __self: this
     }, " ", this.state.addressError ? "Acceptable format is X9X-9X9" : "", " "), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", {
       style: styles.searchHeading,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 106
+        lineNumber: 104
       },
       __self: this
     }, "Search for reviews by Postal Code"), spinner, cards.length !== 0 ? react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
@@ -1113,7 +1107,7 @@ class App extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 108
+        lineNumber: 106
       },
       __self: this
     }, cards) : null));
@@ -1133,7 +1127,7 @@ Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODUL
 const styles = {
   headerStyle: {
     marginTop: "80px",
-    fontSize: 24,
+    fontSize: 22,
     color: "rgb(44,54,94)",
     textAlign: "center",
     fontFamily: 'Poppins, sans-serif',
@@ -1562,7 +1556,7 @@ const ReviewCard = props => {
 /*!*********************************!*\
   !*** ./src/components/index.js ***!
   \*********************************/
-/*! exports provided: Button, Layout, SearchBar, Spinner, ReviewCard */
+/*! exports provided: Button, ReviewCard, Layout, SearchBar, Spinner */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1671,7 +1665,7 @@ const SearchBar = props => {
       borderRadius: "20px",
       margin: "0 auto",
       maxWidth: "360px",
-      padding: 7,
+      padding: 3,
       boxShadow: '1px 3px 6px 2px rgba(44,54,94,0.6)'
     }
   };
