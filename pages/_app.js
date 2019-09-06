@@ -1,6 +1,6 @@
-import { Provider } from "react-redux";
-import App, { Container } from "next/app";
-import withRedux from "next-redux-wrapper";
+import { Provider } from "react-redux"
+import App from "next/app"
+import withRedux from "next-redux-wrapper"
 
 import { createStore, applyMiddleware } from "redux";
 import reduxThunk from "redux-thunk";
@@ -25,7 +25,6 @@ export default withRedux(initStore, { debug: false })(
       const { Component, pageProps, store } = this.props;
       return (
         <html prefix="og:http://ogp.me/ns#">
-          {/* <Container> */}
           <Head>
             <meta name="title" property="og:title" content="RoomR8r" />
             <meta property="og:type" content="website" />
@@ -52,7 +51,6 @@ export default withRedux(initStore, { debug: false })(
           <Provider store={store}>
             <Component {...pageProps} />
           </Provider>
-        {/* </Container> */}
         </html>
       );
     }

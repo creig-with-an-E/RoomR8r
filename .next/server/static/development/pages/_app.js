@@ -868,15 +868,16 @@ const initStore = (initialState = {}) => {
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_9___default.a, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 29
+        lineNumber: 28
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("meta", {
+      name: "title",
       property: "og:title",
       content: "RoomR8r",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 30
+        lineNumber: 29
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("meta", {
@@ -884,26 +885,28 @@ const initStore = (initialState = {}) => {
       content: "website",
       __source: {
         fileName: _jsxFileName,
+        lineNumber: 30
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("meta", {
+      name: "description",
+      property: "og:description",
+      content: "Community of renters and landlord's alike. Using the app you are able to view and add your own review of the landlord and the house culture at a particular address. This app is built with one goal and one goal alone to improve the renting and leasing markets for all stakeholders at hand.",
+      __source: {
+        fileName: _jsxFileName,
         lineNumber: 31
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("meta", {
-      property: "og:description",
-      content: "Looking out for tenants and landlords alike. Gamble with the lottery not your housing",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 32
-      },
-      __self: this
-    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("meta", {
       property: "og:url",
-      content: "https://roomr8r.herokuapp.com/login",
+      content: "http://roomr8r.ca/",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 36
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("meta", {
+      name: "author",
       property: "og:author",
       content: "Fortune Creig",
       __source: {
@@ -913,24 +916,40 @@ const initStore = (initialState = {}) => {
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("meta", {
       property: "og:image",
-      content: "static/imgs/ogp.png",
+      content: "http://roomr8r.ca/static/imgs/ogp_image.png",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 41
       },
       __self: this
-    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("title", {
+    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("meta", {
+      property: "og:image:width",
+      content: "400",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 42
       },
       __self: this
-    }, "RoomR8r \u2022 home"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("link", {
-      rel: "shortcut icon",
-      href: "static/imgs/favicon.ico",
+    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("meta", {
+      property: "og:image:height",
+      content: "300",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 43
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("title", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 44
+      },
+      __self: this
+    }, "RoomR8r \u2022 home"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("link", {
+      rel: "shortcut icon",
+      href: "http://roomr8r.ca/static/imgs/favicon.ico",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 45
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("link", {
@@ -938,20 +957,20 @@ const initStore = (initialState = {}) => {
       rel: "stylesheet",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 44
+        lineNumber: 46
       },
       __self: this
     })), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_3__["Provider"], {
       store: store,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 49
+        lineNumber: 51
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, pageProps, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 50
+        lineNumber: 52
       },
       __self: this
     }))));
