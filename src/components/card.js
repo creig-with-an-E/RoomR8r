@@ -29,6 +29,7 @@ const useStyles = makeStyles(theme => ({
     color:"#fff"
   },
   media: {
+    borderRadius:"7px",
     margin:10,
     height: 0,
     paddingTop: '56.25%', // 16:9

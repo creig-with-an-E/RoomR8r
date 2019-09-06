@@ -1309,6 +1309,7 @@ const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["
     color: "#fff"
   },
   media: {
+    borderRadius: "7px",
     margin: 10,
     height: 0,
     paddingTop: '56.25%' // 16:9
@@ -1383,7 +1384,7 @@ const ReviewCard = props => {
     className: classes.card,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 94
+      lineNumber: 95
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["CardMedia"], {
@@ -1392,14 +1393,14 @@ const ReviewCard = props => {
     title: "map view image",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 95
+      lineNumber: 96
     },
     __self: undefined
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["CardContent"], {
     className: classes.cardContent,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 100
+      lineNumber: 101
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Typography"], {
@@ -1408,21 +1409,21 @@ const ReviewCard = props => {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 101
+      lineNumber: 102
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: classes.labelStyles,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 102
+      lineNumber: 103
     },
     __self: undefined
   }, "Postal Code:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: classes.resultsText,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 103
+      lineNumber: 104
     },
     __self: undefined
   }, postal_code)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Typography"], {
@@ -1431,14 +1432,14 @@ const ReviewCard = props => {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 108
+      lineNumber: 109
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: classes.labelStyles,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 109
+      lineNumber: 110
     },
     __self: undefined
   }, "Street Address:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -1448,7 +1449,7 @@ const ReviewCard = props => {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 110
+      lineNumber: 111
     },
     __self: undefined
   }, address.street_number)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Typography"], {
@@ -1457,28 +1458,28 @@ const ReviewCard = props => {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 114
+      lineNumber: 115
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: classes.labelStyles,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 115
+      lineNumber: 116
     },
     __self: undefined
   }, "City:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: classes.resultsText,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 116
+      lineNumber: 117
     },
     __self: undefined
   }, ""))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["CardActions"], {
     className: classes.footer,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 121
+      lineNumber: 122
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_lab_Rating__WEBPACK_IMPORTED_MODULE_5___default.a, {
@@ -1490,7 +1491,7 @@ const ReviewCard = props => {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 122
+      lineNumber: 123
     },
     __self: undefined
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["IconButton"], {
@@ -1502,7 +1503,7 @@ const ReviewCard = props => {
     "aria-label": "show more",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 123
+      lineNumber: 124
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_ExpandMore__WEBPACK_IMPORTED_MODULE_4___default.a, {
@@ -1511,7 +1512,7 @@ const ReviewCard = props => {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 131
+      lineNumber: 132
     },
     __self: undefined
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Collapse"], {
@@ -1520,21 +1521,21 @@ const ReviewCard = props => {
     unmountOnExit: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 134
+      lineNumber: 135
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["CardContent"], {
     className: classes.expandedArea,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 135
+      lineNumber: 136
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Typography"], {
     className: classes.collapseSectionHeader,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 136
+      lineNumber: 137
     },
     __self: undefined
   }, "About Landlord"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Typography"], {
@@ -1543,21 +1544,21 @@ const ReviewCard = props => {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 137
+      lineNumber: 138
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: classes.expandedAreaLabel,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 138
+      lineNumber: 139
     },
     __self: undefined
   }, "Name: "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: classes.expandedAreaResults,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 139
+      lineNumber: 140
     },
     __self: undefined
   }, first_name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Typography"], {
@@ -1566,20 +1567,20 @@ const ReviewCard = props => {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 143
+      lineNumber: 144
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: classes.expandedAreaLabel,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 144
+      lineNumber: 145
     },
     __self: undefined
   }, "Feedback: "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 145
+      lineNumber: 146
     },
     __self: undefined
   }, comment)))));
@@ -1593,7 +1594,7 @@ const ReviewCard = props => {
 /*!*********************************!*\
   !*** ./src/components/index.js ***!
   \*********************************/
-/*! exports provided: Button, ReviewCard, Layout, SearchBar, Spinner */
+/*! exports provided: Button, ReviewCard, Layout, Spinner, SearchBar */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1699,11 +1700,11 @@ const SearchBar = props => {
   const styles = {
     searchbarStyle: {
       backgroundColor: props.invalid ? "rgba(255,89,65, .4)" : "rgba(44,54,94,0.1)",
-      borderRadius: "20px",
+      borderRadius: "3px",
       margin: "0 auto",
       maxWidth: "360px",
       padding: 3,
-      boxShadow: '1px 3px 6px 2px rgba(44,54,94,0.6)'
+      boxShadow: '0px 1px 3px 1px rgba(44,54,94,0.6)'
     }
   };
   return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(material_ui_search_bar__WEBPACK_IMPORTED_MODULE_2___default.a, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props, {
