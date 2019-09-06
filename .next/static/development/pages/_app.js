@@ -13004,13 +13004,13 @@ function (_App) {
         prefix: "og:http://ogp.me/ns#",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 27
+          lineNumber: 28
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_16___default.a, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 28
+          lineNumber: 29
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("meta", {
@@ -13019,7 +13019,7 @@ function (_App) {
         content: "RoomR8r",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 29
+          lineNumber: 30
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("meta", {
@@ -13027,7 +13027,7 @@ function (_App) {
         content: "website",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 30
+          lineNumber: 31
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("meta", {
@@ -13036,7 +13036,7 @@ function (_App) {
         content: "Community of renters and landlord's alike. Using the app you are able to view and add your own review of the landlord and the house culture at a particular address. This app is built with one goal and one goal alone to improve the renting and leasing markets for all stakeholders at hand.",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 31
+          lineNumber: 32
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("meta", {
@@ -13044,7 +13044,7 @@ function (_App) {
         content: "http://roomr8r.ca/",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 36
+          lineNumber: 37
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("meta", {
@@ -13053,7 +13053,7 @@ function (_App) {
         content: "Fortune Creig",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 40
+          lineNumber: 41
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("meta", {
@@ -13061,7 +13061,7 @@ function (_App) {
         content: "http://roomr8r.ca/static/imgs/ogp_image.png",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 41
+          lineNumber: 42
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("meta", {
@@ -13069,7 +13069,7 @@ function (_App) {
         content: "400",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 42
+          lineNumber: 43
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("meta", {
@@ -13077,21 +13077,21 @@ function (_App) {
         content: "300",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 43
+          lineNumber: 44
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("title", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 44
+          lineNumber: 45
         },
         __self: this
-      }, "RoomR8r \u2022 home"), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("link", {
+      }, "RoomR8r | home"), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("link", {
         rel: "shortcut icon",
         href: "http://roomr8r.ca/static/imgs/favicon.ico",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 45
+          lineNumber: 46
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("link", {
@@ -13099,7 +13099,7 @@ function (_App) {
         rel: "stylesheet",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 46
+          lineNumber: 47
         },
         __self: this
       })), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_10__["Provider"], {

@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -156,6 +156,17 @@ module.exports = __webpack_require__(/*! core-js/library/fn/object/get-own-prope
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(/*! core-js/library/fn/object/keys */ "core-js/library/fn/object/keys");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/core-js/set.js":
+/*!************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/core-js/set.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! core-js/library/fn/set */ "core-js/library/fn/set");
 
 /***/ }),
 
@@ -1639,7 +1650,7 @@ const ReviewCard = props => {
 /*!*********************************!*\
   !*** ./src/components/index.js ***!
   \*********************************/
-/*! exports provided: Button, ReviewCard, Layout, SearchBar, Spinner */
+/*! exports provided: Button, ReviewCard, Layout, SearchBar, Spinner, HorizontalStepper */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1658,6 +1669,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony import */ var _spinner__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./spinner */ "./src/components/spinner.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Spinner", function() { return _spinner__WEBPACK_IMPORTED_MODULE_4__["Spinner"]; });
+
+/* harmony import */ var _stepper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./stepper */ "./src/components/stepper.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HorizontalStepper", function() { return _stepper__WEBPACK_IMPORTED_MODULE_5__["HorizontalStepper"]; });
+
 
 
 
@@ -1803,6 +1818,238 @@ const styles = {
     display: "block"
   }
 };
+
+
+/***/ }),
+
+/***/ "./src/components/stepper.js":
+/*!***********************************!*\
+  !*** ./src/components/stepper.js ***!
+  \***********************************/
+/*! exports provided: HorizontalStepper */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HorizontalStepper", function() { return HorizontalStepper; });
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_set__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/set */ "./node_modules/@babel/runtime-corejs2/core-js/set.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_set__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_set__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_Stepper__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Stepper */ "@material-ui/core/Stepper");
+/* harmony import */ var _material_ui_core_Stepper__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Stepper__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_Step__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Step */ "@material-ui/core/Step");
+/* harmony import */ var _material_ui_core_Step__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Step__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_StepLabel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/StepLabel */ "@material-ui/core/StepLabel");
+/* harmony import */ var _material_ui_core_StepLabel__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_StepLabel__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Typography */ "@material-ui/core/Typography");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8__);
+
+
+var _jsxFileName = "/Users/fortunephiri/Documents/Projects/roomR8r/src/components/stepper.js";
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["makeStyles"])(theme => ({
+  root: {// width: '90%',
+  },
+  button: {
+    marginRight: theme.spacing(1)
+  },
+  instructions: {
+    marginTop: theme.spacing(1),
+    marginBottom: theme.spacing(1)
+  }
+}));
+
+function getSteps() {
+  return ['Select campaign settings', 'Create an ad group', 'Create an ad'];
+}
+
+function getStepContent(step) {
+  switch (step) {
+    case 0:
+      return 'Select campaign settings...';
+
+    case 1:
+      return 'What is an ad group anyways?';
+
+    case 2:
+      return 'This is the bit I really care about!';
+
+    default:
+      return 'Unknown step';
+  }
+}
+
+const HorizontalStepper = () => {
+  const classes = useStyles();
+  const [activeStep, setActiveStep] = react__WEBPACK_IMPORTED_MODULE_2___default.a.useState(0);
+  const [skipped, setSkipped] = react__WEBPACK_IMPORTED_MODULE_2___default.a.useState(new _babel_runtime_corejs2_core_js_set__WEBPACK_IMPORTED_MODULE_1___default.a());
+  const steps = getSteps();
+
+  function isStepOptional(step) {
+    return step === 1;
+  }
+
+  function isStepSkipped(step) {
+    return skipped.has(step);
+  }
+
+  function handleNext() {
+    let newSkipped = skipped;
+
+    if (isStepSkipped(activeStep)) {
+      newSkipped = new _babel_runtime_corejs2_core_js_set__WEBPACK_IMPORTED_MODULE_1___default.a(newSkipped.values());
+      newSkipped.delete(activeStep);
+    }
+
+    setActiveStep(prevActiveStep => prevActiveStep + 1);
+    setSkipped(newSkipped);
+  }
+
+  function handleBack() {
+    setActiveStep(prevActiveStep => prevActiveStep - 1);
+  }
+
+  function handleSkip() {
+    if (!isStepOptional(activeStep)) {
+      // You probably want to guard against something like this,
+      // it should never occur unless someone's actively trying to break something.
+      throw new Error("You can't skip a step that isn't optional.");
+    }
+
+    setActiveStep(prevActiveStep => prevActiveStep + 1);
+    setSkipped(prevSkipped => {
+      const newSkipped = new _babel_runtime_corejs2_core_js_set__WEBPACK_IMPORTED_MODULE_1___default.a(prevSkipped.values());
+      newSkipped.add(activeStep);
+      return newSkipped;
+    });
+  }
+
+  function handleReset() {
+    setActiveStep(0);
+  }
+
+  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+    className: classes.root,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 88
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Stepper__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    activeStep: activeStep,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 89
+    },
+    __self: undefined
+  }, steps.map((label, index) => {
+    const stepProps = {};
+    const labelProps = {};
+
+    if (isStepOptional(index)) {
+      labelProps.optional = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8___default.a, {
+        variant: "caption",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 94
+        },
+        __self: undefined
+      }, "Optional");
+    }
+
+    if (isStepSkipped(index)) {
+      stepProps.completed = false;
+    }
+
+    return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Step__WEBPACK_IMPORTED_MODULE_5___default.a, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      key: label
+    }, stepProps, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 100
+      },
+      __self: undefined
+    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_StepLabel__WEBPACK_IMPORTED_MODULE_6___default.a, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, labelProps, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 101
+      },
+      __self: undefined
+    }), label));
+  })), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 106
+    },
+    __self: undefined
+  }, activeStep === steps.length ? react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 108
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    className: classes.instructions,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 109
+    },
+    __self: undefined
+  }, "All steps completed - you're finished")) : react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 114
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    className: classes.instructions,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 115
+    },
+    __self: undefined
+  }, getStepContent(activeStep)), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 116
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    disabled: activeStep === 0,
+    variant: "contained",
+    onClick: handleBack,
+    className: classes.button,
+    color: "primary",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 117
+    },
+    __self: undefined
+  }, "Back"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    variant: "contained",
+    color: "primary",
+    onClick: handleNext,
+    className: classes.button,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 120
+    },
+    __self: undefined
+  }, activeStep === steps.length - 1 ? 'Finish' : 'Next')))));
+};
+
 
 
 /***/ }),
@@ -2259,7 +2506,7 @@ const updateSavedToken = token => {
 
 /***/ }),
 
-/***/ 4:
+/***/ 5:
 /*!*****************************!*\
   !*** multi ./pages/auth.js ***!
   \*****************************/
@@ -2312,6 +2559,39 @@ module.exports = require("@material-ui/core/Button");
 /***/ (function(module, exports) {
 
 module.exports = require("@material-ui/core/IconButton");
+
+/***/ }),
+
+/***/ "@material-ui/core/Step":
+/*!*****************************************!*\
+  !*** external "@material-ui/core/Step" ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/Step");
+
+/***/ }),
+
+/***/ "@material-ui/core/StepLabel":
+/*!**********************************************!*\
+  !*** external "@material-ui/core/StepLabel" ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/StepLabel");
+
+/***/ }),
+
+/***/ "@material-ui/core/Stepper":
+/*!********************************************!*\
+  !*** external "@material-ui/core/Stepper" ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/Stepper");
 
 /***/ }),
 
@@ -2455,6 +2735,17 @@ module.exports = require("core-js/library/fn/object/get-own-property-symbols");
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/library/fn/object/keys");
+
+/***/ }),
+
+/***/ "core-js/library/fn/set":
+/*!*****************************************!*\
+  !*** external "core-js/library/fn/set" ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("core-js/library/fn/set");
 
 /***/ }),
 

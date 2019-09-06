@@ -4,10 +4,9 @@ import ModalComponent from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import Rating from "@material-ui/lab/Rating";
-
 import axios from "axios"
 
-import { Button } from "../components";
+import { Button, HorizontalStepper } from "../components";
 
   class addReviewForm extends Component{
   
@@ -71,7 +70,7 @@ import { Button } from "../components";
               id="transition-modal-title" >
               Add Review
             </h2>
-            <form onSubmit={this.addReviewHandle}>
+            {/* <form onSubmit={this.addReviewHandle}>
               <input onChange={this.onInputChange} style={styles.input} 
                 type="text" value={this.state.postal_code}
                 required placeholder="Post Code" name="postal_code"/>
@@ -104,7 +103,8 @@ import { Button } from "../components";
               <Button onClick={this.addReviewHandle} style={styles.buttonStyle}>
                 Submit
               </Button>
-            </form>
+            </form> */}
+            <HorizontalStepper />
           </div>
         </Fade>
       </ModalComponent>
@@ -121,16 +121,19 @@ const styles = {
   },
   paper: {
     margin: "0 auto",
-    borderRadius: "5px",
+    alignContent: 'center',
+    borderRadius: "10px",
     background: "rgb(44,54,94)",
-    boxShadow: "#000",
-    width: 320,
+    // boxShadow: "#000",
+    width: 600,
     padding: "4px, 4px, 3px"  
   },
   input: {
     padding: 15,
+    borderRadius: "5px",
     display: "block",
-    margin: "10px auto"
+    margin: "15px auto",
+    width:200
   },
   heading:{
     textAlign: "center",
@@ -138,6 +141,5 @@ const styles = {
     color: "#fffff0"
   }
 };
-
 
 export default addReviewForm;

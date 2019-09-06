@@ -6,6 +6,7 @@ import { createStore, applyMiddleware } from "redux";
 import reduxThunk from "redux-thunk";
 import reducers from "../store/reducers";
 import Head from "next/head";
+
 const initStore = (initialState = {}) => {
   return createStore(reducers, applyMiddleware(reduxThunk));
 };
@@ -41,12 +42,11 @@ export default withRedux(initStore, { debug: false })(
             <meta property="og:image" content="http://roomr8r.ca/static/imgs/ogp_image.png" />
             <meta property="og:image:width" content="400" />
             <meta property="og:image:height" content="300" />
-            <title>RoomR8r • home</title>
+            <title>RoomR8r | home</title>
             <link rel="shortcut icon" href="http://roomr8r.ca/static/imgs/favicon.ico" />
             <link
               href="https://fonts.googleapis.com/css?family=Lexend+Tera|Poppins|Fira+Sans&display=swap"
-              rel="stylesheet"
-            ></link>
+              rel="stylesheet"></link>
           </Head>
           <Provider store={store}>
             <Component {...pageProps} />
