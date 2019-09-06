@@ -5,23 +5,28 @@ import { Card, CardHeader, CardMedia, CardContent,
   CardActions,Collapse, Avatar,IconButton, 
   Typography } from "@material-ui/core"
 
-import FavoriteIcon from '@material-ui/icons/Favorite';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Rating from "@material-ui/lab/Rating"
 
 const useStyles = makeStyles(theme => ({
   card: {
-    maxWidth: 500,
+    maxWidth: 450,
+    borderRadius:"7px",
     marginBottom: 40,
     margin:"0 auto",
-    
+    padding:0,
+    textAlign:"left",
+    fontFamily:"Fira Sans, sans-serif",
+    boxShadow:"0px 2px 10px 1px rgba(44, 54, 94, 0.4)"
   },
-  cardHeader:{
-    backgroundColor:"#2C365E",
-    color:"#fffffa",
+  cardContent:{
+    marginBottom:0,
+    paddingBottom:0
+  },
+  collapseSectionHeader:{
     fontWeight:"bold",
-    textTransform:"capitalize",
-    fontFamily:'Fira Sans, sans-serif',
+    marginBottom:"10px",
+    color:"#fff"
   },
   media: {
     margin:10,
@@ -38,23 +43,45 @@ const useStyles = makeStyles(theme => ({
   expandOpen: {
     transform: 'rotate(180deg)',
   },
+  expandedArea:{
+    backgroundColor:"#474A48",
+    color:"#fffffa",
+  },
+  expandedAreaLabel:{
+    marginRight:10,
+    padding:1,
+    width:100
+  },
+  expandedAreaResults:{
+    textAlign:"right"
+  },
   avatar: {
     backgroundColor: "#FF5941",
   },
   footer:{
-      backgroundColor:"#2C365E"
+    margin:0,
+    padding:0,
   },
   icon:{
       color:"#fffffa",
   },
+  labelStyles:{
+    fontSize:"16px",
+    textTransform:"capitalize", 
+    color:"#2C365E",
+    width:"130px"
+  },
   resultsText:{
+    fontWeight:"bold",
     fontFamily:'Fira Sans, sans-serif',
-    color:"#fffffa",
-    fontSize:20,
+    color:"#2C365E",
+    fontSize:18,
+    paddingLeft:10
   }
 }));
 
 const ReviewCard=(props)=>{
+  console.log(props)
     const { postal_code, address, landlord_bio, comment } = props.data;
 const { first_name, last_name } = landlord_bio;
   const classes = useStyles();
@@ -66,27 +93,33 @@ const { first_name, last_name } = landlord_bio;
 
   return (
     <Card className={classes.card}>
-      <CardHeader
-        className={classes.cardHeader}
-        avatar={
-          <Avatar aria-label="review" className={classes.avatar}>
-            ?
-          </Avatar>
-        }
-        title={`Street Address: ${address.street_number || "n/a"}`}
-        subheader={`Apartment Number: ${address.apartment_number || "n/a"}`}
-      >
-     </CardHeader>
       <CardMedia
         className={classes.media}
-        image="/static/imgs/toronto.jpeg"
-        title="toronto sketch"
+        image="/static/imgs/mapView.jpg"
+        title="map view image"
       />
-      <CardActions className={classes.footer} disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon className={classes.icon}/>
-        </IconButton>
-        <Typography style={{textTransform:"capitalize", color:"#cdcdcd"}}>Landlord Name: <span style={{color:"#fffffa"}}>{first_name} {last_name}</span></Typography>
+      <CardContent className={classes.cardContent}>
+        <Typography  style={{display:"flex"}}>
+          <span className={classes.labelStyles}>Postal Code:</span>
+          <span className={classes.resultsText}>
+            {postal_code}
+          </span>
+        </Typography>
+        {/* street address */}
+        <Typography  style={{display:"flex"}}>
+          <span className={classes.labelStyles}>Street Address:</span>
+          <span className={classes.resultsText}>
+            {address.street_number}
+          </span>
+        </Typography>
+        <Typography style={{display:"flex"}}>
+          <span className={classes.labelStyles}>City:</span>
+          <span className={classes.resultsText}>
+            {""}
+          </span>
+        </Typography>
+      </CardContent>
+      <CardActions className={classes.footer} >
         <Rating value={props.data.rating? props.data.rating : 0} readOnly style={{color:"#FF5941", marginLeft: 20}}/>
         <IconButton
           className={clsx(classes.expand, {
@@ -100,10 +133,20 @@ const { first_name, last_name } = landlord_bio;
         </IconButton>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography>
-          {comment}
-          </Typography>
+        <CardContent className={classes.expandedArea}>
+          <Typography className={classes.collapseSectionHeader}>About Landlord</Typography>
+          <Typography style={{display:"flex"}}>
+          <span className={classes.expandedAreaLabel}>Name: </span>
+          <span className={classes.expandedAreaResults}>
+            {first_name}
+          </span>
+        </Typography>
+        <Typography style={{display:"flex"}}>
+          <span className={classes.expandedAreaLabel}>Feedback: </span>
+          <span>
+            {comment}
+          </span>
+        </Typography>
         </CardContent>
       </Collapse>
     </Card>

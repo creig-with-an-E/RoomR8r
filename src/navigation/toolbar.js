@@ -15,6 +15,10 @@ const useStyles = makeStyles(theme => ({
   root: {
     // flexGrow: 1,
   },
+  appBar:{
+    backgroundColor:"#191923", 
+    marginBottom:"10px"
+  },
   menuButton: {
     marginRight: theme.spacing(2),
   },
@@ -48,7 +52,7 @@ const toolbar=(props)=>{
 
   return (
     <div className={classes.root}>
-      <AppBar position="fixed" style={{backgroundColor:"#191923", marginBottom:"10px"}}>
+      <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             {/* <MenuIcon /> */}

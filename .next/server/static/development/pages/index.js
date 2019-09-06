@@ -1248,14 +1248,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(clsx__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core */ "@material-ui/core");
 /* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _material_ui_icons_Favorite__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/icons/Favorite */ "@material-ui/icons/Favorite");
-/* harmony import */ var _material_ui_icons_Favorite__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Favorite__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _material_ui_icons_ExpandMore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/icons/ExpandMore */ "@material-ui/icons/ExpandMore");
-/* harmony import */ var _material_ui_icons_ExpandMore__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_ExpandMore__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _material_ui_lab_Rating__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/lab/Rating */ "@material-ui/lab/Rating");
-/* harmony import */ var _material_ui_lab_Rating__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_lab_Rating__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_icons_ExpandMore__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/icons/ExpandMore */ "@material-ui/icons/ExpandMore");
+/* harmony import */ var _material_ui_icons_ExpandMore__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_ExpandMore__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_lab_Rating__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/lab/Rating */ "@material-ui/lab/Rating");
+/* harmony import */ var _material_ui_lab_Rating__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_lab_Rating__WEBPACK_IMPORTED_MODULE_5__);
 var _jsxFileName = "/Users/fortunephiri/Documents/Projects/roomR8r/src/components/card.js";
-
 
 
 
@@ -1264,16 +1261,23 @@ var _jsxFileName = "/Users/fortunephiri/Documents/Projects/roomR8r/src/component
 
 const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
   card: {
-    maxWidth: 500,
+    maxWidth: 450,
+    borderRadius: "7px",
     marginBottom: 40,
-    margin: "0 auto"
+    margin: "0 auto",
+    padding: 0,
+    textAlign: "left",
+    fontFamily: "Fira Sans, sans-serif",
+    boxShadow: "0px 2px 10px 1px rgba(44, 54, 94, 0.4)"
   },
-  cardHeader: {
-    backgroundColor: "#2C365E",
-    color: "#fffffa",
+  cardContent: {
+    marginBottom: 0,
+    paddingBottom: 0
+  },
+  collapseSectionHeader: {
     fontWeight: "bold",
-    textTransform: "capitalize",
-    fontFamily: 'Fira Sans, sans-serif'
+    marginBottom: "10px",
+    color: "#fff"
   },
   media: {
     margin: 10,
@@ -1291,23 +1295,45 @@ const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["
   expandOpen: {
     transform: 'rotate(180deg)'
   },
+  expandedArea: {
+    backgroundColor: "#474A48",
+    color: "#fffffa"
+  },
+  expandedAreaLabel: {
+    marginRight: 10,
+    padding: 1,
+    width: 100
+  },
+  expandedAreaResults: {
+    textAlign: "right"
+  },
   avatar: {
     backgroundColor: "#FF5941"
   },
   footer: {
-    backgroundColor: "#2C365E"
+    margin: 0,
+    padding: 0
   },
   icon: {
     color: "#fffffa"
   },
+  labelStyles: {
+    fontSize: "16px",
+    textTransform: "capitalize",
+    color: "#2C365E",
+    width: "130px"
+  },
   resultsText: {
+    fontWeight: "bold",
     fontFamily: 'Fira Sans, sans-serif',
-    color: "#fffffa",
-    fontSize: 20
+    color: "#2C365E",
+    fontSize: 18,
+    paddingLeft: 10
   }
 }));
 
 const ReviewCard = props => {
+  console.log(props);
   const {
     postal_code,
     address,
@@ -1329,78 +1355,102 @@ const ReviewCard = props => {
     className: classes.card,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 68
+      lineNumber: 95
     },
     __self: undefined
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["CardHeader"], {
-    className: classes.cardHeader,
-    avatar: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Avatar"], {
-      "aria-label": "review",
-      className: classes.avatar,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 72
-      },
-      __self: undefined
-    }, "?"),
-    title: `Street Address: ${address.street_number || "n/a"}`,
-    subheader: `Apartment Number: ${address.apartment_number || "n/a"}`,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 69
-    },
-    __self: undefined
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["CardMedia"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["CardMedia"], {
     className: classes.media,
-    image: "/static/imgs/toronto.jpeg",
-    title: "toronto sketch",
+    image: "/static/imgs/mapView.jpg",
+    title: "map view image",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80
+      lineNumber: 96
     },
     __self: undefined
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["CardActions"], {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["CardContent"], {
+    className: classes.cardContent,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 101
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Typography"], {
+    style: {
+      display: "flex"
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 102
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: classes.labelStyles,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 103
+    },
+    __self: undefined
+  }, "Postal Code:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: classes.resultsText,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 104
+    },
+    __self: undefined
+  }, postal_code)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Typography"], {
+    style: {
+      display: "flex"
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 109
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: classes.labelStyles,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 110
+    },
+    __self: undefined
+  }, "Street Address:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: classes.resultsText,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 111
+    },
+    __self: undefined
+  }, address.street_number)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Typography"], {
+    style: {
+      display: "flex"
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 115
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: classes.labelStyles,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 116
+    },
+    __self: undefined
+  }, "City:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: classes.resultsText,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 117
+    },
+    __self: undefined
+  }, ""))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["CardActions"], {
     className: classes.footer,
-    disableSpacing: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 85
+      lineNumber: 122
     },
     __self: undefined
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["IconButton"], {
-    "aria-label": "add to favorites",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 86
-    },
-    __self: undefined
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_Favorite__WEBPACK_IMPORTED_MODULE_4___default.a, {
-    className: classes.icon,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 87
-    },
-    __self: undefined
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Typography"], {
-    style: {
-      textTransform: "capitalize",
-      color: "#cdcdcd"
-    },
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 89
-    },
-    __self: undefined
-  }, "Landlord Name: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    style: {
-      color: "#fffffa"
-    },
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 89
-    },
-    __self: undefined
-  }, first_name, " ", last_name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_lab_Rating__WEBPACK_IMPORTED_MODULE_6___default.a, {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_lab_Rating__WEBPACK_IMPORTED_MODULE_5___default.a, {
     value: props.data.rating ? props.data.rating : 0,
     readOnly: true,
     style: {
@@ -1409,7 +1459,7 @@ const ReviewCard = props => {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 90
+      lineNumber: 123
     },
     __self: undefined
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["IconButton"], {
@@ -1421,16 +1471,16 @@ const ReviewCard = props => {
     "aria-label": "show more",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 91
+      lineNumber: 124
     },
     __self: undefined
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_ExpandMore__WEBPACK_IMPORTED_MODULE_5___default.a, {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_ExpandMore__WEBPACK_IMPORTED_MODULE_4___default.a, {
     style: {
       color: "#FF5941"
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 99
+      lineNumber: 132
     },
     __self: undefined
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Collapse"], {
@@ -1439,22 +1489,69 @@ const ReviewCard = props => {
     unmountOnExit: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 102
+      lineNumber: 135
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["CardContent"], {
+    className: classes.expandedArea,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 103
+      lineNumber: 136
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Typography"], {
+    className: classes.collapseSectionHeader,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 104
+      lineNumber: 137
     },
     __self: undefined
-  }, comment))));
+  }, "About Landlord"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Typography"], {
+    style: {
+      display: "flex"
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 138
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: classes.expandedAreaLabel,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 139
+    },
+    __self: undefined
+  }, "Name: "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: classes.expandedAreaResults,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 140
+    },
+    __self: undefined
+  }, first_name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Typography"], {
+    style: {
+      display: "flex"
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 144
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: classes.expandedAreaLabel,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 145
+    },
+    __self: undefined
+  }, "Feedback: "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 146
+    },
+    __self: undefined
+  }, comment)))));
 };
 
 
@@ -1465,7 +1562,7 @@ const ReviewCard = props => {
 /*!*********************************!*\
   !*** ./src/components/index.js ***!
   \*********************************/
-/*! exports provided: Button, ReviewCard, Layout, SearchBar, Spinner */
+/*! exports provided: Button, Layout, SearchBar, Spinner, ReviewCard */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1948,6 +2045,10 @@ var _jsxFileName = "/Users/fortunephiri/Documents/Projects/roomR8r/src/navigatio
 const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__["makeStyles"])(theme => ({
   root: {// flexGrow: 1,
   },
+  appBar: {
+    backgroundColor: "#191923",
+    marginBottom: "10px"
+  },
   menuButton: {
     marginRight: theme.spacing(2)
   },
@@ -1968,21 +2069,21 @@ const toolbar = props => {
   const userAuthenticated = props.userToken ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36
+      lineNumber: 40
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_11___default.a, {
     href: "/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37
+      lineNumber: 41
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_6___default.a, {
     className: classes.links,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37
+      lineNumber: 41
     },
     __self: undefined
   }, "Home")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_6___default.a, {
@@ -1991,7 +2092,7 @@ const toolbar = props => {
     color: "inherit",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38
+      lineNumber: 42
     },
     __self: undefined
   }, "Add"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_6___default.a, {
@@ -2000,7 +2101,7 @@ const toolbar = props => {
     onClick: () => logout(),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39
+      lineNumber: 43
     },
     __self: undefined
   }, "Logout")) : react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_6___default.a, {
@@ -2009,7 +2110,7 @@ const toolbar = props => {
     onClick: () => next_router__WEBPACK_IMPORTED_MODULE_9___default.a.push("/auth"),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42
+      lineNumber: 46
     },
     __self: undefined
   }, "Login");
@@ -2023,24 +2124,21 @@ const toolbar = props => {
     className: "jsx-2605115013" + " " + (classes.root || ""),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50
+      lineNumber: 54
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_AppBar__WEBPACK_IMPORTED_MODULE_3___default.a, {
     position: "fixed",
-    style: {
-      backgroundColor: "#191923",
-      marginBottom: "10px"
-    },
+    className: classes.appBar,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51
+      lineNumber: 55
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Toolbar__WEBPACK_IMPORTED_MODULE_4___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52
+      lineNumber: 56
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_7___default.a, {
@@ -2050,7 +2148,7 @@ const toolbar = props => {
     "aria-label": "menu",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53
+      lineNumber: 57
     },
     __self: undefined
   }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5___default.a, {
@@ -2059,14 +2157,14 @@ const toolbar = props => {
     className: classes.title,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56
+      lineNumber: 60
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
     className: "jsx-2605115013" + " " + "logoHeader",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57
+      lineNumber: 61
     },
     __self: undefined
   }, "RoomR", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
@@ -2076,13 +2174,13 @@ const toolbar = props => {
     className: "jsx-2605115013",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57
+      lineNumber: 61
     },
     __self: undefined
   }, "8"), "r")), userAuthenticated)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
     id: "2605115013",
     __self: undefined
-  }, ".logoHeader.jsx-2605115013:hover{opacity:0.7;cursor:pointer;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9mb3J0dW5lcGhpcmkvRG9jdW1lbnRzL1Byb2plY3RzL3Jvb21SOHIvc3JjL25hdmlnYXRpb24vdG9vbGJhci5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUE2RGtCLEFBR3lCLFlBRWYsZUFBQyIsImZpbGUiOiIvVXNlcnMvZm9ydHVuZXBoaXJpL0RvY3VtZW50cy9Qcm9qZWN0cy9yb29tUjhyL3NyYy9uYXZpZ2F0aW9uL3Rvb2xiYXIuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xuaW1wb3J0IHsgbWFrZVN0eWxlcyB9IGZyb20gJ0BtYXRlcmlhbC11aS9jb3JlL3N0eWxlcyc7XG5pbXBvcnQgQXBwQmFyIGZyb20gJ0BtYXRlcmlhbC11aS9jb3JlL0FwcEJhcic7XG5pbXBvcnQgVG9vbGJhciBmcm9tICdAbWF0ZXJpYWwtdWkvY29yZS9Ub29sYmFyJztcbmltcG9ydCBUeXBvZ3JhcGh5IGZyb20gJ0BtYXRlcmlhbC11aS9jb3JlL1R5cG9ncmFwaHknO1xuaW1wb3J0IEJ1dHRvbiBmcm9tICdAbWF0ZXJpYWwtdWkvY29yZS9CdXR0b24nO1xuaW1wb3J0IEljb25CdXR0b24gZnJvbSAnQG1hdGVyaWFsLXVpL2NvcmUvSWNvbkJ1dHRvbic7XG5cbmltcG9ydCB7Y29ubmVjdH0gZnJvbSBcInJlYWN0LXJlZHV4XCJcbmltcG9ydCBSb3V0ZXIgZnJvbSBcIm5leHQvcm91dGVyXCJcbmltcG9ydCB7bG9nb3V0VXNlcn0gZnJvbSBcIi4uLy4uL3N0b3JlL2FjdGlvbnMvYXV0aEFjdGlvbnNcIlxuXG5pbXBvcnQgTGluayBmcm9tIFwibmV4dC9saW5rXCJcbmNvbnN0IHVzZVN0eWxlcyA9IG1ha2VTdHlsZXModGhlbWUgPT4gKHtcbiAgcm9vdDoge1xuICAgIC8vIGZsZXhHcm93OiAxLFxuICB9LFxuICBtZW51QnV0dG9uOiB7XG4gICAgbWFyZ2luUmlnaHQ6IHRoZW1lLnNwYWNpbmcoMiksXG4gIH0sXG4gIHRpdGxlOiB7XG4gICAgZmxleEdyb3c6IDEsXG4gICAgY29sb3I6XCIjNDc0QTQ4XCIsXG4gICAgZm9udEZhbWlseTogJ0xleGVuZCBUZXJhLCBzYW5zLXNlcmlmJyxcbiAgfSxcbiAgbGlua3M6e1xuICAgIGZvbnRGYW1pbHk6ICdQb3BwaW5zLCBzYW5zLXNlcmlmJyxcbiAgICBmb250V2VpZ2h0OjkwMCxcbiAgICBjb2xvcjogXCIjZmZmZmZhXCJcbiAgfVxufSkpO1xuXG5jb25zdCB0b29sYmFyPShwcm9wcyk9PntcbiAgY29uc3QgY2xhc3NlcyA9IHVzZVN0eWxlcygpO1xuICBjb25zdCB1c2VyQXV0aGVudGljYXRlZCA9IHByb3BzLnVzZXJUb2tlbiA/IChcbiAgICAgICAgICAgIDxSZWFjdC5GcmFnbWVudD5cbiAgICAgICAgICAgICAgPExpbmsgaHJlZj1cIi9cIj48QnV0dG9uIGNsYXNzTmFtZT17Y2xhc3Nlcy5saW5rc30gPkhvbWU8L0J1dHRvbj48L0xpbms+IFxuICAgICAgICAgICAgICA8QnV0dG9uIG9uQ2xpY2s9e3Byb3BzLnNob3dNb2RhbEhhbmRsZX0gY2xhc3NOYW1lPXtjbGFzc2VzLmxpbmtzfSBjb2xvcj1cImluaGVyaXRcIj5BZGQ8L0J1dHRvbj5cbiAgICAgICAgICAgICAgPEJ1dHRvbiBjbGFzc05hbWU9e2NsYXNzZXMubGlua3N9IGNvbG9yPVwiaW5oZXJpdFwiIG9uQ2xpY2s9eygpPT5sb2dvdXQoKX0+TG9nb3V0PC9CdXR0b24+XG4gICAgICAgICAgICA8L1JlYWN0LkZyYWdtZW50PlxuICAgICAgICAgICAgKTpcbiAgICAgICAgICAgPEJ1dHRvbiBjbGFzc05hbWU9e2NsYXNzZXMubGlua3N9IGNvbG9yPVwiaW5oZXJpdFwiIG9uQ2xpY2s9eygpPT5Sb3V0ZXIucHVzaChcIi9hdXRoXCIpfT5Mb2dpbjwvQnV0dG9uPlxuXG4gIGNvbnN0IGxvZ291dD0oKT0+e1xuICAgIHByb3BzLmVuZFNlc3Npb24oKVxuICAgIFJvdXRlci5wdXNoKFwiL2F1dGhcIilcbiAgfVxuXG4gIHJldHVybiAoXG4gICAgPGRpdiBjbGFzc05hbWU9e2NsYXNzZXMucm9vdH0+XG4gICAgICA8QXBwQmFyIHBvc2l0aW9uPVwiZml4ZWRcIiBzdHlsZT17e2JhY2tncm91bmRDb2xvcjpcIiMxOTE5MjNcIiwgbWFyZ2luQm90dG9tOlwiMTBweFwifX0+XG4gICAgICAgIDxUb29sYmFyPlxuICAgICAgICAgIDxJY29uQnV0dG9uIGVkZ2U9XCJzdGFydFwiIGNsYXNzTmFtZT17Y2xhc3Nlcy5tZW51QnV0dG9ufSBjb2xvcj1cImluaGVyaXRcIiBhcmlhLWxhYmVsPVwibWVudVwiPlxuICAgICAgICAgICAgey8qIDxNZW51SWNvbiAvPiAqL31cbiAgICAgICAgICA8L0ljb25CdXR0b24+XG4gICAgICAgICAgICA8VHlwb2dyYXBoeSBvbkNsaWNrPXsoKT0+Um91dGVyLnB1c2goXCIvXCIpfSB2YXJpYW50PVwiaDVcIiBjbGFzc05hbWU9e2NsYXNzZXMudGl0bGV9PlxuICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJsb2dvSGVhZGVyXCI+Um9vbVI8c3BhbiBzdHlsZT17e2NvbG9yOlwiI0ZGNTk0MVwifX0gPjg8L3NwYW4+cjwvc3Bhbj5cbiAgICAgICAgICAgIDwvVHlwb2dyYXBoeT5cbiAgICAgICAgICB7dXNlckF1dGhlbnRpY2F0ZWR9XG4gICAgICAgIDwvVG9vbGJhcj5cbiAgICAgIDwvQXBwQmFyPlxuICAgICAgPHN0eWxlIGpzeD57YFxuICAgICAgICAgIC5sb2dvSGVhZGVyOmhvdmVyIHtcbiAgICAgICAgICAgIG9wYWNpdHk6IDAuNztcbiAgICAgICAgICAgIGN1cnNvcjogcG9pbnRlclxuICAgICAgICAgIH1cbiAgICAgICAgYH1cbiAgICAgIDwvc3R5bGU+XG4gICAgPC9kaXY+XG4gICk7XG59XG5cbmNvbnN0IG1hcFN0YXRlUHJvcHM9KHN0YXRlKT0+e1xuICByZXR1cm57XG4gICAgdXNlclRva2VuOiBzdGF0ZS5hdXRoLnVzZXJUb2tlblxuICB9XG59XG5cbmNvbnN0IG1hcERpc3BhdGNoVG9Qcm9wcz0oZGlzcGF0Y2gpPT57XG4gIHJldHVybntcbiAgICBlbmRTZXNzaW9uOiAoKT0+ZGlzcGF0Y2gobG9nb3V0VXNlcigpKVxuICB9XG59XG5cbmV4cG9ydCBkZWZhdWx0IGNvbm5lY3QobWFwU3RhdGVQcm9wcywgbWFwRGlzcGF0Y2hUb1Byb3BzKSh0b29sYmFyKSJdfQ== */\n/*@ sourceURL=/Users/fortunephiri/Documents/Projects/roomR8r/src/navigation/toolbar.js */"));
+  }, ".logoHeader.jsx-2605115013:hover{opacity:0.7;cursor:pointer;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9mb3J0dW5lcGhpcmkvRG9jdW1lbnRzL1Byb2plY3RzL3Jvb21SOHIvc3JjL25hdmlnYXRpb24vdG9vbGJhci5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFpRWtCLEFBR3lCLFlBRWYsZUFBQyIsImZpbGUiOiIvVXNlcnMvZm9ydHVuZXBoaXJpL0RvY3VtZW50cy9Qcm9qZWN0cy9yb29tUjhyL3NyYy9uYXZpZ2F0aW9uL3Rvb2xiYXIuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xuaW1wb3J0IHsgbWFrZVN0eWxlcyB9IGZyb20gJ0BtYXRlcmlhbC11aS9jb3JlL3N0eWxlcyc7XG5pbXBvcnQgQXBwQmFyIGZyb20gJ0BtYXRlcmlhbC11aS9jb3JlL0FwcEJhcic7XG5pbXBvcnQgVG9vbGJhciBmcm9tICdAbWF0ZXJpYWwtdWkvY29yZS9Ub29sYmFyJztcbmltcG9ydCBUeXBvZ3JhcGh5IGZyb20gJ0BtYXRlcmlhbC11aS9jb3JlL1R5cG9ncmFwaHknO1xuaW1wb3J0IEJ1dHRvbiBmcm9tICdAbWF0ZXJpYWwtdWkvY29yZS9CdXR0b24nO1xuaW1wb3J0IEljb25CdXR0b24gZnJvbSAnQG1hdGVyaWFsLXVpL2NvcmUvSWNvbkJ1dHRvbic7XG5cbmltcG9ydCB7Y29ubmVjdH0gZnJvbSBcInJlYWN0LXJlZHV4XCJcbmltcG9ydCBSb3V0ZXIgZnJvbSBcIm5leHQvcm91dGVyXCJcbmltcG9ydCB7bG9nb3V0VXNlcn0gZnJvbSBcIi4uLy4uL3N0b3JlL2FjdGlvbnMvYXV0aEFjdGlvbnNcIlxuXG5pbXBvcnQgTGluayBmcm9tIFwibmV4dC9saW5rXCJcbmNvbnN0IHVzZVN0eWxlcyA9IG1ha2VTdHlsZXModGhlbWUgPT4gKHtcbiAgcm9vdDoge1xuICAgIC8vIGZsZXhHcm93OiAxLFxuICB9LFxuICBhcHBCYXI6e1xuICAgIGJhY2tncm91bmRDb2xvcjpcIiMxOTE5MjNcIiwgXG4gICAgbWFyZ2luQm90dG9tOlwiMTBweFwiXG4gIH0sXG4gIG1lbnVCdXR0b246IHtcbiAgICBtYXJnaW5SaWdodDogdGhlbWUuc3BhY2luZygyKSxcbiAgfSxcbiAgdGl0bGU6IHtcbiAgICBmbGV4R3JvdzogMSxcbiAgICBjb2xvcjpcIiM0NzRBNDhcIixcbiAgICBmb250RmFtaWx5OiAnTGV4ZW5kIFRlcmEsIHNhbnMtc2VyaWYnLFxuICB9LFxuICBsaW5rczp7XG4gICAgZm9udEZhbWlseTogJ1BvcHBpbnMsIHNhbnMtc2VyaWYnLFxuICAgIGZvbnRXZWlnaHQ6OTAwLFxuICAgIGNvbG9yOiBcIiNmZmZmZmFcIlxuICB9XG59KSk7XG5cbmNvbnN0IHRvb2xiYXI9KHByb3BzKT0+e1xuICBjb25zdCBjbGFzc2VzID0gdXNlU3R5bGVzKCk7XG4gIGNvbnN0IHVzZXJBdXRoZW50aWNhdGVkID0gcHJvcHMudXNlclRva2VuID8gKFxuICAgICAgICAgICAgPFJlYWN0LkZyYWdtZW50PlxuICAgICAgICAgICAgICA8TGluayBocmVmPVwiL1wiPjxCdXR0b24gY2xhc3NOYW1lPXtjbGFzc2VzLmxpbmtzfSA+SG9tZTwvQnV0dG9uPjwvTGluaz4gXG4gICAgICAgICAgICAgIDxCdXR0b24gb25DbGljaz17cHJvcHMuc2hvd01vZGFsSGFuZGxlfSBjbGFzc05hbWU9e2NsYXNzZXMubGlua3N9IGNvbG9yPVwiaW5oZXJpdFwiPkFkZDwvQnV0dG9uPlxuICAgICAgICAgICAgICA8QnV0dG9uIGNsYXNzTmFtZT17Y2xhc3Nlcy5saW5rc30gY29sb3I9XCJpbmhlcml0XCIgb25DbGljaz17KCk9PmxvZ291dCgpfT5Mb2dvdXQ8L0J1dHRvbj5cbiAgICAgICAgICAgIDwvUmVhY3QuRnJhZ21lbnQ+XG4gICAgICAgICAgICApOlxuICAgICAgICAgICA8QnV0dG9uIGNsYXNzTmFtZT17Y2xhc3Nlcy5saW5rc30gY29sb3I9XCJpbmhlcml0XCIgb25DbGljaz17KCk9PlJvdXRlci5wdXNoKFwiL2F1dGhcIil9PkxvZ2luPC9CdXR0b24+XG5cbiAgY29uc3QgbG9nb3V0PSgpPT57XG4gICAgcHJvcHMuZW5kU2Vzc2lvbigpXG4gICAgUm91dGVyLnB1c2goXCIvYXV0aFwiKVxuICB9XG5cbiAgcmV0dXJuIChcbiAgICA8ZGl2IGNsYXNzTmFtZT17Y2xhc3Nlcy5yb290fT5cbiAgICAgIDxBcHBCYXIgcG9zaXRpb249XCJmaXhlZFwiIGNsYXNzTmFtZT17Y2xhc3Nlcy5hcHBCYXJ9PlxuICAgICAgICA8VG9vbGJhcj5cbiAgICAgICAgICA8SWNvbkJ1dHRvbiBlZGdlPVwic3RhcnRcIiBjbGFzc05hbWU9e2NsYXNzZXMubWVudUJ1dHRvbn0gY29sb3I9XCJpbmhlcml0XCIgYXJpYS1sYWJlbD1cIm1lbnVcIj5cbiAgICAgICAgICAgIHsvKiA8TWVudUljb24gLz4gKi99XG4gICAgICAgICAgPC9JY29uQnV0dG9uPlxuICAgICAgICAgICAgPFR5cG9ncmFwaHkgb25DbGljaz17KCk9PlJvdXRlci5wdXNoKFwiL1wiKX0gdmFyaWFudD1cImg1XCIgY2xhc3NOYW1lPXtjbGFzc2VzLnRpdGxlfT5cbiAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwibG9nb0hlYWRlclwiPlJvb21SPHNwYW4gc3R5bGU9e3tjb2xvcjpcIiNGRjU5NDFcIn19ID44PC9zcGFuPnI8L3NwYW4+XG4gICAgICAgICAgICA8L1R5cG9ncmFwaHk+XG4gICAgICAgICAge3VzZXJBdXRoZW50aWNhdGVkfVxuICAgICAgICA8L1Rvb2xiYXI+XG4gICAgICA8L0FwcEJhcj5cbiAgICAgIDxzdHlsZSBqc3g+e2BcbiAgICAgICAgICAubG9nb0hlYWRlcjpob3ZlciB7XG4gICAgICAgICAgICBvcGFjaXR5OiAwLjc7XG4gICAgICAgICAgICBjdXJzb3I6IHBvaW50ZXJcbiAgICAgICAgICB9XG4gICAgICAgIGB9XG4gICAgICA8L3N0eWxlPlxuICAgIDwvZGl2PlxuICApO1xufVxuXG5jb25zdCBtYXBTdGF0ZVByb3BzPShzdGF0ZSk9PntcbiAgcmV0dXJue1xuICAgIHVzZXJUb2tlbjogc3RhdGUuYXV0aC51c2VyVG9rZW5cbiAgfVxufVxuXG5jb25zdCBtYXBEaXNwYXRjaFRvUHJvcHM9KGRpc3BhdGNoKT0+e1xuICByZXR1cm57XG4gICAgZW5kU2Vzc2lvbjogKCk9PmRpc3BhdGNoKGxvZ291dFVzZXIoKSlcbiAgfVxufVxuXG5leHBvcnQgZGVmYXVsdCBjb25uZWN0KG1hcFN0YXRlUHJvcHMsIG1hcERpc3BhdGNoVG9Qcm9wcykodG9vbGJhcikiXX0= */\n/*@ sourceURL=/Users/fortunephiri/Documents/Projects/roomR8r/src/navigation/toolbar.js */"));
 };
 
 const mapStateProps = state => {
@@ -2458,17 +2556,6 @@ module.exports = require("@material-ui/core/styles");
 /***/ (function(module, exports) {
 
 module.exports = require("@material-ui/icons/ExpandMore");
-
-/***/ }),
-
-/***/ "@material-ui/icons/Favorite":
-/*!**********************************************!*\
-  !*** external "@material-ui/icons/Favorite" ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("@material-ui/icons/Favorite");
 
 /***/ }),
 
