@@ -1031,7 +1031,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const INITIAL_STATE = {
-  searchResults: [],
+  searchResults: null,
   loading: null,
   error: null
 };

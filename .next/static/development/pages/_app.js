@@ -13227,7 +13227,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var INITIAL_STATE = {
-  searchResults: [],
+  searchResults: null,
   loading: null,
   error: null
 };

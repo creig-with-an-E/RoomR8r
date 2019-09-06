@@ -957,9 +957,8 @@ class App extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "state", {
       address: "",
       modalVisible: false,
-      startingUp: true,
-      returnedNoResult: false,
-      //used as flag to check if user has attempted searching 
+      searchInitiated: false,
+      //used as flag to check if user has attempted searching if so show no result 
       addressError: false
     });
 
@@ -983,10 +982,16 @@ class App extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "isValidatePostalCode", input => {
       // validates the postal code to fit canadian format of X1X-X1X
-      const val = input.split("");
+      const val = input.split(""); //storing the values in array
+
       let valid = true;
       let counter = 0;
       val.forEach((element, index) => {
+        /******
+          counter used to keep track of spaces where value should be digit
+          even array index is alphabetic character and odd is numeric
+          counter is not incremented after 3 so as to add dash which is not counted
+        ******/
         if (counter % 2 !== 0) {
           if (element === "-") {
             return;
@@ -1029,28 +1034,52 @@ class App extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
   }
 
   render() {
-    const cards = this.props.searchResults.map(element => react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_src_components__WEBPACK_IMPORTED_MODULE_6__["ReviewCard"], {
-      data: element,
-      key: element.id,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 82
-      },
-      __self: this
-    }));
+    let cards = null;
+    /**
+     *  emptyResultsText: this is used to display feedback when empty list returned.
+     *  display of this warning is handled by state.showEmptyResultsWarning flag
+     * */
+
+    let emptyResultsText = "";
+
+    if (this.props.searchResults !== null && this.props.searchResults.length > 0) {
+      cards = this.props.searchResults ? this.props.searchResults.map(element => react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_src_components__WEBPACK_IMPORTED_MODULE_6__["ReviewCard"], {
+        data: element,
+        key: element.id,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 93
+        },
+        __self: this
+      })) : null;
+    } else if (this.props.searchResults) {
+      /*** this handle the empty array case where no results where found**/
+      if (this.props.searchResults.length === 0) {
+        emptyResultsText = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", {
+          style: styles.noResultsStyle,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 97
+          },
+          __self: this
+        }, "Currently no reviews exist for this postal code");
+      }
+    }
+
     const spinner = !this.props.loading ? null : react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_src_components__WEBPACK_IMPORTED_MODULE_6__["Spinner"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 83
+        lineNumber: 100
       },
       __self: this
-    }); // showModal is passed down to Layout
+    });
+    /***  showModal handle is passed down to Layout ***/
 
     return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_src_components__WEBPACK_IMPORTED_MODULE_6__["Layout"], {
       showModalHandle: this.showModalHandle,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 86
+        lineNumber: 103
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_src_modal_addReviewForm__WEBPACK_IMPORTED_MODULE_7__["default"], {
@@ -1059,21 +1088,21 @@ class App extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       hideModalHandle: this.hideModalHandle,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 87
+        lineNumber: 104
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("section", {
       style: styles.sectionStyle,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 92
+        lineNumber: 109
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("h2", {
       style: styles.headerStyle,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 93
+        lineNumber: 110
       },
       __self: this
     }, "Because not all landlords are built the same"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_src_components__WEBPACK_IMPORTED_MODULE_6__["SearchBar"], {
@@ -1084,33 +1113,33 @@ class App extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       onRequestSearch: this.searchByAddressHandler,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 96
+        lineNumber: 113
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", {
       style: styles.errorStyle,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 103
+        lineNumber: 120
       },
       __self: this
     }, " ", this.state.addressError ? "Acceptable format is X9X-9X9" : "", " "), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", {
       style: styles.searchHeading,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 104
+        lineNumber: 121
       },
       __self: this
-    }, "Search for reviews by Postal Code"), spinner, cards.length !== 0 ? react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+    }, "Search for reviews by Postal Code"), spinner, emptyResultsText, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
       style: {
         width: "100%"
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 106
+        lineNumber: 124
       },
       __self: this
-    }, cards) : null));
+    }, cards)));
   }
 
 }
@@ -1152,6 +1181,12 @@ const styles = {
     color: "rgb(255,89,65)",
     fontWeight: "bold",
     fontFamily: "Poppins, sans serif"
+  },
+  noResultsStyle: {
+    color: "rgb(255,89,65)",
+    fontSize: 20,
+    fontWeight: "bold",
+    fontFamily: "Fira Sans, sans serif"
   }
 };
 
@@ -1556,7 +1591,7 @@ const ReviewCard = props => {
 /*!*********************************!*\
   !*** ./src/components/index.js ***!
   \*********************************/
-/*! exports provided: Button, Layout, SearchBar, Spinner, ReviewCard */
+/*! exports provided: Button, ReviewCard, Layout, SearchBar, Spinner */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2291,7 +2326,12 @@ const findReviewByAddress = (userToken, address) => {
   // params: userToken passed from authState and address 
   return dispatch => {
     dispatch(findByAddressStart());
-    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get(`https://accomo-rater.firebaseio.com/landlord_data.json?auth=${userToken}&orderBy="postal_code"&startAt="${address}"&endAt="${address}"`).then(response => {
+    /*** searchParametersPassed: if search parameter is blank it returns all results
+     *   in the event parameter is passed, it returns relevant postal code results
+    */
+
+    const searchParametersPassed = address ? `&orderBy="postal_code"&startAt="${address}"&endAt="${address}"` : "";
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get(`https://accomo-rater.firebaseio.com/landlord_data.json?auth=${userToken}${searchParametersPassed}`).then(response => {
       dispatch(findByAddressSuccess(response));
     }).catch(error => {
       dispatch(findByAddressFail(error));

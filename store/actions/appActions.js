@@ -32,9 +32,14 @@ export const findReviewByAddress= (userToken,address) => {
   // params: userToken passed from authState and address 
   return (dispatch)=>{
     dispatch(findByAddressStart())
+
+    /*** searchParametersPassed: if search parameter is blank it returns all results
+     *   in the event parameter is passed, it returns relevant postal code results
+    */
+    const searchParametersPassed = address ?`&orderBy="postal_code"&startAt="${address}"&endAt="${
+      address }"` :""
     axios.get(`https://accomo-rater.firebaseio.com/landlord_data.json?auth=${
-      userToken}&orderBy="postal_code"&startAt="${address}"&endAt="${
-      address }"`
+      userToken}${searchParametersPassed}`
     )
     .then(response => {
       dispatch(findByAddressSuccess(response))

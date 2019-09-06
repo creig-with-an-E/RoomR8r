@@ -27,9 +27,8 @@ class App extends Component {
   state = {
     address: "",
     modalVisible: false,
-    startingUp: true,
-    returnedNoResult:false, //used as flag to check if user has attempted searching 
-    addressError:false
+    searchInitiated: false, //used as flag to check if user has attempted searching if so show no result 
+    addressError:false,
   };
 
   onAddressChangeHandler = input => {
@@ -48,10 +47,15 @@ class App extends Component {
 
   isValidatePostalCode=(input)=>{
     // validates the postal code to fit canadian format of X1X-X1X
-    const val = input.split("")
+    const val = input.split("") //storing the values in array
     let valid = true
     let counter = 0
     val.forEach((element,index)=>{
+      /******
+        counter used to keep track of spaces where value should be digit
+        even array index is alphabetic character and odd is numeric
+        counter is not incremented after 3 so as to add dash which is not counted
+      ******/
       if((counter % 2) !== 0){
         if(element === "-"){
           return
@@ -79,9 +83,22 @@ class App extends Component {
     this.setState({modalVisible: false})
   } 
   render() {
-    const cards = this.props.searchResults.map(element=><ReviewCard data={element} key={element.id} />)
+    let cards = null
+    /**
+     *  emptyResultsText: this is used to display feedback when empty list returned.
+     *  display of this warning is handled by state.showEmptyResultsWarning flag
+     * */ 
+    let emptyResultsText = ""
+    if(this.props.searchResults !== null && this.props.searchResults.length > 0){
+      cards= this.props.searchResults ? this.props.searchResults.map(element=><ReviewCard data={element} key={element.id} />): null
+    }else if(this.props.searchResults){
+      /*** this handle the empty array case where no results where found**/ 
+      if(this.props.searchResults.length === 0){
+        emptyResultsText = <p style={styles.noResultsStyle}>Currently no reviews exist for this postal code</p>
+      }
+    }
     const spinner = !this.props.loading ? null : <Spinner />;
-    // showModal is passed down to Layout
+    /***  showModal handle is passed down to Layout ***/
     return (
       <Layout showModalHandle={this.showModalHandle}>
         <AddReviewForm 
@@ -103,7 +120,8 @@ class App extends Component {
           <p style={styles.errorStyle}> {this.state.addressError ? "Acceptable format is X9X-9X9" : ""} </p>
           <p style={styles.searchHeading}>Search for reviews by Postal Code</p>
           {spinner}
-        { cards.length !== 0 ? <div style={{ width:"100%"}}>{cards}</div>: null}
+          {emptyResultsText}
+        <div style={{ width:"100%"}}>{cards}</div>
         </section>            
       </Layout>
     );
@@ -138,6 +156,12 @@ const styles = {
     color:"rgb(255,89,65)",
     fontWeight:"bold",
     fontFamily:"Poppins, sans serif"
+  },
+  noResultsStyle:{
+    color:"rgb(255,89,65)",
+    fontSize:20,
+    fontWeight:"bold",
+    fontFamily:"Fira Sans, sans serif"
   }
 };
 

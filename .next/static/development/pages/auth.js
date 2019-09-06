@@ -65140,7 +65140,7 @@ var ReviewCard = function ReviewCard(props) {
 /*!*********************************!*\
   !*** ./src/components/index.js ***!
   \*********************************/
-/*! exports provided: Button, Layout, SearchBar, Spinner, ReviewCard */
+/*! exports provided: Button, ReviewCard, Layout, SearchBar, Spinner */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -65668,7 +65668,7 @@ var updateSavedToken = function updateSavedToken(token) {
 
 /***/ }),
 
-/***/ 2:
+/***/ 1:
 /*!***********************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fauth&absolutePagePath=%2FUsers%2Ffortunephiri%2FDocuments%2FProjects%2FroomR8r%2Fpages%2Fauth.js ***!
   \***********************************************************************************************************************************************/
@@ -65691,5 +65691,5 @@ module.exports = dll_01f9a3fa864a7b7414d8;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=auth.js.map
