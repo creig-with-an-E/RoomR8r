@@ -32998,7 +32998,7 @@ var defaultTheme = Object(_createMuiTheme__WEBPACK_IMPORTED_MODULE_0__["default"
 /*!************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/styles/index.js ***!
   \************************************************************/
-/*! exports provided: hexToRgb, rgbToHex, hslToRgb, decomposeColor, recomposeColor, getContrastRatio, getLuminance, emphasize, fade, darken, lighten, createMuiTheme, createStyles, makeStyles, MuiThemeProvider, responsiveFontSizes, styled, easing, duration, formatMs, isString, isNumber, useTheme, withStyles, withTheme */
+/*! exports provided: createMuiTheme, createStyles, makeStyles, MuiThemeProvider, responsiveFontSizes, styled, useTheme, withStyles, withTheme, hexToRgb, rgbToHex, hslToRgb, decomposeColor, recomposeColor, getContrastRatio, getLuminance, emphasize, fade, darken, lighten, easing, duration, formatMs, isString, isNumber */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -38648,7 +38648,7 @@ var flexbox = Object(_compose__WEBPACK_IMPORTED_MODULE_1__["default"])(flexBasis
 /*!*******************************************************!*\
   !*** ./node_modules/@material-ui/system/esm/index.js ***!
   \*******************************************************/
-/*! exports provided: borders, border, borderTop, borderRight, borderBottom, borderLeft, borderColor, borderRadius, breakpoints, compose, css, display, flexbox, flexBasis, flexDirection, flexWrap, justifyContent, alignItems, alignContent, order, flex, flexGrow, flexShrink, alignSelf, justifyItems, justifySelf, palette, color, bgcolor, positions, position, zIndex, top, right, bottom, left, shadows, sizing, width, maxWidth, minWidth, height, maxHeight, minHeight, sizeWidth, sizeHeight, spacing, style, typography, fontFamily, fontSize, fontStyle, fontWeight, letterSpacing, lineHeight, textAlign */
+/*! exports provided: borders, breakpoints, compose, css, display, flexbox, palette, positions, shadows, sizing, spacing, style, typography, border, borderTop, borderRight, borderBottom, borderLeft, borderColor, borderRadius, flexBasis, flexDirection, flexWrap, justifyContent, alignItems, alignContent, order, flex, flexGrow, flexShrink, alignSelf, justifyItems, justifySelf, color, bgcolor, position, zIndex, top, right, bottom, left, width, maxWidth, minWidth, height, maxHeight, minHeight, sizeWidth, sizeHeight, fontFamily, fontSize, fontStyle, fontWeight, letterSpacing, lineHeight, textAlign */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -64468,7 +64468,6 @@ var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["ma
 });
 
 var ReviewCard = function ReviewCard(props) {
-  console.log(props);
   var _props$data = props.data,
       postal_code = _props$data.postal_code,
       address = _props$data.address,
@@ -64491,7 +64490,7 @@ var ReviewCard = function ReviewCard(props) {
     className: classes.card,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 95
+      lineNumber: 94
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["CardMedia"], {
@@ -64500,14 +64499,14 @@ var ReviewCard = function ReviewCard(props) {
     title: "map view image",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 96
+      lineNumber: 95
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["CardContent"], {
     className: classes.cardContent,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 101
+      lineNumber: 100
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["Typography"], {
@@ -64516,21 +64515,21 @@ var ReviewCard = function ReviewCard(props) {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 102
+      lineNumber: 101
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("span", {
     className: classes.labelStyles,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 103
+      lineNumber: 102
     },
     __self: this
   }, "Postal Code:"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("span", {
     className: classes.resultsText,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 104
+      lineNumber: 103
     },
     __self: this
   }, postal_code)), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["Typography"], {
@@ -64539,14 +64538,14 @@ var ReviewCard = function ReviewCard(props) {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 109
+      lineNumber: 108
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("span", {
     className: classes.labelStyles,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 110
+      lineNumber: 109
     },
     __self: this
   }, "Street Address:"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("span", {
@@ -64556,7 +64555,7 @@ var ReviewCard = function ReviewCard(props) {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 111
+      lineNumber: 110
     },
     __self: this
   }, address.street_number)), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["Typography"], {
@@ -64565,28 +64564,28 @@ var ReviewCard = function ReviewCard(props) {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 115
+      lineNumber: 114
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("span", {
     className: classes.labelStyles,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 116
+      lineNumber: 115
     },
     __self: this
   }, "City:"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("span", {
     className: classes.resultsText,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 117
+      lineNumber: 116
     },
     __self: this
   }, ""))), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["CardActions"], {
     className: classes.footer,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 122
+      lineNumber: 121
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_lab_Rating__WEBPACK_IMPORTED_MODULE_7__["default"], {
@@ -64598,7 +64597,7 @@ var ReviewCard = function ReviewCard(props) {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 123
+      lineNumber: 122
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["IconButton"], {
@@ -64608,7 +64607,7 @@ var ReviewCard = function ReviewCard(props) {
     "aria-label": "show more",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 124
+      lineNumber: 123
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_icons_ExpandMore__WEBPACK_IMPORTED_MODULE_6___default.a, {
@@ -64617,7 +64616,7 @@ var ReviewCard = function ReviewCard(props) {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 132
+      lineNumber: 131
     },
     __self: this
   }))), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["Collapse"], {
@@ -64626,21 +64625,21 @@ var ReviewCard = function ReviewCard(props) {
     unmountOnExit: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 135
+      lineNumber: 134
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["CardContent"], {
     className: classes.expandedArea,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 136
+      lineNumber: 135
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["Typography"], {
     className: classes.collapseSectionHeader,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 137
+      lineNumber: 136
     },
     __self: this
   }, "About Landlord"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["Typography"], {
@@ -64649,21 +64648,21 @@ var ReviewCard = function ReviewCard(props) {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 138
+      lineNumber: 137
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("span", {
     className: classes.expandedAreaLabel,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 139
+      lineNumber: 138
     },
     __self: this
   }, "Name: "), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("span", {
     className: classes.expandedAreaResults,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 140
+      lineNumber: 139
     },
     __self: this
   }, first_name)), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["Typography"], {
@@ -64672,20 +64671,20 @@ var ReviewCard = function ReviewCard(props) {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 144
+      lineNumber: 143
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("span", {
     className: classes.expandedAreaLabel,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 145
+      lineNumber: 144
     },
     __self: this
   }, "Feedback: "), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("span", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 146
+      lineNumber: 145
     },
     __self: this
   }, comment)))));
@@ -64699,7 +64698,7 @@ var ReviewCard = function ReviewCard(props) {
 /*!*********************************!*\
   !*** ./src/components/index.js ***!
   \*********************************/
-/*! exports provided: Button, Layout, SearchBar, Spinner, ReviewCard */
+/*! exports provided: Button, ReviewCard, Layout, SearchBar, Spinner */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -65614,7 +65613,7 @@ var updateSavedToken = function updateSavedToken(token) {
 
 /***/ }),
 
-/***/ 1:
+/***/ 0:
 /*!********************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Ffortunephiri%2FDocuments%2FProjects%2FroomR8r%2Fpages%2Findex.js ***!
   \********************************************************************************************************************************************/
@@ -65637,5 +65636,5 @@ module.exports = dll_01f9a3fa864a7b7414d8;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js"]]]);
+},[[0,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map

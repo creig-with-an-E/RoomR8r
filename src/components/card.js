@@ -81,9 +81,8 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const ReviewCard=(props)=>{
-  console.log(props)
-    const { postal_code, address, landlord_bio, comment } = props.data;
-const { first_name, last_name } = landlord_bio;
+  const { postal_code, address, landlord_bio, comment } = props.data;
+  const { first_name, last_name } = landlord_bio;
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
