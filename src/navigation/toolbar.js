@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     flexGrow: 1,
-    color:"#474A48",
+    color:"#646865",  /** used in place of #474A48 as there is better contrast*/
     fontFamily: 'Lexend Tera, sans-serif',
   },
   links:{

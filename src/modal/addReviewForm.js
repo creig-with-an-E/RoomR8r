@@ -86,9 +86,7 @@ import { Button } from "../components";
                 placeholder="City"
                 name="city" value={this.state.city}
               />
-              <legend title="Land lord info">
                 <input onChange={this.onInputChange} style={styles.input} placeholder="landlord's name" name="first_name" value={this.state.first_name}/>
-              </legend>
               <span style={{
                 margin: "15px auto",
                 justifyContent: "center",
