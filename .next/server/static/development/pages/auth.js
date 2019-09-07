@@ -1650,7 +1650,7 @@ const ReviewCard = props => {
 /*!*********************************!*\
   !*** ./src/components/index.js ***!
   \*********************************/
-/*! exports provided: Button, ReviewCard, Layout, SearchBar, Spinner, HorizontalStepper */
+/*! exports provided: Button, ReviewCard, Layout, SearchBar, Spinner */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1670,10 +1670,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _spinner__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./spinner */ "./src/components/spinner.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Spinner", function() { return _spinner__WEBPACK_IMPORTED_MODULE_4__["Spinner"]; });
 
-/* harmony import */ var _stepper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./stepper */ "./src/components/stepper.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HorizontalStepper", function() { return _stepper__WEBPACK_IMPORTED_MODULE_5__["HorizontalStepper"]; });
-
-
+/* harmony import */ var _stepper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../stepper */ "./src/stepper/index.js");
+/* empty/unused harmony star reexport */
 
 
 
@@ -1751,27 +1749,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var material_ui_search_bar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! material-ui-search-bar */ "material-ui-search-bar");
 /* harmony import */ var material_ui_search_bar__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(material_ui_search_bar__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core */ "@material-ui/core");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__);
 
 var _jsxFileName = "/Users/fortunephiri/Documents/Projects/roomR8r/src/components/searchBar.js";
 
 
 
-const SearchBar = props => {
-  const styles = {
-    searchbarStyle: {
-      backgroundColor: props.invalid ? "rgba(255,89,65, .4)" : "rgba(44,54,94,0.1)",
-      borderRadius: "3px",
-      margin: "0 auto",
-      maxWidth: "360px",
-      padding: 3,
-      boxShadow: '0px 1px 3px 1px rgba(44,54,94,0.6)'
+const styles = Object(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["makeStyles"])({
+  searchbarStyle: {
+    backgroundColor: "transparent",
+    borderRadius: "3px",
+    margin: "0 auto",
+    maxWidth: "360px",
+    padding: 3,
+    boxShadow: '0px 1px 3px 1px rgba(44,54,94,0.6)'
+  },
+  step: {
+    "& $active": {
+      color: "pink"
     }
-  };
+  },
+  active: {}
+});
+
+const SearchBar = props => {
+  console.log(props.value);
+  const classes = styles();
   return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(material_ui_search_bar__WEBPACK_IMPORTED_MODULE_2___default.a, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props, {
-    style: styles.searchbarStyle,
+    className: classes.searchbarStyle,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 25
     },
     __self: undefined
   }));
@@ -1818,238 +1827,6 @@ const styles = {
     display: "block"
   }
 };
-
-
-/***/ }),
-
-/***/ "./src/components/stepper.js":
-/*!***********************************!*\
-  !*** ./src/components/stepper.js ***!
-  \***********************************/
-/*! exports provided: HorizontalStepper */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HorizontalStepper", function() { return HorizontalStepper; });
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_set__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/set */ "./node_modules/@babel/runtime-corejs2/core-js/set.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_set__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_set__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _material_ui_core_Stepper__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Stepper */ "@material-ui/core/Stepper");
-/* harmony import */ var _material_ui_core_Stepper__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Stepper__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _material_ui_core_Step__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Step */ "@material-ui/core/Step");
-/* harmony import */ var _material_ui_core_Step__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Step__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _material_ui_core_StepLabel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/StepLabel */ "@material-ui/core/StepLabel");
-/* harmony import */ var _material_ui_core_StepLabel__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_StepLabel__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
-/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Typography */ "@material-ui/core/Typography");
-/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8__);
-
-
-var _jsxFileName = "/Users/fortunephiri/Documents/Projects/roomR8r/src/components/stepper.js";
-
-
-
-
-
-
-
-const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["makeStyles"])(theme => ({
-  root: {// width: '90%',
-  },
-  button: {
-    marginRight: theme.spacing(1)
-  },
-  instructions: {
-    marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(1)
-  }
-}));
-
-function getSteps() {
-  return ['Select campaign settings', 'Create an ad group', 'Create an ad'];
-}
-
-function getStepContent(step) {
-  switch (step) {
-    case 0:
-      return 'Select campaign settings...';
-
-    case 1:
-      return 'What is an ad group anyways?';
-
-    case 2:
-      return 'This is the bit I really care about!';
-
-    default:
-      return 'Unknown step';
-  }
-}
-
-const HorizontalStepper = () => {
-  const classes = useStyles();
-  const [activeStep, setActiveStep] = react__WEBPACK_IMPORTED_MODULE_2___default.a.useState(0);
-  const [skipped, setSkipped] = react__WEBPACK_IMPORTED_MODULE_2___default.a.useState(new _babel_runtime_corejs2_core_js_set__WEBPACK_IMPORTED_MODULE_1___default.a());
-  const steps = getSteps();
-
-  function isStepOptional(step) {
-    return step === 1;
-  }
-
-  function isStepSkipped(step) {
-    return skipped.has(step);
-  }
-
-  function handleNext() {
-    let newSkipped = skipped;
-
-    if (isStepSkipped(activeStep)) {
-      newSkipped = new _babel_runtime_corejs2_core_js_set__WEBPACK_IMPORTED_MODULE_1___default.a(newSkipped.values());
-      newSkipped.delete(activeStep);
-    }
-
-    setActiveStep(prevActiveStep => prevActiveStep + 1);
-    setSkipped(newSkipped);
-  }
-
-  function handleBack() {
-    setActiveStep(prevActiveStep => prevActiveStep - 1);
-  }
-
-  function handleSkip() {
-    if (!isStepOptional(activeStep)) {
-      // You probably want to guard against something like this,
-      // it should never occur unless someone's actively trying to break something.
-      throw new Error("You can't skip a step that isn't optional.");
-    }
-
-    setActiveStep(prevActiveStep => prevActiveStep + 1);
-    setSkipped(prevSkipped => {
-      const newSkipped = new _babel_runtime_corejs2_core_js_set__WEBPACK_IMPORTED_MODULE_1___default.a(prevSkipped.values());
-      newSkipped.add(activeStep);
-      return newSkipped;
-    });
-  }
-
-  function handleReset() {
-    setActiveStep(0);
-  }
-
-  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
-    className: classes.root,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 88
-    },
-    __self: undefined
-  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Stepper__WEBPACK_IMPORTED_MODULE_4___default.a, {
-    activeStep: activeStep,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 89
-    },
-    __self: undefined
-  }, steps.map((label, index) => {
-    const stepProps = {};
-    const labelProps = {};
-
-    if (isStepOptional(index)) {
-      labelProps.optional = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8___default.a, {
-        variant: "caption",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 94
-        },
-        __self: undefined
-      }, "Optional");
-    }
-
-    if (isStepSkipped(index)) {
-      stepProps.completed = false;
-    }
-
-    return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Step__WEBPACK_IMPORTED_MODULE_5___default.a, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
-      key: label
-    }, stepProps, {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 100
-      },
-      __self: undefined
-    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_StepLabel__WEBPACK_IMPORTED_MODULE_6___default.a, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, labelProps, {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 101
-      },
-      __self: undefined
-    }), label));
-  })), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 106
-    },
-    __self: undefined
-  }, activeStep === steps.length ? react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 108
-    },
-    __self: undefined
-  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8___default.a, {
-    className: classes.instructions,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 109
-    },
-    __self: undefined
-  }, "All steps completed - you're finished")) : react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 114
-    },
-    __self: undefined
-  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8___default.a, {
-    className: classes.instructions,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 115
-    },
-    __self: undefined
-  }, getStepContent(activeStep)), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 116
-    },
-    __self: undefined
-  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7___default.a, {
-    disabled: activeStep === 0,
-    variant: "contained",
-    onClick: handleBack,
-    className: classes.button,
-    color: "primary",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 117
-    },
-    __self: undefined
-  }, "Back"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7___default.a, {
-    variant: "contained",
-    color: "primary",
-    onClick: handleNext,
-    className: classes.button,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 120
-    },
-    __self: undefined
-  }, activeStep === steps.length - 1 ? 'Finish' : 'Next')))));
-};
-
 
 
 /***/ }),
@@ -2256,6 +2033,373 @@ const mapDispatchToProps = dispatch => {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_8__["connect"])(mapStateProps, mapDispatchToProps)(toolbar));
+
+/***/ }),
+
+/***/ "./src/stepper/googleMapsSearchBar.js":
+/*!********************************************!*\
+  !*** ./src/stepper/googleMapsSearchBar.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components */ "./src/components/index.js");
+
+var _jsxFileName = "/Users/fortunephiri/Documents/Projects/roomR8r/src/stepper/googleMapsSearchBar.js";
+
+
+
+class GoogleMapsSearchBar extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
+  constructor(...args) {
+    super(...args);
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "handleScriptLoad", () => {
+      /***loads google script on load */
+      // Declare Options For Autocomplete
+      options = {// types: ['(cities)'],
+      }; // Initialize Google Autocomplete
+
+      this.autocomplete = new google.maps.places.Autocomplete(document.getElementById('autocomplete'), options); // Avoid paying for data that you don't need by restricting the set of
+      // place fields that are returned to just the address components.
+
+      autocomplete.setFields(['address_components']); // Fire Event when a suggested name is selected
+
+      autocomplete.addListener('place_changed', handlePlaceSelect);
+    });
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "handlePlaceSelect", () => {
+      // Extract City From Address Object
+      let addressObject = autocomplete.getPlace();
+      let address = addressObject.address_components; // Check if address is valid
+
+      if (address) {
+        console.log(address); // this.setState(
+        // {
+        //   city: address[0].long_name,
+        // }
+        // );
+      }
+    });
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "state", {
+      address: ""
+    });
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "onChangeHandler", input => {
+      this.setState({
+        address: input
+      });
+    });
+  }
+
+  render() {
+    return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 51
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components__WEBPACK_IMPORTED_MODULE_2__["SearchBar"], {
+      style: {
+        backgroundColor: "#ddd"
+      },
+      id: "autocomplete",
+      onChange: this.onChangeHandler,
+      placeholder: "X5X-X5X",
+      value: this.state.address,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 52
+      },
+      __self: this
+    }));
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (GoogleMapsSearchBar);
+
+/***/ }),
+
+/***/ "./src/stepper/index.js":
+/*!******************************!*\
+  !*** ./src/stepper/index.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_set__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/set */ "./node_modules/@babel/runtime-corejs2/core-js/set.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_set__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_set__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_Stepper__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Stepper */ "@material-ui/core/Stepper");
+/* harmony import */ var _material_ui_core_Stepper__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Stepper__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_Step__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Step */ "@material-ui/core/Step");
+/* harmony import */ var _material_ui_core_Step__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Step__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_StepLabel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/StepLabel */ "@material-ui/core/StepLabel");
+/* harmony import */ var _material_ui_core_StepLabel__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_StepLabel__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Button */ "@material-ui/core/Button");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Typography */ "@material-ui/core/Typography");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _googleMapsSearchBar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./googleMapsSearchBar */ "./src/stepper/googleMapsSearchBar.js");
+
+
+var _jsxFileName = "/Users/fortunephiri/Documents/Projects/roomR8r/src/stepper/index.js";
+
+
+
+
+
+
+
+
+
+const styles = theme => ({
+  root: {// width: "90%"
+  },
+  button: {
+    marginRight: 15,
+    "& $disabled": {
+      backgroundColor: "red"
+    }
+  },
+  step: {},
+  stepIcon: {
+    color: "#FF5941"
+  },
+  completed: {}
+});
+
+const getSteps = () => {
+  return ['Location settings', 'Add land lord details', 'Verify details'];
+};
+
+const getStepContent = (step, address = "") => {
+  switch (step) {
+    case 0:
+      return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_googleMapsSearchBar__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 39
+        },
+        __self: undefined
+      });
+
+    case 1:
+      return 'What is an ad group anyways?';
+
+    case 2:
+      return 'This is the bit I really care about!';
+
+    default:
+      return 'Unknown step';
+  }
+};
+
+const HorizontalStepper = props => {
+  const [activeStep, setActiveStep] = react__WEBPACK_IMPORTED_MODULE_2___default.a.useState(0);
+  const [skipped, setSkipped] = react__WEBPACK_IMPORTED_MODULE_2___default.a.useState(new _babel_runtime_corejs2_core_js_set__WEBPACK_IMPORTED_MODULE_1___default.a());
+  const [address, setAddress] = react__WEBPACK_IMPORTED_MODULE_2___default.a.useState("");
+  const steps = getSteps();
+
+  function isStepOptional(step) {
+    return step === null;
+  }
+
+  function isStepSkipped(step) {
+    return skipped.has(step);
+  }
+
+  function handleNext() {
+    let newSkipped = skipped;
+
+    if (isStepSkipped(activeStep)) {
+      newSkipped = new _babel_runtime_corejs2_core_js_set__WEBPACK_IMPORTED_MODULE_1___default.a(newSkipped.values());
+      newSkipped.delete(activeStep);
+    }
+
+    setActiveStep(prevActiveStep => prevActiveStep + 1);
+    setSkipped(newSkipped);
+  }
+
+  function handleBack() {
+    setActiveStep(prevActiveStep => prevActiveStep - 1);
+  }
+
+  function handleSkip() {
+    if (!isStepOptional(activeStep)) {
+      // You probably want to guard against something like this,
+      // it should never occur unless someone's actively trying to break something.
+      throw new Error("You can't skip a step that isn't optional.");
+    }
+
+    setActiveStep(prevActiveStep => prevActiveStep + 1);
+    setSkipped(prevSkipped => {
+      const newSkipped = new _babel_runtime_corejs2_core_js_set__WEBPACK_IMPORTED_MODULE_1___default.a(prevSkipped.values());
+      newSkipped.add(activeStep);
+      return newSkipped;
+    });
+  }
+
+  function handleReset() {
+    setActiveStep(0);
+  }
+
+  const {
+    classes
+  } = props;
+  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+    className: classes.root,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 102
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Stepper__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    activeStep: activeStep,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 103
+    },
+    __self: undefined
+  }, steps.map((label, index) => {
+    const stepProps = {};
+    const labelProps = {};
+
+    if (isStepOptional(index)) {
+      labelProps.optional = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8___default.a, {
+        variant: "caption",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 108
+        },
+        __self: undefined
+      }, "Optional");
+    }
+
+    if (isStepSkipped(index)) {
+      stepProps.completed = false;
+    }
+
+    return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Step__WEBPACK_IMPORTED_MODULE_5___default.a, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      key: label
+    }, stepProps, {
+      classes: {
+        root: classes.step,
+        completed: classes.completed,
+        active: classes.active
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 114
+      },
+      __self: undefined
+    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_StepLabel__WEBPACK_IMPORTED_MODULE_6___default.a, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, labelProps, {
+      StepIconProps: {
+        classes: {
+          root: classes.stepIcon
+        }
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 119
+      },
+      __self: undefined
+    }), label));
+  })), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+    style: {
+      height: 300,
+      display: "flex",
+      alignItems: 'center',
+      justifyContent: "center"
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 126
+    },
+    __self: undefined
+  }, activeStep === steps.length ? react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 128
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    className: "instructions",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 129
+    },
+    __self: undefined
+  }, "Review complete.", react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
+    className: classes.completeButton,
+    onClick: props.closeModal,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 130
+    },
+    __self: undefined
+  }, "Close"))) : react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 134
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    className: classes.instructions,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 135
+    },
+    __self: undefined
+  }, getStepContent(activeStep, address)), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+    style: {
+      marginTop: 60,
+      textAlign: "center"
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 136
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    style: {
+      backgroundColor: "#ccc"
+    },
+    disabled: activeStep === 0,
+    onClick: handleBack,
+    className: classes.button,
+    color: "primary",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 137
+    },
+    __self: undefined
+  }, "Back"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    variant: "contained",
+    color: "primary",
+    onClick: handleNext,
+    className: classes.button,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 140
+    },
+    __self: undefined
+  }, activeStep === steps.length - 1 ? 'Finish' : 'Next')))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["withStyles"])(styles)(HorizontalStepper));
 
 /***/ }),
 

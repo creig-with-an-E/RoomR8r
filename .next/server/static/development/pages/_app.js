@@ -902,7 +902,7 @@ const initStore = (initialState = {}) => {
       content: "http://roomr8r.ca/",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 37
+        lineNumber: 38
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("meta", {
@@ -911,7 +911,7 @@ const initStore = (initialState = {}) => {
       content: "Fortune Creig",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 41
+        lineNumber: 42
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("meta", {
@@ -919,7 +919,7 @@ const initStore = (initialState = {}) => {
       content: "http://roomr8r.ca/static/imgs/ogp_image.png",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 42
+        lineNumber: 43
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("meta", {
@@ -927,7 +927,7 @@ const initStore = (initialState = {}) => {
       content: "400",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 43
+        lineNumber: 44
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("meta", {
@@ -935,13 +935,13 @@ const initStore = (initialState = {}) => {
       content: "300",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 44
+        lineNumber: 45
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("title", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 45
+        lineNumber: 46
       },
       __self: this
     }, "RoomR8r | home"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("link", {
@@ -949,7 +949,7 @@ const initStore = (initialState = {}) => {
       href: "http://roomr8r.ca/static/imgs/favicon.ico",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 46
+        lineNumber: 47
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("link", {
@@ -957,20 +957,28 @@ const initStore = (initialState = {}) => {
       rel: "stylesheet",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 47
+        lineNumber: 48
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("link", {
+      href: "/static/MuiStep.css",
+      rel: "styleSheet",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 51
       },
       __self: this
     })), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_3__["Provider"], {
       store: store,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 51
+        lineNumber: 53
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, pageProps, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 52
+        lineNumber: 54
       },
       __self: this
     }))));

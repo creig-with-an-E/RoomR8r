@@ -6,10 +6,11 @@ import Fade from "@material-ui/core/Fade";
 import Rating from "@material-ui/lab/Rating";
 import axios from "axios"
 
-import { Button, HorizontalStepper } from "../components";
+import  HorizontalStepper from "../stepper"
+import { Button } from "../components";
 
-  class addReviewForm extends Component{
-  
+class addReviewForm extends Component{
+
   state={
     rating:0,
     postal_code:"",
@@ -20,6 +21,7 @@ import { Button, HorizontalStepper } from "../components";
     comment:"",
     city:""
   }
+
   handleClose = () => {
     this.props.hideModalHandle();
   };
@@ -51,6 +53,7 @@ import { Button, HorizontalStepper } from "../components";
     })
   }
   render(){
+    const para = <p style={{color:"#fff"}}>This is a paragraph</p>
   return (
     <div>
       <ModalComponent aria-labelledby="transition-modal-title"
@@ -104,7 +107,7 @@ import { Button, HorizontalStepper } from "../components";
                 Submit
               </Button>
             </form> */}
-            <HorizontalStepper />
+            <HorizontalStepper closeModal={this.handleClose} para={para}/>
           </div>
         </Fade>
       </ModalComponent>
@@ -124,7 +127,6 @@ const styles = {
     alignContent: 'center',
     borderRadius: "10px",
     background: "rgb(44,54,94)",
-    // boxShadow: "#000",
     width: 600,
     padding: "4px, 4px, 3px"  
   },

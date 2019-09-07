@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import {connect} from "react-redux"
 import Router from "next/router"
 import {parseCookies} from "../lib/parseCookies"
-import Script from 'react-load-script';
 
 import {ReviewCard, Layout, Spinner, SearchBar } from "../src/components"
 import AddReviewForm from "../src/modal/addReviewForm"
@@ -16,12 +15,6 @@ class App extends Component {
       savedToken: cookie.userToken
     }
   }
-
-  // constructor(props){
-  //   super(props)
-  //   this.handleScriptLoad = this.handleScriptLoad.bind(this)
-  //   this.handlePlaceSelect = this.handlePlaceSelect.bind(this)
-  // }
 
   componentDidMount(){
     if(!this.props.savedToken){
@@ -37,45 +30,6 @@ class App extends Component {
     searchInitiated: false, //used as flag to check if user has attempted searching if so show no result 
     addressError:false,
   };
-
-  // handleScriptLoad(){
-  //   /***loads google script on load */
-  //   // Declare Options For Autocomplete
-  //   const options = {
-  //     // types: ['(cities)'],
-  //   };
-
-  //   // Initialize Google Autocomplete
-  //   this.autocomplete = new google.maps.places.Autocomplete(
-  //     document.getElementById('autocomplete'),
-  //     options,
-  //   );
-
-  //   // Avoid paying for data that you don't need by restricting the set of
-  //   // place fields that are returned to just the address components.
-  //   this.autocomplete.setFields(['address_components']);
-
-  //   // Fire Event when a suggested name is selected
-  //   this.autocomplete.addListener('place_changed', this.handlePlaceSelect);
-  // }
-
-  // handlePlaceSelect=()=> {
-  //   // Extract City From Address Object
-  //   let addressObject = this.autocomplete.getPlace();
-  //   let address = addressObject.address_components;
-
-  //   // Check if address is valid
-  //   if (address) {
-  //     console.log(address)
-  //     // Set State
-  //     this.setState(
-  //       {
-  //         city: address[0].long_name,
-  //         // address: addressObject.formatted_address,
-  //       }
-  //     );
-  //   }
-  // }
 
   onAddressChangeHandler = input => {
     //handles user input and stores in local state
@@ -147,11 +101,6 @@ class App extends Component {
     /***  showModal handle is passed down to Layout ***/
     return (
       <Layout showModalHandle={this.showModalHandle}>
-        {/* loading google maps script */}
-        {/* <Script
-          url="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWcDVGfs8R5EmWbh9xsuYEHycoqDyDf9I&libraries=places"
-            onLoad={this.handleScriptLoad}
-          />    */}
         <AddReviewForm 
             userToken={this.props.userToken}
             modalVisible={this.state.modalVisible}
@@ -162,11 +111,10 @@ class App extends Component {
             Because not all landlords are built the same
           </h2>
           <SearchBar
-            id="autocomplete"
             invalid={this.state.addressError ? true : false}
             placeholder="X5X-X5X"
             value={this.state.address}
-            // onChange={this.onAddressChangeHandler}
+            onChange={this.onAddressChangeHandler}
             onRequestSearch={this.searchByAddressHandler}
           />
           <p style={styles.errorStyle}> {this.state.addressError ? "Acceptable format is X9X-9X9" : ""} </p>
