@@ -7,6 +7,42 @@ import {ReviewCard, Layout, Spinner, SearchBar } from "../src/components"
 import AddReviewForm from "../src/modal/addReviewForm"
 import * as appActions from "../store/actions/appActions"
 import * as authActions from "../store/actions/authActions"
+import Script from "react-load-script"
+
+const handleScriptLoad=()=>{
+  /***loads google script on load */
+  // Declare Options For Autocomplete
+  let options = {
+    // types: ['(cities)'],
+  };
+  // Initialize Google Autocomplete
+   let autocomplete = new google.maps.places.Autocomplete(
+    document.getElementById('autocomplete'),
+    options,
+  );
+  
+  // Avoid paying for data that you don't need by restricting the set of
+  // place fields that are returned to just the address components.
+  autocomplete.setFields(['address_components']);
+  
+  // Fire Event when a suggested name is selected
+  autocomplete.addListener('place_changed', handlePlaceSelect);
+  }
+  
+const handlePlaceSelect=()=>{
+  // Extract City From Address Object
+  let addressObject = autocomplete.getPlace();
+  let address = addressObject.address_components;
+  // Check if address is valid
+  if (address) {
+    console.log(address)
+    // this.setState(
+    // {
+    //   city: address[0].long_name,
+    // }
+    // );
+  }
+}
 
 class App extends Component {
   static getInitialProps=({req})=>{
@@ -110,11 +146,16 @@ class App extends Component {
         <h2 style={styles.headerStyle}>
             Because not all landlords are built the same
           </h2>
+          <Script
+          url="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWcDVGfs8R5EmWbh9xsuYEHycoqDyDf9I&libraries=places"
+          onLoad={handleScriptLoad}
+        />
           <SearchBar
+            id="autocomplete"
             invalid={this.state.addressError ? true : false}
             placeholder="X5X-X5X"
             value={this.state.address}
-            onChange={this.onAddressChangeHandler}
+            // onChange={this.onAddressChangeHandler}
             onRequestSearch={this.searchByAddressHandler}
           />
           <p style={styles.errorStyle}> {this.state.addressError ? "Acceptable format is X9X-9X9" : ""} </p>

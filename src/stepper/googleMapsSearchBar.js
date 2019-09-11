@@ -1,47 +1,11 @@
 import React,{Component} from 'react';
 
 import {SearchBar} from "../components"
+import Script from "react-load-script"
+import * as googleMapsFunctions from "../../lib/googlePlaceFunctions"
+
 
 class GoogleMapsSearchBar extends Component{
-
-  handleScriptLoad=()=>{
-    /***loads google script on load */
-    // Declare Options For Autocomplete
-    options = {
-      // types: ['(cities)'],
-    };
-    // Initialize Google Autocomplete
-     this.autocomplete = new google.maps.places.Autocomplete(
-      document.getElementById('autocomplete'),
-      options,
-    );
-    
-    // Avoid paying for data that you don't need by restricting the set of
-    // place fields that are returned to just the address components.
-    autocomplete.setFields(['address_components']);
-    
-    // Fire Event when a suggested name is selected
-    autocomplete.addListener('place_changed', handlePlaceSelect);
-    }
-    
-  handlePlaceSelect=()=>{
-    // Extract City From Address Object
-    let addressObject = autocomplete.getPlace();
-    let address = addressObject.address_components;
-    
-    // Check if address is valid
-    if (address) {
-      console.log(address)
-      // this.setState(
-      // {
-      //   city: address[0].long_name,
-      // }
-      // );
-    }
-    }
-  state ={
-      address:""
-  }
   onChangeHandler=(input)=>{
     this.setState({address:input})
   }
@@ -49,6 +13,10 @@ class GoogleMapsSearchBar extends Component{
   render(){
     return(
       <div>
+        <Script
+          url="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWcDVGfs8R5EmWbh9xsuYEHycoqDyDf9I&libraries=places"
+          onLoad={googleMapsFunctions.handleScriptLoad}
+        />
         <SearchBar
           style={{backgroundColor:"#ddd"}}
           id="autocomplete"

@@ -73,6 +73,7 @@ class addReviewForm extends Component{
               id="transition-modal-title" >
               Add Review
             </h2>
+            {this.props.children}
             {/* <form onSubmit={this.addReviewHandle}>
               <input onChange={this.onInputChange} style={styles.input} 
                 type="text" value={this.state.postal_code}
@@ -107,7 +108,6 @@ class addReviewForm extends Component{
                 Submit
               </Button>
             </form> */}
-            <HorizontalStepper closeModal={this.handleClose} para={para}/>
           </div>
         </Fade>
       </ModalComponent>

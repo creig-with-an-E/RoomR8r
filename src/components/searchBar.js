@@ -20,7 +20,6 @@ const styles = makeStyles({
       active:{}
 })
 const SearchBar=(props)=>{
-    console.log(props.value)
     const classes = styles()
     return <Searchbar {...props} className={classes.searchbarStyle}/>
 }

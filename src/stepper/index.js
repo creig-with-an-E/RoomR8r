@@ -9,8 +9,12 @@ import Typography from '@material-ui/core/Typography';
 import GMapsSearchBar from "./googleMapsSearchBar"
 
 const styles = theme => ({
-  root: {
-    // width: "90%"
+  root:{
+  },
+  stepper: {
+    backgroundColor:"rgba(44,54,94,0.6)",
+    borderTopLeftRadius: 7,
+    borderTopRightRadius: 7,
   },
   button: {
     marginRight: 15,
@@ -20,7 +24,16 @@ const styles = theme => ({
 
   },
   step: {
-
+    
+  },
+  "step-body":{ 
+      height:300, 
+      display:"flex", 
+      alignItems: 'center', 
+      justifyContent:"center", 
+      background:"rgb(44,54,94)",
+      borderBottomLeftRadius: 7,
+      borderBottomRightRadius: 7,
   },
   stepIcon:{
     color:"#FF5941"
@@ -36,7 +49,8 @@ const getSteps=()=>{
 const getStepContent=(step, address= "")=>{
   switch (step) {
     case 0:
-      return (<GMapsSearchBar />)
+      // switching to the Google maps search bar slde
+      return ( <GMapsSearchBar />)
     case 1:
       return 'What is an ad group anyways?';
     case 2:
@@ -99,8 +113,8 @@ const HorizontalStepper=(props)=>{
 
   const { classes } = props;
   return (
-    <div className={classes.root}>
-      <Stepper activeStep={activeStep} >
+    <div>
+      <Stepper activeStep={activeStep} className={classes.stepper}>
         {steps.map((label, index) => {
           const stepProps = {};
           const labelProps = {};
@@ -123,7 +137,7 @@ const HorizontalStepper=(props)=>{
           );
         })}
       </Stepper>
-      <div style={{ height:300, display:"flex", alignItems: 'center', justifyContent:"center"}}>
+      <div className={classes["step-body"]}>
         {activeStep === steps.length ? (
           <div>
             <Typography className="instructions">
