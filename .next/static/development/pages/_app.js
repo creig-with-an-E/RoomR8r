@@ -13188,7 +13188,7 @@ function (_App) {
 /*!**************************************!*\
   !*** ./store/actions/actionTypes.js ***!
   \**************************************/
-/*! exports provided: LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_USER, CLEAR_ERRORS, SIGNUP_USER, SIGNUP_USER_SUCCESS, SIGNUP_USER_FAIL, SEARCH_BY_ADDRESS_START, SEARCH_BY_ADDRESS_SUCCESS, SEARCH_BY_ADDRESS_FAIL, RESET_APPLICATION_STATE, UPDATE_TOKEN_WITH_COOKIE */
+/*! exports provided: LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_USER, CLEAR_ERRORS, SIGNUP_USER, SIGNUP_USER_SUCCESS, SIGNUP_USER_FAIL, SEARCH_BY_ADDRESS_START, SEARCH_BY_ADDRESS_SUCCESS, SEARCH_BY_ADDRESS_FAIL, RESET_APPLICATION_STATE, SET_ADDRESS_OBJECT, UPDATE_TOKEN_WITH_COOKIE */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -13205,6 +13205,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_BY_ADDRESS_SUCCESS", function() { return SEARCH_BY_ADDRESS_SUCCESS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_BY_ADDRESS_FAIL", function() { return SEARCH_BY_ADDRESS_FAIL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RESET_APPLICATION_STATE", function() { return RESET_APPLICATION_STATE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_ADDRESS_OBJECT", function() { return SET_ADDRESS_OBJECT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_TOKEN_WITH_COOKIE", function() { return UPDATE_TOKEN_WITH_COOKIE; });
 var LOGIN_START = "login_start";
 var LOGIN_SUCCESS = "login_success";
@@ -13219,6 +13220,7 @@ var SEARCH_BY_ADDRESS_START = "search_by_address_start";
 var SEARCH_BY_ADDRESS_SUCCESS = "search_by_address_success";
 var SEARCH_BY_ADDRESS_FAIL = "search_by_address_fail";
 var RESET_APPLICATION_STATE = "reset_application_state";
+var SET_ADDRESS_OBJECT = "set_address_object";
 var UPDATE_TOKEN_WITH_COOKIE = "update_user_token_with_cookie_value";
 
 /***/ }),
@@ -13239,7 +13241,9 @@ __webpack_require__.r(__webpack_exports__);
 var INITIAL_STATE = {
   searchResults: null,
   loading: null,
-  error: null
+  error: null,
+  addressData: null //address lookup state used in creating new review
+
 };
 
 var reducer = function reducer() {
@@ -13267,6 +13271,11 @@ var reducer = function reducer() {
 
     case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_1__["RESET_APPLICATION_STATE"]:
       return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, INITIAL_STATE);
+
+    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_1__["SET_ADDRESS_OBJECT"]:
+      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
+        addressData: action.payload
+      });
 
     default:
       return state;

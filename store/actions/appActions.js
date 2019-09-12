@@ -57,3 +57,11 @@ export const findReviewByAddress= (userToken,address) => {
       type: actionTypes.RESET_APPLICATION_STATE
     }
   }
+
+/**functions for google maps auto complete */
+export const setAddress=(address)=>{
+  return {
+    type: actionTypes.SET_ADDRESS_OBJECT,
+    payload: address
+  }
+}

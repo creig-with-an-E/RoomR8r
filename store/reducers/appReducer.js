@@ -3,7 +3,8 @@ import * as actionTypes from "../actions/actionTypes"
 const INITIAL_STATE = {
     searchResults:null,
     loading: null,
-    error: null
+    error: null,
+    addressData: null,    //address lookup state used in creating new review
 
 }
 
@@ -17,6 +18,8 @@ const reducer = (state = INITIAL_STATE, action) => {
       return {...state, loading: false, error: "SOMETHING WENT WRONG"}
     case actionTypes.RESET_APPLICATION_STATE:
       return {...INITIAL_STATE}
+    case actionTypes.SET_ADDRESS_OBJECT:
+      return {...state, addressData: action.payload}
     default:
       return state
   }

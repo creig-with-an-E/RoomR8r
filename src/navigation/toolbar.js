@@ -40,7 +40,7 @@ const toolbar=(props)=>{
   const userAuthenticated = props.userToken ? (
             <React.Fragment>
               <Link href="/"><Button className={classes.links} >Home</Button></Link> 
-              <Button onClick={props.showModalHandle} className={classes.links} color="inherit">Add</Button>
+              <Link href="/add-review"><Button className={classes.links} color="inherit">Add</Button></Link>
               <Button className={classes.links} color="inherit" onClick={()=>logout()}>Logout</Button>
             </React.Fragment>
             ):

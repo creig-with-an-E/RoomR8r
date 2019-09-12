@@ -10,11 +10,14 @@ import GMapsSearchBar from "./googleMapsSearchBar"
 
 const styles = theme => ({
   root:{
+    
   },
   stepper: {
+    display:"flex",
     backgroundColor:"rgba(44,54,94,0.6)",
     borderTopLeftRadius: 7,
     borderTopRightRadius: 7,
+    height:"100%"
   },
   button: {
     marginRight: 15,
@@ -26,14 +29,20 @@ const styles = theme => ({
   step: {
     
   },
+  "button-section":{
+    justifyContent:"flex-end",
+    marginTop:60, 
+    textAlign:"center"
+  }
+  ,
   "step-body":{ 
-      height:300, 
-      display:"flex", 
-      alignItems: 'center', 
-      justifyContent:"center", 
-      background:"rgb(44,54,94)",
-      borderBottomLeftRadius: 7,
-      borderBottomRightRadius: 7,
+    height:300, 
+    display:"flex", 
+    alignItems: 'center', 
+    justifyContent:"center", 
+    background:"rgb(44,54,94)",
+    borderBottomLeftRadius: 7,
+    borderBottomRightRadius: 7,
   },
   stepIcon:{
     color:"#FF5941"
@@ -147,7 +156,7 @@ const HorizontalStepper=(props)=>{
         ) : (
           <div>
             <Typography className={classes.instructions}>{getStepContent(activeStep, address)}</Typography>
-            <div style={{marginTop:60, textAlign:"center"}}>
+            <div className={classes["button-section"]}>
               <Button style={{backgroundColor:"#ccc"}} disabled={activeStep === 0}  onClick={handleBack} className={classes.button} color="primary">
                 Back
               </Button>

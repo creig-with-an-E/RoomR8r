@@ -4,7 +4,7 @@ import Router from "next/router"
 import {parseCookies} from "../lib/parseCookies"
 
 import {ReviewCard, Layout, Spinner, SearchBar } from "../src/components"
-import AddReviewForm from "../src/modal/addReviewForm"
+import AddReviewForm from "../src/modal/"
 import * as appActions from "../store/actions/appActions"
 import * as authActions from "../store/actions/authActions"
 import Script from "react-load-script"
@@ -146,16 +146,16 @@ class App extends Component {
         <h2 style={styles.headerStyle}>
             Because not all landlords are built the same
           </h2>
-          <Script
+          {/* <Script
           url="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWcDVGfs8R5EmWbh9xsuYEHycoqDyDf9I&libraries=places"
           onLoad={handleScriptLoad}
-        />
+        /> */}
           <SearchBar
-            id="autocomplete"
+            // id="autocomplete"
             invalid={this.state.addressError ? true : false}
             placeholder="X5X-X5X"
             value={this.state.address}
-            // onChange={this.onAddressChangeHandler}
+            onChange={this.onAddressChangeHandler}
             onRequestSearch={this.searchByAddressHandler}
           />
           <p style={styles.errorStyle}> {this.state.addressError ? "Acceptable format is X9X-9X9" : ""} </p>
