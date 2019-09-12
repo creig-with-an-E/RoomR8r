@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -949,8 +949,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _src_modal___WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../src/modal/ */ "./src/modal/index.js");
 /* harmony import */ var _store_actions_appActions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../store/actions/appActions */ "./store/actions/appActions.js");
 /* harmony import */ var _store_actions_authActions__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../store/actions/authActions */ "./store/actions/authActions.js");
-/* harmony import */ var react_load_script__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-load-script */ "react-load-script");
-/* harmony import */ var react_load_script__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(react_load_script__WEBPACK_IMPORTED_MODULE_10__);
 
 
 var _jsxFileName = "/Users/fortunephiri/Documents/Projects/roomR8r/pages/index.js";
@@ -962,35 +960,6 @@ var _jsxFileName = "/Users/fortunephiri/Documents/Projects/roomR8r/pages/index.j
 
 
 
-
-
-const handleScriptLoad = () => {
-  /***loads google script on load */
-  // Declare Options For Autocomplete
-  let options = {// types: ['(cities)'],
-  }; // Initialize Google Autocomplete
-
-  let autocomplete = new google.maps.places.Autocomplete(document.getElementById('autocomplete'), options); // Avoid paying for data that you don't need by restricting the set of
-  // place fields that are returned to just the address components.
-
-  autocomplete.setFields(['address_components']); // Fire Event when a suggested name is selected
-
-  autocomplete.addListener('place_changed', handlePlaceSelect);
-};
-
-const handlePlaceSelect = () => {
-  // Extract City From Address Object
-  let addressObject = autocomplete.getPlace();
-  let address = addressObject.address_components; // Check if address is valid
-
-  if (address) {
-    console.log(address); // this.setState(
-    // {
-    //   city: address[0].long_name,
-    // }
-    // );
-  }
-};
 
 class App extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
   constructor(...args) {
@@ -1090,7 +1059,7 @@ class App extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
         key: element.id,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 129
+          lineNumber: 93
         },
         __self: this
       })) : null;
@@ -1101,7 +1070,7 @@ class App extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
           style: styles.noResultsStyle,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 133
+            lineNumber: 97
           },
           __self: this
         }, "Currently no reviews exist for this postal code");
@@ -1111,7 +1080,7 @@ class App extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
     const spinner = !this.props.loading ? null : react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_src_components__WEBPACK_IMPORTED_MODULE_6__["Spinner"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 136
+        lineNumber: 100
       },
       __self: this
     });
@@ -1121,34 +1090,24 @@ class App extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       showModalHandle: this.showModalHandle,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 139
+        lineNumber: 103
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_src_modal___WEBPACK_IMPORTED_MODULE_7__["default"], {
-      userToken: this.props.userToken,
-      modalVisible: this.state.modalVisible,
-      hideModalHandle: this.hideModalHandle,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 140
-      },
-      __self: this
-    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("section", {
+    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("section", {
       style: styles.sectionStyle,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 145
+        lineNumber: 104
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("h2", {
       style: styles.headerStyle,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 146
+        lineNumber: 105
       },
       __self: this
-    }, "Because not all landlords are built the same"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_src_components__WEBPACK_IMPORTED_MODULE_6__["SearchBar"] // id="autocomplete"
-    , {
+    }, "Because not all landlords are built the same"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_src_components__WEBPACK_IMPORTED_MODULE_6__["SearchBar"], {
       invalid: this.state.addressError ? true : false,
       placeholder: "X5X-X5X",
       value: this.state.address,
@@ -1156,21 +1115,21 @@ class App extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       onRequestSearch: this.searchByAddressHandler,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 153
+        lineNumber: 108
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", {
       style: styles.errorStyle,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 161
+        lineNumber: 115
       },
       __self: this
     }, " ", this.state.addressError ? "Acceptable format is X9X-9X9" : "", " "), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", {
       style: styles.searchHeading,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 162
+        lineNumber: 116
       },
       __self: this
     }, "Search for reviews by Postal Code"), spinner, emptyResultsText, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
@@ -1179,7 +1138,7 @@ class App extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 165
+        lineNumber: 119
       },
       __self: this
     }, cards)));
@@ -1748,16 +1707,10 @@ const styles = Object(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["makeStyles
     backgroundColor: "transparent",
     borderRadius: "3px",
     margin: "0 auto",
-    maxWidth: "360px",
+    maxWidth: "400px",
     padding: 3,
     boxShadow: '0px 1px 3px 1px rgba(44,54,94,0.6)'
-  },
-  step: {
-    "& $active": {
-      color: "pink"
-    }
-  },
-  active: {}
+  }
 });
 
 const SearchBar = props => {
@@ -1766,7 +1719,7 @@ const SearchBar = props => {
     className: classes.searchbarStyle,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24
+      lineNumber: 18
     },
     __self: undefined
   }));
@@ -2109,24 +2062,24 @@ const toolbar = props => {
   }, "Logout")) : react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_6___default.a, {
     className: classes.links,
     color: "inherit",
-    onClick: () => next_router__WEBPACK_IMPORTED_MODULE_9___default.a.push("/auth"),
+    onClick: () => logout(),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47
+      lineNumber: 46
     },
     __self: undefined
   }, "Login");
 
   const logout = () => {
     props.endSession();
-    next_router__WEBPACK_IMPORTED_MODULE_9___default.a.push("/auth");
+    next_router__WEBPACK_IMPORTED_MODULE_9___default.a.replace("/auth");
   };
 
   return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "jsx-2605115013" + " " + (classes.root || ""),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55
+      lineNumber: 54
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_AppBar__WEBPACK_IMPORTED_MODULE_3___default.a, {
@@ -2134,13 +2087,13 @@ const toolbar = props => {
     className: classes.appBar,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56
+      lineNumber: 55
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Toolbar__WEBPACK_IMPORTED_MODULE_4___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57
+      lineNumber: 56
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_7___default.a, {
@@ -2150,7 +2103,7 @@ const toolbar = props => {
     "aria-label": "menu",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58
+      lineNumber: 57
     },
     __self: undefined
   }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5___default.a, {
@@ -2159,14 +2112,14 @@ const toolbar = props => {
     className: classes.title,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 61
+      lineNumber: 60
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
     className: "jsx-2605115013" + " " + "logoHeader",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62
+      lineNumber: 61
     },
     __self: undefined
   }, "RoomR", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
@@ -2176,13 +2129,13 @@ const toolbar = props => {
     className: "jsx-2605115013",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62
+      lineNumber: 61
     },
     __self: undefined
   }, "8"), "r")), userAuthenticated)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
     id: "2605115013",
     __self: undefined
-  }, ".logoHeader.jsx-2605115013:hover{opacity:0.7;cursor:pointer;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9mb3J0dW5lcGhpcmkvRG9jdW1lbnRzL1Byb2plY3RzL3Jvb21SOHIvc3JjL25hdmlnYXRpb24vdG9vbGJhci5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFrRWtCLEFBR3lCLFlBRWYsZUFBQyIsImZpbGUiOiIvVXNlcnMvZm9ydHVuZXBoaXJpL0RvY3VtZW50cy9Qcm9qZWN0cy9yb29tUjhyL3NyYy9uYXZpZ2F0aW9uL3Rvb2xiYXIuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xuaW1wb3J0IHsgbWFrZVN0eWxlcyB9IGZyb20gJ0BtYXRlcmlhbC11aS9jb3JlL3N0eWxlcyc7XG5pbXBvcnQgQXBwQmFyIGZyb20gJ0BtYXRlcmlhbC11aS9jb3JlL0FwcEJhcic7XG5pbXBvcnQgVG9vbGJhciBmcm9tICdAbWF0ZXJpYWwtdWkvY29yZS9Ub29sYmFyJztcbmltcG9ydCBUeXBvZ3JhcGh5IGZyb20gJ0BtYXRlcmlhbC11aS9jb3JlL1R5cG9ncmFwaHknO1xuaW1wb3J0IEJ1dHRvbiBmcm9tICdAbWF0ZXJpYWwtdWkvY29yZS9CdXR0b24nO1xuaW1wb3J0IEljb25CdXR0b24gZnJvbSAnQG1hdGVyaWFsLXVpL2NvcmUvSWNvbkJ1dHRvbic7XG5cbmltcG9ydCB7Y29ubmVjdH0gZnJvbSBcInJlYWN0LXJlZHV4XCJcbmltcG9ydCBSb3V0ZXIgZnJvbSBcIm5leHQvcm91dGVyXCJcbmltcG9ydCB7bG9nb3V0VXNlcn0gZnJvbSBcIi4uLy4uL3N0b3JlL2FjdGlvbnMvYXV0aEFjdGlvbnNcIlxuXG5pbXBvcnQgTGluayBmcm9tIFwibmV4dC9saW5rXCJcbmNvbnN0IHVzZVN0eWxlcyA9IG1ha2VTdHlsZXModGhlbWUgPT4gKHtcbiAgcm9vdDoge1xuICAgIC8vIGZsZXhHcm93OiAxLFxuICB9LFxuICBhcHBCYXI6e1xuICAgIGJhY2tncm91bmRDb2xvcjpcIiMxOTE5MjNcIixcbiAgICAvLyBiYWNrZ3JvdW5kQ29sb3I6XCJyZ2JhKDAsMCwwLDEpXCIsIFxuICAgIG1hcmdpbkJvdHRvbTpcIjEwcHhcIlxuICB9LFxuICBtZW51QnV0dG9uOiB7XG4gICAgbWFyZ2luUmlnaHQ6IHRoZW1lLnNwYWNpbmcoMiksXG4gIH0sXG4gIHRpdGxlOiB7XG4gICAgZmxleEdyb3c6IDEsXG4gICAgY29sb3I6XCIjNjQ2ODY1XCIsICAvKiogdXNlZCBpbiBwbGFjZSBvZiAjNDc0QTQ4IGFzIHRoZXJlIGlzIGJldHRlciBjb250cmFzdCovXG4gICAgZm9udEZhbWlseTogJ0xleGVuZCBUZXJhLCBzYW5zLXNlcmlmJyxcbiAgfSxcbiAgbGlua3M6e1xuICAgIGZvbnRGYW1pbHk6ICdQb3BwaW5zLCBzYW5zLXNlcmlmJyxcbiAgICBmb250V2VpZ2h0OjkwMCxcbiAgICBjb2xvcjogXCIjZmZmZmZhXCJcbiAgfVxufSkpO1xuXG5jb25zdCB0b29sYmFyPShwcm9wcyk9PntcbiAgY29uc3QgY2xhc3NlcyA9IHVzZVN0eWxlcygpO1xuICBjb25zdCB1c2VyQXV0aGVudGljYXRlZCA9IHByb3BzLnVzZXJUb2tlbiA/IChcbiAgICAgICAgICAgIDxSZWFjdC5GcmFnbWVudD5cbiAgICAgICAgICAgICAgPExpbmsgaHJlZj1cIi9cIj48QnV0dG9uIGNsYXNzTmFtZT17Y2xhc3Nlcy5saW5rc30gPkhvbWU8L0J1dHRvbj48L0xpbms+IFxuICAgICAgICAgICAgICA8TGluayBocmVmPVwiL2FkZC1yZXZpZXdcIj48QnV0dG9uIGNsYXNzTmFtZT17Y2xhc3Nlcy5saW5rc30gY29sb3I9XCJpbmhlcml0XCI+QWRkPC9CdXR0b24+PC9MaW5rPlxuICAgICAgICAgICAgICA8QnV0dG9uIGNsYXNzTmFtZT17Y2xhc3Nlcy5saW5rc30gY29sb3I9XCJpbmhlcml0XCIgb25DbGljaz17KCk9PmxvZ291dCgpfT5Mb2dvdXQ8L0J1dHRvbj5cbiAgICAgICAgICAgIDwvUmVhY3QuRnJhZ21lbnQ+XG4gICAgICAgICAgICApOlxuICAgICAgICAgICA8QnV0dG9uIGNsYXNzTmFtZT17Y2xhc3Nlcy5saW5rc30gY29sb3I9XCJpbmhlcml0XCIgb25DbGljaz17KCk9PlJvdXRlci5wdXNoKFwiL2F1dGhcIil9PkxvZ2luPC9CdXR0b24+XG5cbiAgY29uc3QgbG9nb3V0PSgpPT57XG4gICAgcHJvcHMuZW5kU2Vzc2lvbigpXG4gICAgUm91dGVyLnB1c2goXCIvYXV0aFwiKVxuICB9XG5cbiAgcmV0dXJuIChcbiAgICA8ZGl2IGNsYXNzTmFtZT17Y2xhc3Nlcy5yb290fT5cbiAgICAgIDxBcHBCYXIgcG9zaXRpb249XCJmaXhlZFwiIGNsYXNzTmFtZT17Y2xhc3Nlcy5hcHBCYXJ9PlxuICAgICAgICA8VG9vbGJhcj5cbiAgICAgICAgICA8SWNvbkJ1dHRvbiBlZGdlPVwic3RhcnRcIiBjbGFzc05hbWU9e2NsYXNzZXMubWVudUJ1dHRvbn0gY29sb3I9XCJpbmhlcml0XCIgYXJpYS1sYWJlbD1cIm1lbnVcIj5cbiAgICAgICAgICAgIHsvKiA8TWVudUljb24gLz4gKi99XG4gICAgICAgICAgPC9JY29uQnV0dG9uPlxuICAgICAgICAgICAgPFR5cG9ncmFwaHkgb25DbGljaz17KCk9PlJvdXRlci5wdXNoKFwiL1wiKX0gdmFyaWFudD1cImg1XCIgY2xhc3NOYW1lPXtjbGFzc2VzLnRpdGxlfT5cbiAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwibG9nb0hlYWRlclwiPlJvb21SPHNwYW4gc3R5bGU9e3tjb2xvcjpcIiNGRjU5NDFcIn19ID44PC9zcGFuPnI8L3NwYW4+XG4gICAgICAgICAgICA8L1R5cG9ncmFwaHk+XG4gICAgICAgICAge3VzZXJBdXRoZW50aWNhdGVkfVxuICAgICAgICA8L1Rvb2xiYXI+XG4gICAgICA8L0FwcEJhcj5cbiAgICAgIDxzdHlsZSBqc3g+e2BcbiAgICAgICAgICAubG9nb0hlYWRlcjpob3ZlciB7XG4gICAgICAgICAgICBvcGFjaXR5OiAwLjc7XG4gICAgICAgICAgICBjdXJzb3I6IHBvaW50ZXJcbiAgICAgICAgICB9XG4gICAgICAgIGB9XG4gICAgICA8L3N0eWxlPlxuICAgIDwvZGl2PlxuICApO1xufVxuXG5jb25zdCBtYXBTdGF0ZVByb3BzPShzdGF0ZSk9PntcbiAgcmV0dXJue1xuICAgIHVzZXJUb2tlbjogc3RhdGUuYXV0aC51c2VyVG9rZW5cbiAgfVxufVxuXG5jb25zdCBtYXBEaXNwYXRjaFRvUHJvcHM9KGRpc3BhdGNoKT0+e1xuICByZXR1cm57XG4gICAgZW5kU2Vzc2lvbjogKCk9PmRpc3BhdGNoKGxvZ291dFVzZXIoKSlcbiAgfVxufVxuXG5leHBvcnQgZGVmYXVsdCBjb25uZWN0KG1hcFN0YXRlUHJvcHMsIG1hcERpc3BhdGNoVG9Qcm9wcykodG9vbGJhcikiXX0= */\n/*@ sourceURL=/Users/fortunephiri/Documents/Projects/roomR8r/src/navigation/toolbar.js */"));
+  }, ".logoHeader.jsx-2605115013:hover{opacity:0.7;cursor:pointer;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9mb3J0dW5lcGhpcmkvRG9jdW1lbnRzL1Byb2plY3RzL3Jvb21SOHIvc3JjL25hdmlnYXRpb24vdG9vbGJhci5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFpRWtCLEFBR3lCLFlBRWYsZUFBQyIsImZpbGUiOiIvVXNlcnMvZm9ydHVuZXBoaXJpL0RvY3VtZW50cy9Qcm9qZWN0cy9yb29tUjhyL3NyYy9uYXZpZ2F0aW9uL3Rvb2xiYXIuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xuaW1wb3J0IHsgbWFrZVN0eWxlcyB9IGZyb20gJ0BtYXRlcmlhbC11aS9jb3JlL3N0eWxlcyc7XG5pbXBvcnQgQXBwQmFyIGZyb20gJ0BtYXRlcmlhbC11aS9jb3JlL0FwcEJhcic7XG5pbXBvcnQgVG9vbGJhciBmcm9tICdAbWF0ZXJpYWwtdWkvY29yZS9Ub29sYmFyJztcbmltcG9ydCBUeXBvZ3JhcGh5IGZyb20gJ0BtYXRlcmlhbC11aS9jb3JlL1R5cG9ncmFwaHknO1xuaW1wb3J0IEJ1dHRvbiBmcm9tICdAbWF0ZXJpYWwtdWkvY29yZS9CdXR0b24nO1xuaW1wb3J0IEljb25CdXR0b24gZnJvbSAnQG1hdGVyaWFsLXVpL2NvcmUvSWNvbkJ1dHRvbic7XG5cbmltcG9ydCB7Y29ubmVjdH0gZnJvbSBcInJlYWN0LXJlZHV4XCJcbmltcG9ydCBSb3V0ZXIgZnJvbSBcIm5leHQvcm91dGVyXCJcbmltcG9ydCB7bG9nb3V0VXNlcn0gZnJvbSBcIi4uLy4uL3N0b3JlL2FjdGlvbnMvYXV0aEFjdGlvbnNcIlxuXG5pbXBvcnQgTGluayBmcm9tIFwibmV4dC9saW5rXCJcbmNvbnN0IHVzZVN0eWxlcyA9IG1ha2VTdHlsZXModGhlbWUgPT4gKHtcbiAgcm9vdDoge1xuICAgIC8vIGZsZXhHcm93OiAxLFxuICB9LFxuICBhcHBCYXI6e1xuICAgIGJhY2tncm91bmRDb2xvcjpcIiMxOTE5MjNcIixcbiAgICAvLyBiYWNrZ3JvdW5kQ29sb3I6XCJyZ2JhKDAsMCwwLDEpXCIsIFxuICAgIG1hcmdpbkJvdHRvbTpcIjEwcHhcIlxuICB9LFxuICBtZW51QnV0dG9uOiB7XG4gICAgbWFyZ2luUmlnaHQ6IHRoZW1lLnNwYWNpbmcoMiksXG4gIH0sXG4gIHRpdGxlOiB7XG4gICAgZmxleEdyb3c6IDEsXG4gICAgY29sb3I6XCIjNjQ2ODY1XCIsICAvKiogdXNlZCBpbiBwbGFjZSBvZiAjNDc0QTQ4IGFzIHRoZXJlIGlzIGJldHRlciBjb250cmFzdCovXG4gICAgZm9udEZhbWlseTogJ0xleGVuZCBUZXJhLCBzYW5zLXNlcmlmJyxcbiAgfSxcbiAgbGlua3M6e1xuICAgIGZvbnRGYW1pbHk6ICdQb3BwaW5zLCBzYW5zLXNlcmlmJyxcbiAgICBmb250V2VpZ2h0OjkwMCxcbiAgICBjb2xvcjogXCIjZmZmZmZhXCJcbiAgfVxufSkpO1xuXG5jb25zdCB0b29sYmFyPShwcm9wcyk9PntcbiAgY29uc3QgY2xhc3NlcyA9IHVzZVN0eWxlcygpO1xuICBjb25zdCB1c2VyQXV0aGVudGljYXRlZCA9IHByb3BzLnVzZXJUb2tlbiA/IChcbiAgICAgICAgICAgIDxSZWFjdC5GcmFnbWVudD5cbiAgICAgICAgICAgICAgPExpbmsgaHJlZj1cIi9cIj48QnV0dG9uIGNsYXNzTmFtZT17Y2xhc3Nlcy5saW5rc30gPkhvbWU8L0J1dHRvbj48L0xpbms+IFxuICAgICAgICAgICAgICA8TGluayBocmVmPVwiL2FkZC1yZXZpZXdcIj48QnV0dG9uIGNsYXNzTmFtZT17Y2xhc3Nlcy5saW5rc30gY29sb3I9XCJpbmhlcml0XCI+QWRkPC9CdXR0b24+PC9MaW5rPlxuICAgICAgICAgICAgICA8QnV0dG9uIGNsYXNzTmFtZT17Y2xhc3Nlcy5saW5rc30gY29sb3I9XCJpbmhlcml0XCIgb25DbGljaz17KCk9PmxvZ291dCgpfT5Mb2dvdXQ8L0J1dHRvbj5cbiAgICAgICAgICAgIDwvUmVhY3QuRnJhZ21lbnQ+XG4gICAgICAgICAgICApOiA8QnV0dG9uIGNsYXNzTmFtZT17Y2xhc3Nlcy5saW5rc30gY29sb3I9XCJpbmhlcml0XCIgb25DbGljaz17KCk9PmxvZ291dCgpfT5Mb2dpbjwvQnV0dG9uPlxuXG4gIGNvbnN0IGxvZ291dD0oKT0+e1xuICAgIHByb3BzLmVuZFNlc3Npb24oKVxuICAgIFJvdXRlci5yZXBsYWNlKFwiL2F1dGhcIilcblxuICB9XG4gIHJldHVybiAoXG4gICAgPGRpdiBjbGFzc05hbWU9e2NsYXNzZXMucm9vdH0+XG4gICAgICA8QXBwQmFyIHBvc2l0aW9uPVwiZml4ZWRcIiBjbGFzc05hbWU9e2NsYXNzZXMuYXBwQmFyfT5cbiAgICAgICAgPFRvb2xiYXI+XG4gICAgICAgICAgPEljb25CdXR0b24gZWRnZT1cInN0YXJ0XCIgY2xhc3NOYW1lPXtjbGFzc2VzLm1lbnVCdXR0b259IGNvbG9yPVwiaW5oZXJpdFwiIGFyaWEtbGFiZWw9XCJtZW51XCI+XG4gICAgICAgICAgICB7LyogPE1lbnVJY29uIC8+ICovfVxuICAgICAgICAgIDwvSWNvbkJ1dHRvbj5cbiAgICAgICAgICAgIDxUeXBvZ3JhcGh5IG9uQ2xpY2s9eygpPT5Sb3V0ZXIucHVzaChcIi9cIil9IHZhcmlhbnQ9XCJoNVwiIGNsYXNzTmFtZT17Y2xhc3Nlcy50aXRsZX0+XG4gICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cImxvZ29IZWFkZXJcIj5Sb29tUjxzcGFuIHN0eWxlPXt7Y29sb3I6XCIjRkY1OTQxXCJ9fSA+ODwvc3Bhbj5yPC9zcGFuPlxuICAgICAgICAgICAgPC9UeXBvZ3JhcGh5PlxuICAgICAgICAgIHt1c2VyQXV0aGVudGljYXRlZH1cbiAgICAgICAgPC9Ub29sYmFyPlxuICAgICAgPC9BcHBCYXI+XG4gICAgICA8c3R5bGUganN4PntgXG4gICAgICAgICAgLmxvZ29IZWFkZXI6aG92ZXIge1xuICAgICAgICAgICAgb3BhY2l0eTogMC43O1xuICAgICAgICAgICAgY3Vyc29yOiBwb2ludGVyXG4gICAgICAgICAgfVxuICAgICAgICBgfVxuICAgICAgPC9zdHlsZT5cbiAgICA8L2Rpdj5cbiAgKTtcbn1cblxuY29uc3QgbWFwU3RhdGVQcm9wcz0oc3RhdGUpPT57XG4gIHJldHVybntcbiAgICB1c2VyVG9rZW46IHN0YXRlLmF1dGgudXNlclRva2VuXG4gIH1cbn1cblxuY29uc3QgbWFwRGlzcGF0Y2hUb1Byb3BzPShkaXNwYXRjaCk9PntcbiAgcmV0dXJue1xuICAgIGVuZFNlc3Npb246ICgpPT5kaXNwYXRjaChsb2dvdXRVc2VyKCkpXG4gIH1cbn1cblxuZXhwb3J0IGRlZmF1bHQgY29ubmVjdChtYXBTdGF0ZVByb3BzLCBtYXBEaXNwYXRjaFRvUHJvcHMpKHRvb2xiYXIpIl19 */\n/*@ sourceURL=/Users/fortunephiri/Documents/Projects/roomR8r/src/navigation/toolbar.js */"));
 };
 
 const mapStateProps = state => {
@@ -2314,9 +2267,7 @@ class GoogleMapsSearchBar extends react__WEBPACK_IMPORTED_MODULE_1__["Component"
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components__WEBPACK_IMPORTED_MODULE_2__["SearchBar"], {
-      style: {
-        backgroundColor: "#ddd"
-      },
+      style: styles.searchBar,
       id: "autocomplete",
       onChange: this.onChangeHandler,
       placeholder: "X5X-X5X",
@@ -2343,6 +2294,12 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
+const styles = {
+  searchBar: {
+    backgroundColor: "#fffffa",
+    width: "320px"
+  }
+};
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_4__["connect"])(mapStateToProps, mapDispatchToProps)(GoogleMapsSearchBar));
 
 /***/ }),
@@ -2387,8 +2344,13 @@ var _jsxFileName = "/Users/fortunephiri/Documents/Projects/roomR8r/src/stepper/i
 
 
 const styles = theme => ({
-  root: {},
+  root: {
+    width: "450px",
+    flexDirection: 'row',
+    alignItems: "flex-start"
+  },
   stepper: {
+    // width:"100%",
     display: "flex",
     backgroundColor: "rgba(44,54,94,0.6)",
     borderTopLeftRadius: 7,
@@ -2403,11 +2365,19 @@ const styles = theme => ({
   },
   step: {},
   "button-section": {
-    justifyContent: "flex-end",
-    marginTop: 60,
-    textAlign: "center"
+    marginTop: 30,
+    alignSelf: 'flex-end',
+    textAlign: "center",
+    height: 70
+  },
+  input: {
+    borderRadius: "7px",
+    display: "block",
+    margin: "15px auto",
+    width: "320px"
   },
   "step-body": {
+    width: "100%",
     height: 300,
     display: "flex",
     alignItems: 'center',
@@ -2417,13 +2387,16 @@ const styles = theme => ({
     borderBottomRightRadius: 7
   },
   stepIcon: {
-    color: "#FF5941"
+    color: "#FF5941",
+    "& $disabled": {
+      backgroundColor: "red"
+    }
   },
   completed: {}
 });
 
 const getSteps = () => {
-  return ['Location settings', 'Add land lord details', 'Verify details'];
+  return ['Location settings', 'Land lord Bio', 'Verify details'];
 };
 
 const getStepContent = (step, address = "") => {
@@ -2433,13 +2406,27 @@ const getStepContent = (step, address = "") => {
       return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_googleMapsSearchBar__WEBPACK_IMPORTED_MODULE_9__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 62
+          lineNumber: 74
         },
         __self: undefined
       });
 
     case 1:
-      return 'What is an ad group anyways?';
+      return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("input", {
+        placeholder: "John Doe",
+        type: "text",
+        style: {
+          padding: 15,
+          width: "300px",
+          borderRadius: 7,
+          fontSize: 14
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 76
+        },
+        __self: undefined
+      });
 
     case 2:
       return 'This is the bit I really care about!';
@@ -2456,7 +2443,7 @@ const HorizontalStepper = props => {
   const steps = getSteps();
 
   function isStepOptional(step) {
-    return step === null;
+    return false; //no optional steps
   }
 
   function isStepSkipped(step) {
@@ -2504,7 +2491,7 @@ const HorizontalStepper = props => {
   return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 125
+      lineNumber: 137
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Stepper__WEBPACK_IMPORTED_MODULE_4___default.a, {
@@ -2512,7 +2499,7 @@ const HorizontalStepper = props => {
     className: classes.stepper,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 126
+      lineNumber: 138
     },
     __self: undefined
   }, steps.map((label, index) => {
@@ -2524,7 +2511,7 @@ const HorizontalStepper = props => {
         variant: "caption",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 131
+          lineNumber: 143
         },
         __self: undefined
       }, "Optional");
@@ -2544,7 +2531,7 @@ const HorizontalStepper = props => {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 137
+        lineNumber: 149
       },
       __self: undefined
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_StepLabel__WEBPACK_IMPORTED_MODULE_6___default.a, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, labelProps, {
@@ -2555,7 +2542,7 @@ const HorizontalStepper = props => {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 142
+        lineNumber: 154
       },
       __self: undefined
     }), label));
@@ -2563,20 +2550,20 @@ const HorizontalStepper = props => {
     className: classes["step-body"],
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 149
+      lineNumber: 161
     },
     __self: undefined
   }, activeStep === steps.length ? react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 151
+      lineNumber: 163
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8___default.a, {
     className: "instructions",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 152
+      lineNumber: 164
     },
     __self: undefined
   }, "Review complete.", react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
@@ -2584,27 +2571,27 @@ const HorizontalStepper = props => {
     onClick: props.closeModal,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 153
+      lineNumber: 165
     },
     __self: undefined
   }, "Close"))) : react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 157
+      lineNumber: 169
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8___default.a, {
     className: classes.instructions,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 158
+      lineNumber: 170
     },
     __self: undefined
   }, getStepContent(activeStep, address)), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
     className: classes["button-section"],
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 159
+      lineNumber: 171
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7___default.a, {
@@ -2617,7 +2604,7 @@ const HorizontalStepper = props => {
     color: "primary",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 160
+      lineNumber: 172
     },
     __self: undefined
   }, "Back"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7___default.a, {
@@ -2627,7 +2614,7 @@ const HorizontalStepper = props => {
     className: classes.button,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 163
+      lineNumber: 175
     },
     __self: undefined
   }, activeStep === steps.length - 1 ? 'Finish' : 'Next')))));
@@ -2895,7 +2882,7 @@ const updateSavedToken = token => {
 
 /***/ }),
 
-/***/ 3:
+/***/ 6:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/

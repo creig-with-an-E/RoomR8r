@@ -10,9 +10,12 @@ import GMapsSearchBar from "./googleMapsSearchBar"
 
 const styles = theme => ({
   root:{
-    
+    width:"450px",
+    flexDirection: 'row',
+    alignItems:"flex-start"
   },
   stepper: {
+    // width:"100%",
     display:"flex",
     backgroundColor:"rgba(44,54,94,0.6)",
     borderTopLeftRadius: 7,
@@ -30,13 +33,20 @@ const styles = theme => ({
     
   },
   "button-section":{
-    justifyContent:"flex-end",
-    marginTop:60, 
-    textAlign:"center"
-  }
-  ,
+    marginTop: 30,
+    alignSelf:'flex-end', 
+    textAlign:"center",
+    height:70
+  },
+  input: {
+    borderRadius: "7px",
+    display: "block",
+    margin: "15px auto",
+    width:"320px"
+  },
   "step-body":{ 
-    height:300, 
+    width:"100%",
+    height:300,
     display:"flex", 
     alignItems: 'center', 
     justifyContent:"center", 
@@ -45,14 +55,16 @@ const styles = theme => ({
     borderBottomRightRadius: 7,
   },
   stepIcon:{
-    color:"#FF5941"
+    color:"#FF5941",
+    "& $disabled":{
+      backgroundColor:"red"
+    },
   },
   completed:{}
 });
 
-
 const getSteps=()=>{
-  return ['Location settings', 'Add land lord details', 'Verify details'];
+  return ['Location settings', 'Land lord Bio', 'Verify details'];
 }
 
 const getStepContent=(step, address= "")=>{
@@ -61,7 +73,7 @@ const getStepContent=(step, address= "")=>{
       // switching to the Google maps search bar slde
       return ( <GMapsSearchBar />)
     case 1:
-      return 'What is an ad group anyways?';
+      return (<input placeholder="John Doe" type="text" style={{padding: 15, width:"300px", borderRadius:7, fontSize:14}}/>);
     case 2:
       return 'This is the bit I really care about!';
     default:
@@ -79,7 +91,7 @@ const HorizontalStepper=(props)=>{
   const steps = getSteps();
 
   function isStepOptional(step) {
-    return step === null;
+    return false;   //no optional steps
   }
 
   function isStepSkipped(step) {

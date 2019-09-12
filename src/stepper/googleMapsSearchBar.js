@@ -21,7 +21,7 @@ class GoogleMapsSearchBar extends Component{
       })
     }
   }
-  
+
   componentDidUpdate(prevProps,prevState){
     if(this.props.addressData !== prevProps.addressData){
       const {addressData} =this.props
@@ -81,7 +81,7 @@ class GoogleMapsSearchBar extends Component{
           onLoad={this.handleScriptLoad}
         />
         <SearchBar
-          style={{backgroundColor:"#ddd"}}
+          style={styles.searchBar}
           id="autocomplete"
           onChange={this.onChangeHandler}
           placeholder="X5X-X5X"
@@ -100,6 +100,13 @@ const mapStateToProps=(state)=>{
 const mapDispatchToProps=(dispatch)=>{
   return{
     setAddressData:(address)=>dispatch(setAddress(address))
+  }
+}
+
+const styles ={
+  searchBar:{
+    backgroundColor:"#fffffa",
+    width:"320px"
   }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(GoogleMapsSearchBar)

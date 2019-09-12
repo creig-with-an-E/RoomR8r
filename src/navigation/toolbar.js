@@ -43,14 +43,13 @@ const toolbar=(props)=>{
               <Link href="/add-review"><Button className={classes.links} color="inherit">Add</Button></Link>
               <Button className={classes.links} color="inherit" onClick={()=>logout()}>Logout</Button>
             </React.Fragment>
-            ):
-           <Button className={classes.links} color="inherit" onClick={()=>Router.push("/auth")}>Login</Button>
+            ): <Button className={classes.links} color="inherit" onClick={()=>logout()}>Login</Button>
 
   const logout=()=>{
     props.endSession()
-    Router.push("/auth")
-  }
+    Router.replace("/auth")
 
+  }
   return (
     <div className={classes.root}>
       <AppBar position="fixed" className={classes.appBar}>
