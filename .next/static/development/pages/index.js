@@ -65076,7 +65076,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 /*!**************************************!*\
   !*** ./store/actions/actionTypes.js ***!
   \**************************************/
-/*! exports provided: LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_USER, CLEAR_ERRORS, SIGNUP_USER, SIGNUP_USER_SUCCESS, SIGNUP_USER_FAIL, SEARCH_BY_ADDRESS_START, SEARCH_BY_ADDRESS_SUCCESS, SEARCH_BY_ADDRESS_FAIL, RESET_APPLICATION_STATE, SET_ADDRESS_OBJECT, UPDATE_TOKEN_WITH_COOKIE */
+/*! exports provided: LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_USER, CLEAR_ERRORS, SIGNUP_USER, SIGNUP_USER_SUCCESS, SIGNUP_USER_FAIL, SEARCH_BY_ADDRESS_START, SEARCH_BY_ADDRESS_SUCCESS, SEARCH_BY_ADDRESS_FAIL, RESET_APPLICATION_STATE, SET_ADDRESS_OBJECT, SET_REVIEW_FORM_FIELDS, UPDATE_TOKEN_WITH_COOKIE */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -65094,6 +65094,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_BY_ADDRESS_FAIL", function() { return SEARCH_BY_ADDRESS_FAIL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RESET_APPLICATION_STATE", function() { return RESET_APPLICATION_STATE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_ADDRESS_OBJECT", function() { return SET_ADDRESS_OBJECT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_REVIEW_FORM_FIELDS", function() { return SET_REVIEW_FORM_FIELDS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_TOKEN_WITH_COOKIE", function() { return UPDATE_TOKEN_WITH_COOKIE; });
 var LOGIN_START = "login_start";
 var LOGIN_SUCCESS = "login_success";
@@ -65109,6 +65110,7 @@ var SEARCH_BY_ADDRESS_SUCCESS = "search_by_address_success";
 var SEARCH_BY_ADDRESS_FAIL = "search_by_address_fail";
 var RESET_APPLICATION_STATE = "reset_application_state";
 var SET_ADDRESS_OBJECT = "set_address_object";
+var SET_REVIEW_FORM_FIELDS = "set_review_form_field_data";
 var UPDATE_TOKEN_WITH_COOKIE = "update_user_token_with_cookie_value";
 
 /***/ }),
@@ -65117,7 +65119,7 @@ var UPDATE_TOKEN_WITH_COOKIE = "update_user_token_with_cookie_value";
 /*!*************************************!*\
   !*** ./store/actions/appActions.js ***!
   \*************************************/
-/*! exports provided: findReviewByAddress, resetApplicationState, setAddress */
+/*! exports provided: findReviewByAddress, resetApplicationState, setAddress, setFormFields */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -65125,6 +65127,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "findReviewByAddress", function() { return findReviewByAddress; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resetApplicationState", function() { return resetApplicationState; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setAddress", function() { return setAddress; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setFormFields", function() { return setFormFields; });
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/objectSpread */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js");
 /* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/keys */ "./node_modules/@babel/runtime-corejs2/core-js/object/keys.js");
 /* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1__);
@@ -65203,6 +65206,18 @@ var setAddress = function setAddress(address) {
     payload: address
   };
 };
+/*******end of google maps functions********/
+
+/**start of review form functions**********/
+
+var setFormFields = function setFormFields(data) {
+  //  handles input change for landlord_form review component
+  return {
+    type: _actionTypes__WEBPACK_IMPORTED_MODULE_3__["SET_REVIEW_FORM_FIELDS"],
+    payload: data
+  };
+};
+/*************end of review form data***************************/
 
 /***/ }),
 

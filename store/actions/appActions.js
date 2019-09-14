@@ -65,3 +65,16 @@ export const setAddress=(address)=>{
     payload: address
   }
 }
+
+/*******end of google maps functions********/ 
+
+/**start of review form functions**********/ 
+export const setFormFields=(data)=>{
+  //  handles input change for landlord_form review component
+  return {
+    type: actionTypes.SET_REVIEW_FORM_FIELDS,
+    payload: data
+  }
+}
+
+/*************end of review form data***************************/ 

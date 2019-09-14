@@ -58,7 +58,7 @@ const styles = theme => ({
 });
 
 const getSteps=()=>{
-  return ['Location settings', 'Land lord Bio', 'Verify details'];
+  return ['Location settings', 'Land lord Bio', 'Confirm Review'];
 }
 
 const getStepContent=(step, address= "")=>{
@@ -67,9 +67,9 @@ const getStepContent=(step, address= "")=>{
       // switching to the Google maps search bar slde
       return ( <GMapsSearchBar />)
     case 1:
-      return (<LandlordForm />);
+      return (<LandlordForm/>);
     case 2:
-      return 'This is the bit I really care about!';
+      return 'Completed Review';
     default:
       return 'Unknown step';
   }

@@ -64850,7 +64850,7 @@ var styles = function styles(theme) {
 };
 
 var getSteps = function getSteps() {
-  return ['Location settings', 'Land lord Bio', 'Verify details'];
+  return ['Location settings', 'Land lord Bio', 'Confirm Review'];
 };
 
 var getStepContent = function getStepContent(step) {
@@ -64877,7 +64877,7 @@ var getStepContent = function getStepContent(step) {
       });
 
     case 2:
-      return 'This is the bit I really care about!';
+      return 'Completed Review';
 
     default:
       return 'Unknown step';
@@ -65247,7 +65247,7 @@ function (_Component) {
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    addressData: state.app.addressData
+    addressData: state.app.stepperFormData.addressData
   };
 };
 
@@ -65287,6 +65287,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _store_actions_appActions__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../store/actions/appActions */ "./store/actions/appActions.js");
 
 
 
@@ -65295,6 +65297,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _jsxFileName = "/Users/fortunephiri/Documents/Projects/roomR8r/src/stepper/stepper_components/landlord_form.js";
+
+
 
 
 var LandlordForm =
@@ -65315,18 +65319,21 @@ function (_Component) {
 
     _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__["default"])(this, (_getPrototypeOf2 = Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(LandlordForm)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "state", {});
-
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "landLordformSubmitHandle", function (event) {
-      event.preventDefault();
+      event.preventDefault(); //preventing page refresh
     });
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "onChangeText", function (_ref) {
-      var input = _ref.input,
-          name = _ref.name;
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "onChangeText", function (event) {
+      /* handles input change for the form
+      *  values stored in redux state 
+         retional: this is because local state was being cleared 
+          on step change
+      */
+      var _event$target = event.target,
+          name = _event$target.name,
+          value = _event$target.value;
 
-      /* handles input change for the form*/
-      _this.setState(Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])({}, name, input));
+      _this.props.updateFields(Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])({}, name, value));
     });
 
     return _this;
@@ -65335,41 +65342,43 @@ function (_Component) {
   Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(LandlordForm, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 18
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("form", {
+      var _this$props$landlord_ = this.props.landlord_bio,
+          name = _this$props$landlord_.name,
+          landlord_review = _this$props$landlord_.landlord_review;
+      console.log(name);
+      return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("form", {
         onSubmit: this.landLordformSubmitHandle,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 19
+          lineNumber: 25
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("input", {
         placeholder: "John Doe",
         type: "text",
         style: styles.inputStyle,
-        name: "landlord_name",
+        name: "name",
+        value: name,
+        onChange: this.onChangeText,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 20
+          lineNumber: 26
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("textarea", {
         placeholder: "bio",
-        name: "landlord_bio",
+        onChange: this.onChangeText,
+        name: "landlord_review",
+        value: landlord_review,
         cols: "10",
         rows: "6",
         style: styles.inputStyle,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 21
+          lineNumber: 33
         },
         __self: this
-      })));
+      }));
     }
   }]);
 
@@ -65387,7 +65396,22 @@ var styles = {
     display: "block"
   }
 };
-/* harmony default export */ __webpack_exports__["default"] = (LandlordForm);
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    landlord_bio: state.app.stepperFormData.landlord_bio
+  };
+};
+
+var mapDispatchTopProps = function mapDispatchTopProps(dispatch) {
+  return {
+    updateFields: function updateFields(data) {
+      return dispatch(Object(_store_actions_appActions__WEBPACK_IMPORTED_MODULE_9__["setFormFields"])(data));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_8__["connect"])(mapStateToProps, mapDispatchTopProps)(LandlordForm));
 
 /***/ }),
 
@@ -65395,7 +65419,7 @@ var styles = {
 /*!**************************************!*\
   !*** ./store/actions/actionTypes.js ***!
   \**************************************/
-/*! exports provided: LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_USER, CLEAR_ERRORS, SIGNUP_USER, SIGNUP_USER_SUCCESS, SIGNUP_USER_FAIL, SEARCH_BY_ADDRESS_START, SEARCH_BY_ADDRESS_SUCCESS, SEARCH_BY_ADDRESS_FAIL, RESET_APPLICATION_STATE, SET_ADDRESS_OBJECT, UPDATE_TOKEN_WITH_COOKIE */
+/*! exports provided: LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_USER, CLEAR_ERRORS, SIGNUP_USER, SIGNUP_USER_SUCCESS, SIGNUP_USER_FAIL, SEARCH_BY_ADDRESS_START, SEARCH_BY_ADDRESS_SUCCESS, SEARCH_BY_ADDRESS_FAIL, RESET_APPLICATION_STATE, SET_ADDRESS_OBJECT, SET_REVIEW_FORM_FIELDS, UPDATE_TOKEN_WITH_COOKIE */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -65413,6 +65437,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_BY_ADDRESS_FAIL", function() { return SEARCH_BY_ADDRESS_FAIL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RESET_APPLICATION_STATE", function() { return RESET_APPLICATION_STATE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_ADDRESS_OBJECT", function() { return SET_ADDRESS_OBJECT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_REVIEW_FORM_FIELDS", function() { return SET_REVIEW_FORM_FIELDS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_TOKEN_WITH_COOKIE", function() { return UPDATE_TOKEN_WITH_COOKIE; });
 var LOGIN_START = "login_start";
 var LOGIN_SUCCESS = "login_success";
@@ -65428,6 +65453,7 @@ var SEARCH_BY_ADDRESS_SUCCESS = "search_by_address_success";
 var SEARCH_BY_ADDRESS_FAIL = "search_by_address_fail";
 var RESET_APPLICATION_STATE = "reset_application_state";
 var SET_ADDRESS_OBJECT = "set_address_object";
+var SET_REVIEW_FORM_FIELDS = "set_review_form_field_data";
 var UPDATE_TOKEN_WITH_COOKIE = "update_user_token_with_cookie_value";
 
 /***/ }),
@@ -65436,7 +65462,7 @@ var UPDATE_TOKEN_WITH_COOKIE = "update_user_token_with_cookie_value";
 /*!*************************************!*\
   !*** ./store/actions/appActions.js ***!
   \*************************************/
-/*! exports provided: findReviewByAddress, resetApplicationState, setAddress */
+/*! exports provided: findReviewByAddress, resetApplicationState, setAddress, setFormFields */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -65444,6 +65470,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "findReviewByAddress", function() { return findReviewByAddress; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resetApplicationState", function() { return resetApplicationState; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setAddress", function() { return setAddress; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setFormFields", function() { return setFormFields; });
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/objectSpread */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js");
 /* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/keys */ "./node_modules/@babel/runtime-corejs2/core-js/object/keys.js");
 /* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1__);
@@ -65522,6 +65549,18 @@ var setAddress = function setAddress(address) {
     payload: address
   };
 };
+/*******end of google maps functions********/
+
+/**start of review form functions**********/
+
+var setFormFields = function setFormFields(data) {
+  //  handles input change for landlord_form review component
+  return {
+    type: _actionTypes__WEBPACK_IMPORTED_MODULE_3__["SET_REVIEW_FORM_FIELDS"],
+    payload: data
+  };
+};
+/*************end of review form data***************************/
 
 /***/ }),
 
@@ -65649,7 +65688,7 @@ var updateSavedToken = function updateSavedToken(token) {
 
 /***/ }),
 
-/***/ 1:
+/***/ 0:
 /*!***********************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fadd-review&absolutePagePath=%2FUsers%2Ffortunephiri%2FDocuments%2FProjects%2FroomR8r%2Fpages%2Fadd-review.js ***!
   \***********************************************************************************************************************************************************/
@@ -65672,5 +65711,5 @@ module.exports = dll_01f9a3fa864a7b7414d8;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js"]]]);
+},[[0,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=add-review.js.map

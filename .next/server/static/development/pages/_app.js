@@ -992,7 +992,7 @@ const initStore = (initialState = {}) => {
 /*!**************************************!*\
   !*** ./store/actions/actionTypes.js ***!
   \**************************************/
-/*! exports provided: LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_USER, CLEAR_ERRORS, SIGNUP_USER, SIGNUP_USER_SUCCESS, SIGNUP_USER_FAIL, SEARCH_BY_ADDRESS_START, SEARCH_BY_ADDRESS_SUCCESS, SEARCH_BY_ADDRESS_FAIL, RESET_APPLICATION_STATE, SET_ADDRESS_OBJECT, UPDATE_TOKEN_WITH_COOKIE */
+/*! exports provided: LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_USER, CLEAR_ERRORS, SIGNUP_USER, SIGNUP_USER_SUCCESS, SIGNUP_USER_FAIL, SEARCH_BY_ADDRESS_START, SEARCH_BY_ADDRESS_SUCCESS, SEARCH_BY_ADDRESS_FAIL, RESET_APPLICATION_STATE, SET_ADDRESS_OBJECT, SET_REVIEW_FORM_FIELDS, UPDATE_TOKEN_WITH_COOKIE */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1010,6 +1010,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_BY_ADDRESS_FAIL", function() { return SEARCH_BY_ADDRESS_FAIL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RESET_APPLICATION_STATE", function() { return RESET_APPLICATION_STATE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_ADDRESS_OBJECT", function() { return SET_ADDRESS_OBJECT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_REVIEW_FORM_FIELDS", function() { return SET_REVIEW_FORM_FIELDS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_TOKEN_WITH_COOKIE", function() { return UPDATE_TOKEN_WITH_COOKIE; });
 const LOGIN_START = "login_start";
 const LOGIN_SUCCESS = "login_success";
@@ -1025,6 +1026,7 @@ const SEARCH_BY_ADDRESS_SUCCESS = "search_by_address_success";
 const SEARCH_BY_ADDRESS_FAIL = "search_by_address_fail";
 const RESET_APPLICATION_STATE = "reset_application_state";
 const SET_ADDRESS_OBJECT = "set_address_object";
+const SET_REVIEW_FORM_FIELDS = "set_review_form_field_data";
 const UPDATE_TOKEN_WITH_COOKIE = "update_user_token_with_cookie_value";
 
 /***/ }),
@@ -1038,44 +1040,70 @@ const UPDATE_TOKEN_WITH_COOKIE = "update_user_token_with_cookie_value";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/objectSpread */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js");
-/* harmony import */ var _actions_actionTypes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/actionTypes */ "./store/actions/actionTypes.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/keys */ "./node_modules/@babel/runtime-corejs2/core-js/object/keys.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/objectSpread */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js");
+/* harmony import */ var _actions_actionTypes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/actionTypes */ "./store/actions/actionTypes.js");
+
 
 
 const INITIAL_STATE = {
   searchResults: null,
   loading: null,
   error: null,
-  addressData: null //address lookup state used in creating new review
+  stepperFormData: {
+    // store for stepper form fields
+    landlord_bio: {
+      // actual review and landlord name
+      landlord_review: "",
+      name: ""
+    },
+    addressData: null //address lookup state used in creating new review      
 
+  }
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_1__["SEARCH_BY_ADDRESS_START"]:
-      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
+    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_2__["SEARCH_BY_ADDRESS_START"]:
+      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_1__["default"])({}, state, {
         loading: true,
         error: null
       });
 
-    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_1__["SEARCH_BY_ADDRESS_SUCCESS"]:
-      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
+    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_2__["SEARCH_BY_ADDRESS_SUCCESS"]:
+      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_1__["default"])({}, state, {
         loading: false,
         searchResults: action.payload.data
       });
 
-    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_1__["SEARCH_BY_ADDRESS_FAIL"]:
-      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
+    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_2__["SEARCH_BY_ADDRESS_FAIL"]:
+      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_1__["default"])({}, state, {
         loading: false,
         error: "SOMETHING WENT WRONG"
       });
 
-    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_1__["RESET_APPLICATION_STATE"]:
-      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, INITIAL_STATE);
+    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_2__["RESET_APPLICATION_STATE"]:
+      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_1__["default"])({}, INITIAL_STATE);
 
-    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_1__["SET_ADDRESS_OBJECT"]:
-      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
-        addressData: action.payload
+    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_2__["SET_ADDRESS_OBJECT"]:
+      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_1__["default"])({}, state, {
+        stepperFormData: Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_1__["default"])({}, state.stepperFormData, {
+          addressData: action.payload
+        })
+      });
+
+    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_2__["SET_REVIEW_FORM_FIELDS"]:
+      const keys = _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_0___default()(action.payload);
+
+      const landlord_bio_copy = Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_1__["default"])({}, state.stepperFormData.landlord_bio);
+
+      const value = landlord_bio_copy[keys[0]].toString();
+      landlord_bio_copy[keys[0]] = action.payload[keys[0]];
+      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_1__["default"])({}, state, {
+        stepperFormData: Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_1__["default"])({}, state.stepperFormData, {
+          landlord_bio: landlord_bio_copy
+        })
       });
 
     default:

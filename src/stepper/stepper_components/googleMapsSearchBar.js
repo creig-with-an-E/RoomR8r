@@ -91,7 +91,7 @@ class GoogleMapsSearchBar extends Component{
 
 const mapStateToProps=(state)=>{
   return{
-    addressData: state.app.addressData
+    addressData: state.app.stepperFormData.addressData
   }
 }
 

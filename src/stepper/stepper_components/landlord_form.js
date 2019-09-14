@@ -1,30 +1,42 @@
 import React, { Component } from "react";
+import {connect} from "react-redux"
+
+import {setFormFields} from "../../../store/actions/appActions"
 
 class LandlordForm extends Component {
-  state = {};
-
   landLordformSubmitHandle = event => {
-    event.preventDefault();
+    event.preventDefault(); //preventing page refresh
   };
 
-  onChangeText = ({input,name}) => {
-    /* handles input change for the form*/
-    this.setState({
-        [name]:input
-    })
-  };
+  onChangeText = (event) => {
+    /* handles input change for the form
+    *  values stored in redux state 
+       retional: this is because local state was being cleared 
+        on step change
+    */
+    const {name,value} = event.target
+    this.props.updateFields({ [name]: value })
+  }
+
   render() {
+    const {name,landlord_review} = this.props.landlord_bio
+    console.log(name)
     return (
-      <div>
         <form onSubmit={this.landLordformSubmitHandle}>
-          <input placeholder="John Doe" type="text" style={styles.inputStyle} name="landlord_name"/>
+          <input
+            placeholder="John Doe"
+            type="text" style={styles.inputStyle}
+            name="name"
+            value={name}
+            onChange={this.onChangeText}
+          />
           <textarea
-            placeholder="bio" name="landlord_bio"
+            placeholder="bio" onChange={this.onChangeText}
+            name="landlord_review" value={landlord_review}
             cols="10" rows="6"
             style={styles.inputStyle}
           />
         </form>
-      </div>
     );
   }
 }
@@ -39,4 +51,16 @@ const styles = {
     display: "block"
   }
 };
-export default LandlordForm;
+
+const mapStateToProps=(state)=>{
+  return{
+    landlord_bio:state.app.stepperFormData.landlord_bio
+  }
+}
+
+const mapDispatchTopProps=(dispatch)=>{
+  return{
+    updateFields:(data)=>dispatch(setFormFields(data))
+  }
+}
+export default connect(mapStateToProps,mapDispatchTopProps)(LandlordForm)
