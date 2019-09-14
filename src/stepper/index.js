@@ -6,16 +6,17 @@ import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-import GMapsSearchBar from "./googleMapsSearchBar"
+import LandlordForm from "./stepper_components/landlord_form"
+import GMapsSearchBar from "./stepper_components/googleMapsSearchBar"
 
 const styles = theme => ({
   root:{
     width:"450px",
-    flexDirection: 'row',
-    alignItems:"flex-start"
+    display:"flex",
+    flexDirection: 'column',
+
   },
   stepper: {
-    // width:"100%",
     display:"flex",
     backgroundColor:"rgba(44,54,94,0.6)",
     borderTopLeftRadius: 7,
@@ -23,30 +24,23 @@ const styles = theme => ({
     height:"100%"
   },
   button: {
-    marginRight: 15,
-    "& $disabled":{
-      backgroundColor:"red"
-    },
-
-  },
-  step: {
-    
-  },
+    marginRight: 15
+   },
+  step: {},
   "button-section":{
     marginTop: 30,
     alignSelf:'flex-end', 
     textAlign:"center",
     height:70
   },
-  input: {
-    borderRadius: "7px",
-    display: "block",
-    margin: "15px auto",
-    width:"320px"
+  instructions:{
+    height:"200px",
+    paddingTop:"20px",
+    
   },
   "step-body":{ 
     width:"100%",
-    height:300,
+    // height:300,
     display:"flex", 
     alignItems: 'center', 
     justifyContent:"center", 
@@ -73,7 +67,7 @@ const getStepContent=(step, address= "")=>{
       // switching to the Google maps search bar slde
       return ( <GMapsSearchBar />)
     case 1:
-      return (<input placeholder="John Doe" type="text" style={{padding: 15, width:"300px", borderRadius:7, fontSize:14}}/>);
+      return (<LandlordForm />);
     case 2:
       return 'This is the bit I really care about!';
     default:
@@ -85,8 +79,6 @@ const HorizontalStepper=(props)=>{
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
   const [address, setAddress] = React.useState("")
-
-  
 
   const steps = getSteps();
 
@@ -134,7 +126,7 @@ const HorizontalStepper=(props)=>{
 
   const { classes } = props;
   return (
-    <div>
+    <div className={classes.root}>
       <Stepper activeStep={activeStep} className={classes.stepper}>
         {steps.map((label, index) => {
           const stepProps = {};
@@ -161,8 +153,8 @@ const HorizontalStepper=(props)=>{
       <div className={classes["step-body"]}>
         {activeStep === steps.length ? (
           <div>
-            <Typography className="instructions">
-              Review complete.<a className={classes.completeButton} onClick={props.closeModal}>Close</a>
+            <Typography className={classes.instructions}>
+              Review complete.<a className={classes.button} onClick={props.closeModal}>Close</a>
             </Typography>
           </div>
         ) : (
@@ -177,6 +169,7 @@ const HorizontalStepper=(props)=>{
                 color="primary"
                 onClick={handleNext}
                 className={classes.button}
+                style={activeStep === steps.length - 1 ? {backgroundColor:"#FF5941"}:null}
               >
                 {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
               </Button>

@@ -4,7 +4,6 @@ import Router from "next/router"
 import {parseCookies} from "../lib/parseCookies"
 
 import {ReviewCard, Layout, Spinner, SearchBar } from "../src/components"
-import AddReviewForm from "../src/modal/"
 import * as appActions from "../store/actions/appActions"
 import * as authActions from "../store/actions/authActions"
 
