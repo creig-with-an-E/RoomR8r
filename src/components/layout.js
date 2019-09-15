@@ -16,14 +16,12 @@ const styles ={
     background:"url('static/imgs/background.jpeg')",
     backgroundRepeat: "no-repeat",
     backgroundSize:"cover",
-    backgroundColor: "red",
     opacity:0.9,
     display: "flex",
     alignItems: "center",
     flexDirection: "column",
     height: "100vh",
     justifyContent: "center",
-    backgroundColor: "#fffffa",
     },
 }
 export {Layout}

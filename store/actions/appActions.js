@@ -30,7 +30,6 @@ export const findReviewByAddress= (userToken,address) => {
   // fetches reviews from firebase
   // return: array of objects
   // params: userToken passed from authState and address 
-  console.log(address)
   return (dispatch)=>{
     dispatch(findByAddressStart())
     /*** searchParametersPassed: if search parameter is blank it returns all results
@@ -42,7 +41,6 @@ export const findReviewByAddress= (userToken,address) => {
       userToken}${searchParametersPassed}`
     )
     .then(response => {
-      console.log(response)
       dispatch(findByAddressSuccess(response))
     })
     .catch(error => {

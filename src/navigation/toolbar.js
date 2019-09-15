@@ -17,14 +17,12 @@ const useStyles = makeStyles(theme => ({
   },
   appBar:{
     backgroundColor:"#191923",
-    // backgroundColor:"rgba(0,0,0,1)", 
     marginBottom:"10px"
   },
   menuButton: {
-    marginRight: theme.spacing(2),
   },
   title: {
-    flexGrow: 1,
+    width: "75%",
     color:"#646865",  /** used in place of #474A48 as there is better contrast*/
     fontFamily: 'Lexend Tera, sans-serif',
   },
@@ -55,7 +53,6 @@ const toolbar=(props)=>{
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            {/* <MenuIcon /> */}
           </IconButton>
             <Typography onClick={()=>Router.push("/")} variant="h5" className={classes.title}>
               <span className="logoHeader">RoomR<span style={{color:"#FF5941"}} >8</span>r</span>
