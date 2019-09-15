@@ -1003,7 +1003,7 @@ const initStore = (initialState = {}) => {
 /*!**************************************!*\
   !*** ./store/actions/actionTypes.js ***!
   \**************************************/
-/*! exports provided: LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_USER, CLEAR_ERRORS, SIGNUP_USER, SIGNUP_USER_SUCCESS, SIGNUP_USER_FAIL, SEARCH_BY_ADDRESS_START, SEARCH_BY_ADDRESS_SUCCESS, SEARCH_BY_ADDRESS_FAIL, RESET_APPLICATION_STATE, SET_ADDRESS_OBJECT, SET_REVIEW_FORM_FIELDS, UPDATE_TOKEN_WITH_COOKIE */
+/*! exports provided: LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_USER, CLEAR_ERRORS, SIGNUP_USER, SIGNUP_USER_SUCCESS, SIGNUP_USER_FAIL, SEARCH_BY_ADDRESS_START, SEARCH_BY_ADDRESS_SUCCESS, SEARCH_BY_ADDRESS_FAIL, RESET_APPLICATION_STATE, SET_ADDRESS_OBJECT, SET_REVIEW_FORM_FIELDS, CREATE_REVIEW_SUCCESS, CREATE_REVIEW_FAIL, UPDATE_TOKEN_WITH_COOKIE */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1022,6 +1022,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RESET_APPLICATION_STATE", function() { return RESET_APPLICATION_STATE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_ADDRESS_OBJECT", function() { return SET_ADDRESS_OBJECT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_REVIEW_FORM_FIELDS", function() { return SET_REVIEW_FORM_FIELDS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_REVIEW_SUCCESS", function() { return CREATE_REVIEW_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_REVIEW_FAIL", function() { return CREATE_REVIEW_FAIL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_TOKEN_WITH_COOKIE", function() { return UPDATE_TOKEN_WITH_COOKIE; });
 const LOGIN_START = "login_start";
 const LOGIN_SUCCESS = "login_success";
@@ -1038,6 +1040,8 @@ const SEARCH_BY_ADDRESS_FAIL = "search_by_address_fail";
 const RESET_APPLICATION_STATE = "reset_application_state";
 const SET_ADDRESS_OBJECT = "set_address_object";
 const SET_REVIEW_FORM_FIELDS = "set_review_form_field_data";
+const CREATE_REVIEW_SUCCESS = "create_review_success";
+const CREATE_REVIEW_FAIL = "create_review_fail";
 const UPDATE_TOKEN_WITH_COOKIE = "update_user_token_with_cookie_value";
 
 /***/ }),
@@ -1072,6 +1076,7 @@ const INITIAL_STATE = {
       landlord_review: "",
       name: ""
     },
+    postal_code: "",
     addressData: null //address lookup state used in creating new review      
 
   }
@@ -1101,9 +1106,18 @@ const reducer = (state = INITIAL_STATE, action) => {
       return INITIAL_STATE;
 
     case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_3__["SET_ADDRESS_OBJECT"]:
+      // return {...state, stepperFormData:{...state.stepperFormData,addressData: action.payload}}
+      const data = action.payload;
       return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_2__["default"])({}, state, {
         stepperFormData: Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_2__["default"])({}, state.stepperFormData, {
-          addressData: action.payload
+          postal_code: data[data.length - 1].long_name,
+          addressData: {
+            street_number: data[0].long_name + " " + data[1].long_name,
+            city: data[data.length - 5].long_name,
+            postal_code: data[data.length - 1].long_name,
+            province: data[data.length - 3].long_name,
+            country: data[data.length - 2].long_name
+          }
         })
       });
 

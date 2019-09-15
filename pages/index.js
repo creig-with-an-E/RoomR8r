@@ -34,7 +34,7 @@ class App extends Component {
     //handles user input and stores in local state
     const valid = this.isValidatePostalCode(input)
       if(valid){
-      const addDash = input.length===3 ? `${input.slice(0,3)}-${input.slice(3)}`:input
+      const addDash = input.length===3 ? `${input.slice(0,3)} ${input.slice(3)}`:input
       this.setState({
        addressError:false,
        address: addDash.toUpperCase()
@@ -56,7 +56,7 @@ class App extends Component {
         counter is not incremented after 3 so as to add dash which is not counted
       ******/
       if((counter % 2) !== 0){
-        if(element === "-"){
+        if(element === " "){
           return
         }else{
           counter++
@@ -106,7 +106,7 @@ class App extends Component {
           </h2>
           <SearchBar
             invalid={this.state.addressError ? true : false}
-            placeholder="X5X-X5X"
+            placeholder="X5X X5X"
             value={this.state.address}
             onChange={this.onAddressChangeHandler}
             onRequestSearch={this.searchByAddressHandler}

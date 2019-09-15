@@ -11,6 +11,7 @@ const INITIAL_STATE = {
         landlord_review: "",
         name: ""
       },
+      postal_code:"",
       addressData: null,    //address lookup state used in creating new review      
     },
 
@@ -27,7 +28,19 @@ const reducer = (state = INITIAL_STATE, action) => {
     case actionTypes.RESET_APPLICATION_STATE:
       return INITIAL_STATE
     case actionTypes.SET_ADDRESS_OBJECT:
-      return {...state, stepperFormData:{...state.stepperFormData,addressData: action.payload}}
+      // return {...state, stepperFormData:{...state.stepperFormData,addressData: action.payload}}
+      const data = action.payload
+      return {...state, stepperFormData:{
+        ...state.stepperFormData,
+        postal_code:data[data.length-1].long_name,
+        addressData: {
+          street_number:data[0].long_name + " " + data[1].long_name,
+          city:data[data.length-5].long_name,
+          postal_code:data[data.length-1].long_name,
+          province: data[data.length-3].long_name,
+          country: data[data.length-2].long_name,
+        }
+    }}
     case actionTypes.LOGOUT_USER:
       return INITIAL_STATE
     case actionTypes.SET_REVIEW_FORM_FIELDS:

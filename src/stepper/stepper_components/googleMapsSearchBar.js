@@ -3,8 +3,9 @@ import React,{Component} from 'react';
 import {SearchBar} from "../../components"
 import Script from "react-load-script"
 import {connect} from "react-redux"
+import Router from "next/router"
 
-import {setAddress} from "../../../store/actions/appActions"
+import {setAddress,resetApplicationState} from "../../../store/actions/appActions"
 
 class GoogleMapsSearchBar extends Component{
   constructor(props){
@@ -12,22 +13,28 @@ class GoogleMapsSearchBar extends Component{
     this.state={
       queryString:"",
     }
+    this.props.resetState()
   }
   componentDidMount(){
+    if(!this.props.userToken){
+      Router.replace("/auth")
+      return
+    }
     if(this.props.addressData){
-      const {addressData} =this.props
+      const {street_number, city, province} =this.props.addressData
       this.setState({
-        queryString:`${addressData[0].long_name} ${addressData[1].long_name}, ${addressData[2].long_name}, ${addressData[5].long_name}`
+        queryString:`${street_number},${city},${province}`
       })
     }
   }
 
   componentDidUpdate(prevProps,prevState){
+    // return
     if(this.props.addressData !== prevProps.addressData){
-      const {addressData} =this.props
+      const {street_number, city, province} =this.props.addressData
       this.setState({
-        address: addressData,
-        queryString:`${addressData[0].long_name} ${addressData[1].long_name}, ${addressData[2].long_name}, ${addressData[5].long_name}`
+        address: this.props.addressData,
+        queryString:`${street_number},${city},${province}`
       })
     }
   }
@@ -91,13 +98,15 @@ class GoogleMapsSearchBar extends Component{
 
 const mapStateToProps=(state)=>{
   return{
-    addressData: state.app.stepperFormData.addressData
+    addressData: state.app.stepperFormData.addressData,
+    userToken: state.auth.userToken
   }
 }
 
 const mapDispatchToProps=(dispatch)=>{
   return{
-    setAddressData:(address)=>dispatch(setAddress(address))
+    setAddressData:(address)=>dispatch(setAddress(address)),
+    resetState:()=>dispatch(resetApplicationState())
   }
 }
 

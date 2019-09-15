@@ -64055,7 +64055,7 @@ function (_Component) {
       var valid = _this.isValidatePostalCode(input);
 
       if (valid) {
-        var addDash = input.length === 3 ? "".concat(input.slice(0, 3), "-").concat(input.slice(3)) : input;
+        var addDash = input.length === 3 ? "".concat(input.slice(0, 3), " ").concat(input.slice(3)) : input;
 
         _this.setState({
           addressError: false,
@@ -64083,7 +64083,7 @@ function (_Component) {
           counter is not incremented after 3 so as to add dash which is not counted
         ******/
         if (counter % 2 !== 0) {
-          if (element === "-") {
+          if (element === " ") {
             return;
           } else {
             counter++;
@@ -64195,7 +64195,7 @@ function (_Component) {
         __self: this
       }, "Because not all landlords are built the same"), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_src_components__WEBPACK_IMPORTED_MODULE_12__["SearchBar"], {
         invalid: this.state.addressError ? true : false,
-        placeholder: "X5X-X5X",
+        placeholder: "X5X X5X",
         value: this.state.address,
         onChange: this.onAddressChangeHandler,
         onRequestSearch: this.searchByAddressHandler,
@@ -64458,13 +64458,15 @@ var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["ma
 });
 
 var ReviewCard = function ReviewCard(props) {
-  var _props$data = props.data,
-      postal_code = _props$data.postal_code,
-      address = _props$data.address,
-      landlord_bio = _props$data.landlord_bio,
-      comment = _props$data.comment;
-  var first_name = landlord_bio.first_name,
-      last_name = landlord_bio.last_name;
+  var _props$data$addressDa = props.data.addressData,
+      postal_code = _props$data$addressDa.postal_code,
+      city = _props$data$addressDa.city,
+      country = _props$data$addressDa.country,
+      province = _props$data$addressDa.province,
+      street_number = _props$data$addressDa.street_number;
+  var _props$data$landlord_ = props.data.landlord_bio,
+      name = _props$data$landlord_.name,
+      landlord_review = _props$data$landlord_.landlord_review;
   var classes = useStyles();
 
   var _React$useState = react__WEBPACK_IMPORTED_MODULE_2___default.a.useState(false),
@@ -64548,7 +64550,7 @@ var ReviewCard = function ReviewCard(props) {
       lineNumber: 111
     },
     __self: this
-  }, address.street_number)), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["Typography"], {
+  }, street_number)), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["Typography"], {
     style: {
       display: "flex"
     },
@@ -64571,7 +64573,7 @@ var ReviewCard = function ReviewCard(props) {
       lineNumber: 117
     },
     __self: this
-  }, ""))), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["CardActions"], {
+  }, city))), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["CardActions"], {
     className: classes.footer,
     __source: {
       fileName: _jsxFileName,
@@ -64650,12 +64652,15 @@ var ReviewCard = function ReviewCard(props) {
     __self: this
   }, "Name: "), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("span", {
     className: classes.expandedAreaResults,
+    style: {
+      color: "#FF5941"
+    },
     __source: {
       fileName: _jsxFileName,
       lineNumber: 140
     },
     __self: this
-  }, first_name)), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["Typography"], {
+  }, name)), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["Typography"], {
     style: {
       display: "flex"
     },
@@ -64672,12 +64677,13 @@ var ReviewCard = function ReviewCard(props) {
     },
     __self: this
   }, "Feedback: "), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("span", {
+    className: classes.expandedAreaResults,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 146
     },
     __self: this
-  }, comment)))));
+  }, landlord_review)))));
 };
 
 
@@ -64688,7 +64694,7 @@ var ReviewCard = function ReviewCard(props) {
 /*!*********************************!*\
   !*** ./src/components/index.js ***!
   \*********************************/
-/*! exports provided: Button, ReviewCard, Layout, Spinner, SearchBar */
+/*! exports provided: Button, ReviewCard, Layout, SearchBar, Spinner */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -65076,7 +65082,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 /*!**************************************!*\
   !*** ./store/actions/actionTypes.js ***!
   \**************************************/
-/*! exports provided: LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_USER, CLEAR_ERRORS, SIGNUP_USER, SIGNUP_USER_SUCCESS, SIGNUP_USER_FAIL, SEARCH_BY_ADDRESS_START, SEARCH_BY_ADDRESS_SUCCESS, SEARCH_BY_ADDRESS_FAIL, RESET_APPLICATION_STATE, SET_ADDRESS_OBJECT, SET_REVIEW_FORM_FIELDS, UPDATE_TOKEN_WITH_COOKIE */
+/*! exports provided: LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_USER, CLEAR_ERRORS, SIGNUP_USER, SIGNUP_USER_SUCCESS, SIGNUP_USER_FAIL, SEARCH_BY_ADDRESS_START, SEARCH_BY_ADDRESS_SUCCESS, SEARCH_BY_ADDRESS_FAIL, RESET_APPLICATION_STATE, SET_ADDRESS_OBJECT, SET_REVIEW_FORM_FIELDS, CREATE_REVIEW_SUCCESS, CREATE_REVIEW_FAIL, UPDATE_TOKEN_WITH_COOKIE */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -65095,6 +65101,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RESET_APPLICATION_STATE", function() { return RESET_APPLICATION_STATE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_ADDRESS_OBJECT", function() { return SET_ADDRESS_OBJECT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_REVIEW_FORM_FIELDS", function() { return SET_REVIEW_FORM_FIELDS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_REVIEW_SUCCESS", function() { return CREATE_REVIEW_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_REVIEW_FAIL", function() { return CREATE_REVIEW_FAIL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_TOKEN_WITH_COOKIE", function() { return UPDATE_TOKEN_WITH_COOKIE; });
 var LOGIN_START = "login_start";
 var LOGIN_SUCCESS = "login_success";
@@ -65111,6 +65119,8 @@ var SEARCH_BY_ADDRESS_FAIL = "search_by_address_fail";
 var RESET_APPLICATION_STATE = "reset_application_state";
 var SET_ADDRESS_OBJECT = "set_address_object";
 var SET_REVIEW_FORM_FIELDS = "set_review_form_field_data";
+var CREATE_REVIEW_SUCCESS = "create_review_success";
+var CREATE_REVIEW_FAIL = "create_review_fail";
 var UPDATE_TOKEN_WITH_COOKIE = "update_user_token_with_cookie_value";
 
 /***/ }),
@@ -65119,13 +65129,14 @@ var UPDATE_TOKEN_WITH_COOKIE = "update_user_token_with_cookie_value";
 /*!*************************************!*\
   !*** ./store/actions/appActions.js ***!
   \*************************************/
-/*! exports provided: findReviewByAddress, resetApplicationState, setAddress, setFormFields */
+/*! exports provided: findReviewByAddress, resetApplicationState, createReview, setAddress, setFormFields */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "findReviewByAddress", function() { return findReviewByAddress; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resetApplicationState", function() { return resetApplicationState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createReview", function() { return createReview; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setAddress", function() { return setAddress; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setFormFields", function() { return setFormFields; });
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/objectSpread */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js");
@@ -65177,6 +65188,7 @@ var findReviewByAddress = function findReviewByAddress(userToken, address) {
   // fetches reviews from firebase
   // return: array of objects
   // params: userToken passed from authState and address 
+  console.log(address);
   return function (dispatch) {
     dispatch(findByAddressStart());
     /*** searchParametersPassed: if search parameter is blank it returns all results
@@ -65185,6 +65197,7 @@ var findReviewByAddress = function findReviewByAddress(userToken, address) {
 
     var searchParametersPassed = address ? "&orderBy=\"postal_code\"&startAt=\"".concat(address, "\"&endAt=\"").concat(address, "\"") : "";
     axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("https://accomo-rater.firebaseio.com/landlord_data.json?auth=".concat(userToken).concat(searchParametersPassed)).then(function (response) {
+      console.log(response);
       dispatch(findByAddressSuccess(response));
     })["catch"](function (error) {
       dispatch(findByAddressFail(error));
@@ -65196,6 +65209,20 @@ var findReviewByAddress = function findReviewByAddress(userToken, address) {
 var resetApplicationState = function resetApplicationState() {
   return {
     type: _actionTypes__WEBPACK_IMPORTED_MODULE_3__["RESET_APPLICATION_STATE"]
+  };
+};
+var createReview = function createReview(userToken, data) {
+  return function (dispatch) {
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("https://accomo-rater.firebaseio.com/landlord_data.json?auth=".concat(userToken), data).then(function (response) {
+      dispatch({
+        type: _actionTypes__WEBPACK_IMPORTED_MODULE_3__["CREATE_REVIEW_SUCCESS"],
+        payload: response.data
+      });
+    })["catch"](function (error) {
+      dispatch({
+        type: _actionTypes__WEBPACK_IMPORTED_MODULE_3__["CREATE_REVIEW_FAIL"]
+      });
+    });
   };
 };
 /**functions for google maps auto complete */
@@ -65345,7 +65372,7 @@ var updateSavedToken = function updateSavedToken(token) {
 
 /***/ }),
 
-/***/ 1:
+/***/ 0:
 /*!********************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Ffortunephiri%2FDocuments%2FProjects%2FroomR8r%2Fpages%2Findex.js ***!
   \********************************************************************************************************************************************/
@@ -65368,5 +65395,5 @@ module.exports = dll_01f9a3fa864a7b7414d8;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js"]]]);
+},[[0,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map

@@ -8,7 +8,10 @@ import Typography from '@material-ui/core/Typography';
 
 import LandlordForm from "./stepper_components/landlord_form"
 import GMapsSearchBar from "./stepper_components/googleMapsSearchBar"
-import ReviewForm from "./stepper_components/reviewForm"
+import ReviewForm from "./stepper_components/reviewSummary"
+
+import {connect} from "react-redux"
+import {createReview} from "../../store/actions/appActions"
 
 import Router from "next/router"
 const styles = theme => ({
@@ -35,8 +38,14 @@ const styles = theme => ({
     textAlign:"center",
     height:70
   },
+  error:{
+    fontSize:17,
+    color:"#f50",
+    textAlign:"center",
+    fontFamily:"Fira Sans, sans serif"
+  },
   instructions:{
-    height:"300px",
+    minHeight:"300px",
     paddingTop:"20px",
     
   },
@@ -81,7 +90,7 @@ const HorizontalStepper=(props)=>{
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
   const [address, setAddress] = React.useState("")
-
+  const [addressError, setAddressError] = React.useState("")
   const steps = getSteps();
 
   function isStepOptional(step) {
@@ -93,9 +102,16 @@ const HorizontalStepper=(props)=>{
   }
 
   function handleNext() {
+    const {addressData} =props.data
     if(activeStep === 2){
+      props.createReviewHandle(props.userToken,props.data)
       return Router.replace("/")
     }
+    if(activeStep === 0 && addressData === null){
+      setAddressError("Address Field Can not be Empty")
+      return
+    }
+    setAddressError("")
     let newSkipped = skipped;
     if (isStepSkipped(activeStep)) {
       newSkipped = new Set(newSkipped.values());
@@ -165,6 +181,7 @@ const HorizontalStepper=(props)=>{
         ) : (
           <div>
             <Typography className={classes.instructions}>{getStepContent(activeStep, address)}</Typography>
+            <Typography className={classes.error} >{addressError}</Typography>
             <div className={classes["button-section"]}>
               <Button style={{backgroundColor:"#ccc"}} disabled={activeStep === 0}  onClick={handleBack} className={classes.button} color="primary">
                 Back
@@ -186,4 +203,17 @@ const HorizontalStepper=(props)=>{
   );
 }
 
-export default withStyles(styles)(HorizontalStepper)
+const mapStateToProps =(state)=>{
+  return{
+    data: state.app.stepperFormData,
+    userToken: state.auth.userToken
+  }
+}
+
+const mapDispatchToProps=(dispatch)=>{
+  return{
+    createReviewHandle:(userToken,data)=>dispatch(createReview(userToken,data))
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(withStyles(styles)(HorizontalStepper))

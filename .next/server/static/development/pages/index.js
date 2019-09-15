@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -965,7 +965,7 @@ class App extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       const valid = this.isValidatePostalCode(input);
 
       if (valid) {
-        const addDash = input.length === 3 ? `${input.slice(0, 3)}-${input.slice(3)}` : input;
+        const addDash = input.length === 3 ? `${input.slice(0, 3)} ${input.slice(3)}` : input;
         this.setState({
           addressError: false,
           address: addDash.toUpperCase()
@@ -991,7 +991,7 @@ class App extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
           counter is not incremented after 3 so as to add dash which is not counted
         ******/
         if (counter % 2 !== 0) {
-          if (element === "-") {
+          if (element === " ") {
             return;
           } else {
             counter++;
@@ -1096,7 +1096,7 @@ class App extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this
     }, "Because not all landlords are built the same"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_src_components__WEBPACK_IMPORTED_MODULE_6__["SearchBar"], {
       invalid: this.state.addressError ? true : false,
-      placeholder: "X5X-X5X",
+      placeholder: "X5X X5X",
       value: this.state.address,
       onChange: this.onAddressChangeHandler,
       onRequestSearch: this.searchByAddressHandler,
@@ -1354,14 +1354,15 @@ const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["
 const ReviewCard = props => {
   const {
     postal_code,
-    address,
-    landlord_bio,
-    comment
-  } = props.data;
+    city,
+    country,
+    province,
+    street_number
+  } = props.data.addressData;
   const {
-    first_name,
-    last_name
-  } = landlord_bio;
+    name,
+    landlord_review
+  } = props.data.landlord_bio;
   const classes = useStyles();
   const [expanded, setExpanded] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false);
 
@@ -1441,7 +1442,7 @@ const ReviewCard = props => {
       lineNumber: 111
     },
     __self: undefined
-  }, address.street_number)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Typography"], {
+  }, street_number)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Typography"], {
     style: {
       display: "flex"
     },
@@ -1464,7 +1465,7 @@ const ReviewCard = props => {
       lineNumber: 117
     },
     __self: undefined
-  }, ""))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["CardActions"], {
+  }, city))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["CardActions"], {
     className: classes.footer,
     __source: {
       fileName: _jsxFileName,
@@ -1545,12 +1546,15 @@ const ReviewCard = props => {
     __self: undefined
   }, "Name: "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: classes.expandedAreaResults,
+    style: {
+      color: "#FF5941"
+    },
     __source: {
       fileName: _jsxFileName,
       lineNumber: 140
     },
     __self: undefined
-  }, first_name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Typography"], {
+  }, name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Typography"], {
     style: {
       display: "flex"
     },
@@ -1567,12 +1571,13 @@ const ReviewCard = props => {
     },
     __self: undefined
   }, "Feedback: "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: classes.expandedAreaResults,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 146
     },
     __self: undefined
-  }, comment)))));
+  }, landlord_review)))));
 };
 
 
@@ -1583,7 +1588,7 @@ const ReviewCard = props => {
 /*!*********************************!*\
   !*** ./src/components/index.js ***!
   \*********************************/
-/*! exports provided: Button, ReviewCard, Layout, Spinner, SearchBar */
+/*! exports provided: Button, ReviewCard, Layout, SearchBar, Spinner */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1970,7 +1975,7 @@ const mapDispatchToProps = dispatch => {
 /*!**************************************!*\
   !*** ./store/actions/actionTypes.js ***!
   \**************************************/
-/*! exports provided: LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_USER, CLEAR_ERRORS, SIGNUP_USER, SIGNUP_USER_SUCCESS, SIGNUP_USER_FAIL, SEARCH_BY_ADDRESS_START, SEARCH_BY_ADDRESS_SUCCESS, SEARCH_BY_ADDRESS_FAIL, RESET_APPLICATION_STATE, SET_ADDRESS_OBJECT, SET_REVIEW_FORM_FIELDS, UPDATE_TOKEN_WITH_COOKIE */
+/*! exports provided: LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_USER, CLEAR_ERRORS, SIGNUP_USER, SIGNUP_USER_SUCCESS, SIGNUP_USER_FAIL, SEARCH_BY_ADDRESS_START, SEARCH_BY_ADDRESS_SUCCESS, SEARCH_BY_ADDRESS_FAIL, RESET_APPLICATION_STATE, SET_ADDRESS_OBJECT, SET_REVIEW_FORM_FIELDS, CREATE_REVIEW_SUCCESS, CREATE_REVIEW_FAIL, UPDATE_TOKEN_WITH_COOKIE */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1989,6 +1994,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RESET_APPLICATION_STATE", function() { return RESET_APPLICATION_STATE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_ADDRESS_OBJECT", function() { return SET_ADDRESS_OBJECT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_REVIEW_FORM_FIELDS", function() { return SET_REVIEW_FORM_FIELDS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_REVIEW_SUCCESS", function() { return CREATE_REVIEW_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_REVIEW_FAIL", function() { return CREATE_REVIEW_FAIL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_TOKEN_WITH_COOKIE", function() { return UPDATE_TOKEN_WITH_COOKIE; });
 const LOGIN_START = "login_start";
 const LOGIN_SUCCESS = "login_success";
@@ -2005,6 +2012,8 @@ const SEARCH_BY_ADDRESS_FAIL = "search_by_address_fail";
 const RESET_APPLICATION_STATE = "reset_application_state";
 const SET_ADDRESS_OBJECT = "set_address_object";
 const SET_REVIEW_FORM_FIELDS = "set_review_form_field_data";
+const CREATE_REVIEW_SUCCESS = "create_review_success";
+const CREATE_REVIEW_FAIL = "create_review_fail";
 const UPDATE_TOKEN_WITH_COOKIE = "update_user_token_with_cookie_value";
 
 /***/ }),
@@ -2013,13 +2022,14 @@ const UPDATE_TOKEN_WITH_COOKIE = "update_user_token_with_cookie_value";
 /*!*************************************!*\
   !*** ./store/actions/appActions.js ***!
   \*************************************/
-/*! exports provided: findReviewByAddress, resetApplicationState, setAddress, setFormFields */
+/*! exports provided: findReviewByAddress, resetApplicationState, createReview, setAddress, setFormFields */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "findReviewByAddress", function() { return findReviewByAddress; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resetApplicationState", function() { return resetApplicationState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createReview", function() { return createReview; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setAddress", function() { return setAddress; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setFormFields", function() { return setFormFields; });
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/objectSpread */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js");
@@ -2071,6 +2081,7 @@ const findReviewByAddress = (userToken, address) => {
   // fetches reviews from firebase
   // return: array of objects
   // params: userToken passed from authState and address 
+  console.log(address);
   return dispatch => {
     dispatch(findByAddressStart());
     /*** searchParametersPassed: if search parameter is blank it returns all results
@@ -2079,6 +2090,7 @@ const findReviewByAddress = (userToken, address) => {
 
     const searchParametersPassed = address ? `&orderBy="postal_code"&startAt="${address}"&endAt="${address}"` : "";
     axios__WEBPACK_IMPORTED_MODULE_2___default.a.get(`https://accomo-rater.firebaseio.com/landlord_data.json?auth=${userToken}${searchParametersPassed}`).then(response => {
+      console.log(response);
       dispatch(findByAddressSuccess(response));
     }).catch(error => {
       dispatch(findByAddressFail(error));
@@ -2090,6 +2102,20 @@ const findReviewByAddress = (userToken, address) => {
 const resetApplicationState = () => {
   return {
     type: _actionTypes__WEBPACK_IMPORTED_MODULE_3__["RESET_APPLICATION_STATE"]
+  };
+};
+const createReview = (userToken, data) => {
+  return dispatch => {
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.post(`https://accomo-rater.firebaseio.com/landlord_data.json?auth=${userToken}`, data).then(response => {
+      dispatch({
+        type: _actionTypes__WEBPACK_IMPORTED_MODULE_3__["CREATE_REVIEW_SUCCESS"],
+        payload: response.data
+      });
+    }).catch(error => {
+      dispatch({
+        type: _actionTypes__WEBPACK_IMPORTED_MODULE_3__["CREATE_REVIEW_FAIL"]
+      });
+    });
   };
 };
 /**functions for google maps auto complete */
@@ -2239,7 +2265,7 @@ const updateSavedToken = token => {
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/

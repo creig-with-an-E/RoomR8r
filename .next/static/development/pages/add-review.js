@@ -64150,13 +64150,15 @@ var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["ma
 });
 
 var ReviewCard = function ReviewCard(props) {
-  var _props$data = props.data,
-      postal_code = _props$data.postal_code,
-      address = _props$data.address,
-      landlord_bio = _props$data.landlord_bio,
-      comment = _props$data.comment;
-  var first_name = landlord_bio.first_name,
-      last_name = landlord_bio.last_name;
+  var _props$data$addressDa = props.data.addressData,
+      postal_code = _props$data$addressDa.postal_code,
+      city = _props$data$addressDa.city,
+      country = _props$data$addressDa.country,
+      province = _props$data$addressDa.province,
+      street_number = _props$data$addressDa.street_number;
+  var _props$data$landlord_ = props.data.landlord_bio,
+      name = _props$data$landlord_.name,
+      landlord_review = _props$data$landlord_.landlord_review;
   var classes = useStyles();
 
   var _React$useState = react__WEBPACK_IMPORTED_MODULE_2___default.a.useState(false),
@@ -64240,7 +64242,7 @@ var ReviewCard = function ReviewCard(props) {
       lineNumber: 111
     },
     __self: this
-  }, address.street_number)), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["Typography"], {
+  }, street_number)), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["Typography"], {
     style: {
       display: "flex"
     },
@@ -64263,7 +64265,7 @@ var ReviewCard = function ReviewCard(props) {
       lineNumber: 117
     },
     __self: this
-  }, ""))), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["CardActions"], {
+  }, city))), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["CardActions"], {
     className: classes.footer,
     __source: {
       fileName: _jsxFileName,
@@ -64342,12 +64344,15 @@ var ReviewCard = function ReviewCard(props) {
     __self: this
   }, "Name: "), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("span", {
     className: classes.expandedAreaResults,
+    style: {
+      color: "#FF5941"
+    },
     __source: {
       fileName: _jsxFileName,
       lineNumber: 140
     },
     __self: this
-  }, first_name)), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["Typography"], {
+  }, name)), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["Typography"], {
     style: {
       display: "flex"
     },
@@ -64364,12 +64369,13 @@ var ReviewCard = function ReviewCard(props) {
     },
     __self: this
   }, "Feedback: "), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("span", {
+    className: classes.expandedAreaResults,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 146
     },
     __self: this
-  }, comment)))));
+  }, landlord_review)))));
 };
 
 
@@ -64787,13 +64793,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/index.js");
 /* harmony import */ var _stepper_components_landlord_form__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./stepper_components/landlord_form */ "./src/stepper/stepper_components/landlord_form.js");
 /* harmony import */ var _stepper_components_googleMapsSearchBar__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./stepper_components/googleMapsSearchBar */ "./src/stepper/stepper_components/googleMapsSearchBar.js");
-/* harmony import */ var _stepper_components_reviewForm__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./stepper_components/reviewForm */ "./src/stepper/stepper_components/reviewForm.js");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _stepper_components_reviewSummary__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./stepper_components/reviewSummary */ "./src/stepper/stepper_components/reviewSummary.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _store_actions_appActions__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../store/actions/appActions */ "./store/actions/appActions.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_15__);
 
 
 
 var _jsxFileName = "/Users/fortunephiri/Documents/Projects/roomR8r/src/stepper/index.js";
+
+
 
 
 
@@ -64830,8 +64840,14 @@ var styles = function styles(theme) {
       textAlign: "center",
       height: 70
     },
+    error: {
+      fontSize: 17,
+      color: "#f50",
+      textAlign: "center",
+      fontFamily: "Fira Sans, sans serif"
+    },
     instructions: {
-      height: "300px",
+      minHeight: "300px",
       paddingTop: "20px"
     },
     "step-body": {
@@ -64867,7 +64883,7 @@ var getStepContent = function getStepContent(step) {
       return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_stepper_components_googleMapsSearchBar__WEBPACK_IMPORTED_MODULE_11__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 70
+          lineNumber: 79
         },
         __self: this
       });
@@ -64876,16 +64892,16 @@ var getStepContent = function getStepContent(step) {
       return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_stepper_components_landlord_form__WEBPACK_IMPORTED_MODULE_10__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 72
+          lineNumber: 81
         },
         __self: this
       });
 
     case 2:
-      return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_stepper_components_reviewForm__WEBPACK_IMPORTED_MODULE_12__["default"], {
+      return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_stepper_components_reviewSummary__WEBPACK_IMPORTED_MODULE_12__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 74
+          lineNumber: 83
         },
         __self: this
       });
@@ -64911,6 +64927,11 @@ var HorizontalStepper = function HorizontalStepper(props) {
       address = _React$useState6[0],
       setAddress = _React$useState6[1];
 
+  var _React$useState7 = react__WEBPACK_IMPORTED_MODULE_3___default.a.useState(""),
+      _React$useState8 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__["default"])(_React$useState7, 2),
+      addressError = _React$useState8[0],
+      setAddressError = _React$useState8[1];
+
   var steps = getSteps();
 
   function isStepOptional(step) {
@@ -64922,10 +64943,19 @@ var HorizontalStepper = function HorizontalStepper(props) {
   }
 
   function handleNext() {
+    var addressData = props.data.addressData;
+
     if (activeStep === 2) {
-      return next_router__WEBPACK_IMPORTED_MODULE_13___default.a.replace("/");
+      props.createReviewHandle(props.userToken, props.data);
+      return next_router__WEBPACK_IMPORTED_MODULE_15___default.a.replace("/");
     }
 
+    if (activeStep === 0 && addressData === null) {
+      setAddressError("Address Field Can not be Empty");
+      return;
+    }
+
+    setAddressError("");
     var newSkipped = skipped;
 
     if (isStepSkipped(activeStep)) {
@@ -64971,7 +65001,7 @@ var HorizontalStepper = function HorizontalStepper(props) {
     className: classes.root,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 134
+      lineNumber: 150
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_material_ui_core_Stepper__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -64979,7 +65009,7 @@ var HorizontalStepper = function HorizontalStepper(props) {
     className: classes.stepper,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 135
+      lineNumber: 151
     },
     __self: this
   }, steps.map(function (label, index) {
@@ -64991,7 +65021,7 @@ var HorizontalStepper = function HorizontalStepper(props) {
         variant: "caption",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 140
+          lineNumber: 156
         },
         __self: this
       }, "Optional");
@@ -65011,7 +65041,7 @@ var HorizontalStepper = function HorizontalStepper(props) {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 146
+        lineNumber: 162
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_material_ui_core_StepLabel__WEBPACK_IMPORTED_MODULE_7__["default"], Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, labelProps, {
@@ -65022,7 +65052,7 @@ var HorizontalStepper = function HorizontalStepper(props) {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 151
+        lineNumber: 167
       },
       __self: this
     }), label));
@@ -65030,20 +65060,20 @@ var HorizontalStepper = function HorizontalStepper(props) {
     className: classes["step-body"],
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 158
+      lineNumber: 174
     },
     __self: this
   }, activeStep === steps.length ? react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 160
+      lineNumber: 176
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9__["default"], {
     className: classes.instructions,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 161
+      lineNumber: 177
     },
     __self: this
   }, "Review complete.", react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("a", {
@@ -65051,27 +65081,34 @@ var HorizontalStepper = function HorizontalStepper(props) {
     onClick: props.closeModal,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 162
+      lineNumber: 178
     },
     __self: this
   }, "Close"))) : react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 166
+      lineNumber: 182
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9__["default"], {
     className: classes.instructions,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 167
+      lineNumber: 183
     },
     __self: this
-  }, getStepContent(activeStep, address)), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
+  }, getStepContent(activeStep, address)), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    className: classes.error,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 184
+    },
+    __self: this
+  }, addressError), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
     className: classes["button-section"],
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 168
+      lineNumber: 185
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -65084,7 +65121,7 @@ var HorizontalStepper = function HorizontalStepper(props) {
     color: "primary",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 169
+      lineNumber: 186
     },
     __self: this
   }, "Back"), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -65097,13 +65134,28 @@ var HorizontalStepper = function HorizontalStepper(props) {
     } : null,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 172
+      lineNumber: 189
     },
     __self: this
   }, activeStep === steps.length - 1 ? 'Finish' : 'Next')))));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__["withStyles"])(styles)(HorizontalStepper));
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    data: state.app.stepperFormData,
+    userToken: state.auth.userToken
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    createReviewHandle: function createReviewHandle(userToken, data) {
+      return dispatch(Object(_store_actions_appActions__WEBPACK_IMPORTED_MODULE_14__["createReview"])(userToken, data));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_13__["connect"])(mapStateToProps, mapDispatchToProps)(Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__["withStyles"])(styles)(HorizontalStepper)));
 
 /***/ }),
 
@@ -65129,7 +65181,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_load_script__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-load-script */ "./node_modules/react-load-script/lib/index.js");
 /* harmony import */ var react_load_script__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react_load_script__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _store_actions_appActions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../store/actions/appActions */ "./store/actions/appActions.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _store_actions_appActions__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../store/actions/appActions */ "./store/actions/appActions.js");
 
 
 
@@ -65138,6 +65192,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _jsxFileName = "/Users/fortunephiri/Documents/Projects/roomR8r/src/stepper/stepper_components/googleMapsSearchBar.js";
+
 
 
 
@@ -65199,27 +65254,42 @@ function (_Component) {
     _this.state = {
       queryString: ""
     };
+
+    _this.props.resetState();
+
     return _this;
   }
 
   Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(GoogleMapsSearchBar, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      if (!this.props.userToken) {
+        next_router__WEBPACK_IMPORTED_MODULE_11___default.a.replace("/auth");
+        return;
+      }
+
       if (this.props.addressData) {
-        var addressData = this.props.addressData;
+        var _this$props$addressDa = this.props.addressData,
+            street_number = _this$props$addressDa.street_number,
+            city = _this$props$addressDa.city,
+            province = _this$props$addressDa.province;
         this.setState({
-          queryString: "".concat(addressData[0].long_name, " ").concat(addressData[1].long_name, ", ").concat(addressData[2].long_name, ", ").concat(addressData[5].long_name)
+          queryString: "".concat(street_number, ",").concat(city, ",").concat(province)
         });
       }
     }
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps, prevState) {
+      // return
       if (this.props.addressData !== prevProps.addressData) {
-        var addressData = this.props.addressData;
+        var _this$props$addressDa2 = this.props.addressData,
+            street_number = _this$props$addressDa2.street_number,
+            city = _this$props$addressDa2.city,
+            province = _this$props$addressDa2.province;
         this.setState({
-          address: addressData,
-          queryString: "".concat(addressData[0].long_name, " ").concat(addressData[1].long_name, ", ").concat(addressData[2].long_name, ", ").concat(addressData[5].long_name)
+          address: this.props.addressData,
+          queryString: "".concat(street_number, ",").concat(city, ",").concat(province)
         });
       }
     }
@@ -65231,7 +65301,7 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 76
+          lineNumber: 83
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_load_script__WEBPACK_IMPORTED_MODULE_9___default.a, {
@@ -65239,7 +65309,7 @@ function (_Component) {
         onLoad: this.handleScriptLoad,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 77
+          lineNumber: 84
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_components__WEBPACK_IMPORTED_MODULE_8__["SearchBar"], {
@@ -65250,7 +65320,7 @@ function (_Component) {
         value: this.state.queryString,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 81
+          lineNumber: 88
         },
         __self: this
       }));
@@ -65262,14 +65332,18 @@ function (_Component) {
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    addressData: state.app.stepperFormData.addressData
+    addressData: state.app.stepperFormData.addressData,
+    userToken: state.auth.userToken
   };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     setAddressData: function setAddressData(address) {
-      return dispatch(Object(_store_actions_appActions__WEBPACK_IMPORTED_MODULE_11__["setAddress"])(address));
+      return dispatch(Object(_store_actions_appActions__WEBPACK_IMPORTED_MODULE_12__["setAddress"])(address));
+    },
+    resetState: function resetState() {
+      return dispatch(Object(_store_actions_appActions__WEBPACK_IMPORTED_MODULE_12__["resetApplicationState"])());
     }
   };
 };
@@ -65430,153 +65504,164 @@ var mapDispatchTopProps = function mapDispatchTopProps(dispatch) {
 
 /***/ }),
 
-/***/ "./src/stepper/stepper_components/reviewForm.js":
-/*!******************************************************!*\
-  !*** ./src/stepper/stepper_components/reviewForm.js ***!
-  \******************************************************/
+/***/ "./src/stepper/stepper_components/reviewSummary.js":
+/*!*********************************************************!*\
+  !*** ./src/stepper/stepper_components/reviewSummary.js ***!
+  \*********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-jsx/style */ "./node_modules/styled-jsx/style.js");
-/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-var _jsxFileName = "/Users/fortunephiri/Documents/Projects/roomR8r/src/stepper/stepper_components/reviewForm.js";
-
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var _jsxFileName = "/Users/fortunephiri/Documents/Projects/roomR8r/src/stepper/stepper_components/reviewSummary.js";
 
 
 
 var reviewForm = function reviewForm(props) {
-  var street_address = props.data.stepperFormData.addressData[0].long_name + " " + props.data.stepperFormData.addressData[1].long_name || " ";
-  var city = props.data.stepperFormData.addressData[2].long_name || " ";
-  var country = props.data.stepperFormData.addressData[6].long_name || " ";
-  var province = props.data.stepperFormData.addressData[5].long_name || " ";
-  var _props$data$stepperFo = props.data.stepperFormData.landlord_bio,
-      name = _props$data$stepperFo.name,
-      landlord_review = _props$data$stepperFo.landlord_review;
-  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: "jsx-1058373414",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 12
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
-    className: "jsx-1058373414",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 13
-    },
-    __self: this
-  }, "Summary"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("hr", {
-    className: "jsx-1058373414",
+  var _props$data$stepperFo = props.data.stepperFormData,
+      addressData = _props$data$stepperFo.addressData,
+      landlord_bio = _props$data$stepperFo.landlord_bio;
+  var street_address = addressData.street_number;
+  var city = addressData.city;
+  var country = addressData.country;
+  var province = addressData.province;
+  var postal_code = addressData.postal_code;
+  var name = landlord_bio.name,
+      landlord_review = landlord_bio.landlord_review;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 14
     },
     __self: this
-  }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
-    className: "jsx-1058373414",
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    style: styles.header,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 15
     },
     __self: this
-  }, "Street Address: ", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
-    className: "jsx-1058373414",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 15
-    },
-    __self: this
-  }, street_address)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
-    className: "jsx-1058373414",
+  }, "Summary"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", {
+    style: styles.hRule,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 16
     },
     __self: this
-  }, "City: ", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
-    className: "jsx-1058373414",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 16
-    },
-    __self: this
-  }, city)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
-    className: "jsx-1058373414",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 17
-    },
-    __self: this
-  }, "Province: ", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
-    className: "jsx-1058373414",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 17
-    },
-    __self: this
-  }, province)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
-    className: "jsx-1058373414",
+  }), props.data ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 18
     },
     __self: this
-  }, "Country: ", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
-    className: "jsx-1058373414",
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    style: styles.p,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 18
     },
     __self: this
-  }, country)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
-    className: "jsx-1058373414",
+  }, "Street Address: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    style: styles.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18
+    },
+    __self: this
+  }, street_address)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    style: styles.p,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 19
     },
     __self: this
-  }, "Name: ", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
-    className: "jsx-1058373414",
+  }, "City: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    style: styles.span,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 19
     },
     __self: this
-  }, name)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
-    className: "jsx-1058373414",
+  }, city)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    style: styles.p,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 20
     },
     __self: this
-  }, "Bio: ", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
-    className: "jsx-1058373414",
+  }, "Province: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    style: styles.span,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 20
     },
     __self: this
-  }, landlord_review)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    style: {
-      "float": "none",
-      display: "block"
-    },
-    className: "jsx-1058373414",
+  }, province)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    style: styles.p,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 21
     },
     __self: this
-  }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
-    id: "1058373414",
+  }, "Postal Code: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    style: styles.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21
+    },
     __self: this
-  }, "p.jsx-1058373414{width:350px;color:#fffffa;}p.jsx-1058373414 span.jsx-1058373414{color:#FF5941;margin-right:10px;text-align:right;}h3.jsx-1058373414{color:#fffffa;margin:0;padding:0;text-align:center;font-family:poppin,san-serf;}hr.jsx-1058373414{width:30px, height:5px;padding:2px;background-color:#FF5941;border:none;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9mb3J0dW5lcGhpcmkvRG9jdW1lbnRzL1Byb2plY3RzL3Jvb21SOHIvc3JjL3N0ZXBwZXIvc3RlcHBlcl9jb21wb25lbnRzL3Jldmlld0Zvcm0uanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBcUJnQixBQUdrQixBQUtHLEFBTUEsQUFRSixZQWxCSSxFQUtJLEFBTVQsU0FDQSxBQU9FLEdBbEJiLE1BTUQsQ0FNcUIsRUFPTyxjQWIzQixFQVFELFNBT0EsWUFBQyxPQVBBIiwiZmlsZSI6Ii9Vc2Vycy9mb3J0dW5lcGhpcmkvRG9jdW1lbnRzL1Byb2plY3RzL3Jvb21SOHIvc3JjL3N0ZXBwZXIvc3RlcHBlcl9jb21wb25lbnRzL3Jldmlld0Zvcm0uanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xuaW1wb3J0IHtjb25uZWN0fSBmcm9tIFwicmVhY3QtcmVkdXhcIlxuXG5jb25zdCByZXZpZXdGb3JtPShwcm9wcyk9PntcbiAgICBjb25zdCBzdHJlZXRfYWRkcmVzcyA9IHByb3BzLmRhdGEuc3RlcHBlckZvcm1EYXRhLmFkZHJlc3NEYXRhWzBdLmxvbmdfbmFtZSArIFwiIFwiICsgcHJvcHMuZGF0YS5zdGVwcGVyRm9ybURhdGEuYWRkcmVzc0RhdGFbMV0ubG9uZ19uYW1lIHx8IFwiIFwiXG4gICAgY29uc3QgY2l0eSA9IHByb3BzLmRhdGEuc3RlcHBlckZvcm1EYXRhLmFkZHJlc3NEYXRhWzJdLmxvbmdfbmFtZSB8fCBcIiBcIlxuICAgIGNvbnN0IGNvdW50cnkgPSBwcm9wcy5kYXRhLnN0ZXBwZXJGb3JtRGF0YS5hZGRyZXNzRGF0YVs2XS5sb25nX25hbWUgfHwgXCIgXCJcbiAgICBjb25zdCBwcm92aW5jZSA9IHByb3BzLmRhdGEuc3RlcHBlckZvcm1EYXRhLmFkZHJlc3NEYXRhWzVdLmxvbmdfbmFtZSB8fCBcIiBcIlxuICAgICBcbiAgICBjb25zdCB7bmFtZSwgbGFuZGxvcmRfcmV2aWV3fT1wcm9wcy5kYXRhLnN0ZXBwZXJGb3JtRGF0YS5sYW5kbG9yZF9iaW9cbnJldHVybihcbiAgPGRpdj5cbiAgICA8aDM+U3VtbWFyeTwvaDM+XG4gICAgPGhyIC8+XG4gICAgPHA+U3RyZWV0IEFkZHJlc3M6IDxzcGFuPntzdHJlZXRfYWRkcmVzc308L3NwYW4+PC9wPlxuICAgIDxwPkNpdHk6IDxzcGFuPntjaXR5fTwvc3Bhbj48L3A+XG4gICAgPHA+UHJvdmluY2U6IDxzcGFuPntwcm92aW5jZX08L3NwYW4+PC9wPlxuICAgIDxwPkNvdW50cnk6IDxzcGFuPntjb3VudHJ5fTwvc3Bhbj48L3A+XG4gICAgPHA+TmFtZTogPHNwYW4+e25hbWV9PC9zcGFuPjwvcD5cbiAgICA8cD5CaW86IDxzcGFuPntsYW5kbG9yZF9yZXZpZXd9PC9zcGFuPjwvcD5cbiAgICA8ZGl2IHN0eWxlPXt7ZmxvYXQ6XCJub25lXCIsIGRpc3BsYXk6IFwiYmxvY2tcIn19PjwvZGl2PlxuICAgIDxzdHlsZSBqc3g+e2BcbiAgICBwIHtcbiAgICAgIHdpZHRoOjM1MHB4O1xuICAgICAgY29sb3I6ICNmZmZmZmE7XG4gICAgfTtcblxuICAgIHAgc3BhbiB7XG4gICAgICBjb2xvcjogI0ZGNTk0MTtcbiAgICAgIG1hcmdpbi1yaWdodDogMTBweDtcbiAgICAgIHRleHQtYWxpZ246IHJpZ2h0XG4gICAgfTtcblxuICAgIGgzIHtcbiAgICAgIGNvbG9yOiAjZmZmZmZhO1xuICAgICAgbWFyZ2luOiAwO1xuICAgICAgcGFkZGluZzowO1xuICAgICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgICAgZm9udC1mYW1pbHk6IHBvcHBpbiwgc2FuLXNlcmZcbiAgICB9O1xuICAgIGhyIHtcbiAgICAgIHdpZHRoOiAzMHB4LFxuICAgICAgaGVpZ2h0OjVweDtcbiAgICAgIHBhZGRpbmc6MnB4O1xuICAgICAgYmFja2dyb3VuZC1jb2xvcjogI0ZGNTk0MTtcbiAgICAgIGJvcmRlcjogbm9uZVxuICAgIH1cbiAgICBgfTwvc3R5bGU+XG4gIDwvZGl2PlxuKX1cblxuY29uc3QgbWFwU3RhdGVUb1Byb3BzPShzdGF0ZSk9PntcbiAgcmV0dXJue1xuICAgIGRhdGE6IHN0YXRlLmFwcFxuICB9XG59XG5leHBvcnQgZGVmYXVsdCBjb25uZWN0KG1hcFN0YXRlVG9Qcm9wcykocmV2aWV3Rm9ybSkiXX0= */\n/*@ sourceURL=/Users/fortunephiri/Documents/Projects/roomR8r/src/stepper/stepper_components/reviewForm.js */"));
+  }, postal_code)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    style: styles.p,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22
+    },
+    __self: this
+  }, "Country: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    style: styles.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22
+    },
+    __self: this
+  }, country)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    style: styles.p,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23
+    },
+    __self: this
+  }, "Name: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    style: styles.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23
+    },
+    __self: this
+  }, name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    style: styles.p,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24
+    },
+    __self: this
+  }, "Bio: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    style: styles.span,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24
+    },
+    __self: this
+  }, landlord_review))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 25
+    },
+    __self: this
+  }, "no data entered"));
 };
 
 var mapStateToProps = function mapStateToProps(state) {
@@ -65585,7 +65670,31 @@ var mapStateToProps = function mapStateToProps(state) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps)(reviewForm));
+var styles = {
+  p: {
+    width: "350px",
+    color: "#fffffa"
+  },
+  span: {
+    color: "#FF5941",
+    marginRight: "10px",
+    textAlign: "right"
+  },
+  header: {
+    color: "#fffffa",
+    margin: 0,
+    padding: 0,
+    textAlign: "center",
+    fontFamily: "poppin, san-serif"
+  },
+  hRule: {
+    width: "120px",
+    padding: "1px",
+    backgroundColor: "#FF5941",
+    border: "none"
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(reviewForm));
 
 /***/ }),
 
@@ -65593,7 +65702,7 @@ var mapStateToProps = function mapStateToProps(state) {
 /*!**************************************!*\
   !*** ./store/actions/actionTypes.js ***!
   \**************************************/
-/*! exports provided: LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_USER, CLEAR_ERRORS, SIGNUP_USER, SIGNUP_USER_SUCCESS, SIGNUP_USER_FAIL, SEARCH_BY_ADDRESS_START, SEARCH_BY_ADDRESS_SUCCESS, SEARCH_BY_ADDRESS_FAIL, RESET_APPLICATION_STATE, SET_ADDRESS_OBJECT, SET_REVIEW_FORM_FIELDS, UPDATE_TOKEN_WITH_COOKIE */
+/*! exports provided: LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_USER, CLEAR_ERRORS, SIGNUP_USER, SIGNUP_USER_SUCCESS, SIGNUP_USER_FAIL, SEARCH_BY_ADDRESS_START, SEARCH_BY_ADDRESS_SUCCESS, SEARCH_BY_ADDRESS_FAIL, RESET_APPLICATION_STATE, SET_ADDRESS_OBJECT, SET_REVIEW_FORM_FIELDS, CREATE_REVIEW_SUCCESS, CREATE_REVIEW_FAIL, UPDATE_TOKEN_WITH_COOKIE */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -65612,6 +65721,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RESET_APPLICATION_STATE", function() { return RESET_APPLICATION_STATE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_ADDRESS_OBJECT", function() { return SET_ADDRESS_OBJECT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_REVIEW_FORM_FIELDS", function() { return SET_REVIEW_FORM_FIELDS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_REVIEW_SUCCESS", function() { return CREATE_REVIEW_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_REVIEW_FAIL", function() { return CREATE_REVIEW_FAIL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_TOKEN_WITH_COOKIE", function() { return UPDATE_TOKEN_WITH_COOKIE; });
 var LOGIN_START = "login_start";
 var LOGIN_SUCCESS = "login_success";
@@ -65628,6 +65739,8 @@ var SEARCH_BY_ADDRESS_FAIL = "search_by_address_fail";
 var RESET_APPLICATION_STATE = "reset_application_state";
 var SET_ADDRESS_OBJECT = "set_address_object";
 var SET_REVIEW_FORM_FIELDS = "set_review_form_field_data";
+var CREATE_REVIEW_SUCCESS = "create_review_success";
+var CREATE_REVIEW_FAIL = "create_review_fail";
 var UPDATE_TOKEN_WITH_COOKIE = "update_user_token_with_cookie_value";
 
 /***/ }),
@@ -65636,13 +65749,14 @@ var UPDATE_TOKEN_WITH_COOKIE = "update_user_token_with_cookie_value";
 /*!*************************************!*\
   !*** ./store/actions/appActions.js ***!
   \*************************************/
-/*! exports provided: findReviewByAddress, resetApplicationState, setAddress, setFormFields */
+/*! exports provided: findReviewByAddress, resetApplicationState, createReview, setAddress, setFormFields */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "findReviewByAddress", function() { return findReviewByAddress; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resetApplicationState", function() { return resetApplicationState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createReview", function() { return createReview; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setAddress", function() { return setAddress; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setFormFields", function() { return setFormFields; });
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/objectSpread */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js");
@@ -65694,6 +65808,7 @@ var findReviewByAddress = function findReviewByAddress(userToken, address) {
   // fetches reviews from firebase
   // return: array of objects
   // params: userToken passed from authState and address 
+  console.log(address);
   return function (dispatch) {
     dispatch(findByAddressStart());
     /*** searchParametersPassed: if search parameter is blank it returns all results
@@ -65702,6 +65817,7 @@ var findReviewByAddress = function findReviewByAddress(userToken, address) {
 
     var searchParametersPassed = address ? "&orderBy=\"postal_code\"&startAt=\"".concat(address, "\"&endAt=\"").concat(address, "\"") : "";
     axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("https://accomo-rater.firebaseio.com/landlord_data.json?auth=".concat(userToken).concat(searchParametersPassed)).then(function (response) {
+      console.log(response);
       dispatch(findByAddressSuccess(response));
     })["catch"](function (error) {
       dispatch(findByAddressFail(error));
@@ -65713,6 +65829,20 @@ var findReviewByAddress = function findReviewByAddress(userToken, address) {
 var resetApplicationState = function resetApplicationState() {
   return {
     type: _actionTypes__WEBPACK_IMPORTED_MODULE_3__["RESET_APPLICATION_STATE"]
+  };
+};
+var createReview = function createReview(userToken, data) {
+  return function (dispatch) {
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("https://accomo-rater.firebaseio.com/landlord_data.json?auth=".concat(userToken), data).then(function (response) {
+      dispatch({
+        type: _actionTypes__WEBPACK_IMPORTED_MODULE_3__["CREATE_REVIEW_SUCCESS"],
+        payload: response.data
+      });
+    })["catch"](function (error) {
+      dispatch({
+        type: _actionTypes__WEBPACK_IMPORTED_MODULE_3__["CREATE_REVIEW_FAIL"]
+      });
+    });
   };
 };
 /**functions for google maps auto complete */
@@ -65862,7 +65992,7 @@ var updateSavedToken = function updateSavedToken(token) {
 
 /***/ }),
 
-/***/ 0:
+/***/ 1:
 /*!***********************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fadd-review&absolutePagePath=%2FUsers%2Ffortunephiri%2FDocuments%2FProjects%2FroomR8r%2Fpages%2Fadd-review.js ***!
   \***********************************************************************************************************************************************************/
@@ -65885,5 +66015,5 @@ module.exports = dll_01f9a3fa864a7b7414d8;
 
 /***/ })
 
-},[[0,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=add-review.js.map

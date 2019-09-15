@@ -16,5 +16,7 @@ export const RESET_APPLICATION_STATE = "reset_application_state"
 
 export const SET_ADDRESS_OBJECT = "set_address_object"
 export const SET_REVIEW_FORM_FIELDS = "set_review_form_field_data"
+export const CREATE_REVIEW_SUCCESS = "create_review_success"
+export const CREATE_REVIEW_FAIL = "create_review_fail"
 
 export const UPDATE_TOKEN_WITH_COOKIE = "update_user_token_with_cookie_value"
