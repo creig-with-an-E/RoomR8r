@@ -114,7 +114,8 @@ const mapDispatchToProps=(dispatch)=>{
 const styles ={
   searchBar:{
     backgroundColor:"#fffffa",
-    width:"320px"
+    width:"320px",
+    marginTop: "40%",
   }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(GoogleMapsSearchBar)
