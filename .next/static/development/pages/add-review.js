@@ -64424,10 +64424,12 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Layout", function() { return Layout; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _navigation_toolbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../navigation/toolbar */ "./src/navigation/toolbar.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _navigation_toolbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../navigation/toolbar */ "./src/navigation/toolbar.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+
 var _jsxFileName = "/Users/fortunephiri/Documents/Projects/roomR8r/src/components/layout.js";
 
 
@@ -64435,14 +64437,14 @@ var _jsxFileName = "/Users/fortunephiri/Documents/Projects/roomR8r/src/component
 
 var Layout = function Layout(props) {
   // receives modal handle from index.js 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     style: styles.containerStyle,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 7
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navigation_toolbar__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_navigation_toolbar__WEBPACK_IMPORTED_MODULE_2__["default"], {
     showModalHandle: props.showModalHandle,
     __source: {
       fileName: _jsxFileName,
@@ -64453,17 +64455,18 @@ var Layout = function Layout(props) {
 };
 
 var styles = {
-  containerStyle: {
+  containerStyle: Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])({
     background: "url('static/imgs/background.jpeg')",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
+    backgroundColor: "red",
+    opacity: 0.9,
     display: "flex",
     alignItems: "center",
     flexDirection: "column",
     height: "100vh",
-    justifyContent: "center",
-    backgroundColor: "#fffffa"
-  }
+    justifyContent: "center"
+  }, "backgroundColor", "#fffffa")
 };
 
 
@@ -64800,6 +64803,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store_actions_appActions__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../store/actions/appActions */ "./store/actions/appActions.js");
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var _stepper_css__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./stepper.css */ "./src/stepper/stepper.css");
+/* harmony import */ var _stepper_css__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_stepper_css__WEBPACK_IMPORTED_MODULE_16__);
 
 
 
@@ -64818,10 +64823,12 @@ var _jsxFileName = "/Users/fortunephiri/Documents/Projects/roomR8r/src/stepper/i
 
 
 
+
 var styles = function styles(theme) {
   return {
     root: {
-      width: "450px",
+      maxWidth: "380px",
+      // width:"90%",
       display: "flex",
       flexDirection: 'column'
     },
@@ -64885,7 +64892,7 @@ var getStepContent = function getStepContent(step) {
       return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_stepper_components_googleMapsSearchBar__WEBPACK_IMPORTED_MODULE_11__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 79
+          lineNumber: 81
         },
         __self: this
       });
@@ -64894,7 +64901,7 @@ var getStepContent = function getStepContent(step) {
       return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_stepper_components_landlord_form__WEBPACK_IMPORTED_MODULE_10__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 81
+          lineNumber: 83
         },
         __self: this
       });
@@ -64903,7 +64910,7 @@ var getStepContent = function getStepContent(step) {
       return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_stepper_components_reviewSummary__WEBPACK_IMPORTED_MODULE_12__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 83
+          lineNumber: 85
         },
         __self: this
       });
@@ -65003,7 +65010,7 @@ var HorizontalStepper = function HorizontalStepper(props) {
     className: classes.root,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 150
+      lineNumber: 152
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_material_ui_core_Stepper__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -65011,7 +65018,7 @@ var HorizontalStepper = function HorizontalStepper(props) {
     className: classes.stepper,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 151
+      lineNumber: 153
     },
     __self: this
   }, steps.map(function (label, index) {
@@ -65023,7 +65030,7 @@ var HorizontalStepper = function HorizontalStepper(props) {
         variant: "caption",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 156
+          lineNumber: 158
         },
         __self: this
       }, "Optional");
@@ -65043,7 +65050,7 @@ var HorizontalStepper = function HorizontalStepper(props) {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 162
+        lineNumber: 164
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_material_ui_core_StepLabel__WEBPACK_IMPORTED_MODULE_7__["default"], Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, labelProps, {
@@ -65054,7 +65061,7 @@ var HorizontalStepper = function HorizontalStepper(props) {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 167
+        lineNumber: 169
       },
       __self: this
     }), label));
@@ -65062,20 +65069,20 @@ var HorizontalStepper = function HorizontalStepper(props) {
     className: classes["step-body"],
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 174
+      lineNumber: 176
     },
     __self: this
   }, activeStep === steps.length ? react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 176
+      lineNumber: 178
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9__["default"], {
     className: classes.instructions,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 177
+      lineNumber: 179
     },
     __self: this
   }, "Review complete.", react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("a", {
@@ -65083,34 +65090,34 @@ var HorizontalStepper = function HorizontalStepper(props) {
     onClick: props.closeModal,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 178
+      lineNumber: 180
     },
     __self: this
   }, "Close"))) : react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 182
+      lineNumber: 184
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9__["default"], {
     className: classes.instructions,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 183
+      lineNumber: 185
     },
     __self: this
   }, getStepContent(activeStep, address)), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9__["default"], {
     className: classes.error,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 184
+      lineNumber: 186
     },
     __self: this
   }, addressError), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
     className: classes["button-section"],
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 185
+      lineNumber: 187
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -65123,20 +65130,20 @@ var HorizontalStepper = function HorizontalStepper(props) {
     color: "primary",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 186
+      lineNumber: 188
     },
     __self: this
   }, "Back"), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_8__["default"], {
     variant: "contained",
     color: "primary",
     onClick: handleNext,
-    className: classes.button,
+    className: _stepper_css__WEBPACK_IMPORTED_MODULE_16___default.a.button,
     style: activeStep === steps.length - 1 ? {
       backgroundColor: "#FF5941"
     } : null,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 189
+      lineNumber: 191
     },
     __self: this
   }, activeStep === steps.length - 1 ? 'Finish' : 'Next')))));
@@ -65994,7 +66001,7 @@ var updateSavedToken = function updateSavedToken(token) {
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!***********************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fadd-review&absolutePagePath=%2FUsers%2Ffortunephiri%2FDocuments%2FProjects%2FroomR8r%2Fpages%2Fadd-review.js ***!
   \***********************************************************************************************************************************************************/
@@ -66017,5 +66024,5 @@ module.exports = dll_01f9a3fa864a7b7414d8;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]);
+},[[4,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=add-review.js.map

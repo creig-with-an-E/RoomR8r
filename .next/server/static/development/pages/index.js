@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -937,9 +937,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _src_components__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../src/components */ "./src/components/index.js");
 /* harmony import */ var _store_actions_appActions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../store/actions/appActions */ "./store/actions/appActions.js");
 /* harmony import */ var _store_actions_authActions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../store/actions/authActions */ "./store/actions/authActions.js");
+/* harmony import */ var _static_css_style_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../static/css/style.css */ "./static/css/style.css");
+/* harmony import */ var _static_css_style_css__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_static_css_style_css__WEBPACK_IMPORTED_MODULE_9__);
 
 
 var _jsxFileName = "/Users/fortunephiri/Documents/Projects/roomR8r/pages/index.js";
+
 
 
 
@@ -1046,7 +1049,7 @@ class App extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
         key: element.id,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 92
+          lineNumber: 93
         },
         __self: this
       })) : null;
@@ -1057,7 +1060,7 @@ class App extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
           style: styles.noResultsStyle,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 96
+            lineNumber: 97
           },
           __self: this
         }, "Currently no reviews exist for this postal code");
@@ -1067,7 +1070,7 @@ class App extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
     const spinner = !this.props.loading ? null : react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_src_components__WEBPACK_IMPORTED_MODULE_6__["Spinner"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 99
+        lineNumber: 100
       },
       __self: this
     });
@@ -1077,28 +1080,28 @@ class App extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       showModalHandle: this.showModalHandle,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 102
+        lineNumber: 103
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("section", {
       style: styles.sectionStyle,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 103
-      },
-      __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("h2", {
-      style: styles.headerStyle,
-      __source: {
-        fileName: _jsxFileName,
         lineNumber: 104
       },
       __self: this
-    }, "Because not all landlords are built the same"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("h3", {
-      style: styles.secondaryHeader,
+    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("h2", {
+      className: _static_css_style_css__WEBPACK_IMPORTED_MODULE_9___default.a.headerStyle,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 107
+        lineNumber: 105
+      },
+      __self: this
+    }, "Because not all landlords are built the same"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("h3", {
+      className: _static_css_style_css__WEBPACK_IMPORTED_MODULE_9___default.a.secondaryHeader,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 108
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("i", {
@@ -1108,28 +1111,28 @@ class App extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 107
+        lineNumber: 108
       },
       __self: this
     }), " war", react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("span", {
-      style: styles.highlightText,
+      className: _static_css_style_css__WEBPACK_IMPORTED_MODULE_9___default.a.highlightText,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 107
+        lineNumber: 108
       },
       __self: this
     }, "M"), "ing or ", react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("i", {
       class: "fa fa-home fa-2x",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 107
+        lineNumber: 108
       },
       __self: this
     }), " war", react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("span", {
-      style: styles.highlightText,
+      className: _static_css_style_css__WEBPACK_IMPORTED_MODULE_9___default.a.highlightText,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 107
+        lineNumber: 108
       },
       __self: this
     }, "N"), "ing ?"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_src_components__WEBPACK_IMPORTED_MODULE_6__["SearchBar"], {
@@ -1144,21 +1147,21 @@ class App extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       onRequestSearch: this.searchByAddressHandler,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 108
+        lineNumber: 109
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", {
-      style: styles.errorStyle,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 116
-      },
-      __self: this
-    }, " ", this.state.addressError ? "Acceptable format is X9X-9X9" : "", " "), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", {
-      style: styles.searchHeading,
+      className: _static_css_style_css__WEBPACK_IMPORTED_MODULE_9___default.a.errorStyle,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 117
+      },
+      __self: this
+    }, " ", this.state.addressError ? "Acceptable format is X9X-9X9" : "", " "), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", {
+      className: _static_css_style_css__WEBPACK_IMPORTED_MODULE_9___default.a.searchHeading,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 118
       },
       __self: this
     }, "Search for reviews by Postal Code"), spinner, emptyResultsText, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
@@ -1167,7 +1170,7 @@ class App extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 120
+        lineNumber: 121
       },
       __self: this
     }, cards)));
@@ -1185,49 +1188,13 @@ Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODUL
 });
 
 const styles = {
-  headerStyle: {
-    marginTop: "80px",
-    fontSize: 26,
-    color: "rgb(44,54,94)",
-    textAlign: "center",
-    fontFamily: 'Poppins, sans-serif',
-    fontWeight: "bold"
-  },
-  secondaryHeader: {
-    fontSize: 20,
-    color: "rgb(44,54,94)",
-    fontFamily: 'Poppins, sans-serif'
-  },
-  highlightText: {
-    fontSize: 24,
-    color: "#FF5941",
-    fontWeight: "bold"
-  },
   sectionStyle: {
     overflowY: "scroll",
     alignSelf: "center",
     marginTop: "5px",
     padding: "20px",
     textAlign: "center",
-    width: "100%"
-  },
-  searchHeading: {
-    fontSize: 16,
-    marginTop: 20,
-    color: "rgb(44,54,94)",
-    fontWeight: "bold",
-    fontFamily: "Poppins, sans serif"
-  },
-  errorStyle: {
-    color: "rgb(255,89,65)",
-    fontWeight: "bold",
-    fontFamily: "Poppins, sans serif"
-  },
-  noResultsStyle: {
-    color: "rgb(255,89,65)",
-    fontSize: 20,
-    fontWeight: "bold",
-    fontFamily: "Fira Sans, sans serif"
+    width: "90%"
   }
 };
 
@@ -1640,7 +1607,7 @@ const ReviewCard = props => {
 /*!*********************************!*\
   !*** ./src/components/index.js ***!
   \*********************************/
-/*! exports provided: Button, ReviewCard, Layout, SearchBar, Spinner */
+/*! exports provided: Button, ReviewCard, SearchBar, Spinner, Layout */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1712,6 +1679,8 @@ const styles = {
     background: "url('static/imgs/background.jpeg')",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
+    backgroundColor: "red",
+    opacity: 0.9,
     display: "flex",
     alignItems: "center",
     flexDirection: "column",
@@ -2025,6 +1994,25 @@ const mapDispatchToProps = dispatch => {
 
 /***/ }),
 
+/***/ "./static/css/style.css":
+/*!******************************!*\
+  !*** ./static/css/style.css ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = {
+	"headerStyle": "_2XtdEzxMscMDqH2ajE0_Gt",
+	"secondaryHeader": "_3B1_fVQMAlg_Zs_Q1Jlbpv",
+	"highlightText": "_3dRMbDg-gmBhjZL8stQ6f4",
+	"searchArea": "_25ygsgl182yE_2w23kGjAg",
+	"searchHeading": "_15h5T7P8nvsMCGeLKownAQ",
+	"errorStyle": "_3ngpMUDGv1lCw87LW33t_4",
+	"noResultsStyle": "NU6npKWU3E1Yn-XMPIoAd"
+};
+
+/***/ }),
+
 /***/ "./store/actions/actionTypes.js":
 /*!**************************************!*\
   !*** ./store/actions/actionTypes.js ***!
@@ -2319,7 +2307,7 @@ const updateSavedToken = token => {
 
 /***/ }),
 
-/***/ 3:
+/***/ 5:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/

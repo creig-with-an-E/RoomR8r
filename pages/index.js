@@ -6,6 +6,7 @@ import {parseCookies} from "../lib/parseCookies"
 import {ReviewCard, Layout, Spinner, SearchBar } from "../src/components"
 import * as appActions from "../store/actions/appActions"
 import * as authActions from "../store/actions/authActions"
+import classes from "../static/css/style.css"
 
 class App extends Component {
   static getInitialProps=({req})=>{
@@ -101,10 +102,10 @@ class App extends Component {
     return (
       <Layout showModalHandle={this.showModalHandle}>
         <section style={styles.sectionStyle}>
-        <h2 style={styles.headerStyle}>
+        <h2 className={classes.headerStyle}>
             Because not all landlords are built the same
           </h2>
-          <h3 style={styles.secondaryHeader}><i className="fa fa-home fa-2x" style={{color:"#FF5941"}}/> war<span style={styles.highlightText}>M</span>ing or <i class="fa fa-home fa-2x"></i> war<span style={styles.highlightText}>N</span>ing ?</h3>
+          <h3 className={classes.secondaryHeader}><i className="fa fa-home fa-2x" style={{color:"#FF5941"}}/> war<span className={classes.highlightText}>M</span>ing or <i class="fa fa-home fa-2x"></i> war<span className={classes.highlightText}>N</span>ing ?</h3>
           <SearchBar
             style={{backgroundColor:"#FF5941",color:"#fffffa"}}
             invalid={this.state.addressError ? true : false}
@@ -113,8 +114,8 @@ class App extends Component {
             onChange={this.onAddressChangeHandler}
             onRequestSearch={this.searchByAddressHandler}
           />
-          <p style={styles.errorStyle}> {this.state.addressError ? "Acceptable format is X9X-9X9" : ""} </p>
-          <p style={styles.searchHeading}>Search for reviews by Postal Code</p>
+          <p className={classes.errorStyle}> {this.state.addressError ? "Acceptable format is X9X-9X9" : ""} </p>
+          <p className={classes.searchHeading}>Search for reviews by Postal Code</p>
           {spinner}
           {emptyResultsText}
         <div style={{ width:"100%"}}>{cards}</div>
@@ -125,50 +126,14 @@ class App extends Component {
 }
 
 const styles = {
-  headerStyle:{
-    marginTop:"80px",
-    fontSize: 26,
-    color: "rgb(44,54,94)",
-    textAlign: "center",
-    fontFamily:'Poppins, sans-serif',
-    fontWeight:"bold"
-  },
-  secondaryHeader:{
-    fontSize:20,
-    color:"rgb(44,54,94)",
-    fontFamily:'Poppins, sans-serif',
-  },
-  highlightText:{
-    fontSize:24,
-    color:"#FF5941",
-    fontWeight:"bold"
-  },
   sectionStyle:{
     overflowY:"scroll",
     alignSelf:"center",
     marginTop:"5px",
     padding: "20px",
     textAlign: "center",
-    width:"100%"
+    width:"90%"
   },
-  searchHeading:{
-    fontSize:16,
-    marginTop:20,
-    color: "rgb(44,54,94)", 
-    fontWeight:"bold",
-    fontFamily:"Poppins, sans serif"
-  },
-  errorStyle:{
-    color:"rgb(255,89,65)",
-    fontWeight:"bold",
-    fontFamily:"Poppins, sans serif"
-  },
-  noResultsStyle:{
-    color:"rgb(255,89,65)",
-    fontSize:20,
-    fontWeight:"bold",
-    fontFamily:"Fira Sans, sans serif"
-  }
 };
 
 const mapStateToProps=(state)=>{

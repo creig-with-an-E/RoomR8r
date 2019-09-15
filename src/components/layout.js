@@ -16,6 +16,8 @@ const styles ={
     background:"url('static/imgs/background.jpeg')",
     backgroundRepeat: "no-repeat",
     backgroundSize:"cover",
+    backgroundColor: "red",
+    opacity:0.9,
     display: "flex",
     alignItems: "center",
     flexDirection: "column",

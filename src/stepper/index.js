@@ -14,12 +14,14 @@ import {connect} from "react-redux"
 import {createReview} from "../../store/actions/appActions"
 
 import Router from "next/router"
+import classStyles from "./stepper.css"
+
 const styles = theme => ({
   root:{
-    width:"450px",
+    maxWidth:"380px",
+    // width:"90%",
     display:"flex",
     flexDirection: 'column',
-
   },
   stepper: {
     display:"flex",
@@ -190,7 +192,7 @@ const HorizontalStepper=(props)=>{
                 variant="contained"
                 color="primary"
                 onClick={handleNext}
-                className={classes.button}
+                className={classStyles.button}
                 style={activeStep === steps.length - 1 ? {backgroundColor:"#FF5941"}:null}
               >
                 {activeStep === steps.length - 1 ? 'Finish' : 'Next'}

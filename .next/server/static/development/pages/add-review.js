@@ -1405,6 +1405,8 @@ const styles = {
     background: "url('static/imgs/background.jpeg')",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
+    backgroundColor: "red",
+    opacity: 0.9,
     display: "flex",
     alignItems: "center",
     flexDirection: "column",
@@ -1752,6 +1754,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store_actions_appActions__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../store/actions/appActions */ "./store/actions/appActions.js");
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! next/router */ "next/router");
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _stepper_css__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./stepper.css */ "./src/stepper/stepper.css");
+/* harmony import */ var _stepper_css__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_stepper_css__WEBPACK_IMPORTED_MODULE_15__);
 
 
 var _jsxFileName = "/Users/fortunephiri/Documents/Projects/roomR8r/src/stepper/index.js";
@@ -1769,9 +1773,11 @@ var _jsxFileName = "/Users/fortunephiri/Documents/Projects/roomR8r/src/stepper/i
 
 
 
+
 const styles = theme => ({
   root: {
-    width: "450px",
+    maxWidth: "380px",
+    // width:"90%",
     display: "flex",
     flexDirection: 'column'
   },
@@ -1832,7 +1838,7 @@ const getStepContent = (step, address = "") => {
       return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_stepper_components_googleMapsSearchBar__WEBPACK_IMPORTED_MODULE_10__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 79
+          lineNumber: 81
         },
         __self: undefined
       });
@@ -1841,7 +1847,7 @@ const getStepContent = (step, address = "") => {
       return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_stepper_components_landlord_form__WEBPACK_IMPORTED_MODULE_9__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 81
+          lineNumber: 83
         },
         __self: undefined
       });
@@ -1850,7 +1856,7 @@ const getStepContent = (step, address = "") => {
       return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_stepper_components_reviewSummary__WEBPACK_IMPORTED_MODULE_11__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 83
+          lineNumber: 85
         },
         __self: undefined
       });
@@ -1932,7 +1938,7 @@ const HorizontalStepper = props => {
     className: classes.root,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 150
+      lineNumber: 152
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Stepper__WEBPACK_IMPORTED_MODULE_4___default.a, {
@@ -1940,7 +1946,7 @@ const HorizontalStepper = props => {
     className: classes.stepper,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 151
+      lineNumber: 153
     },
     __self: undefined
   }, steps.map((label, index) => {
@@ -1952,7 +1958,7 @@ const HorizontalStepper = props => {
         variant: "caption",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 156
+          lineNumber: 158
         },
         __self: undefined
       }, "Optional");
@@ -1972,7 +1978,7 @@ const HorizontalStepper = props => {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 162
+        lineNumber: 164
       },
       __self: undefined
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_StepLabel__WEBPACK_IMPORTED_MODULE_6___default.a, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, labelProps, {
@@ -1983,7 +1989,7 @@ const HorizontalStepper = props => {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 167
+        lineNumber: 169
       },
       __self: undefined
     }), label));
@@ -1991,20 +1997,20 @@ const HorizontalStepper = props => {
     className: classes["step-body"],
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 174
+      lineNumber: 176
     },
     __self: undefined
   }, activeStep === steps.length ? react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 176
+      lineNumber: 178
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8___default.a, {
     className: classes.instructions,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 177
+      lineNumber: 179
     },
     __self: undefined
   }, "Review complete.", react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
@@ -2012,34 +2018,34 @@ const HorizontalStepper = props => {
     onClick: props.closeModal,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 178
+      lineNumber: 180
     },
     __self: undefined
   }, "Close"))) : react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 182
+      lineNumber: 184
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8___default.a, {
     className: classes.instructions,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 183
+      lineNumber: 185
     },
     __self: undefined
   }, getStepContent(activeStep, address)), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8___default.a, {
     className: classes.error,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 184
+      lineNumber: 186
     },
     __self: undefined
   }, addressError), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
     className: classes["button-section"],
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 185
+      lineNumber: 187
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7___default.a, {
@@ -2052,20 +2058,20 @@ const HorizontalStepper = props => {
     color: "primary",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 186
+      lineNumber: 188
     },
     __self: undefined
   }, "Back"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7___default.a, {
     variant: "contained",
     color: "primary",
     onClick: handleNext,
-    className: classes.button,
+    className: _stepper_css__WEBPACK_IMPORTED_MODULE_15___default.a.button,
     style: activeStep === steps.length - 1 ? {
       backgroundColor: "#FF5941"
     } : null,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 189
+      lineNumber: 191
     },
     __self: undefined
   }, activeStep === steps.length - 1 ? 'Finish' : 'Next')))));
@@ -2085,6 +2091,21 @@ const mapDispatchToProps = dispatch => {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_12__["connect"])(mapStateToProps, mapDispatchToProps)(Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["withStyles"])(styles)(HorizontalStepper)));
+
+/***/ }),
+
+/***/ "./src/stepper/stepper.css":
+/*!*********************************!*\
+  !*** ./src/stepper/stepper.css ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = {
+	"root": "_3-T_V3n6piPGl8gL3DWqzu",
+	"stepper": "_3XHtPUnRGojI0pY3_ciURA",
+	"button": "_2uuRzuaNAxb9X1rb07vTcn"
+};
 
 /***/ }),
 

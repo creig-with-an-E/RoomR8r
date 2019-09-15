@@ -1,0 +1,201 @@
+
+._2XtdEzxMscMDqH2ajE0_Gt{
+  margin-top:80px;
+  font-size: 26px;
+  color: rgb(44,54,94);
+  text-align: center;
+  font-family:Poppins, sans-serif;
+  font-weight:bold;
+  background: rgba(255,255,255,.1);
+  padding:10px
+}
+
+._3B1_fVQMAlg_Zs_Q1Jlbpv{
+  font-size:20;
+  color:rgb(44,54,94);
+  font-family:Poppins, sans-serif;
+  background: rgba(255,255,255,.2);
+}
+
+._3dRMbDg-gmBhjZL8stQ6f4{
+  font-size:24;
+  color:#FF5941;
+  font-weight:bold
+}
+
+._25ygsgl182yE_2w23kGjAg {
+  background-color:#FF5941;
+  color:#fffffa
+}
+
+._15h5T7P8nvsMCGeLKownAQ{
+  font-size:16;
+  margin-top:20;
+  color: rgb(44,54,94);
+  font-weight:bold;
+  font-family:Poppins, sans serif;
+  background: rgba(255,255,255,.3);;
+  padding:10px
+}
+
+._3ngpMUDGv1lCw87LW33t_4{
+  color:rgb(255,89,65);
+  font-weight:bold;
+  font-family:Poppins, sans serif;
+}
+
+.NU6npKWU3E1Yn-XMPIoAd{
+  color:rgb(255,89,65);
+  font-size:20;
+  font-weight:bold;
+  font-family:Fira Sans, sans serif
+}
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+  
+  
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  
+  
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  
+  
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  
+  
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  
+  
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  ._2XtdEzxMscMDqH2ajE0_Gt{
+    margin-top:80px;
+    font-size: 24px;
+  }
+
+  ._15h5T7P8nvsMCGeLKownAQ{
+    font-size: 20px;
+    margin-top:40px;
+    text-align: center
+  }
+}
+._3-T_V3n6piPGl8gL3DWqzu{
+    width:450px;
+
+  }
+
+  ._3XHtPUnRGojI0pY3_ciURA{
+    display:flex;
+    background-color:rgba(44,54,94,0.8);
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    height:100%
+  }
+
+  ._2uuRzuaNAxb9X1rb07vTcn {
+    margin-right: 15
+   };
+
+
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+  
+  
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  
+  
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  
+  
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  
+  
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  
+  
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+    ._3-T_V3n6piPGl8gL3DWqzu{
+        width:90%;
+      } 
+}
+
+/*# sourceMappingURL=styles.chunk.css.map*/
