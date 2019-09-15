@@ -69,7 +69,7 @@ const styles = theme => ({
 });
 
 const getSteps=()=>{
-  return ['Location settings', 'Land lord Bio', 'Confirm Review'];
+  return ['Find by address', 'Landlord Bio', 'Confirm Review'];
 }
 
 const getStepContent=(step, address= "")=>{

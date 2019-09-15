@@ -89,7 +89,7 @@ class GoogleMapsSearchBar extends Component{
           style={styles.searchBar}
           id="autocomplete"
           onChange={this.onChangeHandler}
-          placeholder="X5X-X5X"
+          placeholder="1 First Ave NW"
           value={this.state.queryString}
         />
       </div>)
