@@ -183,7 +183,7 @@ const styles = {
     color: "#fffffa",
   },
   rememberCheckbox :{
-    padding: 25
+    padding: 5
   }
 };
 const mapStateToProps=(state)=>{

@@ -34,6 +34,9 @@ const reducer = (state = INITIAL_STATE, action) => {
         ...state.stepperFormData,
         postal_code:data[data.length-1].long_name,
         addressData: {
+          /**  using data.length as address object returned by google maps is either 7 or 8 elements
+           * e.g Toronto address are composed of elements, where North York is subdivision of Toronto
+          */
           street_number:data[0].long_name + " " + data[1].long_name,
           city:data[data.length-5].long_name,
           postal_code:data[data.length-1].long_name,
