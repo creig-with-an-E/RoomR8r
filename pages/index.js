@@ -105,7 +105,7 @@ class App extends Component {
         <h2 className={classes.headerStyle}>
             Because not all landlords are built the same
           </h2>
-          <h3 className={classes.secondaryHeader}><i className="fa fa-home fa-2x" style={{color:"#FF5941"}}/> war<span className={classes.highlightText}>M</span>ing or <i class="fa fa-home fa-2x"></i> war<span className={classes.highlightText}>N</span>ing ?</h3>
+          <h3 className={classes.secondaryHeader}><i className="fa fa-home fa-2x" style={{color:"#FF5941"}}/> WARMING or <i class="fa fa-home fa-2x"></i> <span className={classes.highlightText}>WARNING</span> ?</h3>
           <SearchBar
             style={{backgroundColor:"#FF5941",color:"#fffffa"}}
             invalid={this.state.addressError ? true : false}
