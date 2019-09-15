@@ -1,8 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
-import { Card, CardHeader, CardMedia, CardContent, 
-  CardActions,Collapse, Avatar,IconButton, 
+import { Card, CardMedia, CardContent, 
+  CardActions,Collapse,IconButton, 
   Typography } from "@material-ui/core"
 
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -82,8 +82,8 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const ReviewCard=(props)=>{
-  const { postal_code, address, landlord_bio, comment } = props.data;
-  const { first_name, last_name } = landlord_bio;
+  const { postal_code, city,country,province,street_number } = props.data.addressData
+  const { name, landlord_review } = props.data.landlord_bio;
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -109,13 +109,13 @@ const ReviewCard=(props)=>{
         <Typography  style={{display:"flex"}}>
           <span className={classes.labelStyles}>Street Address:</span>
           <span className={classes.resultsText} style={{color:"#FF5941"}}>
-            {address.street_number}
+            {street_number}
           </span>
         </Typography>
         <Typography style={{display:"flex"}}>
           <span className={classes.labelStyles}>City:</span>
           <span className={classes.resultsText}>
-            {""}
+            {city}
           </span>
         </Typography>
       </CardContent>
@@ -137,14 +137,14 @@ const ReviewCard=(props)=>{
           <Typography className={classes.collapseSectionHeader}>About Landlord</Typography>
           <Typography style={{display:"flex"}}>
           <span className={classes.expandedAreaLabel}>Name: </span>
-          <span className={classes.expandedAreaResults}>
-            {first_name}
+          <span className={classes.expandedAreaResults} style={{color:"#FF5941"}}>
+            {name}
           </span>
         </Typography>
         <Typography style={{display:"flex"}}>
           <span className={classes.expandedAreaLabel}>Feedback: </span>
-          <span>
-            {comment}
+          <span className={classes.expandedAreaResults}>
+            {landlord_review}
           </span>
         </Typography>
         </CardContent>

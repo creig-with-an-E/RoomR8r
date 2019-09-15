@@ -4,7 +4,6 @@ import Router from "next/router"
 import {parseCookies} from "../lib/parseCookies"
 
 import {ReviewCard, Layout, Spinner, SearchBar } from "../src/components"
-import AddReviewForm from "../src/modal/addReviewForm"
 import * as appActions from "../store/actions/appActions"
 import * as authActions from "../store/actions/authActions"
 
@@ -35,7 +34,7 @@ class App extends Component {
     //handles user input and stores in local state
     const valid = this.isValidatePostalCode(input)
       if(valid){
-      const addDash = input.length===3 ? `${input.slice(0,3)}-${input.slice(3)}`:input
+      const addDash = input.length===3 ? `${input.slice(0,3)} ${input.slice(3)}`:input
       this.setState({
        addressError:false,
        address: addDash.toUpperCase()
@@ -57,7 +56,7 @@ class App extends Component {
         counter is not incremented after 3 so as to add dash which is not counted
       ******/
       if((counter % 2) !== 0){
-        if(element === "-"){
+        if(element === " "){
           return
         }else{
           counter++
@@ -101,18 +100,13 @@ class App extends Component {
     /***  showModal handle is passed down to Layout ***/
     return (
       <Layout showModalHandle={this.showModalHandle}>
-        <AddReviewForm 
-            userToken={this.props.userToken}
-            modalVisible={this.state.modalVisible}
-            hideModalHandle={this.hideModalHandle}>
-        </AddReviewForm>
         <section style={styles.sectionStyle}>
         <h2 style={styles.headerStyle}>
             Because not all landlords are built the same
           </h2>
           <SearchBar
             invalid={this.state.addressError ? true : false}
-            placeholder="X5X-X5X"
+            placeholder="X5X X5X"
             value={this.state.address}
             onChange={this.onAddressChangeHandler}
             onRequestSearch={this.searchByAddressHandler}

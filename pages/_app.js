@@ -6,6 +6,7 @@ import { createStore, applyMiddleware } from "redux";
 import reduxThunk from "redux-thunk";
 import reducers from "../store/reducers";
 import Head from "next/head";
+
 const initStore = (initialState = {}) => {
   return createStore(reducers, applyMiddleware(reduxThunk));
 };
@@ -31,7 +32,8 @@ export default withRedux(initStore, { debug: false })(
             <meta
               name="description"
               property="og:description"
-              content="Community of renters and landlord's alike. Using the app you are able to view and add your own review of the landlord and the house culture at a particular address. This app is built with one goal and one goal alone to improve the renting and leasing markets for all stakeholders at hand."
+              content="Community of renters and landlord's alike. Using the app you are able to view and add your own review of the landlord and the house culture at a particular address.
+               This app is built with one goal and one goal alone to improve the renting and leasing markets for all stakeholders at hand."
             />
             <meta
               property="og:url"
@@ -41,12 +43,12 @@ export default withRedux(initStore, { debug: false })(
             <meta property="og:image" content="http://roomr8r.ca/static/imgs/ogp_image.png" />
             <meta property="og:image:width" content="400" />
             <meta property="og:image:height" content="300" />
-            <title>RoomR8r • home</title>
+            <title>RoomR8r | home</title>
             <link rel="shortcut icon" href="http://roomr8r.ca/static/imgs/favicon.ico" />
             <link
               href="https://fonts.googleapis.com/css?family=Lexend+Tera|Poppins|Fira+Sans&display=swap"
-              rel="stylesheet"
-            ></link>
+              rel="stylesheet"></link>
+            <link href="/static/MuiStep.css" rel="styleSheet" />
           </Head>
           <Provider store={store}>
             <Component {...pageProps} />
