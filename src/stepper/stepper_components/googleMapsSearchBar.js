@@ -17,7 +17,7 @@ class GoogleMapsSearchBar extends Component{
     if(this.props.addressData){
       const {addressData} =this.props
       this.setState({
-        queryString:`${addressData[0].long_name} ${addressData[1].long_name}, ${addressData[2].long_name}, ${addressData[4].long_name}`
+        queryString:`${addressData[0].long_name} ${addressData[1].long_name}, ${addressData[2].long_name}, ${addressData[5].long_name}`
       })
     }
   }
@@ -27,7 +27,7 @@ class GoogleMapsSearchBar extends Component{
       const {addressData} =this.props
       this.setState({
         address: addressData,
-        queryString:`${addressData[0].long_name} ${addressData[1].long_name}, ${addressData[2].long_name}, ${addressData[4].long_name}`
+        queryString:`${addressData[0].long_name} ${addressData[1].long_name}, ${addressData[2].long_name}, ${addressData[5].long_name}`
       })
     }
   }

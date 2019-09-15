@@ -1436,7 +1436,7 @@ const styles = Object(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["makeStyles
   searchbarStyle: {
     backgroundColor: "transparent",
     borderRadius: "3px",
-    margin: "0 auto",
+    margin: "10px auto",
     maxWidth: "400px",
     padding: 3,
     boxShadow: '0px 1px 3px 1px rgba(44,54,94,0.6)'
@@ -1739,9 +1739,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _stepper_components_landlord_form__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./stepper_components/landlord_form */ "./src/stepper/stepper_components/landlord_form.js");
 /* harmony import */ var _stepper_components_googleMapsSearchBar__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./stepper_components/googleMapsSearchBar */ "./src/stepper/stepper_components/googleMapsSearchBar.js");
+/* harmony import */ var _stepper_components_reviewForm__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./stepper_components/reviewForm */ "./src/stepper/stepper_components/reviewForm.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! next/router */ "next/router");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_12__);
 
 
 var _jsxFileName = "/Users/fortunephiri/Documents/Projects/roomR8r/src/stepper/index.js";
+
+
 
 
 
@@ -1776,7 +1781,7 @@ const styles = theme => ({
     height: 70
   },
   instructions: {
-    height: "200px",
+    height: "300px",
     paddingTop: "20px"
   },
   "step-body": {
@@ -1809,7 +1814,7 @@ const getStepContent = (step, address = "") => {
       return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_stepper_components_googleMapsSearchBar__WEBPACK_IMPORTED_MODULE_10__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 68
+          lineNumber: 70
         },
         __self: undefined
       });
@@ -1818,13 +1823,19 @@ const getStepContent = (step, address = "") => {
       return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_stepper_components_landlord_form__WEBPACK_IMPORTED_MODULE_9__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 70
+          lineNumber: 72
         },
         __self: undefined
       });
 
     case 2:
-      return 'Completed Review';
+      return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_stepper_components_reviewForm__WEBPACK_IMPORTED_MODULE_11__["default"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 74
+        },
+        __self: undefined
+      });
 
     default:
       return 'Unknown step';
@@ -1846,6 +1857,10 @@ const HorizontalStepper = props => {
   }
 
   function handleNext() {
+    if (activeStep === 2) {
+      return next_router__WEBPACK_IMPORTED_MODULE_12___default.a.replace("/");
+    }
+
     let newSkipped = skipped;
 
     if (isStepSkipped(activeStep)) {
@@ -1887,7 +1902,7 @@ const HorizontalStepper = props => {
     className: classes.root,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 129
+      lineNumber: 134
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Stepper__WEBPACK_IMPORTED_MODULE_4___default.a, {
@@ -1895,7 +1910,7 @@ const HorizontalStepper = props => {
     className: classes.stepper,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 130
+      lineNumber: 135
     },
     __self: undefined
   }, steps.map((label, index) => {
@@ -1907,7 +1922,7 @@ const HorizontalStepper = props => {
         variant: "caption",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 135
+          lineNumber: 140
         },
         __self: undefined
       }, "Optional");
@@ -1927,7 +1942,7 @@ const HorizontalStepper = props => {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 141
+        lineNumber: 146
       },
       __self: undefined
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_StepLabel__WEBPACK_IMPORTED_MODULE_6___default.a, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, labelProps, {
@@ -1938,7 +1953,7 @@ const HorizontalStepper = props => {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 146
+        lineNumber: 151
       },
       __self: undefined
     }), label));
@@ -1946,20 +1961,20 @@ const HorizontalStepper = props => {
     className: classes["step-body"],
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 153
+      lineNumber: 158
     },
     __self: undefined
   }, activeStep === steps.length ? react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 155
+      lineNumber: 160
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8___default.a, {
     className: classes.instructions,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 156
+      lineNumber: 161
     },
     __self: undefined
   }, "Review complete.", react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
@@ -1967,27 +1982,27 @@ const HorizontalStepper = props => {
     onClick: props.closeModal,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 157
+      lineNumber: 162
     },
     __self: undefined
   }, "Close"))) : react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 161
+      lineNumber: 166
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8___default.a, {
     className: classes.instructions,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 162
+      lineNumber: 167
     },
     __self: undefined
   }, getStepContent(activeStep, address)), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
     className: classes["button-section"],
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 163
+      lineNumber: 168
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7___default.a, {
@@ -2000,7 +2015,7 @@ const HorizontalStepper = props => {
     color: "primary",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 164
+      lineNumber: 169
     },
     __self: undefined
   }, "Back"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7___default.a, {
@@ -2013,7 +2028,7 @@ const HorizontalStepper = props => {
     } : null,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 167
+      lineNumber: 172
     },
     __self: undefined
   }, activeStep === steps.length - 1 ? 'Finish' : 'Next')))));
@@ -2100,7 +2115,7 @@ class GoogleMapsSearchBar extends react__WEBPACK_IMPORTED_MODULE_1__["Component"
         addressData
       } = this.props;
       this.setState({
-        queryString: `${addressData[0].long_name} ${addressData[1].long_name}, ${addressData[2].long_name}, ${addressData[4].long_name}`
+        queryString: `${addressData[0].long_name} ${addressData[1].long_name}, ${addressData[2].long_name}, ${addressData[5].long_name}`
       });
     }
   }
@@ -2112,7 +2127,7 @@ class GoogleMapsSearchBar extends react__WEBPACK_IMPORTED_MODULE_1__["Component"
       } = this.props;
       this.setState({
         address: addressData,
-        queryString: `${addressData[0].long_name} ${addressData[1].long_name}, ${addressData[2].long_name}, ${addressData[4].long_name}`
+        queryString: `${addressData[0].long_name} ${addressData[1].long_name}, ${addressData[2].long_name}, ${addressData[5].long_name}`
       });
     }
   }
@@ -2252,7 +2267,7 @@ class LandlordForm extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
       style: styles.inputStyle,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 33
+        lineNumber: 32
       },
       __self: this
     }));
@@ -2285,6 +2300,167 @@ const mapDispatchTopProps = dispatch => {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchTopProps)(LandlordForm));
+
+/***/ }),
+
+/***/ "./src/stepper/stepper_components/reviewForm.js":
+/*!******************************************************!*\
+  !*** ./src/stepper/stepper_components/reviewForm.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-jsx/style */ "styled-jsx/style");
+/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "react-redux");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "/Users/fortunephiri/Documents/Projects/roomR8r/src/stepper/stepper_components/reviewForm.js";
+
+
+
+
+const reviewForm = props => {
+  const street_address = props.data.stepperFormData.addressData[0].long_name + " " + props.data.stepperFormData.addressData[1].long_name || " ";
+  const city = props.data.stepperFormData.addressData[2].long_name || " ";
+  const country = props.data.stepperFormData.addressData[6].long_name || " ";
+  const province = props.data.stepperFormData.addressData[5].long_name || " ";
+  const {
+    name,
+    landlord_review
+  } = props.data.stepperFormData.landlord_bio;
+  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: "jsx-1058373414",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
+    className: "jsx-1058373414",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13
+    },
+    __self: undefined
+  }, "Summary"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("hr", {
+    className: "jsx-1058373414",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14
+    },
+    __self: undefined
+  }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
+    className: "jsx-1058373414",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15
+    },
+    __self: undefined
+  }, "Street Address: ", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+    className: "jsx-1058373414",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15
+    },
+    __self: undefined
+  }, street_address)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
+    className: "jsx-1058373414",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16
+    },
+    __self: undefined
+  }, "City: ", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+    className: "jsx-1058373414",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16
+    },
+    __self: undefined
+  }, city)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
+    className: "jsx-1058373414",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 17
+    },
+    __self: undefined
+  }, "Province: ", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+    className: "jsx-1058373414",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 17
+    },
+    __self: undefined
+  }, province)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
+    className: "jsx-1058373414",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18
+    },
+    __self: undefined
+  }, "Country: ", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+    className: "jsx-1058373414",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18
+    },
+    __self: undefined
+  }, country)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
+    className: "jsx-1058373414",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19
+    },
+    __self: undefined
+  }, "Name: ", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+    className: "jsx-1058373414",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19
+    },
+    __self: undefined
+  }, name)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
+    className: "jsx-1058373414",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20
+    },
+    __self: undefined
+  }, "Bio: ", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+    className: "jsx-1058373414",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20
+    },
+    __self: undefined
+  }, landlord_review)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    style: {
+      float: "none",
+      display: "block"
+    },
+    className: "jsx-1058373414",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21
+    },
+    __self: undefined
+  }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
+    id: "1058373414",
+    __self: undefined
+  }, "p.jsx-1058373414{width:350px;color:#fffffa;}p.jsx-1058373414 span.jsx-1058373414{color:#FF5941;margin-right:10px;text-align:right;}h3.jsx-1058373414{color:#fffffa;margin:0;padding:0;text-align:center;font-family:poppin,san-serf;}hr.jsx-1058373414{width:30px, height:5px;padding:2px;background-color:#FF5941;border:none;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9mb3J0dW5lcGhpcmkvRG9jdW1lbnRzL1Byb2plY3RzL3Jvb21SOHIvc3JjL3N0ZXBwZXIvc3RlcHBlcl9jb21wb25lbnRzL3Jldmlld0Zvcm0uanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBcUJnQixBQUdrQixBQUtHLEFBTUEsQUFRSixZQWxCSSxFQUtJLEFBTVQsU0FDQSxBQU9FLEdBbEJiLE1BTUQsQ0FNcUIsRUFPTyxjQWIzQixFQVFELFNBT0EsWUFBQyxPQVBBIiwiZmlsZSI6Ii9Vc2Vycy9mb3J0dW5lcGhpcmkvRG9jdW1lbnRzL1Byb2plY3RzL3Jvb21SOHIvc3JjL3N0ZXBwZXIvc3RlcHBlcl9jb21wb25lbnRzL3Jldmlld0Zvcm0uanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xuaW1wb3J0IHtjb25uZWN0fSBmcm9tIFwicmVhY3QtcmVkdXhcIlxuXG5jb25zdCByZXZpZXdGb3JtPShwcm9wcyk9PntcbiAgICBjb25zdCBzdHJlZXRfYWRkcmVzcyA9IHByb3BzLmRhdGEuc3RlcHBlckZvcm1EYXRhLmFkZHJlc3NEYXRhWzBdLmxvbmdfbmFtZSArIFwiIFwiICsgcHJvcHMuZGF0YS5zdGVwcGVyRm9ybURhdGEuYWRkcmVzc0RhdGFbMV0ubG9uZ19uYW1lIHx8IFwiIFwiXG4gICAgY29uc3QgY2l0eSA9IHByb3BzLmRhdGEuc3RlcHBlckZvcm1EYXRhLmFkZHJlc3NEYXRhWzJdLmxvbmdfbmFtZSB8fCBcIiBcIlxuICAgIGNvbnN0IGNvdW50cnkgPSBwcm9wcy5kYXRhLnN0ZXBwZXJGb3JtRGF0YS5hZGRyZXNzRGF0YVs2XS5sb25nX25hbWUgfHwgXCIgXCJcbiAgICBjb25zdCBwcm92aW5jZSA9IHByb3BzLmRhdGEuc3RlcHBlckZvcm1EYXRhLmFkZHJlc3NEYXRhWzVdLmxvbmdfbmFtZSB8fCBcIiBcIlxuICAgICBcbiAgICBjb25zdCB7bmFtZSwgbGFuZGxvcmRfcmV2aWV3fT1wcm9wcy5kYXRhLnN0ZXBwZXJGb3JtRGF0YS5sYW5kbG9yZF9iaW9cbnJldHVybihcbiAgPGRpdj5cbiAgICA8aDM+U3VtbWFyeTwvaDM+XG4gICAgPGhyIC8+XG4gICAgPHA+U3RyZWV0IEFkZHJlc3M6IDxzcGFuPntzdHJlZXRfYWRkcmVzc308L3NwYW4+PC9wPlxuICAgIDxwPkNpdHk6IDxzcGFuPntjaXR5fTwvc3Bhbj48L3A+XG4gICAgPHA+UHJvdmluY2U6IDxzcGFuPntwcm92aW5jZX08L3NwYW4+PC9wPlxuICAgIDxwPkNvdW50cnk6IDxzcGFuPntjb3VudHJ5fTwvc3Bhbj48L3A+XG4gICAgPHA+TmFtZTogPHNwYW4+e25hbWV9PC9zcGFuPjwvcD5cbiAgICA8cD5CaW86IDxzcGFuPntsYW5kbG9yZF9yZXZpZXd9PC9zcGFuPjwvcD5cbiAgICA8ZGl2IHN0eWxlPXt7ZmxvYXQ6XCJub25lXCIsIGRpc3BsYXk6IFwiYmxvY2tcIn19PjwvZGl2PlxuICAgIDxzdHlsZSBqc3g+e2BcbiAgICBwIHtcbiAgICAgIHdpZHRoOjM1MHB4O1xuICAgICAgY29sb3I6ICNmZmZmZmE7XG4gICAgfTtcblxuICAgIHAgc3BhbiB7XG4gICAgICBjb2xvcjogI0ZGNTk0MTtcbiAgICAgIG1hcmdpbi1yaWdodDogMTBweDtcbiAgICAgIHRleHQtYWxpZ246IHJpZ2h0XG4gICAgfTtcblxuICAgIGgzIHtcbiAgICAgIGNvbG9yOiAjZmZmZmZhO1xuICAgICAgbWFyZ2luOiAwO1xuICAgICAgcGFkZGluZzowO1xuICAgICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgICAgZm9udC1mYW1pbHk6IHBvcHBpbiwgc2FuLXNlcmZcbiAgICB9O1xuICAgIGhyIHtcbiAgICAgIHdpZHRoOiAzMHB4LFxuICAgICAgaGVpZ2h0OjVweDtcbiAgICAgIHBhZGRpbmc6MnB4O1xuICAgICAgYmFja2dyb3VuZC1jb2xvcjogI0ZGNTk0MTtcbiAgICAgIGJvcmRlcjogbm9uZVxuICAgIH1cbiAgICBgfTwvc3R5bGU+XG4gIDwvZGl2PlxuKX1cblxuY29uc3QgbWFwU3RhdGVUb1Byb3BzPShzdGF0ZSk9PntcbiAgcmV0dXJue1xuICAgIGRhdGE6IHN0YXRlLmFwcFxuICB9XG59XG5leHBvcnQgZGVmYXVsdCBjb25uZWN0KG1hcFN0YXRlVG9Qcm9wcykocmV2aWV3Rm9ybSkiXX0= */\n/*@ sourceURL=/Users/fortunephiri/Documents/Projects/roomR8r/src/stepper/stepper_components/reviewForm.js */"));
+};
+
+const mapStateToProps = state => {
+  return {
+    data: state.app
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps)(reviewForm));
 
 /***/ }),
 

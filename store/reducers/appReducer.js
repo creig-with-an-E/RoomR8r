@@ -25,12 +25,14 @@ const reducer = (state = INITIAL_STATE, action) => {
     case actionTypes.SEARCH_BY_ADDRESS_FAIL:
       return {...state, loading: false, error: "SOMETHING WENT WRONG"}
     case actionTypes.RESET_APPLICATION_STATE:
-      return {...INITIAL_STATE}
+      return INITIAL_STATE
     case actionTypes.SET_ADDRESS_OBJECT:
       return {...state, stepperFormData:{...state.stepperFormData,addressData: action.payload}}
+    case actionTypes.LOGOUT_USER:
+      return INITIAL_STATE
     case actionTypes.SET_REVIEW_FORM_FIELDS:
       const keys = Object.keys(action.payload)
-      const landlord_bio_copy = {...state.stepperFormData.landlord_bio}
+      const landlord_bio_copy = JSON.parse(JSON.stringify(state.stepperFormData.landlord_bio))
       const value = landlord_bio_copy[keys[0]].toString()
       landlord_bio_copy[keys[0]] = action.payload[keys[0]]
       return {

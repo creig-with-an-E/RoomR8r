@@ -64688,7 +64688,7 @@ var ReviewCard = function ReviewCard(props) {
 /*!*********************************!*\
   !*** ./src/components/index.js ***!
   \*********************************/
-/*! exports provided: Button, ReviewCard, Layout, SearchBar, Spinner */
+/*! exports provided: Button, ReviewCard, Layout, Spinner, SearchBar */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -64794,7 +64794,7 @@ var styles = Object(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["makeStyles"]
   searchbarStyle: {
     backgroundColor: "transparent",
     borderRadius: "3px",
-    margin: "0 auto",
+    margin: "10px auto",
     maxWidth: "400px",
     padding: 3,
     boxShadow: '0px 1px 3px 1px rgba(44,54,94,0.6)'
@@ -65345,7 +65345,7 @@ var updateSavedToken = function updateSavedToken(token) {
 
 /***/ }),
 
-/***/ 2:
+/***/ 1:
 /*!********************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Ffortunephiri%2FDocuments%2FProjects%2FroomR8r%2Fpages%2Findex.js ***!
   \********************************************************************************************************************************************/
@@ -65368,5 +65368,5 @@ module.exports = dll_01f9a3fa864a7b7414d8;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map

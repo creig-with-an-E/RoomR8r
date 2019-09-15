@@ -26,8 +26,7 @@ class LandlordForm extends Component {
           <input
             placeholder="John Doe"
             type="text" style={styles.inputStyle}
-            name="name"
-            value={name}
+            name="name" value={name}
             onChange={this.onChangeText}
           />
           <textarea

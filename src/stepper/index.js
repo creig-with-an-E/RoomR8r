@@ -8,7 +8,9 @@ import Typography from '@material-ui/core/Typography';
 
 import LandlordForm from "./stepper_components/landlord_form"
 import GMapsSearchBar from "./stepper_components/googleMapsSearchBar"
+import ReviewForm from "./stepper_components/reviewForm"
 
+import Router from "next/router"
 const styles = theme => ({
   root:{
     width:"450px",
@@ -34,7 +36,7 @@ const styles = theme => ({
     height:70
   },
   instructions:{
-    height:"200px",
+    height:"300px",
     paddingTop:"20px",
     
   },
@@ -69,7 +71,7 @@ const getStepContent=(step, address= "")=>{
     case 1:
       return (<LandlordForm/>);
     case 2:
-      return 'Completed Review';
+      return (<ReviewForm />);
     default:
       return 'Unknown step';
   }
@@ -91,6 +93,9 @@ const HorizontalStepper=(props)=>{
   }
 
   function handleNext() {
+    if(activeStep === 2){
+      return Router.replace("/")
+    }
     let newSkipped = skipped;
     if (isStepSkipped(activeStep)) {
       newSkipped = new Set(newSkipped.values());

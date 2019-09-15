@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1583,7 +1583,7 @@ const ReviewCard = props => {
 /*!*********************************!*\
   !*** ./src/components/index.js ***!
   \*********************************/
-/*! exports provided: Button, ReviewCard, Layout, SearchBar, Spinner */
+/*! exports provided: Button, ReviewCard, Layout, Spinner, SearchBar */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1691,7 +1691,7 @@ const styles = Object(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["makeStyles
   searchbarStyle: {
     backgroundColor: "transparent",
     borderRadius: "3px",
-    margin: "0 auto",
+    margin: "10px auto",
     maxWidth: "400px",
     padding: 3,
     boxShadow: '0px 1px 3px 1px rgba(44,54,94,0.6)'
@@ -2239,7 +2239,7 @@ const updateSavedToken = token => {
 
 /***/ }),
 
-/***/ 5:
+/***/ 4:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/
