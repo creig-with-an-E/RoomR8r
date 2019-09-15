@@ -15,6 +15,7 @@ class GoogleMapsSearchBar extends Component{
     }
     this.props.resetState()
   }
+  
   componentDidMount(){
     if(!this.props.userToken){
       Router.replace("/auth")
