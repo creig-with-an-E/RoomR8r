@@ -104,7 +104,9 @@ class App extends Component {
         <h2 style={styles.headerStyle}>
             Because not all landlords are built the same
           </h2>
+          <h3 style={styles.secondaryHeader}><i className="fa fa-home fa-2x" style={{color:"#FF5941"}}/> war<span style={styles.highlightText}>M</span>ing or <i class="fa fa-home fa-2x"></i> war<span style={styles.highlightText}>N</span>ing ?</h3>
           <SearchBar
+            style={{backgroundColor:"#FF5941",color:"#fffffa"}}
             invalid={this.state.addressError ? true : false}
             placeholder="X5X X5X"
             value={this.state.address}
@@ -125,10 +127,20 @@ class App extends Component {
 const styles = {
   headerStyle:{
     marginTop:"80px",
-    fontSize: 22,
+    fontSize: 26,
     color: "rgb(44,54,94)",
     textAlign: "center",
     fontFamily:'Poppins, sans-serif',
+    fontWeight:"bold"
+  },
+  secondaryHeader:{
+    fontSize:20,
+    color:"rgb(44,54,94)",
+    fontFamily:'Poppins, sans-serif',
+  },
+  highlightText:{
+    fontSize:24,
+    color:"#FF5941",
     fontWeight:"bold"
   },
   sectionStyle:{

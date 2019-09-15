@@ -13,13 +13,15 @@ const Layout=(props)=>{
 
 const styles ={
   containerStyle: {
+    background:"url('static/imgs/background.jpeg')",
+    backgroundRepeat: "no-repeat",
+    backgroundSize:"cover",
     display: "flex",
     alignItems: "center",
     flexDirection: "column",
     height: "100vh",
     justifyContent: "center",
     backgroundColor: "#fffffa",
-    marginBottom: 30,
     },
 }
 export {Layout}

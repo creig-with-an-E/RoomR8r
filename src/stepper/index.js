@@ -23,7 +23,7 @@ const styles = theme => ({
   },
   stepper: {
     display:"flex",
-    backgroundColor:"rgba(44,54,94,0.6)",
+    backgroundColor:"rgba(44,54,94,0.8)",
     borderTopLeftRadius: 7,
     borderTopRightRadius: 7,
     height:"100%"

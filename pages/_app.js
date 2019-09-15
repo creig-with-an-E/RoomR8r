@@ -48,7 +48,9 @@ export default withRedux(initStore, { debug: false })(
             <link
               href="https://fonts.googleapis.com/css?family=Lexend+Tera|Poppins|Fira+Sans&display=swap"
               rel="stylesheet"></link>
-            <link href="/static/MuiStep.css" rel="styleSheet" />
+            <link href="/static/style.css" rel="styleSheet" />
+            {/* font awesome */}
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
           </Head>
           <Provider store={store}>
             <Component {...pageProps} />

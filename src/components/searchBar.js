@@ -10,7 +10,7 @@ const styles = makeStyles({
     margin: "10px auto",
     maxWidth: "400px",
     padding: 3,
-    boxShadow: '0px 1px 3px 1px rgba(44,54,94,0.6)'  
+    boxShadow: '0px 1px 3px 1px rgba(255,89,65,0.6)'  
     }
 })
 const SearchBar=(props)=>{
