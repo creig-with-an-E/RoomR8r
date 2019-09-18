@@ -94,7 +94,7 @@
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   .sectionStyle{
-    width:80%;
+    width:100%;
   }
   
 }
@@ -106,7 +106,7 @@
 
 @media (min-width: 481px) and (max-width: 767px) {
   .sectionStyle{
-    width:90%;
+    width:100%;
   }
   .headerStyle{
     display: none;
@@ -121,6 +121,9 @@
 @media (min-width: 320px) and (max-width: 480px) {
   .headerStyle{
     display: none;
+  }
+  .sectionStyle{
+    width:90%;
   }
 
   .searchHeading{
