@@ -11,7 +11,7 @@ const styles = makeStyles({
     maxWidth: "400px",
     padding: 3,
     boxShadow: '0px 1px 3px 1px rgba(255,89,65,0.6)'  
-    }
+    },
 })
 const SearchBar=(props)=>{
   const classes = styles()

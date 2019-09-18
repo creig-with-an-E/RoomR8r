@@ -1,3 +1,10 @@
+.sectionStyle{
+  margin-top:5px;
+  padding: 20px;
+  text-align: center;
+  width:60%;
+  background-color: rgba(44,54,94,.1);
+}
 
 .headerStyle{
   margin-top:80px;
@@ -6,16 +13,15 @@
   text-align: center;
   font-family:Poppins, sans-serif;
   font-weight:bold;
-  background: rgba(255,255,255,.1);
   padding:10px
 }
 
 .secondaryHeader{
-  padding:50px;
+  padding:40px;
   font-size:20;
   color:rgb(44,54,94);
   font-family:Poppins, sans-serif;
-  background: rgba(255,255,255,.4);
+  /* background: rgba(255,255,255,.4); */
 }
 
 .highlightText{
@@ -30,13 +36,12 @@
 }
 
 .searchHeading{
-  font-size:16;
-  margin-top:20;
+  font-size:18px;
   color: rgb(44,54,94);
   font-weight:bold;
   font-family:Poppins, sans serif;
-  background: rgba(255,255,255,.3);;
-  padding:50px
+  /* background: rgba(255,255,255,.3);; */
+  padding:20px;
 }
 
 .errorStyle{
@@ -88,7 +93,9 @@
 */
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-  
+  .sectionStyle{
+    width:80%;
+  }
   
 }
 
@@ -98,8 +105,12 @@
 */
 
 @media (min-width: 481px) and (max-width: 767px) {
-  
-  
+  .sectionStyle{
+    width:90%;
+  }
+  .headerStyle{
+    display: none;
+  }
 }
 
 /* 

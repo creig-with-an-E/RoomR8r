@@ -19,13 +19,12 @@ import classStyles from "./stepper.css"
 const styles = theme => ({
   root:{
     maxWidth:"380px",
-    // width:"90%",
     display:"flex",
     flexDirection: 'column',
   },
   stepper: {
     display:"flex",
-    backgroundColor:"rgba(44,54,94,0.8)",
+    backgroundColor:"rgba(44,54,94,.6)",
     borderTopLeftRadius: 7,
     borderTopRightRadius: 7,
     height:"100%"
@@ -42,7 +41,7 @@ const styles = theme => ({
   },
   error:{
     fontSize:17,
-    color:"#f50",
+    color:"#cc0000",
     textAlign:"center",
     fontFamily:"Fira Sans, sans serif"
   },

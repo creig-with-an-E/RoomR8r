@@ -101,7 +101,7 @@ class App extends Component {
     /***  showModal handle is passed down to Layout ***/
     return (
       <Layout showModalHandle={this.showModalHandle}>
-        <section style={styles.sectionStyle}>
+        <section style={styles.sectionStyle} className={classes.sectionStyle}>
         <h2 className={classes.headerStyle}>
             Because not all landlords are built the same
           </h2>
@@ -129,10 +129,11 @@ const styles = {
   sectionStyle:{
     overflowY:"scroll",
     alignSelf:"center",
-    marginTop:"5px",
-    padding: "20px",
-    textAlign: "center",
-    width:"90%"
+    // marginTop:"5px",
+    // padding: "20px",
+    // textAlign: "center",
+    // width:"60%",
+    // backgroundColor: "rgba(44,54,94,.1)",
   },
 };
 
