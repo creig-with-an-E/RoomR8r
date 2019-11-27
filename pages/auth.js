@@ -2,11 +2,10 @@ import React, { Component } from "react";
 import Router from "next/router"
 import Head from "next/head"
 import { connect } from "react-redux"
-import Cookie from "js-cookie"
 
 import {Button, Spinner} from "../src/components"
 import * as actions from "../store/actions/authActions"
-
+import classes from "../static/css/auth.css"
 
 class Auth extends Component {
   state = {
@@ -97,7 +96,7 @@ class Auth extends Component {
             <h1 style={styles.logoStyle}>RoomR<span style={{color:"#FF5941"}}>8</span>r</h1>
             <p style={styles.header}>Gamble with the lottery not your accomodation</p>
           </div>
-        <div style={styles.mainAreaStyle}>
+        <div style={styles.mainAreaStyle} className={classes.mainArea}>
           {form}
         </div>
         <p style={styles.paragraphStyle}>
