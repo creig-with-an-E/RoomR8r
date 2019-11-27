@@ -13,7 +13,8 @@ const Layout=(props)=>{
 
 const styles ={
   containerStyle: {
-    background:"url('static/imgs/background.jpeg')",
+    background: "#fffffa",
+    // background:"url('static/imgs/background.jpeg')",
     backgroundRepeat: "no-repeat",
     backgroundSize:"cover",
     opacity:0.9,
